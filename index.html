@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Money Odds — Sharp Predictions, Real Numbers</title>
+<meta name="description" content="Money Odds delivers data-driven match predictions across football, basketball and tennis, backed by a transparent daily track record.">
+<link rel="icon" type="image/webp" href="images/favicon.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0E14;
+    --bg-raised:#10151D;
+    --bg-card:#131A24;
+    --line:#212936;
+    --text:#E8EAED;
+    --text-dim:#8B92A5;
+    --gold:#F5A623;
+    --gold-soft:#F5A62322;
+    --cyan:#2DE1E8;
+    --cyan-soft:#2DE1E822;
+    --loss:#E8536B;
+    --radius-card: 14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    line-height:1.15;
+    margin:0;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+
+  /* NAV */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,14,20,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+  .brand-mark{width:32px;height:32px;border-radius:8px;object-fit:cover;}
+  .nav-links{display:flex;gap:32px;font-size:15px;color:var(--text-dim);}
+  .nav-links a:hover{color:var(--text);}
+  .nav-cta{
+    padding:9px 20px;border-radius:9px;
+    background:var(--gold);color:#1A1204;font-weight:600;font-size:14px;
+    box-shadow:0 0 20px rgba(245,166,35,0.35);
+  }
+  .nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;}
+
+  @media (max-width:800px){
+    .nav-links{
+      position:fixed;top:68px;left:0;right:0;
+      background:var(--bg-raised);
+      flex-direction:column;padding:20px 24px;gap:18px;
+      border-bottom:1px solid var(--line);
+      transform:translateY(-150%);
+      transition:transform .25s ease;
+    }
+    .nav-links.open{transform:translateY(0);}
+    .nav-toggle{display:block;}
+    .nav-cta{display:none;}
+  }
+
+  /* HERO */
+  .hero{padding:64px 0 56px;position:relative;overflow:hidden;}
+  .hero-video{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;opacity:0.4;
+    z-index:0;pointer-events:none;
+  }
+  .hero-overlay{
+    position:absolute;inset:0;z-index:0;
+    background:linear-gradient(180deg,rgba(10,14,20,0.55) 0%,rgba(10,14,20,0.75) 55%,var(--bg) 100%);
+    pointer-events:none;
+  }
+  .hero::before{
+    content:'';position:absolute;top:-200px;right:-150px;width:500px;height:500px;
+    background:radial-gradient(circle,rgba(45,225,232,0.15),transparent 70%);
+    pointer-events:none;z-index:0;
+  }
+  .hero::after{
+    content:'';position:absolute;bottom:-220px;left:-160px;width:500px;height:500px;
+    background:radial-gradient(circle,rgba(245,166,35,0.13),transparent 70%);
+    pointer-events:none;z-index:0;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;position:relative;z-index:1;}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px;}}
+  .eyebrow{color:var(--cyan);font-size:14px;font-weight:600;margin-bottom:14px;}
+  .hero h1{font-size:44px;letter-spacing:-0.5px;margin-bottom:18px;}
+  @media (max-width:600px){.hero h1{font-size:32px;}}
+  .hero p{color:var(--text-dim);font-size:17px;max-width:460px;margin-bottom:28px;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{
+    padding:14px 26px;border-radius:10px;
+    background:var(--gold);color:#1A1204;font-weight:700;font-size:15px;
+    box-shadow:0 0 28px rgba(245,166,35,0.4);
+    transition:transform .15s ease;
+  }
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-secondary{
+    padding:14px 26px;border-radius:10px;
+    border:1px solid var(--line);color:var(--text);font-weight:600;font-size:15px;
+  }
+  .btn-secondary:hover{border-color:var(--cyan);color:var(--cyan);}
+
+  /* TICKET CARD */
+  .ticket{
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:26px;
+    position:relative;
+    box-shadow:0 0 0 1px rgba(45,225,232,0.06), 0 20px 60px -20px rgba(0,0,0,0.6);
+  }
+  .ticket::before{
+    content:'';position:absolute;inset:0;border-radius:18px;padding:1px;
+    background:linear-gradient(135deg,rgba(245,166,35,0.5),rgba(45,225,232,0.35));
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;mask-composite:exclude;
+    pointer-events:none;
+  }
+  .ticket-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+  .ticket-label{font-size:12px;color:var(--text-dim);letter-spacing:0.3px;}
+  .live-dot{
+    display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--cyan);font-weight:600;
+  }
+  .live-dot::before{
+    content:'';width:7px;height:7px;border-radius:50%;background:var(--cyan);
+    box-shadow:0 0 8px var(--cyan);
+    animation:pulse 1.6s infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+  .ticket-match{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;margin-bottom:6px;}
+  .ticket-sub{color:var(--text-dim);font-size:14px;margin-bottom:20px;}
+  .ticket-divider{border-top:1px dashed var(--line);margin:0 -26px 20px;position:relative;}
+  .ticket-divider::before,.ticket-divider::after{
+    content:'';position:absolute;top:-9px;width:18px;height:18px;border-radius:50%;background:var(--bg);
+  }
+  .ticket-divider::before{left:-9px;}
+  .ticket-divider::after{right:-9px;}
+  .ticket-row{display:flex;justify-content:space-between;align-items:flex-end;}
+  .ticket-pick-label{font-size:12px;color:var(--text-dim);margin-bottom:4px;}
+  .ticket-pick{font-size:19px;font-weight:700;color:var(--gold);font-family:'Space Grotesk',sans-serif;}
+  .ticket-odds{font-size:13px;color:var(--text-dim);text-align:right;}
+  .ticket-odds b{color:var(--text);font-size:16px;}
+
+  /* STATS STRIP */
+  .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:36px 0;}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;}
+  @media (max-width:700px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
+  .stat-num{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;}
+  .stat-num.gold{color:var(--gold);}
+  .stat-num.cyan{color:var(--cyan);}
+  .stat-label{color:var(--text-dim);font-size:13px;margin-top:4px;}
+
+  /* SECTION HEADERS */
+  .section{padding:72px 0;}
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:34px;gap:20px;flex-wrap:wrap;}
+  .section-head h2{font-size:28px;}
+  .section-head p{color:var(--text-dim);font-size:15px;margin-top:6px;max-width:480px;}
+  .link-arrow{color:var(--cyan);font-size:14px;font-weight:600;white-space:nowrap;}
+
+  /* RESULTS TABLE */
+  .results-list{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+  .result-row{
+    display:grid;grid-template-columns:90px 1fr 140px 70px;align-items:center;
+    padding:16px 20px;gap:12px;
+    border-bottom:1px solid var(--line);
+    font-size:14px;
+  }
+  .result-row:last-child{border-bottom:none;}
+  .result-row.head{background:var(--bg-raised);color:var(--text-dim);font-size:12px;text-transform:none;}
+  .result-day{color:var(--text-dim);}
+  .result-match{font-weight:500;}
+  .result-sport{color:var(--text-dim);font-size:12px;}
+  .result-pick{color:var(--text-dim);}
+  .badge{
+    justify-self:end;
+    font-size:12px;font-weight:700;padding:4px 10px;border-radius:20px;
+  }
+  .badge.win{background:rgba(245,166,35,0.15);color:var(--gold);}
+  .badge.loss{background:rgba(232,83,107,0.12);color:var(--loss);}
+  @media (max-width:640px){
+    .result-row{grid-template-columns:1fr auto;grid-template-areas:"match badge" "meta meta";}
+    .result-day{display:none;}
+    .result-match{grid-area:match;}
+    .badge{grid-area:badge;}
+    .result-pick{grid-area:meta;font-size:12px;}
+  }
+
+  /* SPORTS TABS teaser cards */
+  .sport-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media (max-width:800px){.sport-cards{grid-template-columns:1fr;}}
+  .sport-card{
+    background:var(--bg-card);border:1px solid var(--line);border-radius:14px;padding:22px;
+    transition:border-color .2s ease;
+  }
+  .sport-card:hover{border-color:rgba(45,225,232,0.4);}
+  .sport-card h3{font-size:17px;margin-bottom:8px;}
+  .sport-card p{color:var(--text-dim);font-size:14px;margin:0;}
+  .sport-icon{
+    width:38px;height:38px;border-radius:10px;background:var(--cyan-soft);
+    display:flex;align-items:center;justify-content:center;color:var(--cyan);margin-bottom:14px;font-size:18px;
+  }
+
+  /* PRICING TEASER */
+  .pricing-card{
+    background:linear-gradient(180deg,var(--bg-card),var(--bg-raised));
+    border:1px solid var(--line);border-radius:18px;padding:40px;text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .pricing-card::before{
+    content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);
+    width:400px;height:200px;background:radial-gradient(ellipse,rgba(245,166,35,0.18),transparent 70%);
+  }
+  .pricing-card h2{font-size:26px;margin-bottom:10px;position:relative;}
+  .pricing-card p{color:var(--text-dim);max-width:440px;margin:0 auto 24px;position:relative;}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);font-size:13px;}
+  .footer-grid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .footer-links{display:flex;gap:20px;}
+  .footer-links a:hover{color:var(--text);}
+
+  .disclaimer{
+    background:var(--bg-raised);border:1px solid var(--line);border-radius:10px;
+    padding:14px 18px;font-size:12.5px;color:var(--text-dim);margin-top:20px;line-height:1.6;
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><img src="images/logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</a>
+    <div class="nav-links" id="navLinks">
+      <a href="predictions.html">Predictions</a>
+      <a href="track-record.html">Track Record</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="pricing.html" class="nav-cta">Get Picks</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="images/logo-hero.webp">
+    <source src="video/hero-bg.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <img src="images/logo-hero.webp" alt="Money Odds — Predict Greatness" style="height:56px;width:auto;margin-bottom:24px;">
+      <div class="eyebrow">DAILY MATCH ANALYSIS</div>
+      <h1>Predictions built on data, not gut feeling.</h1>
+      <p>Money Odds breaks down football, basketball and tennis matchups every day, and publishes every result — win or lose — so you can see exactly how we perform.</p>
+      <div class="hero-actions">
+        <a href="predictions.html" class="btn-primary">See today's picks</a>
+        <a href="track-record.html" class="btn-secondary">View track record</a>
+      </div>
+    </div>
+    <div class="ticket">
+      <div class="ticket-top">
+        <span class="ticket-label">TODAY'S FEATURED PICK</span>
+        <span class="live-dot">LIVE</span>
+      </div>
+      <div class="ticket-match">Arsenal vs Chelsea</div>
+      <div class="ticket-sub">Premier League · Kickoff 20:00 EAT</div>
+      <div class="ticket-divider"></div>
+      <div class="ticket-row">
+        <div>
+          <div class="ticket-pick-label">Our pick</div>
+          <div class="ticket-pick">Over 2.5 Goals</div>
+        </div>
+        <div class="ticket-odds">Odds<br><b>1.85</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap stats-grid">
+    <div>
+      <div class="stat-num gold">78%</div>
+      <div class="stat-label">Win rate, last 30 days</div>
+    </div>
+    <div>
+      <div class="stat-num cyan">5</div>
+      <div class="stat-label">Sports covered</div>
+    </div>
+    <div>
+      <div class="stat-num gold">4</div>
+      <div class="stat-label">Win streak</div>
+    </div>
+    <div>
+      <div class="stat-num cyan">100%</div>
+      <div class="stat-label">Results published</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Last 5 days</h2>
+        <p>Every prediction we publish, win or lose — nothing hidden.</p>
+      </div>
+      <a href="track-record.html" class="link-arrow">Full history →</a>
+    </div>
+    <div class="results-list" id="resultsList">
+      <!-- rows injected by JS -->
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Covered today</h2>
+        <p>Analysis runs across multiple sports, refreshed daily.</p>
+      </div>
+    </div>
+    <div class="sport-cards">
+      <div class="sport-card">
+        <div class="sport-icon">⚽</div>
+        <h3>Football</h3>
+        <p>Top European leagues plus AFCON and CAF competitions.</p>
+      </div>
+      <div class="sport-card">
+        <div class="sport-icon">🏀</div>
+        <h3>Basketball</h3>
+        <p>NBA and major international fixtures.</p>
+      </div>
+      <div class="sport-card">
+        <div class="sport-icon">🎾</div>
+        <h3>Tennis</h3>
+        <p>ATP and WTA tour matches, set by set.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="pricing-card">
+      <h2>Full picks are coming to VIP</h2>
+      <p>We're rolling out paid access to our complete daily slate. Join the list to be first in when it opens.</p>
+      <a href="pricing.html" class="btn-primary">Learn more</a>
+      <div class="disclaimer">Money Odds provides statistical analysis for informational purposes. No outcome is guaranteed. Bet responsibly and only with money you can afford to lose.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="brand"><img src="images/logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</div>
+    <div class="footer-links">
+      <a href="predictions.html">Predictions</a>
+      <a href="track-record.html">Track Record</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div>&copy; 2026 Money Odds. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  document.getElementById('navToggle').addEventListener('click', function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  // Sample "last 5 days" data — replace with Firestore data once backend is wired in
+  const recentResults = [
+    { day: 'Today', match: 'Man City vs Liverpool', sport: 'Football', pick: 'BTTS - Yes', result: 'win' },
+    { day: 'Yesterday', match: 'Lakers vs Celtics', sport: 'Basketball', pick: 'Lakers -4.5', result: 'win' },
+    { day: '2 days ago', match: 'Djokovic vs Alcaraz', sport: 'Tennis', pick: 'Over 3.5 sets', result: 'loss' },
+    { day: '3 days ago', match: 'Barcelona vs Real Madrid', sport: 'Football', pick: 'Barcelona Win', result: 'win' },
+    { day: '4 days ago', match: 'Warriors vs Suns', sport: 'Basketball', pick: 'Under 224.5', result: 'win' },
+  ];
+
+  const list = document.getElementById('resultsList');
+  list.innerHTML = recentResults.map(r => `
+    <div class="result-row">
+      <div class="result-day">${r.day}</div>
+      <div>
+        <div class="result-match">${r.match}</div>
+        <div class="result-sport">${r.sport}</div>
+      </div>
+      <div class="result-pick">${r.pick}</div>
+      <div class="badge ${r.result}">${r.result === 'win' ? 'WON' : 'LOST'}</div>
+    </div>
+  `).join('');
+</script>
+
+</body>
+</html>
