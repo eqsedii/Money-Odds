@@ -50,10 +50,15 @@ def http_get_json(url, headers=None, retries=3):
             with urllib.request.urlopen(req, timeout=20) as resp:
                 return json.loads(resp.read().decode("utf-8"))
         except urllib.error.HTTPError as e:
+            body = ""
+            try:
+                body = e.read().decode("utf-8")
+            except Exception:
+                pass
             if e.code == 429:
                 time.sleep(8)
                 continue
-            print(f"HTTP error {e.code} for {url}", file=sys.stderr)
+            print(f"HTTP error {e.code} for {url} — response body: {body}", file=sys.stderr)
             return None
         except Exception as e:
             print(f"Error fetching {url}: {e}", file=sys.stderr)
@@ -331,6 +336,8 @@ def build_multi_bets(all_picks):
 
 
 def main():
+    print(f"FOOTBALL_DATA_API_KEY length: {len(FOOTBALL_API_KEY)} (should be 32 for a normal token)")
+    print(f"BALLDONTLIE_API_KEY length: {len(BALLDONTLIE_API_KEY)}")
     football_picks = build_football_predictions() if FOOTBALL_API_KEY else []
     basketball_picks = build_basketball_predictions()
 
