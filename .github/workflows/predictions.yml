@@ -1,0 +1,44 @@
+name: Update Money Odds Predictions
+
+on:
+  schedule:
+    # 06:00 EAT (03:00 UTC) — generate today's picks
+    - cron: '0 3 * * *'
+    # 23:00 EAT (20:00 UTC) — resolve yesterday's / earlier picks against real results
+    - cron: '0 20 * * *'
+  workflow_dispatch: {}   # lets you trigger it manually from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  update-predictions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate today's predictions
+        env:
+          FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+          BALLDONTLIE_API_KEY: ${{ secrets.BALLDONTLIE_API_KEY }}
+        run: python3 scripts/generate_predictions.py
+
+      - name: Resolve past predictions against real results
+        env:
+          FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+          BALLDONTLIE_API_KEY: ${{ secrets.BALLDONTLIE_API_KEY }}
+        run: python3 scripts/resolve_predictions.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "money-odds-bot"
+          git config user.email "actions@github.com"
+          git add predictions.json history.json archive/
+          git diff --quiet --cached || git commit -m "Auto-update predictions [skip ci]"
+          git push
