@@ -1,3 +1,92 @@
 {
-  "predictions": []
+  "predictions": [
+    {
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "NEC vs SBV Excelsior",
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-09-08T16:45:00Z",
+      "pick": "BTTS - No",
+      "confidence": 100,
+      "fair_odds": 1.0
+    },
+    {
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "GD Estoril Praia vs FC Arouca",
+      "league": "Primeira Liga",
+      "comp_code": "PPL",
+      "kickoff": "2026-09-07T19:15:00Z",
+      "pick": "Under 2.5 Goals",
+      "confidence": 93,
+      "fair_odds": 1.07
+    },
+    {
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "CF Estrela da Amadora vs Sporting Clube de Braga",
+      "league": "Primeira Liga",
+      "comp_code": "PPL",
+      "kickoff": "2026-09-10T19:15:00Z",
+      "pick": "Over 2.5 Goals",
+      "confidence": 89,
+      "fair_odds": 1.12
+    },
+    {
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Cardiff City FC vs Stoke City FC",
+      "league": "Championship",
+      "comp_code": "ELC",
+      "kickoff": "2026-09-08T18:45:00Z",
+      "pick": "Over 2.5 Goals",
+      "confidence": 82,
+      "fair_odds": 1.22
+    },
+    {
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Derby County FC vs West Bromwich Albion FC",
+      "league": "Championship",
+      "comp_code": "ELC",
+      "kickoff": "2026-09-09T18:45:00Z",
+      "pick": "Over 2.5 Goals",
+      "confidence": 79,
+      "fair_odds": 1.26
+    },
+    {
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "EC Vit\u00f3ria vs Gr\u00eamio FBPA",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-09-07T23:00:00Z",
+      "pick": "BTTS - No",
+      "confidence": 79,
+      "fair_odds": 1.26
+    },
+    {
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Watford FC vs Preston North End FC",
+      "league": "Championship",
+      "comp_code": "ELC",
+      "kickoff": "2026-09-08T18:45:00Z",
+      "pick": "BTTS - No",
+      "confidence": 75,
+      "fair_odds": 1.33
+    },
+    {
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "SC Corinthians Paulista vs Chapecoense AF",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-09-06T22:30:00Z",
+      "pick": "Under 2.5 Goals",
+      "confidence": 75,
+      "fair_odds": 1.33
+    }
+  ]
 }
