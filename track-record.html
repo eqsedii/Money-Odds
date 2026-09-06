@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track Record — Money Odds</title>
+<meta name="description" content="Every prediction Money Odds has published, win or lose. Full transparent history.">
+<link rel="icon" type="image/webp" href="favicon.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0E14;--bg-raised:#10151D;--bg-card:#131A24;--line:#212936;
+    --text:#E8EAED;--text-dim:#8B92A5;--gold:#F5A623;--gold-soft:#F5A62322;
+    --cyan:#2DE1E8;--cyan-soft:#2DE1E822;--loss:#E8536B;--loss-soft:#E8536B1c;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:600;line-height:1.15;margin:0;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+
+  .nav{position:sticky;top:0;z-index:50;background:rgba(10,14,20,0.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+  .brand-mark{width:32px;height:32px;border-radius:8px;object-fit:cover;}
+  .nav-links{display:flex;gap:32px;font-size:15px;color:var(--text-dim);}
+  .nav-links a:hover{color:var(--text);}
+  .nav-links a.active{color:var(--cyan);}
+  .nav-cta{padding:9px 20px;border-radius:9px;background:var(--gold);color:#1A1204;font-weight:600;font-size:14px;box-shadow:0 0 20px rgba(245,166,35,0.35);}
+  .nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;}
+  @media (max-width:800px){
+    .nav-links{position:fixed;top:68px;left:0;right:0;background:var(--bg-raised);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--line);transform:translateY(-150%);transition:transform .25s ease;}
+    .nav-links.open{transform:translateY(0);}
+    .nav-toggle{display:block;}
+    .nav-cta{display:none;}
+  }
+
+  .page-head{padding:56px 0 32px;position:relative;overflow:hidden;}
+  .page-head::before{content:'';position:absolute;top:-180px;right:-140px;width:420px;height:420px;background:radial-gradient(circle,rgba(245,166,35,0.13),transparent 70%);pointer-events:none;}
+  .eyebrow{color:var(--cyan);font-size:14px;font-weight:600;margin-bottom:12px;}
+  .page-head h1{font-size:36px;letter-spacing:-0.4px;margin-bottom:10px;position:relative;}
+  .page-head p{color:var(--text-dim);font-size:16px;max-width:520px;position:relative;}
+
+  /* SUMMARY STRIP */
+  .summary{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:8px 0 44px;}
+  @media (max-width:700px){.summary{grid-template-columns:repeat(2,1fr);}}
+  .summary-card{background:var(--bg-card);border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center;}
+  .summary-num{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;}
+  .summary-num.gold{color:var(--gold);}
+  .summary-num.cyan{color:var(--cyan);}
+  .summary-num.loss{color:var(--loss);}
+  .summary-label{color:var(--text-dim);font-size:12.5px;margin-top:4px;}
+
+  /* FILTERS */
+  .filters{display:flex;gap:10px;flex-wrap:wrap;padding-bottom:28px;}
+  .filter-btn{padding:9px 18px;border-radius:22px;border:1px solid var(--line);color:var(--text-dim);font-size:14px;font-weight:600;background:transparent;cursor:pointer;transition:all .15s ease;}
+  .filter-btn:hover{border-color:var(--cyan);color:var(--text);}
+  .filter-btn.active{background:var(--gold);border-color:var(--gold);color:#1A1204;box-shadow:0 0 16px rgba(245,166,35,0.35);}
+
+  /* HISTORY TABLE */
+  .history{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:80px;}
+  .h-row{display:grid;grid-template-columns:110px 1fr 130px 160px 90px;align-items:center;padding:15px 20px;gap:14px;border-bottom:1px solid var(--line);font-size:14px;}
+  .h-row:last-child{border-bottom:none;}
+  .h-row.head{background:var(--bg-raised);color:var(--text-dim);font-size:12px;font-weight:600;padding:12px 20px;}
+  .h-date{color:var(--text-dim);}
+  .h-match{font-weight:500;}
+  .h-league{font-size:12px;color:var(--text-dim);margin-top:2px;}
+  .h-sport{font-size:12px;color:var(--cyan);}
+  .h-pick{color:var(--text-dim);}
+  .badge{justify-self:end;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;}
+  .badge.win{background:var(--gold-soft);color:var(--gold);}
+  .badge.loss{background:var(--loss-soft);color:var(--loss);}
+  @media (max-width:760px){
+    .h-row{grid-template-columns:1fr auto;grid-template-areas:"match badge" "meta meta" "pick pick";row-gap:4px;}
+    .h-date{display:none;}
+    .h-sport{display:none;}
+    .h-match{grid-area:match;}
+    .badge{grid-area:badge;}
+    .h-pick{grid-area:pick;font-size:12.5px;}
+  }
+
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);font-size:13px;}
+  .footer-grid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .footer-links{display:flex;gap:20px;}
+  .footer-links a:hover{color:var(--text);}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</a>
+    <div class="nav-links" id="navLinks">
+      <a href="predictions.html">Predictions</a>
+      <a href="track-record.html" class="active">Track Record</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="pricing.html" class="nav-cta">Get Picks</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="eyebrow">FULL HISTORY</div>
+    <h1>Our track record</h1>
+    <p>Every prediction we've published — wins and losses both — because a real track record only means something when nothing's hidden.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="summary" id="summary"></div>
+
+  <div class="filters" id="filters">
+    <button class="filter-btn active" data-filter="all">All Results</button>
+    <button class="filter-btn" data-filter="win">Wins Only</button>
+    <button class="filter-btn" data-filter="loss">Losses Only</button>
+    <button class="filter-btn" data-sport-filter data-filter-sport="Football">⚽ Football</button>
+    <button class="filter-btn" data-sport-filter data-filter-sport="Basketball">🏀 Basketball</button>
+    <button class="filter-btn" data-sport-filter data-filter-sport="Tennis">🎾 Tennis</button>
+  </div>
+
+  <div class="history" id="history"></div>
+</div>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</div>
+    <div class="footer-links">
+      <a href="predictions.html">Predictions</a>
+      <a href="track-record.html">Track Record</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div>&copy; 2026 Money Odds. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  // Sample history — replace with Firestore-fed data once backend is wired in
+  const history = [
+    { date: 'Sep 5', sport: 'Football', match: 'Man City vs Liverpool', league: 'Premier League', pick: 'BTTS - Yes', result: 'win' },
+    { date: 'Sep 4', sport: 'Basketball', match: 'Lakers vs Celtics', league: 'NBA', pick: 'Lakers -4.5', result: 'win' },
+    { date: 'Sep 3', sport: 'Tennis', match: 'Djokovic vs Alcaraz', league: 'ATP', pick: 'Over 3.5 sets', result: 'loss' },
+    { date: 'Sep 2', sport: 'Football', match: 'Barcelona vs Real Madrid', league: 'La Liga', pick: 'Barcelona Win', result: 'win' },
+    { date: 'Sep 1', sport: 'Basketball', match: 'Warriors vs Suns', league: 'NBA', pick: 'Under 224.5', result: 'win' },
+    { date: 'Aug 31', sport: 'Football', match: 'Bayern vs Dortmund', league: 'Bundesliga', pick: 'Over 3.5 Goals', result: 'win' },
+    { date: 'Aug 30', sport: 'Tennis', match: 'Sabalenka vs Gauff', league: 'WTA', pick: 'Sabalenka Win', result: 'win' },
+    { date: 'Aug 29', sport: 'Basketball', match: 'Nuggets vs Bucks', league: 'NBA', pick: 'Nuggets -3', result: 'loss' },
+    { date: 'Aug 28', sport: 'Football', match: 'Inter vs Milan', league: 'Serie A', pick: 'Draw', result: 'loss' },
+    { date: 'Aug 27', sport: 'Football', match: 'PSG vs Lyon', league: 'Ligue 1', pick: 'PSG -1.5', result: 'win' },
+  ];
+
+  const sportIcon = { Football: '⚽', Basketball: '🏀', Tennis: '🎾' };
+
+  function renderSummary(){
+    const wins = history.filter(h => h.result === 'win').length;
+    const losses = history.length - wins;
+    const rate = Math.round((wins / history.length) * 100);
+    document.getElementById('summary').innerHTML = `
+      <div class="summary-card"><div class="summary-num gold">${rate}%</div><div class="summary-label">Overall win rate</div></div>
+      <div class="summary-card"><div class="summary-num cyan">${history.length}</div><div class="summary-label">Predictions published</div></div>
+      <div class="summary-card"><div class="summary-num gold">${wins}</div><div class="summary-label">Wins</div></div>
+      <div class="summary-card"><div class="summary-num loss">${losses}</div><div class="summary-label">Losses</div></div>
+    `;
+  }
+
+  let activeResult = 'all';
+  let activeSport = null;
+
+  function renderHistory(){
+    let filtered = history;
+    if(activeResult !== 'all') filtered = filtered.filter(h => h.result === activeResult);
+    if(activeSport) filtered = filtered.filter(h => h.sport === activeSport);
+
+    const rows = filtered.map(h => `
+      <div class="h-row">
+        <div class="h-date">${h.date}</div>
+        <div>
+          <div class="h-match">${h.match}</div>
+          <div class="h-league">${h.league}</div>
+        </div>
+        <div class="h-sport">${sportIcon[h.sport]} ${h.sport}</div>
+        <div class="h-pick">${h.pick}</div>
+        <div class="badge ${h.result}">${h.result === 'win' ? 'WON' : 'LOST'}</div>
+      </div>
+    `).join('');
+
+    document.getElementById('history').innerHTML = `
+      <div class="h-row head">
+        <div>Date</div><div>Match</div><div>Sport</div><div>Pick</div><div></div>
+      </div>
+      ${rows || '<div class="h-row"><div style="color:var(--text-dim);grid-column:1/-1;text-align:center;padding:20px 0;">No results match this filter.</div></div>'}
+    `;
+  }
+
+  document.getElementById('filters').addEventListener('click', function(e){
+    const btn = e.target.closest('.filter-btn');
+    if(!btn) return;
+
+    if(btn.hasAttribute('data-sport-filter')){
+      const sport = btn.dataset.filterSport;
+      activeSport = activeSport === sport ? null : sport;
+      document.querySelectorAll('[data-sport-filter]').forEach(b => b.classList.remove('active'));
+      if(activeSport) btn.classList.add('active');
+    } else {
+      activeResult = btn.dataset.filter;
+      document.querySelectorAll('.filter-btn:not([data-sport-filter])').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+    renderHistory();
+  });
+
+  renderSummary();
+  renderHistory();
+</script>
+
+</body>
+</html>
