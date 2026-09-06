@@ -89,6 +89,34 @@
   .conf-bar{flex:1;height:5px;background:var(--line);border-radius:3px;overflow:hidden;}
   .conf-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--cyan));}
 
+  /* MULTI-BET CARDS */
+  .multi-card{
+    background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:24px;
+    grid-column:1 / -1;position:relative;overflow:hidden;
+  }
+  .multi-card::before{
+    content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;
+    background:radial-gradient(circle,rgba(245,166,35,0.15),transparent 70%);pointer-events:none;
+  }
+  .multi-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;position:relative;}
+  .multi-badge{font-size:12px;font-weight:700;color:var(--gold);background:var(--gold-soft);padding:5px 12px;border-radius:6px;}
+  .multi-odds{text-align:right;}
+  .multi-odds-label{font-size:11px;color:var(--text-dim);}
+  .multi-odds-val{font-size:22px;font-weight:700;font-family:'Space Grotesk',sans-serif;color:var(--gold);}
+  .multi-legs{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);position:relative;}
+  .leg-row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--line);gap:12px;}
+  .leg-row:last-child{border-bottom:none;}
+  .leg-num{width:22px;height:22px;border-radius:50%;background:var(--cyan-soft);color:var(--cyan);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .leg-info{flex:1;min-width:0;}
+  .leg-match{font-size:14px;font-weight:500;}
+  .leg-meta{font-size:12px;color:var(--text-dim);}
+  .leg-pick{font-size:13px;font-weight:600;color:var(--gold);white-space:nowrap;}
+  .multi-footer{display:flex;justify-content:space-between;align-items:center;margin-top:16px;position:relative;}
+  @media (max-width:600px){
+    .leg-row{flex-wrap:wrap;}
+    .leg-pick{width:100%;padding-left:32px;}
+  }
+
   .empty{text-align:center;padding:60px 20px;color:var(--text-dim);display:none;}
 
   footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);font-size:13px;}
@@ -128,6 +156,7 @@
     <button class="filter-btn" data-sport="Football">⚽ Football</button>
     <button class="filter-btn" data-sport="Basketball">🏀 Basketball</button>
     <button class="filter-btn" data-sport="Tennis">🎾 Tennis</button>
+    <button class="filter-btn" data-sport="Multi">🔥 Multi-Bets</button>
   </div>
 
   <div class="cards" id="cards"></div>
@@ -152,20 +181,52 @@
     document.getElementById('navLinks').classList.toggle('open');
   });
 
-  // Sample slate — replace with Firestore-fed data once backend is wired in
-  const predictions = [
-    { sport: 'Football', icon:'⚽', match: 'Arsenal vs Chelsea', league: 'Premier League · 20:00 EAT', pick: 'Over 2.5 Goals', odds: '1.85', confidence: 82 },
-    { sport: 'Football', icon:'⚽', match: 'PSG vs Marseille', league: 'Ligue 1 · 22:00 EAT', pick: 'PSG Win', odds: '1.60', confidence: 75 },
-    { sport: 'Basketball', icon:'🏀', match: 'Celtics vs Heat', league: 'NBA · 03:00 EAT', pick: 'Celtics -6.5', odds: '1.90', confidence: 70 },
-    { sport: 'Basketball', icon:'🏀', match: 'Nuggets vs Suns', league: 'NBA · 05:30 EAT', pick: 'Over 221.5', odds: '1.95', confidence: 68 },
-    { sport: 'Tennis', icon:'🎾', match: 'Sabalenka vs Swiatek', league: 'WTA · 18:00 EAT', pick: 'Over 21.5 Games', odds: '1.88', confidence: 73 },
-    { sport: 'Football', icon:'⚽', match: 'Al Ahly vs Zamalek', league: 'CAF Champions League · 21:00 EAT', pick: 'BTTS - Yes', odds: '1.70', confidence: 66 },
-  ];
+  let predictions = [];
+  let multiBets = [];
 
   const cardsEl = document.getElementById('cards');
   const emptyEl = document.getElementById('emptyState');
 
+  function formatKickoff(iso){
+    if(!iso) return '';
+    try {
+      const d = new Date(iso);
+      return d.toLocaleString('en-GB', { weekday: 'short', hour: '2-digit', minute: '2-digit' });
+    } catch(e){ return ''; }
+  }
+
+  function multiCardHTML(m){
+    const legsHTML = m.legs.map((l, i) => `
+      <div class="leg-row">
+        <div class="leg-num">${i+1}</div>
+        <div class="leg-info">
+          <div class="leg-match">${l.icon} ${l.match}</div>
+          <div class="leg-meta">${l.meta}</div>
+        </div>
+        <div class="leg-pick">${l.pick}</div>
+      </div>
+    `).join('');
+    return `
+      <div class="multi-card">
+        <div class="multi-top">
+          <span class="multi-badge">🔥 ${m.title}</span>
+          <div class="multi-odds">
+            <div class="multi-odds-label">Combined Fair Odds</div>
+            <div class="multi-odds-val">${m.combined_fair_odds ?? '—'}</div>
+          </div>
+        </div>
+        <div class="multi-legs">${legsHTML}</div>
+      </div>
+    `;
+  }
+
   function render(sport){
+    if(sport === 'Multi'){
+      cardsEl.style.display = multiBets.length ? 'grid' : 'none';
+      emptyEl.style.display = multiBets.length ? 'none' : 'block';
+      cardsEl.innerHTML = multiBets.map(multiCardHTML).join('');
+      return;
+    }
     const filtered = sport === 'all' ? predictions : predictions.filter(p => p.sport === sport);
     cardsEl.style.display = filtered.length ? 'grid' : 'none';
     emptyEl.style.display = filtered.length ? 'none' : 'block';
@@ -173,17 +234,17 @@
       <div class="card">
         <div class="card-top">
           <span class="sport-tag">${p.icon} ${p.sport}</span>
-          <span class="kickoff">${p.league.split('·')[1] || ''}</span>
+          <span class="kickoff">${formatKickoff(p.kickoff)}</span>
         </div>
         <div class="card-match">${p.match}</div>
-        <div class="card-league">${p.league.split('·')[0]}</div>
+        <div class="card-league">${p.league}</div>
         <div class="card-divider"></div>
         <div class="card-row">
           <div>
             <div class="pick-label">Our pick</div>
             <div class="pick-value">${p.pick}</div>
           </div>
-          <div class="odds">Odds<br><b>${p.odds}</b></div>
+          <div class="odds">Model Fair Odds<br><b>${p.fair_odds ?? '—'}</b></div>
         </div>
         <div class="confidence">
           <span>Confidence</span>
@@ -202,7 +263,21 @@
     render(btn.dataset.sport);
   });
 
-  render('all');
+  fetch('predictions.json?_=' + Date.now())
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(data => {
+      predictions = data.predictions || [];
+      multiBets = data.multi_bets || [];
+      render('all');
+    })
+    .catch(() => {
+      // predictions.json not published yet (e.g. first deploy, before the
+      // automation has run) — show an empty, honest state instead of fake data.
+      predictions = [];
+      multiBets = [];
+      emptyEl.textContent = "Today's analysis is still being generated — check back shortly.";
+      render('all');
+    });
 </script>
 
 </body>
