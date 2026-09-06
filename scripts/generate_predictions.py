@@ -32,7 +32,7 @@ BALLDONTLIE_BASE = "https://api.balldontlie.io/nba/v1"
 # The 12 competitions available on football-data.org's free tier
 COMPETITIONS = ["PL", "PD", "BL1", "SA", "FL1", "DED", "PPL", "ELC", "BSA", "CL", "WC", "EC"]
 
-MIN_SAMPLE = 3          # minimum home/away matches before we trust a team's numbers
+MIN_SAMPLE = 2          # minimum home/away matches before we trust a team's numbers (low early in a season)
 TOP_N_SINGLES = 8       # how many single picks to publish
 MULTI_LEG_COUNTS = [2, 3]  # accumulator sizes to build from the top picks
 
@@ -137,7 +137,7 @@ def build_football_predictions(competitions=COMPETITIONS):
 
         upcoming = [
             m for m in matches
-            if m.get("status") == "SCHEDULED"
+            if m.get("status") in ("SCHEDULED", "TIMED")
             and m.get("utcDate", "").startswith(str(today))
         ]
         # also include tomorrow if nothing today, so the slate isn't empty
@@ -145,7 +145,7 @@ def build_football_predictions(competitions=COMPETITIONS):
             tomorrow = today + datetime.timedelta(days=1)
             upcoming = [
                 m for m in matches
-                if m.get("status") == "SCHEDULED"
+                if m.get("status") in ("SCHEDULED", "TIMED")
                 and m.get("utcDate", "").startswith(str(tomorrow))
             ]
 
