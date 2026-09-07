@@ -1,56 +1,6 @@
 {
   "predictions": [
     {
-      "id": 558233,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "NEC vs SBV Excelsior",
-      "home_team": "NEC",
-      "away_team": "SBV Excelsior",
-      "home_team_id": 1915,
-      "away_team_id": 670,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-09-08T16:45:00Z",
-      "pick": "BTTS - No",
-      "confidence": 100,
-      "fair_odds": 1.0,
-      "markets": [
-        {
-          "label": "BTTS - No",
-          "probability": 100
-        },
-        {
-          "label": "SBV Excelsior Win",
-          "probability": 94
-        },
-        {
-          "label": "Over 2.5 Goals",
-          "probability": 71
-        },
-        {
-          "label": "Under 2.5 Goals",
-          "probability": 29
-        },
-        {
-          "label": "Draw",
-          "probability": 3
-        },
-        {
-          "label": "BTTS - Yes",
-          "probability": 0
-        },
-        {
-          "label": "NEC Win",
-          "probability": 0
-        }
-      ],
-      "expected_goals": {
-        "home_expected_goals": 0.0,
-        "away_expected_goals": 3.66
-      }
-    },
-    {
       "id": 561841,
       "sport": "Football",
       "icon": "\u26bd",
@@ -148,56 +98,6 @@
       "expected_goals": {
         "home_expected_goals": 0.0,
         "away_expected_goals": 7.59
-      }
-    },
-    {
-      "id": 558896,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Fortuna Sittard vs AFC Ajax",
-      "home_team": "Fortuna Sittard",
-      "away_team": "AFC Ajax",
-      "home_team_id": 1920,
-      "away_team_id": 678,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-09-12T18:00:00Z",
-      "pick": "BTTS - No",
-      "confidence": 100,
-      "fair_odds": 1.0,
-      "markets": [
-        {
-          "label": "BTTS - No",
-          "probability": 100
-        },
-        {
-          "label": "AFC Ajax Win",
-          "probability": 85
-        },
-        {
-          "label": "Under 2.5 Goals",
-          "probability": 71
-        },
-        {
-          "label": "Over 2.5 Goals",
-          "probability": 29
-        },
-        {
-          "label": "Draw",
-          "probability": 15
-        },
-        {
-          "label": "BTTS - Yes",
-          "probability": 0
-        },
-        {
-          "label": "Fortuna Sittard Win",
-          "probability": 0
-        }
-      ],
-      "expected_goals": {
-        "home_expected_goals": 0.0,
-        "away_expected_goals": 1.88
       }
     },
     {
@@ -398,6 +298,106 @@
       "expected_goals": {
         "home_expected_goals": 1.16,
         "away_expected_goals": 0.0
+      }
+    },
+    {
+      "id": 564677,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Real Madrid CF vs Rayo Vallecano de Madrid",
+      "home_team": "Real Madrid CF",
+      "away_team": "Rayo Vallecano de Madrid",
+      "home_team_id": 86,
+      "away_team_id": 87,
+      "league": "Primera Division",
+      "comp_code": "PD",
+      "kickoff": "2026-09-12T19:00:00Z",
+      "pick": "Over 2.5 Goals",
+      "confidence": 99,
+      "fair_odds": 1.01,
+      "markets": [
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 99
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 54
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 46
+        },
+        {
+          "label": "Real Madrid CF Win",
+          "probability": 43
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 1
+        },
+        {
+          "label": "Draw",
+          "probability": 0
+        },
+        {
+          "label": "Rayo Vallecano de Madrid Win",
+          "probability": 0
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 8.12,
+        "away_expected_goals": 0.61
+      }
+    },
+    {
+      "id": 564683,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "M\u00e1laga CF vs Villarreal CF",
+      "home_team": "M\u00e1laga CF",
+      "away_team": "Villarreal CF",
+      "home_team_id": 84,
+      "away_team_id": 94,
+      "league": "Primera Division",
+      "comp_code": "PD",
+      "kickoff": "2026-09-17T19:30:00Z",
+      "pick": "Under 2.5 Goals",
+      "confidence": 91,
+      "fair_odds": 1.09,
+      "markets": [
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 91
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 84
+        },
+        {
+          "label": "Draw",
+          "probability": 46
+        },
+        {
+          "label": "Villarreal CF Win",
+          "probability": 29
+        },
+        {
+          "label": "M\u00e1laga CF Win",
+          "probability": 25
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 16
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 9
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 0.48,
+        "away_expected_goals": 0.54
       }
     }
   ]
