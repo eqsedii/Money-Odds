@@ -39,6 +39,6 @@ jobs:
         run: |
           git config user.name "money-odds-bot"
           git config user.email "actions@github.com"
-          git add predictions.json history.json archive/
+          git add predictions.json history.json fixtures.json match_details.json archive/
           git diff --quiet --cached || git commit -m "Auto-update predictions [skip ci]"
           git push
