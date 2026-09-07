@@ -1,5 +1,4 @@
 {
-  "generated_at": "2026-09-07T07:35:47.042490Z",
   "predictions": [
     {
       "sport": "Football",
@@ -88,50 +87,6 @@
       "pick": "Over 2.5 Goals",
       "confidence": 97,
       "fair_odds": 1.03
-    }
-  ],
-  "multi_bets": [
-    {
-      "title": "2-Leg Accumulator",
-      "combined_fair_odds": 1.0,
-      "legs": [
-        {
-          "icon": "\u26bd",
-          "match": "NEC vs SBV Excelsior",
-          "meta": "Eredivisie",
-          "pick": "BTTS - No"
-        },
-        {
-          "icon": "\u26bd",
-          "match": "Fortuna Sittard vs AFC Ajax",
-          "meta": "Eredivisie",
-          "pick": "BTTS - No"
-        }
-      ]
-    },
-    {
-      "title": "3-Leg Accumulator",
-      "combined_fair_odds": 1.0,
-      "legs": [
-        {
-          "icon": "\u26bd",
-          "match": "Casa Pia AC vs FC Porto",
-          "meta": "Primeira Liga",
-          "pick": "BTTS - No"
-        },
-        {
-          "icon": "\u26bd",
-          "match": "Acad\u00e9mico de Viseu FC vs Vit\u00f3ria SC",
-          "meta": "Primeira Liga",
-          "pick": "BTTS - No"
-        },
-        {
-          "icon": "\u26bd",
-          "match": "Swansea City AFC vs Burnley FC",
-          "meta": "Championship",
-          "pick": "BTTS - No"
-        }
-      ]
     }
   ]
 }
