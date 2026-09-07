@@ -70,6 +70,7 @@
   .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding-bottom:80px;}
   @media (max-width:800px){.cards{grid-template-columns:1fr;}}
   .card{
+    display:block;cursor:pointer;
     background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:24px;
     transition:border-color .2s ease;
   }
@@ -119,6 +120,34 @@
 
   .empty{text-align:center;padding:60px 20px;color:var(--text-dim);display:none;}
 
+  /* SEARCH */
+  .search-wrap{position:relative;margin-bottom:28px;}
+  .search-input{
+    width:100%;padding:15px 46px 15px 46px;border-radius:12px;
+    background:var(--bg-card);border:1px solid var(--line);color:var(--text);
+    font-size:15px;font-family:'Inter',sans-serif;
+  }
+  .search-input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(45,225,232,0.12);}
+  .search-input::placeholder{color:var(--text-dim);}
+  .search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--text-dim);font-size:16px;pointer-events:none;}
+  .search-clear{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--text-dim);background:none;border:none;font-size:18px;cursor:pointer;display:none;}
+  .search-results{
+    position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:40;
+    background:var(--bg-card);border:1px solid var(--line);border-radius:12px;
+    max-height:360px;overflow-y:auto;box-shadow:0 20px 50px -10px rgba(0,0,0,0.6);
+    display:none;
+  }
+  .search-result-row{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:13px 16px;border-bottom:1px solid var(--line);cursor:pointer;
+  }
+  .search-result-row:last-child{border-bottom:none;}
+  .search-result-row:hover{background:var(--bg-raised);}
+  .sr-match{font-size:14px;font-weight:500;}
+  .sr-meta{font-size:12px;color:var(--text-dim);}
+  .sr-pick{font-size:12.5px;color:var(--gold);font-weight:600;white-space:nowrap;}
+  .search-empty{padding:20px 16px;color:var(--text-dim);font-size:13.5px;text-align:center;}
+
   footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);font-size:13px;}
   .footer-grid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
   .footer-links{display:flex;gap:20px;}
@@ -144,18 +173,24 @@
 
 <section class="page-head">
   <div class="wrap">
-    <div class="eyebrow">TODAY · SEPTEMBER 5</div>
-    <h1>Today's predictions</h1>
-    <p>Fresh analysis across every sport we cover. Filter by sport to narrow the slate.</p>
+    <div class="eyebrow" id="pageEyebrow">UPCOMING FIXTURES</div>
+    <h1>Predictions & analysis</h1>
+    <p>Search any team we cover, or browse every upcoming fixture across football and basketball. Tap any match for the full breakdown — form, head-to-head, and every market we modeled.</p>
   </div>
 </section>
 
 <div class="wrap">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" class="search-input" id="searchInput" placeholder="Search a team or match (e.g. Arsenal, Lakers)…" autocomplete="off">
+    <button class="search-clear" id="searchClear">✕</button>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
   <div class="filters" id="filters">
     <button class="filter-btn active" data-sport="all">All Sports</button>
     <button class="filter-btn" data-sport="Football">⚽ Football</button>
     <button class="filter-btn" data-sport="Basketball">🏀 Basketball</button>
-    <button class="filter-btn" data-sport="Tennis">🎾 Tennis</button>
     <button class="filter-btn" data-sport="Multi">🔥 Multi-Bets</button>
   </div>
 
@@ -197,14 +232,14 @@
 
   function multiCardHTML(m){
     const legsHTML = m.legs.map((l, i) => `
-      <div class="leg-row">
+      <a class="leg-row" href="match.html?id=${encodeURIComponent(l.id)}" style="cursor:pointer;">
         <div class="leg-num">${i+1}</div>
         <div class="leg-info">
           <div class="leg-match">${l.icon} ${l.match}</div>
           <div class="leg-meta">${l.meta}</div>
         </div>
         <div class="leg-pick">${l.pick}</div>
-      </div>
+      </a>
     `).join('');
     return `
       <div class="multi-card">
@@ -231,7 +266,7 @@
     cardsEl.style.display = filtered.length ? 'grid' : 'none';
     emptyEl.style.display = filtered.length ? 'none' : 'block';
     cardsEl.innerHTML = filtered.map(p => `
-      <div class="card">
+      <a class="card" href="match.html?id=${encodeURIComponent(p.id)}">
         <div class="card-top">
           <span class="sport-tag">${p.icon} ${p.sport}</span>
           <span class="kickoff">${formatKickoff(p.kickoff)}</span>
@@ -251,7 +286,7 @@
           <div class="conf-bar"><div class="conf-fill" style="width:${p.confidence}%"></div></div>
           <span>${p.confidence}%</span>
         </div>
-      </div>
+      </a>
     `).join('');
   }
 
@@ -263,21 +298,79 @@
     render(btn.dataset.sport);
   });
 
-  fetch('predictions.json?_=' + Date.now())
+  fetch('fixtures.json?_=' + Date.now())
     .then(r => r.ok ? r.json() : Promise.reject())
     .then(data => {
-      predictions = data.predictions || [];
-      multiBets = data.multi_bets || [];
+      predictions = data.fixtures || [];
       render('all');
     })
     .catch(() => {
-      // predictions.json not published yet (e.g. first deploy, before the
-      // automation has run) — show an empty, honest state instead of fake data.
       predictions = [];
-      multiBets = [];
       emptyEl.textContent = "Today's analysis is still being generated — check back shortly.";
       render('all');
     });
+
+  fetch('predictions.json?_=' + Date.now())
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(data => { multiBets = data.multi_bets || []; })
+    .catch(() => { multiBets = []; });
+
+  // ---------------------------------------------------------------- search
+  const searchInput = document.getElementById('searchInput');
+  const searchResults = document.getElementById('searchResults');
+  const searchClear = document.getElementById('searchClear');
+
+  function runSearch(query){
+    const q = query.trim().toLowerCase();
+    if(!q){
+      searchResults.style.display = 'none';
+      searchClear.style.display = 'none';
+      return;
+    }
+    searchClear.style.display = 'block';
+    const matches = predictions.filter(p =>
+      p.match.toLowerCase().includes(q) ||
+      (p.home_team || '').toLowerCase().includes(q) ||
+      (p.away_team || '').toLowerCase().includes(q)
+    ).slice(0, 8);
+
+    if(!matches.length){
+      searchResults.innerHTML = `<div class="search-empty">No upcoming analysis found for "${query}". We only cover 12 major football competitions and the NBA right now — see the Predictions tabs above for full coverage.</div>`;
+    } else {
+      searchResults.innerHTML = matches.map(p => `
+        <div class="search-result-row" data-id="${p.id}">
+          <div>
+            <div class="sr-match">${p.icon} ${p.match}</div>
+            <div class="sr-meta">${p.league} · ${formatKickoff(p.kickoff)}</div>
+          </div>
+          <div class="sr-pick">${p.pick}</div>
+        </div>
+      `).join('');
+    }
+    searchResults.style.display = 'block';
+  }
+
+  searchInput.addEventListener('input', () => runSearch(searchInput.value));
+  searchInput.addEventListener('focus', () => { if(searchInput.value.trim()) runSearch(searchInput.value); });
+
+  searchResults.addEventListener('click', function(e){
+    const row = e.target.closest('.search-result-row');
+    if(!row || !row.dataset.id) return;
+    window.location.href = 'match.html?id=' + encodeURIComponent(row.dataset.id);
+  });
+
+  searchClear.addEventListener('click', function(){
+    searchInput.value = '';
+    searchResults.style.display = 'none';
+    searchClear.style.display = 'none';
+    searchInput.focus();
+  });
+
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.search-wrap')){
+      searchResults.style.display = 'none';
+    }
+  });
 </script>
 
 </body>

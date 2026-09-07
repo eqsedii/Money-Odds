@@ -121,7 +121,6 @@
     <button class="filter-btn" data-filter="loss">Losses Only</button>
     <button class="filter-btn" data-sport-filter data-filter-sport="Football">⚽ Football</button>
     <button class="filter-btn" data-sport-filter data-filter-sport="Basketball">🏀 Basketball</button>
-    <button class="filter-btn" data-sport-filter data-filter-sport="Tennis">🎾 Tennis</button>
   </div>
 
   <div class="history" id="history"></div>
@@ -145,23 +144,25 @@
     document.getElementById('navLinks').classList.toggle('open');
   });
 
-  // Sample history — replace with Firestore-fed data once backend is wired in
-  const history = [
-    { date: 'Sep 5', sport: 'Football', match: 'Man City vs Liverpool', league: 'Premier League', pick: 'BTTS - Yes', result: 'win' },
-    { date: 'Sep 4', sport: 'Basketball', match: 'Lakers vs Celtics', league: 'NBA', pick: 'Lakers -4.5', result: 'win' },
-    { date: 'Sep 3', sport: 'Tennis', match: 'Djokovic vs Alcaraz', league: 'ATP', pick: 'Over 3.5 sets', result: 'loss' },
-    { date: 'Sep 2', sport: 'Football', match: 'Barcelona vs Real Madrid', league: 'La Liga', pick: 'Barcelona Win', result: 'win' },
-    { date: 'Sep 1', sport: 'Basketball', match: 'Warriors vs Suns', league: 'NBA', pick: 'Under 224.5', result: 'win' },
-    { date: 'Aug 31', sport: 'Football', match: 'Bayern vs Dortmund', league: 'Bundesliga', pick: 'Over 3.5 Goals', result: 'win' },
-    { date: 'Aug 30', sport: 'Tennis', match: 'Sabalenka vs Gauff', league: 'WTA', pick: 'Sabalenka Win', result: 'win' },
-    { date: 'Aug 29', sport: 'Basketball', match: 'Nuggets vs Bucks', league: 'NBA', pick: 'Nuggets -3', result: 'loss' },
-    { date: 'Aug 28', sport: 'Football', match: 'Inter vs Milan', league: 'Serie A', pick: 'Draw', result: 'loss' },
-    { date: 'Aug 27', sport: 'Football', match: 'PSG vs Lyon', league: 'Ligue 1', pick: 'PSG -1.5', result: 'win' },
-  ];
-
+  let history = [];
   const sportIcon = { Football: '⚽', Basketball: '🏀', Tennis: '🎾' };
 
+  function formatDate(iso){
+    try {
+      return new Date(iso).toLocaleDateString('en-GB', { month: 'short', day: 'numeric' });
+    } catch(e){ return iso; }
+  }
+
   function renderSummary(){
+    if(!history.length){
+      document.getElementById('summary').innerHTML = `
+        <div class="summary-card"><div class="summary-num gold">—</div><div class="summary-label">Overall win rate</div></div>
+        <div class="summary-card"><div class="summary-num cyan">0</div><div class="summary-label">Predictions published</div></div>
+        <div class="summary-card"><div class="summary-num gold">0</div><div class="summary-label">Wins</div></div>
+        <div class="summary-card"><div class="summary-num loss">0</div><div class="summary-label">Losses</div></div>
+      `;
+      return;
+    }
     const wins = history.filter(h => h.result === 'win').length;
     const losses = history.length - wins;
     const rate = Math.round((wins / history.length) * 100);
@@ -182,23 +183,23 @@
     if(activeSport) filtered = filtered.filter(h => h.sport === activeSport);
 
     const rows = filtered.map(h => `
-      <div class="h-row">
-        <div class="h-date">${h.date}</div>
+      <a class="h-row" href="match.html?id=${encodeURIComponent(h.id)}" style="cursor:pointer;">
+        <div class="h-date">${formatDate(h.date)}</div>
         <div>
           <div class="h-match">${h.match}</div>
           <div class="h-league">${h.league}</div>
         </div>
-        <div class="h-sport">${sportIcon[h.sport]} ${h.sport}</div>
+        <div class="h-sport">${sportIcon[h.sport] || ''} ${h.sport}</div>
         <div class="h-pick">${h.pick}</div>
         <div class="badge ${h.result}">${h.result === 'win' ? 'WON' : 'LOST'}</div>
-      </div>
+      </a>
     `).join('');
 
     document.getElementById('history').innerHTML = `
       <div class="h-row head">
         <div>Date</div><div>Match</div><div>Sport</div><div>Pick</div><div></div>
       </div>
-      ${rows || '<div class="h-row"><div style="color:var(--text-dim);grid-column:1/-1;text-align:center;padding:20px 0;">No results match this filter.</div></div>'}
+      ${rows || '<div class="h-row"><div style="color:var(--text-dim);grid-column:1/-1;text-align:center;padding:20px 0;">No graded results yet — check back once today\'s predictions have played out.</div></div>'}
     `;
   }
 
@@ -219,8 +220,18 @@
     renderHistory();
   });
 
-  renderSummary();
-  renderHistory();
+  fetch('history.json?_=' + Date.now())
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(data => {
+      history = data.history || [];
+      renderSummary();
+      renderHistory();
+    })
+    .catch(() => {
+      history = [];
+      renderSummary();
+      renderHistory();
+    });
 </script>
 
 </body>

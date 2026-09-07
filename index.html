@@ -205,8 +205,9 @@
   }
 
   /* SPORTS TABS teaser cards */
-  .sport-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-  @media (max-width:800px){.sport-cards{grid-template-columns:1fr;}}
+  .sport-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  @media (max-width:900px){.sport-cards{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.sport-cards{grid-template-columns:1fr;}}
   .sport-card{
     background:var(--bg-card);border:1px solid var(--line);border-radius:14px;padding:22px;
     transition:border-color .2s ease;
@@ -277,20 +278,20 @@
         <a href="track-record.html" class="btn-secondary">View track record</a>
       </div>
     </div>
-    <div class="ticket">
+    <div class="ticket" id="heroTicket">
       <div class="ticket-top">
         <span class="ticket-label">TODAY'S FEATURED PICK</span>
         <span class="live-dot">LIVE</span>
       </div>
-      <div class="ticket-match">Arsenal vs Chelsea</div>
-      <div class="ticket-sub">Premier League · Kickoff 20:00 EAT</div>
+      <div class="ticket-match" id="ticketMatch">Loading…</div>
+      <div class="ticket-sub" id="ticketLeague"></div>
       <div class="ticket-divider"></div>
       <div class="ticket-row">
         <div>
           <div class="ticket-pick-label">Our pick</div>
-          <div class="ticket-pick">Over 2.5 Goals</div>
+          <div class="ticket-pick" id="ticketPick">—</div>
         </div>
-        <div class="ticket-odds">Odds<br><b>1.85</b></div>
+        <div class="ticket-odds">Model Fair Odds<br><b id="ticketOdds">—</b></div>
       </div>
     </div>
   </div>
@@ -299,16 +300,16 @@
 <section class="stats">
   <div class="wrap stats-grid">
     <div>
-      <div class="stat-num gold">78%</div>
+      <div class="stat-num gold" id="statWinRate">—</div>
       <div class="stat-label">Win rate, last 30 days</div>
     </div>
     <div>
-      <div class="stat-num cyan">5</div>
+      <div class="stat-num cyan">2</div>
       <div class="stat-label">Sports covered</div>
     </div>
     <div>
-      <div class="stat-num gold">4</div>
-      <div class="stat-label">Win streak</div>
+      <div class="stat-num gold" id="statStreak">—</div>
+      <div class="stat-label">Current streak</div>
     </div>
     <div>
       <div class="stat-num cyan">100%</div>
@@ -344,18 +345,23 @@
       <div class="sport-card">
         <div class="sport-icon">⚽</div>
         <h3>Football</h3>
-        <p>Top European leagues plus AFCON and CAF competitions.</p>
+        <p>12 major European competitions, including the Premier League, La Liga, Serie A and Champions League.</p>
       </div>
       <div class="sport-card">
         <div class="sport-icon">🏀</div>
         <h3>Basketball</h3>
-        <p>NBA and major international fixtures.</p>
+        <p>NBA fixtures, automated once the season is underway.</p>
       </div>
-      <div class="sport-card">
+      <div class="sport-card" style="opacity:0.55;">
         <div class="sport-icon">🎾</div>
-        <h3>Tennis</h3>
-        <p>ATP and WTA tour matches, set by set.</p>
+        <h3>Tennis <span style="font-size:11px;color:var(--text-dim);font-weight:600;">COMING SOON</span></h3>
+        <p>ATP and WTA coverage is on the roadmap.</p>
       </div>
+      <a href="predictions.html" class="sport-card" style="border-color:rgba(245,166,35,0.3);text-decoration:none;">
+        <div class="sport-icon" style="background:var(--gold-soft);color:var(--gold);">🔥</div>
+        <h3>Multi-Bets</h3>
+        <p>Curated accumulators combining our top picks for bigger combined odds.</p>
+      </a>
     </div>
   </div>
 </section>
@@ -390,27 +396,87 @@
     document.getElementById('navLinks').classList.toggle('open');
   });
 
-  // Sample "last 5 days" data — replace with Firestore data once backend is wired in
-  const recentResults = [
-    { day: 'Today', match: 'Man City vs Liverpool', sport: 'Football', pick: 'BTTS - Yes', result: 'win' },
-    { day: 'Yesterday', match: 'Lakers vs Celtics', sport: 'Basketball', pick: 'Lakers -4.5', result: 'win' },
-    { day: '2 days ago', match: 'Djokovic vs Alcaraz', sport: 'Tennis', pick: 'Over 3.5 sets', result: 'loss' },
-    { day: '3 days ago', match: 'Barcelona vs Real Madrid', sport: 'Football', pick: 'Barcelona Win', result: 'win' },
-    { day: '4 days ago', match: 'Warriors vs Suns', sport: 'Basketball', pick: 'Under 224.5', result: 'win' },
-  ];
+  function relativeDay(dateStr){
+    const d = new Date(dateStr);
+    const today = new Date();
+    const diffDays = Math.round((today - d) / 86400000);
+    if(diffDays === 0) return 'Today';
+    if(diffDays === 1) return 'Yesterday';
+    if(diffDays > 1) return `${diffDays} days ago`;
+    return dateStr;
+  }
 
-  const list = document.getElementById('resultsList');
-  list.innerHTML = recentResults.map(r => `
-    <div class="result-row">
-      <div class="result-day">${r.day}</div>
-      <div>
-        <div class="result-match">${r.match}</div>
-        <div class="result-sport">${r.sport}</div>
-      </div>
-      <div class="result-pick">${r.pick}</div>
-      <div class="badge ${r.result}">${r.result === 'win' ? 'WON' : 'LOST'}</div>
-    </div>
-  `).join('');
+  // Hero ticket — today's top-confidence pick
+  fetch('predictions.json?_=' + Date.now())
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(data => {
+      const top = (data.predictions || [])[0];
+      if(top){
+        document.getElementById('ticketMatch').textContent = top.match;
+        document.getElementById('ticketLeague').textContent = top.league;
+        document.getElementById('ticketPick').textContent = top.pick;
+        document.getElementById('ticketOdds').textContent = top.fair_odds ?? '—';
+        const ticketEl = document.getElementById('heroTicket');
+        ticketEl.style.cursor = 'pointer';
+        ticketEl.addEventListener('click', () => {
+          window.location.href = 'match.html?id=' + encodeURIComponent(top.id);
+        });
+      } else {
+        document.getElementById('heroTicket').innerHTML =
+          '<div class="ticket-label">No pick published yet — check back shortly.</div>';
+      }
+    })
+    .catch(() => {
+      document.getElementById('heroTicket').innerHTML =
+        '<div class="ticket-label">Today\'s analysis is still being generated.</div>';
+    });
+
+  // Last-5-days results + win-rate / streak stats
+  fetch('history.json?_=' + Date.now())
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(data => {
+      const history = data.history || [];
+      const recent = history.slice(0, 5);
+      const list = document.getElementById('resultsList');
+
+      if(recent.length){
+        list.innerHTML = recent.map(r => `
+          <a class="result-row" href="match.html?id=${encodeURIComponent(r.id)}" style="cursor:pointer;">
+            <div class="result-day">${relativeDay(r.date)}</div>
+            <div>
+              <div class="result-match">${r.match}</div>
+              <div class="result-sport">${r.sport}</div>
+            </div>
+            <div class="result-pick">${r.pick}</div>
+            <div class="badge ${r.result}">${r.result === 'win' ? 'WON' : 'LOST'}</div>
+          </a>
+        `).join('');
+      } else {
+        list.innerHTML = '<div class="result-row"><div style="color:var(--text-dim);padding:10px 0;">No graded results yet — check back after the first predictions have played out.</div></div>';
+      }
+
+      if(history.length){
+        const wins = history.filter(h => h.result === 'win').length;
+        const winRate = Math.round((wins / history.length) * 100);
+        document.getElementById('statWinRate').textContent = winRate + '%';
+
+        let streak = 0;
+        const firstResult = history[0].result;
+        for(const h of history){
+          if(h.result === firstResult) streak++;
+          else break;
+        }
+        document.getElementById('statStreak').textContent =
+          (firstResult === 'win' ? '🔥 ' : '') + streak;
+      } else {
+        document.getElementById('statWinRate').textContent = '—';
+        document.getElementById('statStreak').textContent = '—';
+      }
+    })
+    .catch(() => {
+      document.getElementById('resultsList').innerHTML =
+        '<div class="result-row"><div style="color:var(--text-dim);padding:10px 0;">History not available yet.</div></div>';
+    });
 </script>
 
 </body>
