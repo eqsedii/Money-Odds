@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Money Odds</title>
+<meta name="description" content="How Money Odds generates predictions: real data, real statistics, no false guarantees.">
+<link rel="icon" type="image/webp" href="favicon.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0E14;--bg-raised:#10151D;--bg-card:#131A24;--line:#212936;
+    --text:#E8EAED;--text-dim:#8B92A5;--gold:#F5A623;--gold-soft:#F5A62322;
+    --cyan:#2DE1E8;--cyan-soft:#2DE1E822;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:600;line-height:1.2;margin:0;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:820px;margin:0 auto;padding:0 24px;}
+
+  .nav{position:sticky;top:0;z-index:50;background:rgba(10,14,20,0.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .nav .wrap{max-width:1120px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+  .brand-mark{width:32px;height:32px;border-radius:8px;object-fit:cover;}
+  .nav-links{display:flex;gap:32px;font-size:15px;color:var(--text-dim);}
+  .nav-links a:hover{color:var(--text);}
+  .nav-links a.active{color:var(--cyan);}
+  .nav-cta{padding:9px 20px;border-radius:9px;background:var(--gold);color:#1A1204;font-weight:600;font-size:14px;box-shadow:0 0 20px rgba(245,166,35,0.35);}
+  .nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;}
+  @media (max-width:800px){
+    .nav-links{position:fixed;top:68px;left:0;right:0;background:var(--bg-raised);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--line);transform:translateY(-150%);transition:transform .25s ease;}
+    .nav-links.open{transform:translateY(0);}
+    .nav-toggle{display:block;}
+    .nav-cta{display:none;}
+  }
+
+  .page-head{padding:56px 0 40px;position:relative;overflow:hidden;text-align:center;}
+  .page-head::before{content:'';position:absolute;top:-180px;left:50%;transform:translateX(-50%);width:500px;height:400px;background:radial-gradient(circle,rgba(245,166,35,0.13),transparent 70%);pointer-events:none;}
+  .eyebrow{color:var(--cyan);font-size:14px;font-weight:600;margin-bottom:12px;position:relative;}
+  .page-head h1{font-size:34px;letter-spacing:-0.4px;margin-bottom:10px;position:relative;}
+  .page-head p{color:var(--text-dim);font-size:16px;max-width:520px;margin:0 auto;position:relative;}
+
+  .section{padding-bottom:48px;}
+  .section h2{font-size:21px;margin-bottom:14px;}
+  .section p{color:var(--text-dim);font-size:15px;margin:0 0 14px;}
+
+  .steps{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:8px;}
+  .step{display:flex;gap:16px;padding:20px;border-bottom:1px solid var(--line);}
+  .step:last-child{border-bottom:none;}
+  .step-num{
+    width:32px;height:32px;border-radius:9px;background:var(--gold-soft);color:var(--gold);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0;
+    font-family:'Space Grotesk',sans-serif;
+  }
+  .step-title{font-weight:600;font-size:15px;margin-bottom:4px;}
+  .step-desc{color:var(--text-dim);font-size:13.5px;}
+
+  .honesty-card{
+    background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:26px;margin-top:8px;
+  }
+  .honesty-card ul{margin:0;padding-left:20px;color:var(--text-dim);font-size:14.5px;}
+  .honesty-card li{margin-bottom:10px;}
+  .honesty-card li:last-child{margin-bottom:0;}
+  .honesty-card b{color:var(--text);}
+
+  .sources-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
+  @media (max-width:600px){.sources-grid{grid-template-columns:1fr;}}
+  .source-card{background:var(--bg-card);border:1px solid var(--line);border-radius:14px;padding:18px;}
+  .source-card .sc-title{font-weight:600;font-size:14px;margin-bottom:4px;}
+  .source-card .sc-desc{color:var(--text-dim);font-size:13px;}
+
+  .disclaimer{background:var(--bg-raised);border:1px solid var(--line);border-radius:10px;padding:16px 20px;font-size:12.5px;color:var(--text-dim);line-height:1.6;}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);font-size:13px;}
+  .footer-grid{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .footer-links{display:flex;gap:20px;}
+  .footer-links a:hover{color:var(--text);}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</a>
+    <div class="nav-links" id="navLinks">
+      <a href="predictions.html">Predictions</a>
+      <a href="track-record.html">Track Record</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="pricing.html" class="nav-cta">Get Picks</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="eyebrow">HOW IT WORKS</div>
+    <h1>Real data. Real statistics. No false promises.</h1>
+    <p>Money Odds exists because most "prediction" sites are guesswork dressed up with confident language. Ours isn't — here's exactly how it works.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="section">
+    <h2>Our process</h2>
+    <p>Every prediction on this site is generated the same automated way, every time — no picks are hand-selected or adjusted after the fact.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title">Pull real fixture and results data</div>
+          <div class="step-desc">We fetch upcoming matches and recently completed results directly from football-data.org (12 major competitions) and balldontlie.io (NBA) — the same kind of sources sports journalists and analysts use.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title">Run a statistical model, not a guess</div>
+          <div class="step-desc">Football predictions use a Poisson goal-expectancy model built from each team's actual home/away scoring and conceding record this season. Basketball uses a scoring-differential model from recent games. Neither is influenced by opinion.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">Publish every market's probability</div>
+          <div class="step-desc">We don't just show you the pick — every match page shows the full breakdown across every market we modeled, so you can see the actual math, not just our headline.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>
+          <div class="step-title">Grade every result, automatically</div>
+          <div class="step-desc">Once a match finishes, our system checks the real final score and marks the pick won or lost — no manual editing, no cherry-picking what gets shown on the Track Record page.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>What we won't do</h2>
+    <div class="honesty-card">
+      <ul>
+        <li><b>We will never claim a guaranteed win.</b> No prediction service — ours included — can guarantee a sports outcome. Anyone who tells you otherwise is being dishonest with you.</li>
+        <li><b>We won't hide our losses.</b> Our Track Record page shows every graded prediction, win or lose, generated the same automated way.</li>
+        <li><b>We won't fabricate statistics.</b> Every number on this site — confidence percentages, expected goals, head-to-head records, recent form — is computed from real data, not invented for effect.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Data sources</h2>
+    <div class="sources-grid">
+      <div class="source-card">
+        <div class="sc-title">⚽ football-data.org</div>
+        <div class="sc-desc">Premier League, La Liga, Bundesliga, Serie A, Ligue 1, and 7 other major competitions.</div>
+      </div>
+      <div class="source-card">
+        <div class="sc-title">🏀 balldontlie.io</div>
+        <div class="sc-desc">Full NBA schedule, scores, and team statistics.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="disclaimer">Money Odds provides statistical analysis for informational purposes only. No outcome is guaranteed. If you choose to bet, please do so responsibly and only with money you can afford to lose.</div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</div>
+    <div class="footer-links">
+      <a href="predictions.html">Predictions</a>
+      <a href="track-record.html">Track Record</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div>&copy; 2026 Money Odds. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>

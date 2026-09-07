@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Money Odds</title>
+<meta name="description" content="Money Odds is free to use today. VIP access with extended coverage is coming soon.">
+<link rel="icon" type="image/webp" href="favicon.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0E14;--bg-raised:#10151D;--bg-card:#131A24;--line:#212936;
+    --text:#E8EAED;--text-dim:#8B92A5;--gold:#F5A623;--gold-soft:#F5A62322;
+    --cyan:#2DE1E8;--cyan-soft:#2DE1E822;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:600;line-height:1.2;margin:0;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+
+  .nav{position:sticky;top:0;z-index:50;background:rgba(10,14,20,0.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .nav .wrap{max-width:1120px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+  .brand-mark{width:32px;height:32px;border-radius:8px;object-fit:cover;}
+  .nav-links{display:flex;gap:32px;font-size:15px;color:var(--text-dim);}
+  .nav-links a:hover{color:var(--text);}
+  .nav-links a.active{color:var(--cyan);}
+  .nav-cta{padding:9px 20px;border-radius:9px;background:var(--gold);color:#1A1204;font-weight:600;font-size:14px;box-shadow:0 0 20px rgba(245,166,35,0.35);}
+  .nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;}
+  @media (max-width:800px){
+    .nav-links{position:fixed;top:68px;left:0;right:0;background:var(--bg-raised);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--line);transform:translateY(-150%);transition:transform .25s ease;}
+    .nav-links.open{transform:translateY(0);}
+    .nav-toggle{display:block;}
+    .nav-cta{display:none;}
+  }
+
+  .page-head{padding:56px 0 40px;position:relative;overflow:hidden;text-align:center;}
+  .page-head::before{content:'';position:absolute;top:-180px;left:50%;transform:translateX(-50%);width:500px;height:400px;background:radial-gradient(circle,rgba(45,225,232,0.13),transparent 70%);pointer-events:none;}
+  .eyebrow{color:var(--cyan);font-size:14px;font-weight:600;margin-bottom:12px;position:relative;}
+  .page-head h1{font-size:34px;letter-spacing:-0.4px;margin-bottom:10px;position:relative;}
+  .page-head p{color:var(--text-dim);font-size:16px;max-width:520px;margin:0 auto;position:relative;}
+
+  .plans{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding-bottom:56px;}
+  @media (max-width:700px){.plans{grid-template-columns:1fr;}}
+  .plan-card{
+    background:var(--bg-card);border:1px solid var(--line);border-radius:20px;padding:32px;
+    position:relative;overflow:hidden;
+  }
+  .plan-card.vip{border-color:rgba(245,166,35,0.35);}
+  .plan-card.vip::before{
+    content:'';position:absolute;top:-80px;right:-80px;width:220px;height:220px;
+    background:radial-gradient(circle,rgba(245,166,35,0.18),transparent 70%);pointer-events:none;
+  }
+  .plan-badge{
+    display:inline-block;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:16px;
+  }
+  .plan-badge.free{background:var(--cyan-soft);color:var(--cyan);}
+  .plan-badge.vip{background:var(--gold-soft);color:var(--gold);}
+  .plan-name{font-size:22px;margin-bottom:6px;}
+  .plan-price{font-size:32px;font-weight:700;font-family:'Space Grotesk',sans-serif;margin-bottom:4px;position:relative;}
+  .plan-price span{font-size:14px;color:var(--text-dim);font-weight:500;}
+  .plan-note{color:var(--text-dim);font-size:13px;margin-bottom:24px;}
+  .plan-features{list-style:none;margin:0 0 26px;padding:0;display:flex;flex-direction:column;gap:12px;}
+  .plan-features li{display:flex;gap:10px;font-size:14px;color:var(--text-dim);align-items:flex-start;}
+  .plan-features li b{color:var(--text);font-weight:500;}
+  .check{color:var(--cyan);flex-shrink:0;}
+  .plan-card.vip .check{color:var(--gold);}
+  .plan-cta{
+    display:block;text-align:center;padding:13px;border-radius:10px;font-weight:600;font-size:14.5px;
+  }
+  .plan-cta.primary{background:var(--gold);color:#1A1204;box-shadow:0 0 20px rgba(245,166,35,0.3);}
+  .plan-cta.secondary{border:1px solid var(--line);color:var(--text);}
+  .plan-cta.secondary:hover{border-color:var(--cyan);color:var(--cyan);}
+
+  .faq{padding-bottom:70px;}
+  .faq h2{font-size:22px;margin-bottom:20px;}
+  .faq-item{border-bottom:1px solid var(--line);padding:18px 0;}
+  .faq-q{font-weight:600;font-size:15px;margin-bottom:8px;}
+  .faq-a{color:var(--text-dim);font-size:14px;}
+
+  .disclaimer{background:var(--bg-raised);border:1px solid var(--line);border-radius:10px;padding:16px 20px;font-size:12.5px;color:var(--text-dim);line-height:1.6;margin-bottom:60px;}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);font-size:13px;}
+  .footer-grid{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .footer-links{display:flex;gap:20px;}
+  .footer-links a:hover{color:var(--text);}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</a>
+    <div class="nav-links" id="navLinks">
+      <a href="predictions.html">Predictions</a>
+      <a href="track-record.html">Track Record</a>
+      <a href="pricing.html" class="active">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="pricing.html" class="nav-cta">Get Picks</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="eyebrow">PRICING</div>
+    <h1>Free today. VIP coming soon.</h1>
+    <p>Every prediction, every stat, every match analysis on this site is free to use right now — no account, no card, no catch.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="plans">
+    <div class="plan-card">
+      <span class="plan-badge free">AVAILABLE NOW</span>
+      <div class="plan-name">Free</div>
+      <div class="plan-price">$0</div>
+      <div class="plan-note">Everything on the site, no sign-up required.</div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> <b>Full daily slate</b> across football & basketball</li>
+        <li><span class="check">✓</span> <b>Multi-bet accumulators</b> built from our top picks</li>
+        <li><span class="check">✓</span> <b>Search</b> across every fixture we cover</li>
+        <li><span class="check">✓</span> <b>Full match analysis</b> — H2H, form, every market</li>
+        <li><span class="check">✓</span> <b>Transparent track record</b> — every result, win or lose</li>
+      </ul>
+      <a href="predictions.html" class="plan-cta secondary">See today's picks</a>
+    </div>
+
+    <div class="plan-card vip">
+      <span class="plan-badge vip">COMING SOON</span>
+      <div class="plan-name">VIP</div>
+      <div class="plan-price">TBA</div>
+      <div class="plan-note">Pricing hasn't been finalized yet.</div>
+      <ul class="plan-features">
+        <li><span class="check">✓</span> Everything in Free</li>
+        <li><span class="check">✓</span> Early access to picks, before public release</li>
+        <li><span class="check">✓</span> Extended sport coverage as it's added</li>
+        <li><span class="check">✓</span> Priority support via WhatsApp</li>
+      </ul>
+      <a href="contact.html" class="plan-cta primary">Get notified at launch</a>
+    </div>
+  </div>
+
+  <div class="faq">
+    <h2>Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q">Is anything paid right now?</div>
+      <div class="faq-a">No. The entire site — predictions, analysis, search, track record — is free to use. VIP is planned but not live yet.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do you guarantee winning picks?</div>
+      <div class="faq-a">No — and we never will, on any plan. No prediction service can honestly guarantee a sports outcome. What we do guarantee is that every pick comes from the same real, transparent statistical process, and every result gets published either way.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I find out when VIP launches?</div>
+      <div class="faq-a">Reach out on the Contact page and we'll let you know as soon as it's ready.</div>
+    </div>
+  </div>
+
+  <div class="disclaimer">Money Odds provides statistical analysis for informational purposes only. No outcome is guaranteed. Bet responsibly and only with money you can afford to lose.</div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</div>
+    <div class="footer-links">
+      <a href="predictions.html">Predictions</a>
+      <a href="track-record.html">Track Record</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div>&copy; 2026 Money Odds. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function(){
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+</script>
+
+</body>
+</html>

@@ -152,6 +152,13 @@
   .footer-grid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
   .footer-links{display:flex;gap:20px;}
   .footer-links a:hover{color:var(--text);}
+
+  .data-status{
+    font-size:11.5px;color:var(--text-dim);text-align:center;padding:10px 0 24px;
+    display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;
+  }
+  .data-status .dot{width:6px;height:6px;border-radius:50%;background:var(--win,#3DD68C);flex-shrink:0;}
+  .data-status.error .dot{background:var(--loss);}
 </style>
 </head>
 <body>
@@ -196,6 +203,7 @@
 
   <div class="cards" id="cards"></div>
   <div class="empty" id="emptyState">No predictions in this category today — check back soon.</div>
+  <div class="data-status" id="dataStatus"></div>
 </div>
 
 <footer>
@@ -298,16 +306,31 @@
     render(btn.dataset.sport);
   });
 
+  const statusEl = document.getElementById('dataStatus');
+
+  function formatUpdated(iso){
+    try {
+      return new Date(iso).toLocaleString('en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+    } catch(e){ return iso; }
+  }
+
   fetch('fixtures.json?_=' + Date.now())
-    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(r => {
+      if(!r.ok) throw new Error('fixtures.json returned HTTP ' + r.status + ' — the file may not exist yet at this path.');
+      return r.json();
+    })
     .then(data => {
       predictions = data.fixtures || [];
       render('all');
+      statusEl.className = 'data-status';
+      statusEl.innerHTML = `<span class="dot"></span> Live data · updated ${formatUpdated(data.generated_at)} · ${predictions.length} fixtures analyzed`;
     })
-    .catch(() => {
+    .catch((err) => {
       predictions = [];
       emptyEl.textContent = "Today's analysis is still being generated — check back shortly.";
       render('all');
+      statusEl.className = 'data-status error';
+      statusEl.innerHTML = `<span class="dot"></span> Couldn't load fixtures.json (${err.message}) — if this persists, the automation may not have run yet, or this page may be an older cached version.`;
     });
 
   fetch('predictions.json?_=' + Date.now())
