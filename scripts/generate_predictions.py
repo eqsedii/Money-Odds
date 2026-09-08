@@ -6,15 +6,24 @@ Pulls real fixtures/results from free APIs and computes statistical
 predictions (no bookmaker odds are used or faked — everything shown
 is derived from the model itself).
 
-Writes three files:
-  - predictions.json    Today's/soonest top-confidence picks + multi-bets
-                         (what the homepage/predictions page shows by default)
-  - fixtures.json        EVERY upcoming fixture across all covered
-                         competitions, each with its own computed pick —
-                         this is what powers site-wide search.
-  - match_details.json   Per-match head-to-head history + each team's
-                         last 5 results, keyed by match id — powers the
-                         click-through detail view.
+Writes PUBLIC files (committed to the public repo — no pick/confidence/
+odds/markets ever appear here, so a paying subscription is meaningful):
+  - predictions.json    Today's/soonest featured fixtures + multi-bet
+                         slates, redacted — id/teams/league only
+  - fixtures.json        EVERY upcoming fixture, redacted the same way —
+                         this is what powers site-wide search
+  - match_details.json   Head-to-head + recent form — NOT proprietary,
+                         stays public, keeps the free tier valuable
+
+Writes PRIVATE files (never committed to the public repo — the CI
+workflow pushes these to a separate private repo instead):
+  - private_picks.json   The actual proprietary picks/confidence/odds/
+                         markets, keyed by fixture id, plus full
+                         multi-bet legs. The Cloudflare Worker fetches
+                         this server-side after verifying a real payment.
+  - archive/<date>.json  Full pick data for grading later — private for
+                         the same reason (would leak upcoming picks
+                         otherwise).
 
 Data sources (both free):
   - Football: football-data.org  (12 major competitions)
@@ -51,6 +60,7 @@ RECENT_FORM_N = 5
 OUT_PREDICTIONS = "predictions.json"
 OUT_FIXTURES = "fixtures.json"
 OUT_MATCH_DETAILS = "match_details.json"
+OUT_PRIVATE_PICKS = "private_picks.json"
 OUT_HISTORY = "history.json"
 
 
@@ -470,8 +480,22 @@ def build_multi_bets(all_picks):
     return multis
 
 
+SENSITIVE_FIELDS = {"pick", "confidence", "fair_odds", "markets", "expected_goals", "predicted_score"}
+
+
 def strip_internal_fields(fixture):
     return {k: v for k, v in fixture.items() if not k.startswith("_")}
+
+
+def redact_for_public(fixture):
+    """Public version: strips proprietary pick/confidence/odds/markets entirely.
+    This is what fixtures.json (and everyone browsing the site) actually sees."""
+    return {k: v for k, v in fixture.items() if k not in SENSITIVE_FIELDS} | {"locked": True}
+
+
+def extract_private_fields(fixture):
+    """The proprietary half — only ever written to the private repo."""
+    return {k: fixture[k] for k in SENSITIVE_FIELDS if k in fixture}
 
 
 def main():
@@ -514,41 +538,66 @@ def main():
             "h2h": fx.get("_h2h"),
         }
 
-    # --- clean fixture objects for public output ---
+    # --- clean fixture objects (full data — this is the PRIVATE version) ---
     clean_fixtures = [strip_internal_fields(fx) for fx in all_fixtures]
 
+    # --- PUBLIC fixtures.json: everyone sees this, no pick/confidence/odds ---
+    public_fixtures = [redact_for_public(fx) for fx in clean_fixtures]
     with open(OUT_FIXTURES, "w") as f:
         json.dump({
             "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
-            "fixtures": clean_fixtures,
+            "fixtures": public_fixtures,
         }, f, indent=2)
 
+    # match_details.json (H2H + recent form) is NOT proprietary — real stats,
+    # not our pick — so it stays public and helps the free tier feel valuable.
     with open(OUT_MATCH_DETAILS, "w") as f:
         json.dump(match_details, f, indent=2)
 
-    # --- predictions.json: top N featured singles + multi-bets (existing behavior) ---
+    # --- ranking + multi-bets use the FULL (private) data ---
     ranked = sorted(clean_fixtures, key=lambda p: p["confidence"], reverse=True)
     top_singles = ranked[:TOP_N_SINGLES]
     multis = build_multi_bets(ranked)
 
-    output = {
-        "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
-        "predictions": top_singles,
-        "multi_bets": multis,
-    }
-
+    # --- PUBLIC predictions.json: which matches are featured, no picks ---
+    public_top_singles = [redact_for_public(fx) for fx in top_singles]
+    public_multis = [
+        {
+            "title": m["title"],
+            "locked": True,
+            "legs": [{"id": l["id"], "icon": l["icon"], "match": l["match"], "meta": l["meta"]} for l in m["legs"]],
+        }
+        for m in multis
+    ]
     with open(OUT_PREDICTIONS, "w") as f:
-        json.dump(output, f, indent=2)
+        json.dump({
+            "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
+            "predictions": public_top_singles,
+            "multi_bets": public_multis,
+        }, f, indent=2)
 
-    # Archive today's featured picks (with comp_code intact) so the
-    # resolver script can grade them against real results tomorrow.
+    # --- PRIVATE data: the actual proprietary picks — pushed to the private
+    # repo only, never committed here. The Worker fetches this server-side
+    # after verifying a real payment. ---
+    picks_map = {str(fx["id"]): extract_private_fields(fx) for fx in clean_fixtures}
+    with open(OUT_PRIVATE_PICKS, "w") as f:
+        json.dump({
+            "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
+            "picks": picks_map,
+            "multi_bets": multis,  # full version, with real picks + combined odds
+        }, f, indent=2)
+
+    # Archive today's FULL picks (real pick data, needed for grading later) —
+    # this file also goes to the private repo, never the public one, since it
+    # would otherwise leak tomorrow's-still-upcoming picks in plain text.
     os.makedirs("archive", exist_ok=True)
     today_str = datetime.date.today().isoformat()
     with open(os.path.join("archive", f"{today_str}.json"), "w") as f:
         json.dump({"predictions": top_singles}, f, indent=2)
 
-    print(f"Wrote {len(clean_fixtures)} total fixtures, {len(top_singles)} featured picks, "
-          f"{len(multis)} multi-bets, and {len(match_details)} match-detail entries.")
+    print(f"Wrote {len(clean_fixtures)} total fixtures ({len(public_fixtures)} public/redacted), "
+          f"{len(top_singles)} featured picks, {len(multis)} multi-bets, "
+          f"{len(match_details)} match-detail entries, and {len(picks_map)} private picks.")
 
 
 if __name__ == "__main__":
