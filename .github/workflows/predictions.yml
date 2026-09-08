@@ -15,13 +15,27 @@ jobs:
   update-predictions:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repo
+      - name: Check out public repo
         uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      - name: Check out private repo (real picks live here, never publicly)
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.PRIVATE_REPO }}
+          token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          path: private_data
+
+      - name: Restore archive history from the private repo
+        run: |
+          mkdir -p archive
+          if [ -d private_data/archive ]; then
+            cp -n private_data/archive/*.json archive/ 2>/dev/null || true
+          fi
 
       - name: Generate today's predictions
         env:
@@ -35,10 +49,22 @@ jobs:
           BALLDONTLIE_API_KEY: ${{ secrets.BALLDONTLIE_API_KEY }}
         run: python3 scripts/resolve_predictions.py
 
-      - name: Commit updated data
+      - name: Push real picks + archive to the private repo
+        run: |
+          mkdir -p private_data/archive
+          cp private_picks.json private_data/private_picks.json
+          cp archive/*.json private_data/archive/ 2>/dev/null || true
+          cd private_data
+          git config user.name "money-odds-bot"
+          git config user.email "actions@github.com"
+          git add private_picks.json archive/
+          git diff --quiet --cached || git commit -m "Auto-update private picks [skip ci]"
+          git push
+
+      - name: Commit safe/public data only
         run: |
           git config user.name "money-odds-bot"
           git config user.email "actions@github.com"
-          git add predictions.json history.json fixtures.json match_details.json archive/
+          git add predictions.json history.json fixtures.json match_details.json
           git diff --quiet --cached || git commit -m "Auto-update predictions [skip ci]"
           git push
