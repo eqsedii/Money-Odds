@@ -78,6 +78,16 @@
   .card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
   .sport-tag{font-size:12px;font-weight:700;color:var(--cyan);background:var(--cyan-soft);padding:4px 10px;border-radius:6px;}
   .kickoff{font-size:12px;color:var(--text-dim);}
+  .live-badge{
+    display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:#E8536B;
+  }
+  .live-badge::before{
+    content:'';width:7px;height:7px;border-radius:50%;background:#E8536B;
+    box-shadow:0 0 8px #E8536B;animation:livePulse 1.4s infinite;
+  }
+  @keyframes livePulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+  .filter-btn.live-tab.active{background:#E8536B;border-color:#E8536B;box-shadow:0 0 16px rgba(232,83,107,0.35);}
+  .card.is-live{border-color:rgba(232,83,107,0.4);}
   .card-match{font-size:19px;font-weight:600;font-family:'Space Grotesk',sans-serif;margin-bottom:4px;}
   .card-league{font-size:13px;color:var(--text-dim);margin-bottom:18px;}
   .card-divider{border-top:1px dashed var(--line);margin:0 0 16px;}
@@ -198,6 +208,7 @@
     <button class="filter-btn active" data-sport="all">All Sports</button>
     <button class="filter-btn" data-sport="Football">⚽ Football</button>
     <button class="filter-btn" data-sport="Basketball">🏀 Basketball</button>
+    <button class="filter-btn live-tab" data-sport="Live">🔴 Live</button>
     <button class="filter-btn" data-sport="Multi">🔥 Multi-Bets</button>
   </div>
 
@@ -263,6 +274,18 @@
     `;
   }
 
+  const LIVE_WINDOW_MS = 3 * 60 * 60 * 1000; // assume a match wraps up within 3 hours of kickoff
+
+  function matchState(kickoffIso){
+    if(!kickoffIso) return 'upcoming';
+    const kt = new Date(kickoffIso).getTime();
+    if(isNaN(kt)) return 'upcoming';
+    const now = Date.now();
+    if(kt > now) return 'upcoming';
+    if(now - kt <= LIVE_WINDOW_MS) return 'live';
+    return 'finished';
+  }
+
   function render(sport){
     if(sport === 'Multi'){
       cardsEl.style.display = multiBets.length ? 'grid' : 'none';
@@ -270,14 +293,29 @@
       cardsEl.innerHTML = multiBets.map(multiCardHTML).join('');
       return;
     }
-    const filtered = sport === 'all' ? predictions : predictions.filter(p => p.sport === sport);
+    let filtered;
+    if(sport === 'Live'){
+      filtered = predictions.filter(p => matchState(p.kickoff) === 'live');
+    } else if(sport === 'all'){
+      filtered = predictions;
+    } else {
+      filtered = predictions.filter(p => p.sport === sport);
+    }
     cardsEl.style.display = filtered.length ? 'grid' : 'none';
     emptyEl.style.display = filtered.length ? 'none' : 'block';
-    cardsEl.innerHTML = filtered.map(p => `
-      <a class="card" href="match.html?id=${encodeURIComponent(p.id)}">
+    if(sport === 'Live' && !filtered.length){
+      emptyEl.textContent = 'Nothing live right now — check back once a predicted match kicks off.';
+    }
+    cardsEl.innerHTML = filtered.map(p => {
+      const state = matchState(p.kickoff);
+      const kickoffHTML = state === 'live'
+        ? '<span class="live-badge">LIVE</span>'
+        : formatKickoff(p.kickoff);
+      return `
+      <a class="card ${state === 'live' ? 'is-live' : ''}" href="match.html?id=${encodeURIComponent(p.id)}">
         <div class="card-top">
           <span class="sport-tag">${p.icon} ${p.sport}</span>
-          <span class="kickoff">${formatKickoff(p.kickoff)}</span>
+          <span class="kickoff">${kickoffHTML}</span>
         </div>
         <div class="card-match">${p.match}</div>
         <div class="card-league">${p.league}</div>
@@ -295,7 +333,8 @@
           <span>${p.confidence}%</span>
         </div>
       </a>
-    `).join('');
+    `;
+    }).join('');
   }
 
   document.getElementById('filters').addEventListener('click', function(e){
@@ -325,12 +364,14 @@
       predictions = all.filter(p => {
         if(!p.kickoff) return true;
         const kt = new Date(p.kickoff).getTime();
-        return isNaN(kt) || kt > now;
+        if(isNaN(kt)) return true;
+        return (now - kt) <= LIVE_WINDOW_MS; // keep upcoming + live, drop only truly finished
       });
+      const liveCount = predictions.filter(p => matchState(p.kickoff) === 'live').length;
       const stale = all.length - predictions.length;
       render('all');
       statusEl.className = 'data-status';
-      statusEl.innerHTML = `<span class="dot"></span> Live data · updated ${formatUpdated(data.generated_at)} · ${predictions.length} upcoming fixtures${stale ? ` (${stale} already kicked off, hidden)` : ''}`;
+      statusEl.innerHTML = `<span class="dot"></span> Live data · updated ${formatUpdated(data.generated_at)} · ${predictions.length} fixtures${liveCount ? ` · ${liveCount} live now` : ''}${stale ? ` · ${stale} finished, hidden` : ''}`;
     })
     .catch((err) => {
       predictions = [];
