@@ -27,7 +27,7 @@ BALLDONTLIE_BASE = "https://api.balldontlie.io/nba/v1"
 
 ARCHIVE_DIR = "archive"
 OUT_HISTORY = "history.json"
-MAX_HISTORY_ITEMS = 60
+MAX_HISTORY_ITEMS = 500  # every analyzed fixture gets graded now, not just the daily top 8
 
 
 def http_get_json(url, headers=None):
@@ -179,6 +179,7 @@ def main():
                 continue
             history.append({
                 "date": date_str,
+                "id": entry.get("id"),
                 "sport": entry["sport"],
                 "match": entry["match"],
                 "league": entry["league"],

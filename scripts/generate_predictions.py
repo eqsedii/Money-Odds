@@ -587,13 +587,14 @@ def main():
             "multi_bets": multis,  # full version, with real picks + combined odds
         }, f, indent=2)
 
-    # Archive today's FULL picks (real pick data, needed for grading later) —
-    # this file also goes to the private repo, never the public one, since it
-    # would otherwise leak tomorrow's-still-upcoming picks in plain text.
+    # Archive EVERY analyzed fixture (not just the featured top picks) so the
+    # Track Record page reflects everything we actually predicted, not just
+    # the headline slate. This file goes to the private repo, never the
+    # public one, since it holds real pick data for still-upcoming games.
     os.makedirs("archive", exist_ok=True)
     today_str = datetime.date.today().isoformat()
     with open(os.path.join("archive", f"{today_str}.json"), "w") as f:
-        json.dump({"predictions": top_singles}, f, indent=2)
+        json.dump({"predictions": clean_fixtures}, f, indent=2)
 
     print(f"Wrote {len(clean_fixtures)} total fixtures ({len(public_fixtures)} public/redacted), "
           f"{len(top_singles)} featured picks, {len(multis)} multi-bets, "
