@@ -1,6 +1,56 @@
 {
-  "generated_at": "2026-09-07T22:41:35.430235Z",
+  "generated_at": "2026-09-08T07:33:44.734815Z",
   "fixtures": [
+    {
+      "id": 558233,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "NEC vs SBV Excelsior",
+      "home_team": "NEC",
+      "away_team": "SBV Excelsior",
+      "home_team_id": 1915,
+      "away_team_id": 670,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-09-08T16:45:00Z",
+      "pick": "BTTS - No",
+      "confidence": 100,
+      "fair_odds": 1.0,
+      "markets": [
+        {
+          "label": "BTTS - No",
+          "probability": 100
+        },
+        {
+          "label": "SBV Excelsior Win",
+          "probability": 94
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 71
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 29
+        },
+        {
+          "label": "Draw",
+          "probability": 3
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 0
+        },
+        {
+          "label": "NEC Win",
+          "probability": 0
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 0.0,
+        "away_expected_goals": 3.66
+      }
+    },
     {
       "id": 561821,
       "sport": "Football",
@@ -552,6 +602,206 @@
       }
     },
     {
+      "id": 555001,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "EC Bahia vs Clube do Remo",
+      "home_team": "EC Bahia",
+      "away_team": "Clube do Remo",
+      "home_team_id": 1777,
+      "away_team_id": 4287,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-09-12T00:00:00Z",
+      "pick": "EC Bahia Win",
+      "confidence": 65,
+      "fair_odds": 1.55,
+      "markets": [
+        {
+          "label": "EC Bahia Win",
+          "probability": 65
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 56
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 51
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 49
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 44
+        },
+        {
+          "label": "Draw",
+          "probability": 20
+        },
+        {
+          "label": "Clube do Remo Win",
+          "probability": 15
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 2.06,
+        "away_expected_goals": 0.88
+      }
+    },
+    {
+      "id": 555004,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Coritiba FBC vs CA Paranaense",
+      "home_team": "Coritiba FBC",
+      "away_team": "CA Paranaense",
+      "home_team_id": 4241,
+      "away_team_id": 1768,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-09-12T00:00:00Z",
+      "pick": "Under 2.5 Goals",
+      "confidence": 57,
+      "fair_odds": 1.75,
+      "markets": [
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 57
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 52
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 48
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 43
+        },
+        {
+          "label": "CA Paranaense Win",
+          "probability": 39
+        },
+        {
+          "label": "Coritiba FBC Win",
+          "probability": 33
+        },
+        {
+          "label": "Draw",
+          "probability": 28
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 1.14,
+        "away_expected_goals": 1.25
+      }
+    },
+    {
+      "id": 555005,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "CR Flamengo vs SC Corinthians Paulista",
+      "home_team": "CR Flamengo",
+      "away_team": "SC Corinthians Paulista",
+      "home_team_id": 1783,
+      "away_team_id": 1779,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-09-12T00:00:00Z",
+      "pick": "BTTS - No",
+      "confidence": 63,
+      "fair_odds": 1.59,
+      "markets": [
+        {
+          "label": "BTTS - No",
+          "probability": 63
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 62
+        },
+        {
+          "label": "CR Flamengo Win",
+          "probability": 60
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 38
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 37
+        },
+        {
+          "label": "Draw",
+          "probability": 25
+        },
+        {
+          "label": "SC Corinthians Paulista Win",
+          "probability": 15
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 1.56,
+        "away_expected_goals": 0.64
+      }
+    },
+    {
+      "id": 555007,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Mirassol FC vs EC Vit\u00f3ria",
+      "home_team": "Mirassol FC",
+      "away_team": "EC Vit\u00f3ria",
+      "home_team_id": 4364,
+      "away_team_id": 1782,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-09-12T00:00:00Z",
+      "pick": "Mirassol FC Win",
+      "confidence": 63,
+      "fair_odds": 1.58,
+      "markets": [
+        {
+          "label": "Mirassol FC Win",
+          "probability": 63
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 54
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 50
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 50
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 46
+        },
+        {
+          "label": "Draw",
+          "probability": 22
+        },
+        {
+          "label": "EC Vit\u00f3ria Win",
+          "probability": 15
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 1.88,
+        "away_expected_goals": 0.79
+      }
+    },
+    {
       "id": 561835,
       "sport": "Football",
       "icon": "\u26bd",
@@ -1052,6 +1302,56 @@
       }
     },
     {
+      "id": 567306,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "CD Nacional vs FC Alverca",
+      "home_team": "CD Nacional",
+      "away_team": "FC Alverca",
+      "home_team_id": 5529,
+      "away_team_id": 7822,
+      "league": "Primeira Liga",
+      "comp_code": "PPL",
+      "kickoff": "2026-09-12T14:30:00Z",
+      "pick": "CD Nacional Win",
+      "confidence": 88,
+      "fair_odds": 1.14,
+      "markets": [
+        {
+          "label": "CD Nacional Win",
+          "probability": 88
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 82
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 57
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 43
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 18
+        },
+        {
+          "label": "Draw",
+          "probability": 6
+        },
+        {
+          "label": "FC Alverca Win",
+          "probability": 2
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 3.82,
+        "away_expected_goals": 0.58
+      }
+    },
+    {
       "id": 564676,
       "sport": "Football",
       "icon": "\u26bd",
@@ -1102,6 +1402,156 @@
       }
     },
     {
+      "id": 558897,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Go Ahead Eagles vs FC Groningen",
+      "home_team": "Go Ahead Eagles",
+      "away_team": "FC Groningen",
+      "home_team_id": 718,
+      "away_team_id": 677,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-09-12T16:45:00Z",
+      "pick": "Over 2.5 Goals",
+      "confidence": 98,
+      "fair_odds": 1.02,
+      "markets": [
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 98
+        },
+        {
+          "label": "Go Ahead Eagles Win",
+          "probability": 67
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 65
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 35
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 2
+        },
+        {
+          "label": "Draw",
+          "probability": 2
+        },
+        {
+          "label": "FC Groningen Win",
+          "probability": 1
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 6.33,
+        "away_expected_goals": 1.05
+      }
+    },
+    {
+      "id": 567307,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Casa Pia AC vs FC Porto",
+      "home_team": "Casa Pia AC",
+      "away_team": "FC Porto",
+      "home_team_id": 6618,
+      "away_team_id": 503,
+      "league": "Primeira Liga",
+      "comp_code": "PPL",
+      "kickoff": "2026-09-12T17:00:00Z",
+      "pick": "BTTS - No",
+      "confidence": 100,
+      "fair_odds": 1.0,
+      "markets": [
+        {
+          "label": "BTTS - No",
+          "probability": 100
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 98
+        },
+        {
+          "label": "FC Porto Win",
+          "probability": 48
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 2
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 0
+        },
+        {
+          "label": "Casa Pia AC Win",
+          "probability": 0
+        },
+        {
+          "label": "Draw",
+          "probability": 0
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 0.0,
+        "away_expected_goals": 7.78
+      }
+    },
+    {
+      "id": 558896,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Fortuna Sittard vs AFC Ajax",
+      "home_team": "Fortuna Sittard",
+      "away_team": "AFC Ajax",
+      "home_team_id": 1920,
+      "away_team_id": 678,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-09-12T18:00:00Z",
+      "pick": "BTTS - No",
+      "confidence": 100,
+      "fair_odds": 1.0,
+      "markets": [
+        {
+          "label": "BTTS - No",
+          "probability": 100
+        },
+        {
+          "label": "AFC Ajax Win",
+          "probability": 85
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 71
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 29
+        },
+        {
+          "label": "Draw",
+          "probability": 15
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 0
+        },
+        {
+          "label": "Fortuna Sittard Win",
+          "probability": 0
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 0.0,
+        "away_expected_goals": 1.88
+      }
+    },
+    {
       "id": 564677,
       "sport": "Football",
       "icon": "\u26bd",
@@ -1149,6 +1599,456 @@
       "expected_goals": {
         "home_expected_goals": 8.08,
         "away_expected_goals": 0.59
+      }
+    },
+    {
+      "id": 558892,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "SC Cambuur-Leeuwarden vs NEC",
+      "home_team": "SC Cambuur-Leeuwarden",
+      "away_team": "NEC",
+      "home_team_id": 1909,
+      "away_team_id": 1915,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-09-12T19:00:00Z",
+      "pick": "Over 2.5 Goals",
+      "confidence": 97,
+      "fair_odds": 1.03,
+      "markets": [
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 97
+        },
+        {
+          "label": "NEC Win",
+          "probability": 68
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 55
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 45
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 3
+        },
+        {
+          "label": "Draw",
+          "probability": 1
+        },
+        {
+          "label": "SC Cambuur-Leeuwarden Win",
+          "probability": 0
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 0.6,
+        "away_expected_goals": 6.35
+      }
+    },
+    {
+      "id": 555000,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "CA Mineiro vs Fluminense FC",
+      "home_team": "CA Mineiro",
+      "away_team": "Fluminense FC",
+      "home_team_id": 1766,
+      "away_team_id": 1765,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-09-12T19:00:00Z",
+      "pick": "BTTS - Yes",
+      "confidence": 64,
+      "fair_odds": 1.57,
+      "markets": [
+        {
+          "label": "BTTS - Yes",
+          "probability": 64
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 63
+        },
+        {
+          "label": "CA Mineiro Win",
+          "probability": 43
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 37
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 36
+        },
+        {
+          "label": "Fluminense FC Win",
+          "probability": 33
+        },
+        {
+          "label": "Draw",
+          "probability": 23
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 1.73,
+        "away_expected_goals": 1.49
+      }
+    },
+    {
+      "id": 555006,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Gr\u00eamio FBPA vs CR Vasco da Gama",
+      "home_team": "Gr\u00eamio FBPA",
+      "away_team": "CR Vasco da Gama",
+      "home_team_id": 1767,
+      "away_team_id": 1780,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-09-12T19:00:00Z",
+      "pick": "Gr\u00eamio FBPA Win",
+      "confidence": 65,
+      "fair_odds": 1.54,
+      "markets": [
+        {
+          "label": "Gr\u00eamio FBPA Win",
+          "probability": 65
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 60
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 54
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 46
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 40
+        },
+        {
+          "label": "Draw",
+          "probability": 20
+        },
+        {
+          "label": "CR Vasco da Gama Win",
+          "probability": 15
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 2.14,
+        "away_expected_goals": 0.94
+      }
+    },
+    {
+      "id": 567309,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Acad\u00e9mico de Viseu FC vs Vit\u00f3ria SC",
+      "home_team": "Acad\u00e9mico de Viseu FC",
+      "away_team": "Vit\u00f3ria SC",
+      "home_team_id": 5527,
+      "away_team_id": 5543,
+      "league": "Primeira Liga",
+      "comp_code": "PPL",
+      "kickoff": "2026-09-12T19:30:00Z",
+      "pick": "BTTS - No",
+      "confidence": 100,
+      "fair_odds": 1.0,
+      "markets": [
+        {
+          "label": "BTTS - No",
+          "probability": 100
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 79
+        },
+        {
+          "label": "Vit\u00f3ria SC Win",
+          "probability": 79
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 21
+        },
+        {
+          "label": "Draw",
+          "probability": 21
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 0
+        },
+        {
+          "label": "Acad\u00e9mico de Viseu FC Win",
+          "probability": 0
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 0.0,
+        "away_expected_goals": 1.56
+      }
+    },
+    {
+      "id": 555003,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Chapecoense AF vs SC Internacional",
+      "home_team": "Chapecoense AF",
+      "away_team": "SC Internacional",
+      "home_team_id": 1772,
+      "away_team_id": 6684,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-09-12T20:00:00Z",
+      "pick": "Over 2.5 Goals",
+      "confidence": 66,
+      "fair_odds": 1.51,
+      "markets": [
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 66
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 65
+        },
+        {
+          "label": "SC Internacional Win",
+          "probability": 50
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 35
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 34
+        },
+        {
+          "label": "Chapecoense AF Win",
+          "probability": 28
+        },
+        {
+          "label": "Draw",
+          "probability": 22
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 1.42,
+        "away_expected_goals": 1.98
+      }
+    },
+    {
+      "id": 555008,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "SE Palmeiras vs S\u00e3o Paulo FC",
+      "home_team": "SE Palmeiras",
+      "away_team": "S\u00e3o Paulo FC",
+      "home_team_id": 1769,
+      "away_team_id": 1776,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-09-12T21:30:00Z",
+      "pick": "BTTS - No",
+      "confidence": 66,
+      "fair_odds": 1.52,
+      "markets": [
+        {
+          "label": "BTTS - No",
+          "probability": 66
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 63
+        },
+        {
+          "label": "SE Palmeiras Win",
+          "probability": 63
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 37
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 34
+        },
+        {
+          "label": "Draw",
+          "probability": 24
+        },
+        {
+          "label": "S\u00e3o Paulo FC Win",
+          "probability": 12
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 1.62,
+        "away_expected_goals": 0.56
+      }
+    },
+    {
+      "id": 555002,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Botafogo FR vs RB Bragantino",
+      "home_team": "Botafogo FR",
+      "away_team": "RB Bragantino",
+      "home_team_id": 1770,
+      "away_team_id": 4286,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-09-12T23:30:00Z",
+      "pick": "Under 2.5 Goals",
+      "confidence": 53,
+      "fair_odds": 1.88,
+      "markets": [
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 53
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 52
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 48
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 47
+        },
+        {
+          "label": "Botafogo FR Win",
+          "probability": 38
+        },
+        {
+          "label": "RB Bragantino Win",
+          "probability": 35
+        },
+        {
+          "label": "Draw",
+          "probability": 27
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 1.3,
+        "away_expected_goals": 1.25
+      }
+    },
+    {
+      "id": 555009,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Santos FC vs Cruzeiro EC",
+      "home_team": "Santos FC",
+      "away_team": "Cruzeiro EC",
+      "home_team_id": 6685,
+      "away_team_id": 1771,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-09-13T00:00:00Z",
+      "pick": "BTTS - Yes",
+      "confidence": 59,
+      "fair_odds": 1.69,
+      "markets": [
+        {
+          "label": "BTTS - Yes",
+          "probability": 59
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 57
+        },
+        {
+          "label": "Santos FC Win",
+          "probability": 44
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 43
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 41
+        },
+        {
+          "label": "Cruzeiro EC Win",
+          "probability": 32
+        },
+        {
+          "label": "Draw",
+          "probability": 24
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 1.62,
+        "away_expected_goals": 1.34
+      }
+    },
+    {
+      "id": 558894,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "SBV Excelsior vs FC Utrecht",
+      "home_team": "SBV Excelsior",
+      "away_team": "FC Utrecht",
+      "home_team_id": 670,
+      "away_team_id": 676,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-09-13T10:15:00Z",
+      "pick": "Over 2.5 Goals",
+      "confidence": 68,
+      "fair_odds": 1.47,
+      "markets": [
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 68
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 64
+        },
+        {
+          "label": "SBV Excelsior Win",
+          "probability": 60
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 36
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 32
+        },
+        {
+          "label": "Draw",
+          "probability": 20
+        },
+        {
+          "label": "FC Utrecht Win",
+          "probability": 20
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 2.26,
+        "away_expected_goals": 1.26
       }
     },
     {
@@ -1252,6 +2152,56 @@
       }
     },
     {
+      "id": 558891,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "PEC Zwolle vs Feyenoord Rotterdam",
+      "home_team": "PEC Zwolle",
+      "away_team": "Feyenoord Rotterdam",
+      "home_team_id": 684,
+      "away_team_id": 675,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-09-13T14:45:00Z",
+      "pick": "Feyenoord Rotterdam Win",
+      "confidence": 90,
+      "fair_odds": 1.11,
+      "markets": [
+        {
+          "label": "Feyenoord Rotterdam Win",
+          "probability": 90
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 75
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 67
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 33
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 25
+        },
+        {
+          "label": "Draw",
+          "probability": 7
+        },
+        {
+          "label": "PEC Zwolle Win",
+          "probability": 2
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 0.3,
+        "away_expected_goals": 3.14
+      }
+    },
+    {
       "id": 564668,
       "sport": "Football",
       "icon": "\u26bd",
@@ -1302,6 +2252,106 @@
       }
     },
     {
+      "id": 567310,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "FC Arouca vs CD Santa Clara",
+      "home_team": "FC Arouca",
+      "away_team": "CD Santa Clara",
+      "home_team_id": 712,
+      "away_team_id": 5530,
+      "league": "Primeira Liga",
+      "comp_code": "PPL",
+      "kickoff": "2026-09-13T17:00:00Z",
+      "pick": "Under 2.5 Goals",
+      "confidence": 80,
+      "fair_odds": 1.25,
+      "markets": [
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 80
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 78
+        },
+        {
+          "label": "FC Arouca Win",
+          "probability": 55
+        },
+        {
+          "label": "Draw",
+          "probability": 32
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 22
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 20
+        },
+        {
+          "label": "CD Santa Clara Win",
+          "probability": 13
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 1.15,
+        "away_expected_goals": 0.39
+      }
+    },
+    {
+      "id": 558893,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "PSV vs Sparta Rotterdam",
+      "home_team": "PSV",
+      "away_team": "Sparta Rotterdam",
+      "home_team_id": 674,
+      "away_team_id": 6806,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-09-13T18:00:00Z",
+      "pick": "Over 2.5 Goals",
+      "confidence": 82,
+      "fair_odds": 1.22,
+      "markets": [
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 82
+        },
+        {
+          "label": "PSV Win",
+          "probability": 73
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 68
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 32
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 18
+        },
+        {
+          "label": "Draw",
+          "probability": 13
+        },
+        {
+          "label": "Sparta Rotterdam Win",
+          "probability": 12
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 3.17,
+        "away_expected_goals": 1.26
+      }
+    },
+    {
       "id": 564674,
       "sport": "Football",
       "icon": "\u26bd",
@@ -1349,6 +2399,106 @@
       "expected_goals": {
         "home_expected_goals": 1.15,
         "away_expected_goals": 0.59
+      }
+    },
+    {
+      "id": 567305,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "FC Famalic\u00e3o vs Sporting Clube de Portugal",
+      "home_team": "FC Famalic\u00e3o",
+      "away_team": "Sporting Clube de Portugal",
+      "home_team_id": 5531,
+      "away_team_id": 498,
+      "league": "Primeira Liga",
+      "comp_code": "PPL",
+      "kickoff": "2026-09-13T19:30:00Z",
+      "pick": "Sporting Clube de Portugal Win",
+      "confidence": 81,
+      "fair_odds": 1.23,
+      "markets": [
+        {
+          "label": "Sporting Clube de Portugal Win",
+          "probability": 81
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 71
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 51
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 49
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 29
+        },
+        {
+          "label": "Draw",
+          "probability": 14
+        },
+        {
+          "label": "FC Famalic\u00e3o Win",
+          "probability": 5
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 0.38,
+        "away_expected_goals": 2.33
+      }
+    },
+    {
+      "id": 567303,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Rio Ave FC vs CF Estrela da Amadora",
+      "home_team": "Rio Ave FC",
+      "away_team": "CF Estrela da Amadora",
+      "home_team_id": 496,
+      "away_team_id": 9136,
+      "league": "Primeira Liga",
+      "comp_code": "PPL",
+      "kickoff": "2026-09-14T17:45:00Z",
+      "pick": "BTTS - No",
+      "confidence": 100,
+      "fair_odds": 1.0,
+      "markets": [
+        {
+          "label": "BTTS - No",
+          "probability": 100
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 93
+        },
+        {
+          "label": "CF Estrela da Amadora Win",
+          "probability": 76
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 7
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 0
+        },
+        {
+          "label": "Rio Ave FC Win",
+          "probability": 0
+        },
+        {
+          "label": "Draw",
+          "probability": 0
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 0.0,
+        "away_expected_goals": 5.83
       }
     },
     {
@@ -1652,6 +2802,56 @@
       }
     },
     {
+      "id": 554941,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Botafogo FR vs Gr\u00eamio FBPA",
+      "home_team": "Botafogo FR",
+      "away_team": "Gr\u00eamio FBPA",
+      "home_team_id": 1770,
+      "away_team_id": 1767,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-09-16T22:30:00Z",
+      "pick": "BTTS - No",
+      "confidence": 65,
+      "fair_odds": 1.54,
+      "markets": [
+        {
+          "label": "BTTS - No",
+          "probability": 65
+        },
+        {
+          "label": "Botafogo FR Win",
+          "probability": 63
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 62
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 38
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 35
+        },
+        {
+          "label": "Draw",
+          "probability": 24
+        },
+        {
+          "label": "Gr\u00eamio FBPA Win",
+          "probability": 13
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 1.63,
+        "away_expected_goals": 0.58
+      }
+    },
+    {
       "id": 564686,
       "sport": "Football",
       "icon": "\u26bd",
@@ -1749,6 +2949,206 @@
       "expected_goals": {
         "home_expected_goals": 0.48,
         "away_expected_goals": 0.53
+      }
+    },
+    {
+      "id": 558888,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "FC Groningen vs PEC Zwolle",
+      "home_team": "FC Groningen",
+      "away_team": "PEC Zwolle",
+      "home_team_id": 677,
+      "away_team_id": 684,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-09-18T18:00:00Z",
+      "pick": "Over 2.5 Goals",
+      "confidence": 66,
+      "fair_odds": 1.51,
+      "markets": [
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 66
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 65
+        },
+        {
+          "label": "FC Groningen Win",
+          "probability": 52
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 35
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 34
+        },
+        {
+          "label": "PEC Zwolle Win",
+          "probability": 27
+        },
+        {
+          "label": "Draw",
+          "probability": 22
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 2.01,
+        "away_expected_goals": 1.39
+      }
+    },
+    {
+      "id": 560591,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Brentford FC vs Chelsea FC",
+      "home_team": "Brentford FC",
+      "away_team": "Chelsea FC",
+      "home_team_id": 402,
+      "away_team_id": 61,
+      "league": "Premier League",
+      "comp_code": "PL",
+      "kickoff": "2026-09-18T19:00:00Z",
+      "pick": "Brentford FC Win",
+      "confidence": 74,
+      "fair_odds": 1.36,
+      "markets": [
+        {
+          "label": "Brentford FC Win",
+          "probability": 74
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 64
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 51
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 49
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 36
+        },
+        {
+          "label": "Draw",
+          "probability": 16
+        },
+        {
+          "label": "Chelsea FC Win",
+          "probability": 10
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 2.5,
+        "away_expected_goals": 0.81
+      }
+    },
+    {
+      "id": 564692,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "RCD Espanyol de Barcelona vs Elche CF",
+      "home_team": "RCD Espanyol de Barcelona",
+      "away_team": "Elche CF",
+      "home_team_id": 80,
+      "away_team_id": 285,
+      "league": "Primera Division",
+      "comp_code": "PD",
+      "kickoff": "2026-09-18T19:00:00Z",
+      "pick": "Over 2.5 Goals",
+      "confidence": 60,
+      "fair_odds": 1.67,
+      "markets": [
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 60
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 59
+        },
+        {
+          "label": "RCD Espanyol de Barcelona Win",
+          "probability": 55
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 41
+        },
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 40
+        },
+        {
+          "label": "Elche CF Win",
+          "probability": 23
+        },
+        {
+          "label": "Draw",
+          "probability": 22
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 1.92,
+        "away_expected_goals": 1.18
+      }
+    },
+    {
+      "id": 561845,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Bristol City FC vs Watford FC",
+      "home_team": "Bristol City FC",
+      "away_team": "Watford FC",
+      "home_team_id": 387,
+      "away_team_id": 346,
+      "league": "Championship",
+      "comp_code": "ELC",
+      "kickoff": "2026-09-18T19:00:00Z",
+      "pick": "Under 2.5 Goals",
+      "confidence": 87,
+      "fair_odds": 1.15,
+      "markets": [
+        {
+          "label": "Under 2.5 Goals",
+          "probability": 87
+        },
+        {
+          "label": "BTTS - No",
+          "probability": 82
+        },
+        {
+          "label": "Bristol City FC Win",
+          "probability": 44
+        },
+        {
+          "label": "Draw",
+          "probability": 40
+        },
+        {
+          "label": "BTTS - Yes",
+          "probability": 18
+        },
+        {
+          "label": "Watford FC Win",
+          "probability": 16
+        },
+        {
+          "label": "Over 2.5 Goals",
+          "probability": 13
+        }
+      ],
+      "expected_goals": {
+        "home_expected_goals": 0.83,
+        "away_expected_goals": 0.39
       }
     }
   ]
