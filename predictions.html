@@ -320,10 +320,17 @@
       return r.json();
     })
     .then(data => {
-      predictions = data.fixtures || [];
+      const now = Date.now();
+      const all = data.fixtures || [];
+      predictions = all.filter(p => {
+        if(!p.kickoff) return true;
+        const kt = new Date(p.kickoff).getTime();
+        return isNaN(kt) || kt > now;
+      });
+      const stale = all.length - predictions.length;
       render('all');
       statusEl.className = 'data-status';
-      statusEl.innerHTML = `<span class="dot"></span> Live data · updated ${formatUpdated(data.generated_at)} · ${predictions.length} fixtures analyzed`;
+      statusEl.innerHTML = `<span class="dot"></span> Live data · updated ${formatUpdated(data.generated_at)} · ${predictions.length} upcoming fixtures${stale ? ` (${stale} already kicked off, hidden)` : ''}`;
     })
     .catch((err) => {
       predictions = [];

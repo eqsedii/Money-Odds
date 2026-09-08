@@ -1,0 +1,70 @@
+name: Update Money Odds Predictions
+
+on:
+  schedule:
+    # 06:00 EAT (03:00 UTC) — generate today's picks
+    - cron: '0 3 * * *'
+    # 23:00 EAT (20:00 UTC) — resolve yesterday's / earlier picks against real results
+    - cron: '0 20 * * *'
+  workflow_dispatch: {}   # lets you trigger it manually from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  update-predictions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out public repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Check out private repo (real picks live here, never publicly)
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.PRIVATE_REPO }}
+          token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          path: private_data
+
+      - name: Restore archive history from the private repo
+        run: |
+          mkdir -p archive
+          if [ -d private_data/archive ]; then
+            cp -n private_data/archive/*.json archive/ 2>/dev/null || true
+          fi
+
+      - name: Generate today's predictions
+        env:
+          FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+          BALLDONTLIE_API_KEY: ${{ secrets.BALLDONTLIE_API_KEY }}
+        run: python3 scripts/generate_predictions.py
+
+      - name: Resolve past predictions against real results
+        env:
+          FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+          BALLDONTLIE_API_KEY: ${{ secrets.BALLDONTLIE_API_KEY }}
+        run: python3 scripts/resolve_predictions.py
+
+      - name: Push real picks + archive to the private repo
+        run: |
+          mkdir -p private_data/archive
+          cp private_picks.json private_data/private_picks.json
+          cp archive/*.json private_data/archive/ 2>/dev/null || true
+          cd private_data
+          git config user.name "money-odds-bot"
+          git config user.email "actions@github.com"
+          git add private_picks.json archive/
+          git diff --quiet --cached || git commit -m "Auto-update private picks [skip ci]"
+          git push
+
+      - name: Commit safe/public data only
+        run: |
+          git config user.name "money-odds-bot"
+          git config user.email "actions@github.com"
+          git add predictions.json history.json fixtures.json match_details.json
+          git diff --quiet --cached || git commit -m "Auto-update predictions [skip ci]"
+          git push
