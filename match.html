@@ -110,9 +110,32 @@
 
   footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);font-size:13px;}
   .footer-grid{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+
+  .site-bg-video{
+    position:fixed;inset:0;width:100%;height:100%;
+    object-fit:cover;opacity:0.7;z-index:-2;pointer-events:none;
+  }
+  .site-bg-overlay{
+    position:fixed;inset:0;z-index:-1;
+    background:linear-gradient(180deg,rgba(10,14,20,0.55) 0%,rgba(10,14,20,0.72) 40%,var(--bg) 85%);
+    pointer-events:none;
+  }
+  .loader-overlay{
+    position:fixed;inset:0;z-index:999;
+    background:rgba(10,14,20,0.8);backdrop-filter:blur(4px);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;pointer-events:none;transition:opacity .25s ease;
+  }
+  .loader-overlay.active{opacity:1;pointer-events:all;}
+  .loader-video{width:150px;height:150px;object-fit:contain;}
 </style>
 </head>
 <body>
+
+<video class="site-bg-video" autoplay muted loop playsinline>
+  <source src="hero-bg.mp4" type="video/mp4">
+</video>
+<div class="site-bg-overlay"></div>
 
 <nav class="nav">
   <div class="wrap">
@@ -144,7 +167,16 @@
   </div>
 </footer>
 
+<div class="loader-overlay" id="loaderOverlay">
+  <video class="loader-video" autoplay muted loop playsinline>
+    <source src="loading-logo.mp4" type="video/mp4">
+  </video>
+</div>
+
 <script>
+  function showLoader(){ document.getElementById('loaderOverlay').classList.add('active'); }
+  function hideLoader(){ document.getElementById('loaderOverlay').classList.remove('active'); }
+  showLoader();
   document.getElementById('navToggle').addEventListener('click', function(){
     document.getElementById('navLinks').classList.toggle('open');
   });
@@ -195,8 +227,8 @@
   }
 
   function render(fixture, details){
+    const locked = fixture.pick === undefined;
     const markets = fixture.markets || [];
-    const topLabel = markets[0] ? markets[0].label : fixture.pick;
 
     const marketsHTML = markets.map(m => `
       <div class="market-row ${m.label === fixture.pick ? 'best' : ''}">
@@ -221,13 +253,15 @@
         </div>`;
     }
 
-    contentEl.innerHTML = `
-      <div class="match-head">
-        <div class="match-league">${fixture.icon || ''} ${fixture.league}</div>
-        <h1 class="match-title">${fixture.match}</h1>
-        <div class="match-kickoff">${formatKickoff(fixture.kickoff)}</div>
+    const predictCardHTML = locked ? `
+      <div class="predict-card">
+        <div class="predict-label">MONEY ODDS PICK</div>
+        <div class="predict-pick">🔒 Locked</div>
+        <div class="predict-row">
+          <div style="color:var(--text-dim);font-size:14px;">Subscribe for Ksh 59 (7 days, all matches) to see our pick, confidence, model odds, and the full market breakdown for this fixture.</div>
+        </div>
       </div>
-
+    ` : `
       <div class="predict-card">
         <div class="predict-label">MONEY ODDS PICK</div>
         <div class="predict-pick">${fixture.pick}</div>
@@ -237,11 +271,24 @@
           ${scoreLineHTML}
         </div>
       </div>
+    `;
 
+    const marketsSectionHTML = locked ? '' : `
       <div class="section">
         <div class="section-title">📊 Full Market Breakdown</div>
         <div class="markets-list">${marketsHTML}</div>
       </div>
+    `;
+
+    contentEl.innerHTML = `
+      <div class="match-head">
+        <div class="match-league">${fixture.icon || ''} ${fixture.league}</div>
+        <h1 class="match-title">${fixture.match}</h1>
+        <div class="match-kickoff">${formatKickoff(fixture.kickoff)}</div>
+      </div>
+
+      ${predictCardHTML}
+      ${marketsSectionHTML}
 
       <div class="section">
         <div class="section-title">📈 Recent Form</div>
@@ -262,6 +309,7 @@
 
   if(!matchId){
     contentEl.innerHTML = '<div class="error-state">No match specified.</div>';
+    hideLoader();
   } else {
     Promise.all([
       fetch('fixtures.json?_=' + Date.now()).then(r => r.ok ? r.json() : Promise.reject()),
@@ -272,13 +320,16 @@
         const details = detailsData[String(matchId)] || { home_recent: [], away_recent: [], h2h: null };
         if(!fixture){
           contentEl.innerHTML = '<div class="error-state">This match analysis is no longer available — it may have already kicked off or been superseded by a newer slate. <br><br><a href="predictions.html" style="color:var(--cyan);font-weight:600;">See today\'s predictions →</a></div>';
+          hideLoader();
           return;
         }
         document.title = `${fixture.match} — Money Odds`;
         render(fixture, details);
+        hideLoader();
       })
       .catch(() => {
         contentEl.innerHTML = '<div class="error-state">Couldn\'t load match data right now. Please try again shortly.</div>';
+        hideLoader();
       });
   }
 </script>

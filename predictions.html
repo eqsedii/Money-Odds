@@ -68,6 +68,8 @@
 
   /* PREDICTION CARDS */
   .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding-bottom:80px;}
+  .cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  @media (max-width:800px){.cards-grid{grid-template-columns:1fr;}}
   @media (max-width:800px){.cards{grid-template-columns:1fr;}}
   .card{
     display:block;cursor:pointer;
@@ -169,9 +171,40 @@
   }
   .data-status .dot{width:6px;height:6px;border-radius:50%;background:var(--win,#3DD68C);flex-shrink:0;}
   .data-status.error .dot{background:var(--loss);}
+
+  .site-bg-video{
+    position:fixed;inset:0;width:100%;height:100%;
+    object-fit:cover;opacity:0.7;z-index:-2;pointer-events:none;
+  }
+  .site-bg-overlay{
+    position:fixed;inset:0;z-index:-1;
+    background:linear-gradient(180deg,rgba(10,14,20,0.55) 0%,rgba(10,14,20,0.72) 40%,var(--bg) 85%);
+    pointer-events:none;
+  }
+  .loader-overlay{
+    position:fixed;inset:0;z-index:999;
+    background:rgba(10,14,20,0.8);backdrop-filter:blur(4px);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;pointer-events:none;transition:opacity .25s ease;
+  }
+  .loader-overlay.active{opacity:1;pointer-events:all;}
+  .loader-video{width:150px;height:150px;object-fit:contain;}
+
+  .date-group{margin-bottom:36px;}
+  .date-group-head{
+    display:flex;align-items:center;gap:12px;margin-bottom:16px;
+    font-size:13px;font-weight:700;color:var(--text-dim);letter-spacing:0.4px;text-transform:uppercase;
+  }
+  .date-group-head::after{content:'';flex:1;height:1px;background:var(--line);}
+  .date-group-head.is-today{color:var(--gold);}
 </style>
 </head>
 <body>
+
+<video class="site-bg-video" autoplay muted loop playsinline>
+  <source src="hero-bg.mp4" type="video/mp4">
+</video>
+<div class="site-bg-overlay"></div>
 
 <nav class="nav">
   <div class="wrap">
@@ -230,7 +263,16 @@
   </div>
 </footer>
 
+<div class="loader-overlay" id="loaderOverlay">
+  <video class="loader-video" autoplay muted loop playsinline>
+    <source src="loading-logo.mp4" type="video/mp4">
+  </video>
+</div>
+
 <script>
+  function showLoader(){ document.getElementById('loaderOverlay').classList.add('active'); }
+  function hideLoader(){ document.getElementById('loaderOverlay').classList.remove('active'); }
+  showLoader();
   document.getElementById('navToggle').addEventListener('click', function(){
     document.getElementById('navLinks').classList.toggle('open');
   });
@@ -257,7 +299,7 @@
           <div class="leg-match">${l.icon} ${l.match}</div>
           <div class="leg-meta">${l.meta}</div>
         </div>
-        <div class="leg-pick">${l.pick}</div>
+        <div class="leg-pick">${l.pick ?? '🔒'}</div>
       </a>
     `).join('');
     return `
@@ -286,6 +328,71 @@
     return 'finished';
   }
 
+  function cardHTML(p){
+    const state = matchState(p.kickoff);
+    const kickoffHTML = state === 'live'
+      ? '<span class="live-badge">LIVE</span>'
+      : formatKickoff(p.kickoff);
+    const locked = p.pick === undefined;
+    const pickBlock = locked
+      ? `<div class="pick-label">🔒 Locked</div><div class="pick-value" style="color:var(--text-dim);">Subscribe to unlock</div>`
+      : `<div class="pick-label">Our pick</div><div class="pick-value">${p.pick}</div>`;
+    const oddsBlock = locked
+      ? `<div class="odds">Model Fair Odds<br><b>🔒</b></div>`
+      : `<div class="odds">Model Fair Odds<br><b>${p.fair_odds ?? '—'}</b></div>`;
+    const confBlock = locked
+      ? `<div class="confidence"><span>Confidence</span><div class="conf-bar"><div class="conf-fill" style="width:0%"></div></div><span>🔒</span></div>`
+      : `<div class="confidence"><span>Confidence</span><div class="conf-bar"><div class="conf-fill" style="width:${p.confidence}%"></div></div><span>${p.confidence}%</span></div>`;
+    return `
+      <a class="card ${state === 'live' ? 'is-live' : ''}" href="match.html?id=${encodeURIComponent(p.id)}">
+        <div class="card-top">
+          <span class="sport-tag">${p.icon} ${p.sport}</span>
+          <span class="kickoff">${kickoffHTML}</span>
+        </div>
+        <div class="card-match">${p.match}</div>
+        <div class="card-league">${p.league}</div>
+        <div class="card-divider"></div>
+        <div class="card-row">
+          <div>
+            ${pickBlock}
+          </div>
+          ${oddsBlock}
+        </div>
+        ${confBlock}
+      </a>
+    `;
+  }
+
+  function dateGroupLabel(dateKey){
+    const today = new Date(); today.setHours(0,0,0,0);
+    const tomorrow = new Date(today); tomorrow.setDate(today.getDate() + 1);
+    const d = new Date(dateKey + 'T00:00:00');
+    if(dateKey === today.toISOString().slice(0,10)) return { label: 'Today', isToday: true };
+    if(dateKey === tomorrow.toISOString().slice(0,10)) return { label: 'Tomorrow', isToday: false };
+    return { label: d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' }), isToday: false };
+  }
+
+  function renderGrouped(filtered){
+    const groups = {};
+    filtered.forEach(p => {
+      let key = 'tbd';
+      if(p.kickoff){
+        const dt = new Date(p.kickoff);
+        if(!isNaN(dt.getTime())) key = dt.toISOString().slice(0,10);
+      }
+      (groups[key] = groups[key] || []).push(p);
+    });
+    const keys = Object.keys(groups).sort();
+    cardsEl.innerHTML = keys.map(key => {
+      const cards = groups[key].map(cardHTML).join('');
+      if(key === 'tbd'){
+        return `<div class="date-group"><div class="date-group-head">Date TBD</div><div class="cards-grid">${cards}</div></div>`;
+      }
+      const { label, isToday } = dateGroupLabel(key);
+      return `<div class="date-group"><div class="date-group-head ${isToday ? 'is-today' : ''}">${label}</div><div class="cards-grid">${cards}</div></div>`;
+    }).join('');
+  }
+
   function render(sport){
     if(sport === 'Multi'){
       cardsEl.style.display = multiBets.length ? 'grid' : 'none';
@@ -301,40 +408,18 @@
     } else {
       filtered = predictions.filter(p => p.sport === sport);
     }
-    cardsEl.style.display = filtered.length ? 'grid' : 'none';
+    const showGrouped = sport !== 'Live';
+    cardsEl.style.display = filtered.length ? 'block' : 'none';
     emptyEl.style.display = filtered.length ? 'none' : 'block';
     if(sport === 'Live' && !filtered.length){
       emptyEl.textContent = 'Nothing live right now — check back once a predicted match kicks off.';
     }
-    cardsEl.innerHTML = filtered.map(p => {
-      const state = matchState(p.kickoff);
-      const kickoffHTML = state === 'live'
-        ? '<span class="live-badge">LIVE</span>'
-        : formatKickoff(p.kickoff);
-      return `
-      <a class="card ${state === 'live' ? 'is-live' : ''}" href="match.html?id=${encodeURIComponent(p.id)}">
-        <div class="card-top">
-          <span class="sport-tag">${p.icon} ${p.sport}</span>
-          <span class="kickoff">${kickoffHTML}</span>
-        </div>
-        <div class="card-match">${p.match}</div>
-        <div class="card-league">${p.league}</div>
-        <div class="card-divider"></div>
-        <div class="card-row">
-          <div>
-            <div class="pick-label">Our pick</div>
-            <div class="pick-value">${p.pick}</div>
-          </div>
-          <div class="odds">Model Fair Odds<br><b>${p.fair_odds ?? '—'}</b></div>
-        </div>
-        <div class="confidence">
-          <span>Confidence</span>
-          <div class="conf-bar"><div class="conf-fill" style="width:${p.confidence}%"></div></div>
-          <span>${p.confidence}%</span>
-        </div>
-      </a>
-    `;
-    }).join('');
+    if(showGrouped){
+      renderGrouped(filtered);
+    } else {
+      cardsEl.style.display = filtered.length ? 'grid' : 'none';
+      cardsEl.innerHTML = filtered.map(cardHTML).join('');
+    }
   }
 
   document.getElementById('filters').addEventListener('click', function(e){
@@ -372,6 +457,7 @@
       render('all');
       statusEl.className = 'data-status';
       statusEl.innerHTML = `<span class="dot"></span> Live data · updated ${formatUpdated(data.generated_at)} · ${predictions.length} fixtures${liveCount ? ` · ${liveCount} live now` : ''}${stale ? ` · ${stale} finished, hidden` : ''}`;
+      hideLoader();
     })
     .catch((err) => {
       predictions = [];
@@ -379,6 +465,7 @@
       render('all');
       statusEl.className = 'data-status error';
       statusEl.innerHTML = `<span class="dot"></span> Couldn't load fixtures.json (${err.message}) — if this persists, the automation may not have run yet, or this page may be an older cached version.`;
+      hideLoader();
     });
 
   fetch('predictions.json?_=' + Date.now())

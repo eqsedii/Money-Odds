@@ -77,18 +77,37 @@
     .nav-cta{display:none;}
   }
 
-  /* HERO */
-  .hero{padding:64px 0 56px;position:relative;overflow:hidden;}
-  .hero-video{
-    position:absolute;inset:0;width:100%;height:100%;
-    object-fit:cover;opacity:0.4;
-    z-index:0;pointer-events:none;
+  /* SITE-WIDE BACKGROUND VIDEO — fixed behind everything, every page */
+  .site-bg-video{
+    position:fixed;inset:0;width:100%;height:100%;
+    object-fit:cover;opacity:0.7;
+    z-index:-2;pointer-events:none;
   }
-  .hero-overlay{
-    position:absolute;inset:0;z-index:0;
-    background:linear-gradient(180deg,rgba(10,14,20,0.55) 0%,rgba(10,14,20,0.75) 55%,var(--bg) 100%);
+  .site-bg-overlay{
+    position:fixed;inset:0;z-index:-1;
+    background:linear-gradient(180deg,rgba(10,14,20,0.55) 0%,rgba(10,14,20,0.72) 40%,var(--bg) 85%);
     pointer-events:none;
   }
+
+  /* WELCOME / BRAND INTRO */
+  .welcome{padding:56px 0 8px;text-align:center;position:relative;overflow:hidden;}
+  .welcome::before{
+    content:'';position:absolute;top:-160px;left:50%;transform:translateX(-50%);
+    width:640px;height:460px;
+    background:radial-gradient(ellipse,rgba(245,166,35,0.28) 0%,rgba(45,225,232,0.14) 45%,transparent 75%);
+    pointer-events:none;filter:blur(6px);
+  }
+  .welcome-logo{
+    width:min(340px,72vw);margin:0 auto;position:relative;
+    filter:drop-shadow(0 0 30px rgba(245,166,35,0.55)) drop-shadow(0 0 60px rgba(45,225,232,0.25));
+  }
+  .welcome-tag{
+    color:var(--text-dim);font-size:15px;margin-top:18px;position:relative;
+    max-width:440px;margin-left:auto;margin-right:auto;
+  }
+
+  /* HERO */
+  .hero{padding:32px 0 56px;position:relative;overflow:hidden;}
   .hero::before{
     content:'';position:absolute;top:-200px;right:-150px;width:500px;height:500px;
     background:radial-gradient(circle,rgba(45,225,232,0.15),transparent 70%);
@@ -243,9 +262,22 @@
     background:var(--bg-raised);border:1px solid var(--line);border-radius:10px;
     padding:14px 18px;font-size:12.5px;color:var(--text-dim);margin-top:20px;line-height:1.6;
   }
+  .loader-overlay{
+    position:fixed;inset:0;z-index:999;
+    background:rgba(10,14,20,0.8);backdrop-filter:blur(4px);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;pointer-events:none;transition:opacity .25s ease;
+  }
+  .loader-overlay.active{opacity:1;pointer-events:all;}
+  .loader-video{width:150px;height:150px;object-fit:contain;}
 </style>
 </head>
 <body>
+
+<video class="site-bg-video" autoplay muted loop playsinline>
+  <source src="hero-bg.mp4" type="video/mp4">
+</video>
+<div class="site-bg-overlay"></div>
 
 <nav class="nav">
   <div class="wrap">
@@ -262,17 +294,19 @@
   </div>
 </nav>
 
+<section class="welcome">
+  <div class="wrap">
+    <img src="logo-transparent.webp" alt="Money Odds — Predict Greatness" class="welcome-logo">
+    <p class="welcome-tag">Welcome to Money Odds — where every prediction is backed by real statistics, not guesswork.</p>
+  </div>
+</section>
+
 <section class="hero">
-  <video class="hero-video" autoplay muted loop playsinline poster="logo-hero.webp">
-    <source src="hero-bg.mp4" type="video/mp4">
-  </video>
-  <div class="hero-overlay"></div>
   <div class="wrap hero-grid">
     <div>
-      <img src="logo-hero.webp" alt="Money Odds — Predict Greatness" style="height:120px;width:auto;margin-bottom:24px;">
       <div class="eyebrow">DAILY MATCH ANALYSIS</div>
       <h1>Predictions built on data, not gut feeling.</h1>
-      <p>Money Odds breaks down football, basketball and tennis matchups every day, and publishes every result — win or lose — so you can see exactly how we perform.</p>
+      <p>Money Odds breaks down football and basketball matchups every day, and publishes every result — win or lose — so you can see exactly how we perform.</p>
       <div class="hero-actions">
         <a href="predictions.html" class="btn-primary">See today's picks</a>
         <a href="track-record.html" class="btn-secondary">View track record</a>
@@ -390,7 +424,18 @@
   </div>
 </footer>
 
+<div class="loader-overlay" id="loaderOverlay">
+  <video class="loader-video" autoplay muted loop playsinline>
+    <source src="loading-logo.mp4" type="video/mp4">
+  </video>
+</div>
+
 <script>
+  function showLoader(){ document.getElementById('loaderOverlay').classList.add('active'); }
+  function hideLoader(){ document.getElementById('loaderOverlay').classList.remove('active'); }
+  showLoader();
+  let _pendingLoads = 2; // predictions.json + history.json
+  function _loadDone(){ _pendingLoads--; if(_pendingLoads <= 0) hideLoader(); }
   // Mobile nav toggle
   document.getElementById('navToggle').addEventListener('click', function(){
     document.getElementById('navLinks').classList.toggle('open');
@@ -420,8 +465,8 @@
       if(top){
         document.getElementById('ticketMatch').textContent = top.match;
         document.getElementById('ticketLeague').textContent = top.league;
-        document.getElementById('ticketPick').textContent = top.pick;
-        document.getElementById('ticketOdds').textContent = top.fair_odds ?? '—';
+        document.getElementById('ticketPick').textContent = top.pick ?? '🔒 Subscribe to unlock';
+        document.getElementById('ticketOdds').textContent = top.fair_odds ?? '🔒';
         const ticketEl = document.getElementById('heroTicket');
         ticketEl.style.cursor = 'pointer';
         ticketEl.addEventListener('click', () => {
@@ -431,10 +476,12 @@
         document.getElementById('heroTicket').innerHTML =
           '<div class="ticket-label">No pick published yet — check back shortly.</div>';
       }
+      _loadDone();
     })
     .catch(() => {
       document.getElementById('heroTicket').innerHTML =
         '<div class="ticket-label">Today\'s analysis is still being generated.</div>';
+      _loadDone();
     });
 
   // Last-5-days results + win-rate / streak stats
@@ -478,10 +525,12 @@
         document.getElementById('statWinRate').textContent = '—';
         document.getElementById('statStreak').textContent = '—';
       }
+      _loadDone();
     })
     .catch(() => {
       document.getElementById('resultsList').innerHTML =
         '<div class="result-row"><div style="color:var(--text-dim);padding:10px 0;">History not available yet.</div></div>';
+      _loadDone();
     });
 </script>
 

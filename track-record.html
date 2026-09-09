@@ -85,9 +85,32 @@
   .footer-grid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
   .footer-links{display:flex;gap:20px;}
   .footer-links a:hover{color:var(--text);}
+
+  .site-bg-video{
+    position:fixed;inset:0;width:100%;height:100%;
+    object-fit:cover;opacity:0.7;z-index:-2;pointer-events:none;
+  }
+  .site-bg-overlay{
+    position:fixed;inset:0;z-index:-1;
+    background:linear-gradient(180deg,rgba(10,14,20,0.55) 0%,rgba(10,14,20,0.72) 40%,var(--bg) 85%);
+    pointer-events:none;
+  }
+  .loader-overlay{
+    position:fixed;inset:0;z-index:999;
+    background:rgba(10,14,20,0.8);backdrop-filter:blur(4px);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;pointer-events:none;transition:opacity .25s ease;
+  }
+  .loader-overlay.active{opacity:1;pointer-events:all;}
+  .loader-video{width:150px;height:150px;object-fit:contain;}
 </style>
 </head>
 <body>
+
+<video class="site-bg-video" autoplay muted loop playsinline>
+  <source src="hero-bg.mp4" type="video/mp4">
+</video>
+<div class="site-bg-overlay"></div>
 
 <nav class="nav">
   <div class="wrap">
@@ -139,7 +162,16 @@
   </div>
 </footer>
 
+<div class="loader-overlay" id="loaderOverlay">
+  <video class="loader-video" autoplay muted loop playsinline>
+    <source src="loading-logo.mp4" type="video/mp4">
+  </video>
+</div>
+
 <script>
+  function showLoader(){ document.getElementById('loaderOverlay').classList.add('active'); }
+  function hideLoader(){ document.getElementById('loaderOverlay').classList.remove('active'); }
+  showLoader();
   document.getElementById('navToggle').addEventListener('click', function(){
     document.getElementById('navLinks').classList.toggle('open');
   });
@@ -226,11 +258,13 @@
       history = data.history || [];
       renderSummary();
       renderHistory();
+      hideLoader();
     })
     .catch(() => {
       history = [];
       renderSummary();
       renderHistory();
+      hideLoader();
     });
 </script>
 
