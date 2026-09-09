@@ -1,20 +1,6 @@
 {
-  "generated_at": "2026-09-09T07:41:40.300094Z",
+  "generated_at": "2026-09-09T22:26:46.912510Z",
   "predictions": [
-    {
-      "id": 561841,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Swansea City AFC vs Burnley FC",
-      "home_team": "Swansea City AFC",
-      "away_team": "Burnley FC",
-      "home_team_id": 72,
-      "away_team_id": 328,
-      "league": "Championship",
-      "comp_code": "ELC",
-      "kickoff": "2026-09-12T14:00:00Z",
-      "locked": true
-    },
     {
       "id": 567307,
       "sport": "Football",
@@ -112,6 +98,20 @@
       "comp_code": "PD",
       "kickoff": "2026-09-19T12:00:00Z",
       "locked": true
+    },
+    {
+      "id": 560589,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Nottingham Forest FC vs Coventry City FC",
+      "home_team": "Nottingham Forest FC",
+      "away_team": "Coventry City FC",
+      "home_team_id": 351,
+      "away_team_id": 1076,
+      "league": "Premier League",
+      "comp_code": "PL",
+      "kickoff": "2026-09-19T16:30:00Z",
+      "locked": true
     }
   ],
   "multi_bets": [
@@ -120,16 +120,16 @@
       "locked": true,
       "legs": [
         {
-          "id": 561841,
-          "icon": "\u26bd",
-          "match": "Swansea City AFC vs Burnley FC",
-          "meta": "Championship"
-        },
-        {
           "id": 567307,
           "icon": "\u26bd",
           "match": "Casa Pia AC vs FC Porto",
           "meta": "Primeira Liga"
+        },
+        {
+          "id": 558896,
+          "icon": "\u26bd",
+          "match": "Fortuna Sittard vs AFC Ajax",
+          "meta": "Eredivisie"
         }
       ]
     },
@@ -137,12 +137,6 @@
       "title": "3-Leg Accumulator",
       "locked": true,
       "legs": [
-        {
-          "id": 558896,
-          "icon": "\u26bd",
-          "match": "Fortuna Sittard vs AFC Ajax",
-          "meta": "Eredivisie"
-        },
         {
           "id": 567309,
           "icon": "\u26bd",
@@ -154,6 +148,12 @@
           "icon": "\u26bd",
           "match": "RC Celta de Vigo vs M\u00e1laga CF",
           "meta": "Primera Division"
+        },
+        {
+          "id": 567303,
+          "icon": "\u26bd",
+          "match": "Rio Ave FC vs CF Estrela da Amadora",
+          "meta": "Primeira Liga"
         }
       ]
     }
