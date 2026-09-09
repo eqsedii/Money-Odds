@@ -1,6 +1,16 @@
 {
   "history": [
     {
+      "date": "2026-09-08",
+      "id": 558233,
+      "sport": "Football",
+      "match": "NEC vs SBV Excelsior",
+      "league": "Eredivisie",
+      "pick": "BTTS - No",
+      "result": "loss",
+      "final_score": "2-2"
+    },
+    {
       "date": "2026-09-06",
       "sport": "Football",
       "match": "SC Corinthians Paulista vs Chapecoense AF",
@@ -26,6 +36,16 @@
       "pick": "BTTS - No",
       "result": "win",
       "final_score": "1-0"
+    },
+    {
+      "date": "2026-09-06",
+      "id": null,
+      "sport": "Football",
+      "match": "NEC vs SBV Excelsior",
+      "league": "Eredivisie",
+      "pick": "BTTS - No",
+      "result": "loss",
+      "final_score": "2-2"
     }
   ]
 }

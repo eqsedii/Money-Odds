@@ -1,56 +1,6 @@
 {
-  "generated_at": "2026-09-08T07:33:44.742738Z",
+  "generated_at": "2026-09-09T04:47:36.116965Z",
   "predictions": [
-    {
-      "id": 558233,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "NEC vs SBV Excelsior",
-      "home_team": "NEC",
-      "away_team": "SBV Excelsior",
-      "home_team_id": 1915,
-      "away_team_id": 670,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-09-08T16:45:00Z",
-      "pick": "BTTS - No",
-      "confidence": 100,
-      "fair_odds": 1.0,
-      "markets": [
-        {
-          "label": "BTTS - No",
-          "probability": 100
-        },
-        {
-          "label": "SBV Excelsior Win",
-          "probability": 94
-        },
-        {
-          "label": "Over 2.5 Goals",
-          "probability": 71
-        },
-        {
-          "label": "Under 2.5 Goals",
-          "probability": 29
-        },
-        {
-          "label": "Draw",
-          "probability": 3
-        },
-        {
-          "label": "BTTS - Yes",
-          "probability": 0
-        },
-        {
-          "label": "NEC Win",
-          "probability": 0
-        }
-      ],
-      "expected_goals": {
-        "home_expected_goals": 0.0,
-        "away_expected_goals": 3.66
-      }
-    },
     {
       "id": 561841,
       "sport": "Football",
@@ -63,43 +13,7 @@
       "league": "Championship",
       "comp_code": "ELC",
       "kickoff": "2026-09-12T14:00:00Z",
-      "pick": "BTTS - No",
-      "confidence": 100,
-      "fair_odds": 1.0,
-      "markets": [
-        {
-          "label": "BTTS - No",
-          "probability": 100
-        },
-        {
-          "label": "Under 2.5 Goals",
-          "probability": 82
-        },
-        {
-          "label": "Swansea City AFC Win",
-          "probability": 77
-        },
-        {
-          "label": "Draw",
-          "probability": 23
-        },
-        {
-          "label": "Over 2.5 Goals",
-          "probability": 18
-        },
-        {
-          "label": "BTTS - Yes",
-          "probability": 0
-        },
-        {
-          "label": "Burnley FC Win",
-          "probability": 0
-        }
-      ],
-      "expected_goals": {
-        "home_expected_goals": 1.46,
-        "away_expected_goals": 0.0
-      }
+      "locked": true
     },
     {
       "id": 567307,
@@ -113,43 +27,7 @@
       "league": "Primeira Liga",
       "comp_code": "PPL",
       "kickoff": "2026-09-12T17:00:00Z",
-      "pick": "BTTS - No",
-      "confidence": 100,
-      "fair_odds": 1.0,
-      "markets": [
-        {
-          "label": "BTTS - No",
-          "probability": 100
-        },
-        {
-          "label": "Over 2.5 Goals",
-          "probability": 98
-        },
-        {
-          "label": "FC Porto Win",
-          "probability": 48
-        },
-        {
-          "label": "Under 2.5 Goals",
-          "probability": 2
-        },
-        {
-          "label": "BTTS - Yes",
-          "probability": 0
-        },
-        {
-          "label": "Casa Pia AC Win",
-          "probability": 0
-        },
-        {
-          "label": "Draw",
-          "probability": 0
-        }
-      ],
-      "expected_goals": {
-        "home_expected_goals": 0.0,
-        "away_expected_goals": 7.78
-      }
+      "locked": true
     },
     {
       "id": 558896,
@@ -163,43 +41,7 @@
       "league": "Eredivisie",
       "comp_code": "DED",
       "kickoff": "2026-09-12T18:00:00Z",
-      "pick": "BTTS - No",
-      "confidence": 100,
-      "fair_odds": 1.0,
-      "markets": [
-        {
-          "label": "BTTS - No",
-          "probability": 100
-        },
-        {
-          "label": "AFC Ajax Win",
-          "probability": 85
-        },
-        {
-          "label": "Under 2.5 Goals",
-          "probability": 71
-        },
-        {
-          "label": "Over 2.5 Goals",
-          "probability": 29
-        },
-        {
-          "label": "Draw",
-          "probability": 15
-        },
-        {
-          "label": "BTTS - Yes",
-          "probability": 0
-        },
-        {
-          "label": "Fortuna Sittard Win",
-          "probability": 0
-        }
-      ],
-      "expected_goals": {
-        "home_expected_goals": 0.0,
-        "away_expected_goals": 1.88
-      }
+      "locked": true
     },
     {
       "id": 567309,
@@ -213,43 +55,7 @@
       "league": "Primeira Liga",
       "comp_code": "PPL",
       "kickoff": "2026-09-12T19:30:00Z",
-      "pick": "BTTS - No",
-      "confidence": 100,
-      "fair_odds": 1.0,
-      "markets": [
-        {
-          "label": "BTTS - No",
-          "probability": 100
-        },
-        {
-          "label": "Under 2.5 Goals",
-          "probability": 79
-        },
-        {
-          "label": "Vit\u00f3ria SC Win",
-          "probability": 79
-        },
-        {
-          "label": "Over 2.5 Goals",
-          "probability": 21
-        },
-        {
-          "label": "Draw",
-          "probability": 21
-        },
-        {
-          "label": "BTTS - Yes",
-          "probability": 0
-        },
-        {
-          "label": "Acad\u00e9mico de Viseu FC Win",
-          "probability": 0
-        }
-      ],
-      "expected_goals": {
-        "home_expected_goals": 0.0,
-        "away_expected_goals": 1.56
-      }
+      "locked": true
     },
     {
       "id": 564672,
@@ -263,43 +69,7 @@
       "league": "Primera Division",
       "comp_code": "PD",
       "kickoff": "2026-09-13T12:00:00Z",
-      "pick": "BTTS - No",
-      "confidence": 100,
-      "fair_odds": 1.0,
-      "markets": [
-        {
-          "label": "BTTS - No",
-          "probability": 100
-        },
-        {
-          "label": "Under 2.5 Goals",
-          "probability": 94
-        },
-        {
-          "label": "RC Celta de Vigo Win",
-          "probability": 58
-        },
-        {
-          "label": "Draw",
-          "probability": 42
-        },
-        {
-          "label": "Over 2.5 Goals",
-          "probability": 6
-        },
-        {
-          "label": "BTTS - Yes",
-          "probability": 0
-        },
-        {
-          "label": "M\u00e1laga CF Win",
-          "probability": 0
-        }
-      ],
-      "expected_goals": {
-        "home_expected_goals": 0.87,
-        "away_expected_goals": 0.0
-      }
+      "locked": true
     },
     {
       "id": 567303,
@@ -313,43 +83,7 @@
       "league": "Primeira Liga",
       "comp_code": "PPL",
       "kickoff": "2026-09-14T17:45:00Z",
-      "pick": "BTTS - No",
-      "confidence": 100,
-      "fair_odds": 1.0,
-      "markets": [
-        {
-          "label": "BTTS - No",
-          "probability": 100
-        },
-        {
-          "label": "Over 2.5 Goals",
-          "probability": 93
-        },
-        {
-          "label": "CF Estrela da Amadora Win",
-          "probability": 76
-        },
-        {
-          "label": "Under 2.5 Goals",
-          "probability": 7
-        },
-        {
-          "label": "BTTS - Yes",
-          "probability": 0
-        },
-        {
-          "label": "Rio Ave FC Win",
-          "probability": 0
-        },
-        {
-          "label": "Draw",
-          "probability": 0
-        }
-      ],
-      "expected_goals": {
-        "home_expected_goals": 0.0,
-        "away_expected_goals": 5.83
-      }
+      "locked": true
     },
     {
       "id": 564686,
@@ -363,90 +97,63 @@
       "league": "Primera Division",
       "comp_code": "PD",
       "kickoff": "2026-09-17T17:00:00Z",
-      "pick": "BTTS - No",
-      "confidence": 100,
-      "fair_odds": 1.0,
-      "markets": [
-        {
-          "label": "BTTS - No",
-          "probability": 100
-        },
-        {
-          "label": "Under 2.5 Goals",
-          "probability": 89
-        },
-        {
-          "label": "Real Betis Balompi\u00e9 Win",
-          "probability": 68
-        },
-        {
-          "label": "Draw",
-          "probability": 32
-        },
-        {
-          "label": "Over 2.5 Goals",
-          "probability": 11
-        },
-        {
-          "label": "BTTS - Yes",
-          "probability": 0
-        },
-        {
-          "label": "Getafe CF Win",
-          "probability": 0
-        }
-      ],
-      "expected_goals": {
-        "home_expected_goals": 1.15,
-        "away_expected_goals": 0.0
-      }
+      "locked": true
+    },
+    {
+      "id": 564693,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "CA Osasuna vs Rayo Vallecano de Madrid",
+      "home_team": "CA Osasuna",
+      "away_team": "Rayo Vallecano de Madrid",
+      "home_team_id": 79,
+      "away_team_id": 87,
+      "league": "Primera Division",
+      "comp_code": "PD",
+      "kickoff": "2026-09-19T12:00:00Z",
+      "locked": true
     }
   ],
   "multi_bets": [
     {
       "title": "2-Leg Accumulator",
-      "combined_fair_odds": 1.0,
+      "locked": true,
       "legs": [
-        {
-          "id": 558233,
-          "icon": "\u26bd",
-          "match": "NEC vs SBV Excelsior",
-          "meta": "Eredivisie",
-          "pick": "BTTS - No"
-        },
         {
           "id": 561841,
           "icon": "\u26bd",
           "match": "Swansea City AFC vs Burnley FC",
-          "meta": "Championship",
-          "pick": "BTTS - No"
+          "meta": "Championship"
+        },
+        {
+          "id": 567307,
+          "icon": "\u26bd",
+          "match": "Casa Pia AC vs FC Porto",
+          "meta": "Primeira Liga"
         }
       ]
     },
     {
       "title": "3-Leg Accumulator",
-      "combined_fair_odds": 1.0,
+      "locked": true,
       "legs": [
-        {
-          "id": 567307,
-          "icon": "\u26bd",
-          "match": "Casa Pia AC vs FC Porto",
-          "meta": "Primeira Liga",
-          "pick": "BTTS - No"
-        },
         {
           "id": 558896,
           "icon": "\u26bd",
           "match": "Fortuna Sittard vs AFC Ajax",
-          "meta": "Eredivisie",
-          "pick": "BTTS - No"
+          "meta": "Eredivisie"
         },
         {
           "id": 567309,
           "icon": "\u26bd",
           "match": "Acad\u00e9mico de Viseu FC vs Vit\u00f3ria SC",
-          "meta": "Primeira Liga",
-          "pick": "BTTS - No"
+          "meta": "Primeira Liga"
+        },
+        {
+          "id": 564672,
+          "icon": "\u26bd",
+          "match": "RC Celta de Vigo vs M\u00e1laga CF",
+          "meta": "Primera Division"
         }
       ]
     }
