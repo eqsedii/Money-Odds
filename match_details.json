@@ -1,102 +1,4 @@
 {
-  "567276": {
-    "home_recent": [
-      {
-        "date": "2026-09-05",
-        "opponent": "FC Famalic\u00e3o",
-        "venue": "H",
-        "score": "2-2",
-        "result": "D"
-      },
-      {
-        "date": "2026-08-30",
-        "opponent": "CD Nacional",
-        "venue": "A",
-        "score": "3-2",
-        "result": "W"
-      },
-      {
-        "date": "2026-08-15",
-        "opponent": "FC Alverca",
-        "venue": "A",
-        "score": "2-2",
-        "result": "D"
-      },
-      {
-        "date": "2026-08-08",
-        "opponent": "Sporting Clube de Portugal",
-        "venue": "H",
-        "score": "2-2",
-        "result": "D"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-09-05",
-        "opponent": "FC Alverca",
-        "venue": "A",
-        "score": "2-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-08-31",
-        "opponent": "Vit\u00f3ria SC",
-        "venue": "H",
-        "score": "1-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-08-09",
-        "opponent": "Moreirense FC",
-        "venue": "A",
-        "score": "2-2",
-        "result": "D"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 5,
-      "home_wins": 0,
-      "draws": 3,
-      "away_wins": 0,
-      "matches": [
-        {
-          "date": "2026-05-16",
-          "home": "Sporting Clube de Braga",
-          "away": "CF Estrela da Amadora",
-          "score": "2-2",
-          "competition": "Primeira Liga"
-        },
-        {
-          "date": "2026-01-03",
-          "home": "CF Estrela da Amadora",
-          "away": "Sporting Clube de Braga",
-          "score": "3-3",
-          "competition": "Primeira Liga"
-        },
-        {
-          "date": "2025-01-19",
-          "home": "CF Estrela da Amadora",
-          "away": "Sporting Clube de Braga",
-          "score": "0-1",
-          "competition": "Primeira Liga"
-        },
-        {
-          "date": "2024-08-11",
-          "home": "Sporting Clube de Braga",
-          "away": "CF Estrela da Amadora",
-          "score": "1-1",
-          "competition": "Primeira Liga"
-        },
-        {
-          "date": "2024-03-02",
-          "home": "Sporting Clube de Braga",
-          "away": "CF Estrela da Amadora",
-          "score": "3-0",
-          "competition": "Primeira Liga"
-        }
-      ]
-    }
-  },
   "561842": {
     "home_recent": [
       {
@@ -4303,6 +4205,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-09-10",
+        "opponent": "Sporting Clube de Braga",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
         "date": "2026-09-05",
         "opponent": "FC Famalic\u00e3o",
         "venue": "H",
@@ -4331,7 +4240,49 @@
         "result": "D"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 5,
+      "home_wins": 0,
+      "draws": 1,
+      "away_wins": 0,
+      "matches": [
+        {
+          "date": "2026-03-15",
+          "home": "Rio Ave FC",
+          "away": "CF Estrela da Amadora",
+          "score": "2-1",
+          "competition": "Primeira Liga"
+        },
+        {
+          "date": "2025-10-25",
+          "home": "CF Estrela da Amadora",
+          "away": "Rio Ave FC",
+          "score": "1-2",
+          "competition": "Primeira Liga"
+        },
+        {
+          "date": "2025-05-05",
+          "home": "Rio Ave FC",
+          "away": "CF Estrela da Amadora",
+          "score": "2-0",
+          "competition": "Primeira Liga"
+        },
+        {
+          "date": "2024-12-23",
+          "home": "CF Estrela da Amadora",
+          "away": "Rio Ave FC",
+          "score": "1-0",
+          "competition": "Primeira Liga"
+        },
+        {
+          "date": "2024-04-14",
+          "home": "CF Estrela da Amadora",
+          "away": "Rio Ave FC",
+          "score": "2-2",
+          "competition": "Primeira Liga"
+        }
+      ]
+    }
   },
   "567302": {
     "home_recent": [
@@ -8144,6 +8095,13 @@
   "567317": {
     "home_recent": [
       {
+        "date": "2026-09-10",
+        "opponent": "Sporting Clube de Braga",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
         "date": "2026-09-05",
         "opponent": "FC Famalic\u00e3o",
         "venue": "H",
@@ -8488,6 +8446,13 @@
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-09-10",
+        "opponent": "CF Estrela da Amadora",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
       {
         "date": "2026-09-05",
         "opponent": "FC Alverca",

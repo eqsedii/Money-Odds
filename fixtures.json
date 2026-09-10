@@ -1,20 +1,6 @@
 {
-  "generated_at": "2026-09-10T07:37:49.464897Z",
+  "generated_at": "2026-09-10T22:25:27.200591Z",
   "fixtures": [
-    {
-      "id": 567276,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "CF Estrela da Amadora vs Sporting Clube de Braga",
-      "home_team": "CF Estrela da Amadora",
-      "away_team": "Sporting Clube de Braga",
-      "home_team_id": 9136,
-      "away_team_id": 5613,
-      "league": "Primeira Liga",
-      "comp_code": "PPL",
-      "kickoff": "2026-09-10T19:15:00Z",
-      "locked": true
-    },
     {
       "id": 561842,
       "sport": "Football",

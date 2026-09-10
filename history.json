@@ -1,6 +1,16 @@
 {
   "history": [
     {
+      "date": "2026-09-09",
+      "id": 567276,
+      "sport": "Football",
+      "match": "CF Estrela da Amadora vs Sporting Clube de Braga",
+      "league": "Primeira Liga",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "2-1"
+    },
+    {
       "date": "2026-09-08",
       "id": 558233,
       "sport": "Football",
@@ -9,6 +19,16 @@
       "pick": "BTTS - No",
       "result": "loss",
       "final_score": "2-2"
+    },
+    {
+      "date": "2026-09-07",
+      "id": 567276,
+      "sport": "Football",
+      "match": "CF Estrela da Amadora vs Sporting Clube de Braga",
+      "league": "Primeira Liga",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "2-1"
     },
     {
       "date": "2026-09-06",
@@ -46,6 +66,16 @@
       "pick": "BTTS - No",
       "result": "loss",
       "final_score": "2-2"
+    },
+    {
+      "date": "2026-09-06",
+      "id": null,
+      "sport": "Football",
+      "match": "CF Estrela da Amadora vs Sporting Clube de Braga",
+      "league": "Primeira Liga",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "2-1"
     }
   ]
 }
