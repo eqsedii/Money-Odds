@@ -10,7 +10,20 @@ Record page reads.
 
 This script only grades picks it can actually verify against a
 real final score — nothing is marked won/lost on a guess.
+
+DEDUPE NOTE
+-----------
+A fixture can legitimately appear in MULTIPLE daily archive files while
+it's still upcoming (generate_predictions.py re-archives the current
+cycle's fixtures every day so kickoff times/data stay fresh). That
+means the same real-world match can show up under several different
+archive filenames before it's finally played. Grading must therefore
+dedupe by the fixture's stable `id`, not by (archive date, match name) —
+using the archive date as part of the key was the root cause of the
+same match appearing multiple times in history.json with different
+dates.
 """
+
 import os
 import sys
 import json
@@ -53,8 +66,6 @@ def grade_pick(pick, final_score_text, home_goals, away_goals):
     if "btts - no" in p:
         return not (home_goals > 0 and away_goals > 0)
     if p.endswith("win"):
-        team = pick.rsplit(" Win", 1)[0]
-        # caller passes which side that team was on
         return None  # handled by caller with team position context
     if p == "draw":
         return home_goals == away_goals
@@ -63,17 +74,16 @@ def grade_pick(pick, final_score_text, home_goals, away_goals):
 
 def resolve_football(entry):
     """entry is a saved prediction dict with match/league/pick/kickoff."""
-    # Re-fetch the competition's matches to find the final score.
-    # We don't know the competition code here, so this relies on the
-    # archive step having stored it as entry["comp_code"].
     code = entry.get("comp_code")
     if not code:
         return None
+
     url = f"{FOOTBALL_BASE}/competitions/{code}/matches"
     data = http_get_json(url, headers={"X-Auth-Token": FOOTBALL_API_KEY})
     time.sleep(6.5)
     if not data:
         return None
+
     for m in data.get("matches", []):
         if m.get("status") != "FINISHED":
             continue
@@ -81,10 +91,12 @@ def resolve_football(entry):
         away_name = m["awayTeam"]["name"]
         if f"{home_name} vs {away_name}" != entry["match"]:
             continue
+
         score = m.get("score", {}).get("fullTime", {})
         hg, ag = score.get("home"), score.get("away")
         if hg is None or ag is None:
             continue
+
         pick = entry["pick"]
         if pick.endswith("Win"):
             team = pick.rsplit(" Win", 1)[0]
@@ -96,6 +108,7 @@ def resolve_football(entry):
                 result = None
         else:
             result = grade_pick(pick, None, hg, ag)
+
         if result is None:
             continue
         return {"result": "win" if result else "loss", "final_score": f"{hg}-{ag}"}
@@ -106,6 +119,7 @@ def resolve_basketball(entry):
     game_date = entry.get("kickoff", "")[:10]
     if not game_date:
         return None
+
     data = http_get_json(
         f"{BALLDONTLIE_BASE}/games?dates[]={game_date}",
         headers={"Authorization": BALLDONTLIE_API_KEY},
@@ -113,6 +127,7 @@ def resolve_basketball(entry):
     time.sleep(12.5)
     if not data:
         return None
+
     for g in data.get("data", []):
         if g.get("status") != "Final":
             continue
@@ -120,9 +135,11 @@ def resolve_basketball(entry):
         away_name = g["visitor_team"]["full_name"]
         if f"{home_name} vs {away_name}" != entry["match"]:
             continue
+
         hs, as_ = g.get("home_team_score"), g.get("visitor_team_score")
         if hs is None or as_ is None:
             continue
+
         pick = entry["pick"]
         if pick.endswith("Win"):
             team = pick.rsplit(" Win", 1)[0]
@@ -135,10 +152,47 @@ def resolve_basketball(entry):
                 result = None
         else:
             result = None
+
         if result is None:
             continue
         return {"result": "win" if result else "loss", "final_score": f"{hs}-{as_}"}
     return None
+
+
+def dedup_key(item):
+    """Stable identity for a graded fixture. Real fixtures always carry an
+    `id` (football's numeric id or basketball's 'bb-<id>' string) — dedupe
+    on that. Only pre-fix legacy entries that were saved without an id fall
+    back to (date, match)."""
+    fid = item.get("id")
+    if fid is not None:
+        return ("id", fid)
+    return ("legacy", item.get("date"), item.get("match"))
+
+
+def load_history():
+    if not os.path.exists(OUT_HISTORY):
+        return []
+    with open(OUT_HISTORY) as f:
+        try:
+            return json.load(f).get("history", [])
+        except json.JSONDecodeError:
+            return []
+
+
+def dedup_history(history):
+    """One-time cleanup pass: collapses any duplicate entries already sitting
+    in history.json (e.g. from the old date-based dedupe bug), keeping the
+    first-seen entry for each fixture."""
+    seen = set()
+    cleaned = []
+    for h in history:
+        key = dedup_key(h)
+        if key in seen:
+            continue
+        seen.add(key)
+        cleaned.append(h)
+    return cleaned, seen
 
 
 def main():
@@ -146,37 +200,39 @@ def main():
         print("No archive directory yet — nothing to resolve.")
         return
 
-    history = []
-    if os.path.exists(OUT_HISTORY):
-        with open(OUT_HISTORY) as f:
-            try:
-                history = json.load(f).get("history", [])
-            except json.JSONDecodeError:
-                history = []
-
-    already_graded = {(h["date"], h["match"]) for h in history}
+    history = load_history()
+    history, already_graded = dedup_history(history)
+    removed = len(load_history()) - len(history)
+    if removed:
+        print(f"Deduped {removed} pre-existing duplicate history entr{'y' if removed == 1 else 'ies'}.")
 
     for fname in sorted(os.listdir(ARCHIVE_DIR)):
         if not fname.endswith(".json"):
             continue
         date_str = fname.replace(".json", "")
+
         # Only resolve archives from yesterday or earlier
         if date_str >= datetime.date.today().isoformat():
             continue
+
         with open(os.path.join(ARCHIVE_DIR, fname)) as f:
             day_data = json.load(f)
 
         for entry in day_data.get("predictions", []):
-            if (date_str, entry["match"]) in already_graded:
+            key = dedup_key({"id": entry.get("id"), "date": date_str, "match": entry["match"]})
+            if key in already_graded:
                 continue
+
             if entry["sport"] == "Football":
                 outcome = resolve_football(entry)
             elif entry["sport"] == "Basketball":
                 outcome = resolve_basketball(entry)
             else:
                 outcome = None
+
             if outcome is None:
                 continue
+
             history.append({
                 "date": date_str,
                 "id": entry.get("id"),
@@ -187,6 +243,10 @@ def main():
                 "result": outcome["result"],
                 "final_score": outcome["final_score"],
             })
+            # Mark graded immediately so a later archive file that still
+            # contains this same still-cached fixture doesn't add it again
+            # within this same run — this was the second half of the bug.
+            already_graded.add(key)
 
     history.sort(key=lambda h: h["date"], reverse=True)
     history = history[:MAX_HISTORY_ITEMS]
@@ -194,7 +254,7 @@ def main():
     with open(OUT_HISTORY, "w") as f:
         json.dump({"history": history}, f, indent=2)
 
-    print(f"history.json now has {len(history)} graded predictions")
+    print(f"history.json now has {len(history)} graded predictions (deduped by fixture id)")
 
 
 if __name__ == "__main__":

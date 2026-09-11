@@ -6,32 +6,48 @@ Pulls real fixtures/results from free APIs and computes statistical
 predictions (no bookmaker odds are used or faked — everything shown
 is derived from the model itself).
 
+SUBSCRIPTION CYCLE WINDOW
+--------------------------
+Access renews on a 7-day cycle that runs Saturday -> Saturday. We never
+want to generate (or sell) predictions for fixtures that fall after the
+current cycle's boundary, since a subscriber who pays today shouldn't
+be shown picks for a match that belongs to next cycle's payment period.
+
+Concretely: every day this script runs, it recomputes the *current*
+cycle (the most recent Saturday through the following Friday) and only
+considers fixtures up to and including that Friday. As the week
+progresses the window naturally shrinks (Wednesday's run only looks
+out to Friday, not a fresh 7 days from Wednesday) and kickoff
+times/lineups/etc. for those same fixtures get refreshed daily. Once
+Saturday arrives, a new 7-day cycle begins automatically.
+
 Writes PUBLIC files (committed to the public repo — no pick/confidence/
 odds/markets ever appear here, so a paying subscription is meaningful):
-  - predictions.json    Today's/soonest featured fixtures + multi-bet
-                         slates, redacted — id/teams/league only
-  - fixtures.json        EVERY upcoming fixture, redacted the same way —
-                         this is what powers site-wide search
+  - predictions.json     Today's/soonest featured fixtures + multi-bet
+                          slates, redacted — id/teams/league only
+  - fixtures.json        EVERY fixture in the current cycle, redacted the
+                          same way — this is what powers site-wide search
   - match_details.json   Head-to-head + recent form — NOT proprietary,
-                         stays public, keeps the free tier valuable
+                          stays public, keeps the free tier valuable
 
 Writes PRIVATE files (never committed to the public repo — the CI
 workflow pushes these to a separate private repo instead):
   - private_picks.json   The actual proprietary picks/confidence/odds/
-                         markets, keyed by fixture id, plus full
-                         multi-bet legs. The Cloudflare Worker fetches
-                         this server-side after verifying a real payment.
+                          markets, keyed by fixture id, plus full
+                          multi-bet legs. The Cloudflare Worker fetches
+                          this server-side after verifying a real payment.
   - archive/<date>.json  Full pick data for grading later — private for
-                         the same reason (would leak upcoming picks
-                         otherwise).
+                          the same reason (would leak upcoming picks
+                          otherwise).
 
 Data sources (both free):
-  - Football: football-data.org  (12 major competitions)
-  - Basketball: balldontlie.io    (NBA)
+  - Football: football-data.org (12 major competitions)
+  - Basketball: balldontlie.io (NBA)
 
 Run with:
   FOOTBALL_DATA_API_KEY=... BALLDONTLIE_API_KEY=... python3 generate_predictions.py
 """
+
 import os
 import sys
 import json
@@ -50,11 +66,15 @@ BALLDONTLIE_BASE = "https://api.balldontlie.io/nba/v1"
 # The 12 competitions available on football-data.org's free tier
 COMPETITIONS = ["PL", "PD", "BL1", "SA", "FL1", "DED", "PPL", "ELC", "BSA", "CL", "WC", "EC"]
 
-MIN_SAMPLE = 2             # minimum home/away matches before we trust a team's numbers
-TOP_N_SINGLES = 8          # how many single picks to feature on predictions.json
+MIN_SAMPLE = 2       # minimum home/away matches before we trust a team's numbers
+TOP_N_SINGLES = 8    # how many single picks to feature on predictions.json
 MULTI_LEG_COUNTS = [2, 3]  # accumulator sizes to build from the top picks
-FIXTURE_WINDOW_DAYS = 10   # how far ahead "upcoming" fixtures are collected for search
-MAX_H2H_CALLS = 40         # cap on head-to-head API calls per run (rate-limit / politeness budget)
+
+# --- subscription cycle window -------------------------------------------
+CYCLE_LENGTH_DAYS = 7
+CYCLE_ANCHOR_WEEKDAY = 5  # Python's date.weekday(): Monday=0 ... Saturday=5, Sunday=6
+
+MAX_H2H_CALLS = 40  # cap on head-to-head API calls per run (rate-limit / politeness budget)
 RECENT_FORM_N = 5
 
 OUT_PREDICTIONS = "predictions.json"
@@ -63,8 +83,20 @@ OUT_MATCH_DETAILS = "match_details.json"
 OUT_PRIVATE_PICKS = "private_picks.json"
 OUT_HISTORY = "history.json"
 
-
 # ---------------------------------------------------------------- utilities
+
+def compute_cycle_window(today=None):
+    """Returns (cycle_start, cycle_end_exclusive) for the CURRENT subscription
+    cycle. Cycles run Saturday -> Saturday. cycle_end_exclusive is the next
+    Saturday (i.e. the first day that belongs to the *following* cycle) —
+    callers should treat cycle_end_exclusive - 1 day as the last valid day
+    to pull fixtures for."""
+    today = today or datetime.date.today()
+    days_since_anchor = (today.weekday() - CYCLE_ANCHOR_WEEKDAY) % CYCLE_LENGTH_DAYS
+    cycle_start = today - datetime.timedelta(days=days_since_anchor)
+    cycle_end_exclusive = cycle_start + datetime.timedelta(days=CYCLE_LENGTH_DAYS)
+    return cycle_start, cycle_end_exclusive
+
 
 def http_get_json(url, headers=None, retries=3):
     headers = headers or {}
@@ -102,7 +134,6 @@ def poisson_cdf(k, lam):
 
 def avg(lst):
     return sum(lst) / len(lst) if lst else None
-
 
 # ---------------------------------------------------------------- football
 
@@ -154,7 +185,6 @@ def compute_team_football_stats(matches):
             }
 
     home_goals_all, away_goals_all = [], []
-
     for m in matches:
         if m.get("status") != "FINISHED":
             continue
@@ -175,7 +205,6 @@ def compute_team_football_stats(matches):
 
     league_avg_home = sum(home_goals_all) / len(home_goals_all) if home_goals_all else 1.4
     league_avg_away = sum(away_goals_all) / len(away_goals_all) if away_goals_all else 1.1
-
     return teams, league_avg_home, league_avg_away
 
 
@@ -259,11 +288,13 @@ def compute_football_pick(home, away, ht, at, lg_home, lg_away):
 
 
 def build_football_fixtures(competitions=COMPETITIONS):
-    """Returns ALL upcoming fixtures (within FIXTURE_WINDOW_DAYS) across all
+    """Returns ALL fixtures within the CURRENT subscription cycle (Saturday ->
+    the following Friday, whatever's left of it from today), across all
     competitions, each with a computed pick — this is the full searchable set."""
     fixtures = []
     today = datetime.date.today()
-    window_end = today + datetime.timedelta(days=FIXTURE_WINDOW_DAYS)
+    _, cycle_end_exclusive = compute_cycle_window(today)
+    window_end = cycle_end_exclusive - datetime.timedelta(days=1)
 
     for code in competitions:
         matches = fetch_competition_matches(code)
@@ -295,7 +326,6 @@ def build_football_fixtures(competitions=COMPETITIONS):
                 continue
 
             best_pick, best_prob, markets, xg = compute_football_pick(home, away, ht, at, lg_home, lg_away)
-
             fixtures.append({
                 "id": m["id"],
                 "sport": "Football",
@@ -315,9 +345,7 @@ def build_football_fixtures(competitions=COMPETITIONS):
                 "expected_goals": xg,
                 "_all_matches_ref": matches,  # kept only for building match_details below; stripped before writing
             })
-
     return fixtures
-
 
 # ---------------------------------------------------------------- basketball
 
@@ -329,16 +357,18 @@ def bl_get(path):
 
 
 def build_basketball_fixtures():
+    """Returns fixtures for EVERY day left in the current subscription cycle
+    (today through the cycle's closing Friday), not just today — mirrors the
+    football window so the site always has a full cycle's worth of picks."""
     if not BALLDONTLIE_API_KEY:
         return []
 
-    today = datetime.date.today().isoformat()
-    games_resp = bl_get(f"/games?dates[]={today}")
-    if not games_resp or not games_resp.get("data"):
-        return []
+    today = datetime.date.today()
+    _, cycle_end_exclusive = compute_cycle_window(today)
+    window_end = cycle_end_exclusive - datetime.timedelta(days=1)
 
     fixtures = []
-    season = datetime.date.today().year if datetime.date.today().month >= 10 else datetime.date.today().year - 1
+    season = today.year if today.month >= 10 else today.year - 1
     team_games_cache = {}
 
     def team_games(team_id):
@@ -383,76 +413,86 @@ def build_basketball_fixtures():
         played.sort(key=lambda x: x["date"], reverse=True)
         return played[:n]
 
-    for g in games_resp["data"]:
-        if g.get("status") == "Final":
+    seen_game_ids = set()
+    day = today
+    while day <= window_end:
+        games_resp = bl_get(f"/games?dates[]={day.isoformat()}")
+        day += datetime.timedelta(days=1)
+        if not games_resp or not games_resp.get("data"):
             continue
-        home, away = g["home_team"], g["visitor_team"]
-        hs, as_ = scoring_avg(home["id"]), scoring_avg(away["id"])
-        if hs["n"] < MIN_SAMPLE or as_["n"] < MIN_SAMPLE:
-            continue
 
-        pred_home = (hs["scored"] + as_["allowed"]) / 2 * 1.02
-        pred_away = (as_["scored"] + hs["allowed"]) / 2
-        diff = pred_home - pred_away
-        total = pred_home + pred_away
-        win_prob_home = 1 / (1 + math.exp(-diff / 6))
+        for g in games_resp["data"]:
+            if g.get("id") in seen_game_ids:
+                continue  # guards against the same game appearing twice if a date query is ever re-run
+            if g.get("status") == "Final":
+                continue
+            seen_game_ids.add(g.get("id"))
 
-        if abs(diff) >= 2:
-            pick = f"{home['full_name']} Win" if diff > 0 else f"{away['full_name']} Win"
-            confidence = max(win_prob_home, 1 - win_prob_home)
-        else:
-            pick = f"Over {round(total - 1, 1)} Points"
-            confidence = 0.58
+            home, away = g["home_team"], g["visitor_team"]
+            hs, as_ = scoring_avg(home["id"]), scoring_avg(away["id"])
+            if hs["n"] < MIN_SAMPLE or as_["n"] < MIN_SAMPLE:
+                continue
 
-        bball_markets = sorted([
-            {"label": f"{home['full_name']} Win", "probability": round(win_prob_home * 100)},
-            {"label": f"{away['full_name']} Win", "probability": round((1 - win_prob_home) * 100)},
-            {"label": f"Over {round(total - 1, 1)} Points", "probability": round(confidence * 100) if "Over" in pick else 58},
-            {"label": f"Under {round(total - 1, 1)} Points", "probability": 100 - (round(confidence * 100) if "Over" in pick else 58)},
-        ], key=lambda m: m["probability"], reverse=True)
+            pred_home = (hs["scored"] + as_["allowed"]) / 2 * 1.02
+            pred_away = (as_["scored"] + hs["allowed"]) / 2
+            diff = pred_home - pred_away
+            total = pred_home + pred_away
+            win_prob_home = 1 / (1 + math.exp(-diff / 6))
 
-        # Simple season-only head-to-head derived from data we already fetched (no extra calls)
-        h2h_games = [
-            gm for gm in team_games(home["id"])
-            if gm.get("status") == "Final"
-            and away["id"] in (gm["home_team"]["id"], gm["visitor_team"]["id"])
-        ]
-        h2h_matches = []
-        for gm in h2h_games[:5]:
-            h2h_matches.append({
-                "date": gm.get("date", "")[:10],
-                "home": gm["home_team"]["full_name"],
-                "away": gm["visitor_team"]["full_name"],
-                "score": f"{gm['home_team_score']}-{gm['visitor_team_score']}",
-                "competition": "NBA",
+            if abs(diff) >= 2:
+                pick = f"{home['full_name']} Win" if diff > 0 else f"{away['full_name']} Win"
+                confidence = max(win_prob_home, 1 - win_prob_home)
+            else:
+                pick = f"Over {round(total - 1, 1)} Points"
+                confidence = 0.58
+
+            bball_markets = sorted([
+                {"label": f"{home['full_name']} Win", "probability": round(win_prob_home * 100)},
+                {"label": f"{away['full_name']} Win", "probability": round((1 - win_prob_home) * 100)},
+                {"label": f"Over {round(total - 1, 1)} Points", "probability": round(confidence * 100) if "Over" in pick else 58},
+                {"label": f"Under {round(total - 1, 1)} Points", "probability": 100 - (round(confidence * 100) if "Over" in pick else 58)},
+            ], key=lambda m: m["probability"], reverse=True)
+
+            # Simple season-only head-to-head derived from data we already fetched (no extra calls)
+            h2h_games = [
+                gm for gm in team_games(home["id"])
+                if gm.get("status") == "Final"
+                and away["id"] in (gm["home_team"]["id"], gm["visitor_team"]["id"])
+            ]
+            h2h_matches = []
+            for gm in h2h_games[:5]:
+                h2h_matches.append({
+                    "date": gm.get("date", "")[:10],
+                    "home": gm["home_team"]["full_name"],
+                    "away": gm["visitor_team"]["full_name"],
+                    "score": f"{gm['home_team_score']}-{gm['visitor_team_score']}",
+                    "competition": "NBA",
+                })
+
+            fixtures.append({
+                "id": f"bb-{g['id']}",
+                "sport": "Basketball",
+                "icon": "🏀",
+                "match": f"{home['full_name']} vs {away['full_name']}",
+                "home_team": home["full_name"],
+                "away_team": away["full_name"],
+                "home_team_id": home["id"],
+                "away_team_id": away["id"],
+                "league": "NBA",
+                "kickoff": g.get("date"),
+                "pick": pick,
+                "confidence": round(confidence * 100),
+                "fair_odds": round(1 / confidence, 2),
+                "markets": bball_markets,
+                "predicted_score": {"home": round(pred_home, 1), "away": round(pred_away, 1)},
+                "_home_recent": recent_form_bball(home["id"]),
+                "_away_recent": recent_form_bball(away["id"]),
+                "_h2h": {
+                    "number_of_matches": len(h2h_matches),
+                    "matches": h2h_matches,
+                } if h2h_matches else None,
             })
-
-        fixtures.append({
-            "id": f"bb-{g['id']}",
-            "sport": "Basketball",
-            "icon": "🏀",
-            "match": f"{home['full_name']} vs {away['full_name']}",
-            "home_team": home["full_name"],
-            "away_team": away["full_name"],
-            "home_team_id": home["id"],
-            "away_team_id": away["id"],
-            "league": "NBA",
-            "kickoff": g.get("date"),
-            "pick": pick,
-            "confidence": round(confidence * 100),
-            "fair_odds": round(1 / confidence, 2),
-            "markets": bball_markets,
-            "predicted_score": {"home": round(pred_home, 1), "away": round(pred_away, 1)},
-            "_home_recent": recent_form_bball(home["id"]),
-            "_away_recent": recent_form_bball(away["id"]),
-            "_h2h": {
-                "number_of_matches": len(h2h_matches),
-                "matches": h2h_matches,
-            } if h2h_matches else None,
-        })
-
     return fixtures
-
 
 # ---------------------------------------------------------------- assembly
 
@@ -502,9 +542,12 @@ def main():
     print(f"FOOTBALL_DATA_API_KEY length: {len(FOOTBALL_API_KEY)} (should be 32 for a normal token)")
     print(f"BALLDONTLIE_API_KEY length: {len(BALLDONTLIE_API_KEY)}")
 
+    cycle_start, cycle_end_exclusive = compute_cycle_window()
+    print(f"Subscription cycle window: {cycle_start} -> {cycle_end_exclusive - datetime.timedelta(days=1)} "
+          f"(inclusive), next cycle starts {cycle_end_exclusive}")
+
     football_fixtures = build_football_fixtures() if FOOTBALL_API_KEY else []
     basketball_fixtures = build_basketball_fixtures()
-
     all_fixtures = football_fixtures + basketball_fixtures
     all_fixtures.sort(key=lambda f: f.get("kickoff") or "")
 
@@ -546,6 +589,8 @@ def main():
     with open(OUT_FIXTURES, "w") as f:
         json.dump({
             "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
+            "cycle_start": cycle_start.isoformat(),
+            "cycle_end": (cycle_end_exclusive - datetime.timedelta(days=1)).isoformat(),
             "fixtures": public_fixtures,
         }, f, indent=2)
 
@@ -572,6 +617,8 @@ def main():
     with open(OUT_PREDICTIONS, "w") as f:
         json.dump({
             "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
+            "cycle_start": cycle_start.isoformat(),
+            "cycle_end": (cycle_end_exclusive - datetime.timedelta(days=1)).isoformat(),
             "predictions": public_top_singles,
             "multi_bets": public_multis,
         }, f, indent=2)
@@ -583,6 +630,8 @@ def main():
     with open(OUT_PRIVATE_PICKS, "w") as f:
         json.dump({
             "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
+            "cycle_start": cycle_start.isoformat(),
+            "cycle_end": (cycle_end_exclusive - datetime.timedelta(days=1)).isoformat(),
             "picks": picks_map,
             "multi_bets": multis,  # full version, with real picks + combined odds
         }, f, indent=2)
