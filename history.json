@@ -1,6 +1,16 @@
 {
   "history": [
     {
+      "date": "2026-09-10",
+      "id": 561842,
+      "sport": "Football",
+      "match": "West Ham United FC vs Wrexham AFC",
+      "league": "Championship",
+      "pick": "Under 2.5 Goals",
+      "result": "loss",
+      "final_score": "6-0"
+    },
+    {
       "date": "2026-09-09",
       "id": 567276,
       "sport": "Football",
@@ -19,16 +29,6 @@
       "pick": "BTTS - No",
       "result": "loss",
       "final_score": "2-2"
-    },
-    {
-      "date": "2026-09-07",
-      "id": 567276,
-      "sport": "Football",
-      "match": "CF Estrela da Amadora vs Sporting Clube de Braga",
-      "league": "Primeira Liga",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "2-1"
     },
     {
       "date": "2026-09-06",
