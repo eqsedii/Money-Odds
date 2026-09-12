@@ -1,118 +1,76 @@
 {
-  "generated_at": "2026-09-12T07:29:33.115796Z",
+  "generated_at": "2026-09-12T22:02:17.178125Z",
   "cycle_start": "2026-09-12",
   "cycle_end": "2026-09-18",
   "predictions": [
     {
-      "id": 561841,
+      "id": 554941,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "Swansea City AFC vs Burnley FC",
-      "home_team": "Swansea City AFC",
-      "away_team": "Burnley FC",
-      "home_team_id": 72,
-      "away_team_id": 328,
-      "league": "Championship",
-      "comp_code": "ELC",
-      "kickoff": "2026-09-12T14:00:00Z",
+      "match": "Botafogo FR vs Gr\u00eamio FBPA",
+      "home_team": "Botafogo FR",
+      "away_team": "Gr\u00eamio FBPA",
+      "home_team_id": 1770,
+      "away_team_id": 1767,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-09-16T22:30:00Z",
       "locked": true
     },
     {
-      "id": 567307,
+      "id": 555001,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "Casa Pia AC vs FC Porto",
-      "home_team": "Casa Pia AC",
-      "away_team": "FC Porto",
-      "home_team_id": 6618,
-      "away_team_id": 503,
-      "league": "Primeira Liga",
-      "comp_code": "PPL",
-      "kickoff": "2026-09-12T17:00:00Z",
+      "match": "EC Bahia vs Clube do Remo",
+      "home_team": "EC Bahia",
+      "away_team": "Clube do Remo",
+      "home_team_id": 1777,
+      "away_team_id": 4287,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-09-14T23:00:00Z",
       "locked": true
     },
     {
-      "id": 558896,
+      "id": 555007,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "Fortuna Sittard vs AFC Ajax",
-      "home_team": "Fortuna Sittard",
-      "away_team": "AFC Ajax",
-      "home_team_id": 1920,
-      "away_team_id": 678,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-09-12T18:00:00Z",
+      "match": "Mirassol FC vs EC Vit\u00f3ria",
+      "home_team": "Mirassol FC",
+      "away_team": "EC Vit\u00f3ria",
+      "home_team_id": 4364,
+      "away_team_id": 1782,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-09-13T19:00:00Z",
       "locked": true
     },
     {
-      "id": 567309,
+      "id": 555005,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "Acad\u00e9mico de Viseu FC vs Vit\u00f3ria SC",
-      "home_team": "Acad\u00e9mico de Viseu FC",
-      "away_team": "Vit\u00f3ria SC",
-      "home_team_id": 5527,
-      "away_team_id": 5543,
-      "league": "Primeira Liga",
-      "comp_code": "PPL",
-      "kickoff": "2026-09-12T19:30:00Z",
+      "match": "CR Flamengo vs SC Corinthians Paulista",
+      "home_team": "CR Flamengo",
+      "away_team": "SC Corinthians Paulista",
+      "home_team_id": 1783,
+      "away_team_id": 1779,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-09-13T20:30:00Z",
       "locked": true
     },
     {
-      "id": 564672,
+      "id": 555009,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "RC Celta de Vigo vs M\u00e1laga CF",
-      "home_team": "RC Celta de Vigo",
-      "away_team": "M\u00e1laga CF",
-      "home_team_id": 558,
-      "away_team_id": 84,
-      "league": "Primera Division",
-      "comp_code": "PD",
-      "kickoff": "2026-09-13T12:00:00Z",
-      "locked": true
-    },
-    {
-      "id": 567303,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Rio Ave FC vs CF Estrela da Amadora",
-      "home_team": "Rio Ave FC",
-      "away_team": "CF Estrela da Amadora",
-      "home_team_id": 496,
-      "away_team_id": 9136,
-      "league": "Primeira Liga",
-      "comp_code": "PPL",
-      "kickoff": "2026-09-14T17:45:00Z",
-      "locked": true
-    },
-    {
-      "id": 564686,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Real Betis Balompi\u00e9 vs Getafe CF",
-      "home_team": "Real Betis Balompi\u00e9",
-      "away_team": "Getafe CF",
-      "home_team_id": 90,
-      "away_team_id": 82,
-      "league": "Primera Division",
-      "comp_code": "PD",
-      "kickoff": "2026-09-17T17:00:00Z",
-      "locked": true
-    },
-    {
-      "id": 564677,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Real Madrid CF vs Rayo Vallecano de Madrid",
-      "home_team": "Real Madrid CF",
-      "away_team": "Rayo Vallecano de Madrid",
-      "home_team_id": 86,
-      "away_team_id": 87,
-      "league": "Primera Division",
-      "comp_code": "PD",
-      "kickoff": "2026-09-12T19:00:00Z",
+      "match": "Santos FC vs Cruzeiro EC",
+      "home_team": "Santos FC",
+      "away_team": "Cruzeiro EC",
+      "home_team_id": 6685,
+      "away_team_id": 1771,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-09-13T00:00:00Z",
       "locked": true
     }
   ],
@@ -122,16 +80,16 @@
       "locked": true,
       "legs": [
         {
-          "id": 561841,
+          "id": 554941,
           "icon": "\u26bd",
-          "match": "Swansea City AFC vs Burnley FC",
-          "meta": "Championship"
+          "match": "Botafogo FR vs Gr\u00eamio FBPA",
+          "meta": "Campeonato Brasileiro S\u00e9rie A"
         },
         {
-          "id": 567307,
+          "id": 555001,
           "icon": "\u26bd",
-          "match": "Casa Pia AC vs FC Porto",
-          "meta": "Primeira Liga"
+          "match": "EC Bahia vs Clube do Remo",
+          "meta": "Campeonato Brasileiro S\u00e9rie A"
         }
       ]
     },
@@ -140,22 +98,22 @@
       "locked": true,
       "legs": [
         {
-          "id": 558896,
+          "id": 555007,
           "icon": "\u26bd",
-          "match": "Fortuna Sittard vs AFC Ajax",
-          "meta": "Eredivisie"
+          "match": "Mirassol FC vs EC Vit\u00f3ria",
+          "meta": "Campeonato Brasileiro S\u00e9rie A"
         },
         {
-          "id": 567309,
+          "id": 555005,
           "icon": "\u26bd",
-          "match": "Acad\u00e9mico de Viseu FC vs Vit\u00f3ria SC",
-          "meta": "Primeira Liga"
+          "match": "CR Flamengo vs SC Corinthians Paulista",
+          "meta": "Campeonato Brasileiro S\u00e9rie A"
         },
         {
-          "id": 564672,
+          "id": 555009,
           "icon": "\u26bd",
-          "match": "RC Celta de Vigo vs M\u00e1laga CF",
-          "meta": "Primera Division"
+          "match": "Santos FC vs Cruzeiro EC",
+          "meta": "Campeonato Brasileiro S\u00e9rie A"
         }
       ]
     }
