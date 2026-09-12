@@ -66,8 +66,13 @@ BALLDONTLIE_BASE = "https://api.balldontlie.io/nba/v1"
 # The 12 competitions available on football-data.org's free tier
 COMPETITIONS = ["PL", "PD", "BL1", "SA", "FL1", "DED", "PPL", "ELC", "BSA", "CL", "WC", "EC"]
 
-MIN_SAMPLE = 2       # minimum home/away matches before we trust a team's numbers
-TOP_N_SINGLES = 8    # how many single picks to feature on predictions.json
+MIN_SAMPLE = 4       # minimum home/away matches before we trust a team's numbers (raised from 2 — small samples were too noisy to feature confidently)
+CONFIDENCE_FLOOR = 58  # % — only picks at or above this get featured on predictions.json/private_picks.json.
+                        # Replaces a fixed "always feature exactly 8" rule: on a weak day with no
+                        # strong signals, that forced weak picks to be presented with the same
+                        # visual confidence as genuinely strong ones. Now the count varies
+                        # honestly with how many fixtures actually clear the bar.
+MAX_FEATURED = 20    # sanity cap so a huge day doesn't produce an unreasonably long featured list
 MULTI_LEG_COUNTS = [2, 3]  # accumulator sizes to build from the top picks
 
 # --- subscription cycle window -------------------------------------------
@@ -601,8 +606,8 @@ def main():
 
     # --- ranking + multi-bets use the FULL (private) data ---
     ranked = sorted(clean_fixtures, key=lambda p: p["confidence"], reverse=True)
-    top_singles = ranked[:TOP_N_SINGLES]
-    multis = build_multi_bets(ranked)
+    top_singles = [p for p in ranked if p["confidence"] >= CONFIDENCE_FLOOR][:MAX_FEATURED]
+    multis = build_multi_bets(top_singles)
 
     # --- PUBLIC predictions.json: which matches are featured, no picks ---
     public_top_singles = [redact_for_public(fx) for fx in top_singles]

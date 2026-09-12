@@ -195,6 +195,28 @@ def dedup_history(history):
     return cleaned, seen
 
 
+def count_total_analyzed(archive_dir):
+    """Total UNIQUE fixtures ever analyzed since launch — computed fresh from
+    every archive file each run (archive files are never deleted, so this
+    naturally only grows). Deduped by fixture id so a match that got
+    re-archived daily while still upcoming (see generate_predictions.py's
+    cycle window) is counted once, not once per day it appeared."""
+    seen_ids = set()
+    for fname in os.listdir(archive_dir):
+        if not fname.endswith(".json"):
+            continue
+        try:
+            with open(os.path.join(archive_dir, fname)) as f:
+                day_data = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            continue
+        for entry in day_data.get("predictions", []):
+            fid = entry.get("id")
+            if fid is not None:
+                seen_ids.add(fid)
+    return len(seen_ids)
+
+
 def main():
     if not os.path.isdir(ARCHIVE_DIR):
         print("No archive directory yet — nothing to resolve.")
@@ -251,10 +273,16 @@ def main():
     history.sort(key=lambda h: h["date"], reverse=True)
     history = history[:MAX_HISTORY_ITEMS]
 
-    with open(OUT_HISTORY, "w") as f:
-        json.dump({"history": history}, f, indent=2)
+    total_analyzed = count_total_analyzed(ARCHIVE_DIR)
 
-    print(f"history.json now has {len(history)} graded predictions (deduped by fixture id)")
+    with open(OUT_HISTORY, "w") as f:
+        json.dump({
+            "total_analyzed_since_start": total_analyzed,
+            "history": history,
+        }, f, indent=2)
+
+    print(f"history.json now has {len(history)} graded predictions (deduped by fixture id), "
+          f"{total_analyzed} unique fixtures analyzed since launch")
 
 
 if __name__ == "__main__":
