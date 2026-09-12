@@ -365,12 +365,23 @@ ${unlockHTML}
 </div>
 `;
 }
+// Calendar-day grouping must stay entirely in the viewer's LOCAL time zone —
+// mixing toISOString() (always UTC) with local Date objects caused matches
+// to file under the wrong day header for any timezone ahead of UTC (e.g.
+// Kenya, UTC+3): a kickoff could correctly show as LIVE while still being
+// grouped under "Tomorrow", since the two checks used different calendars.
+function localDateKey(date){
+const y = date.getFullYear();
+const m = String(date.getMonth() + 1).padStart(2, '0');
+const d = String(date.getDate()).padStart(2, '0');
+return `${y}-${m}-${d}`;
+}
 function dateGroupLabel(dateKey){
 const today = new Date(); today.setHours(0,0,0,0);
 const tomorrow = new Date(today); tomorrow.setDate(today.getDate() + 1);
 const d = new Date(dateKey + 'T00:00:00');
-if(dateKey === today.toISOString().slice(0,10)) return { label: 'Today', isToday: true };
-if(dateKey === tomorrow.toISOString().slice(0,10)) return { label: 'Tomorrow', isToday: false };
+if(dateKey === localDateKey(today)) return { label: 'Today', isToday: true };
+if(dateKey === localDateKey(tomorrow)) return { label: 'Tomorrow', isToday: false };
 return { label: d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' }), isToday: false };
 }
 function renderGrouped(filtered){
@@ -379,7 +390,7 @@ filtered.forEach(p => {
 let key = 'tbd';
 if(p.kickoff){
 const dt = new Date(p.kickoff);
-if(!isNaN(dt.getTime())) key = dt.toISOString().slice(0,10);
+if(!isNaN(dt.getTime())) key = localDateKey(dt);
 }
 (groups[key] = groups[key] || []).push(p);
 });
