@@ -10,526 +10,513 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#0A0E14;
-    --bg-raised:#10151D;
-    --bg-card:#131A24;
-    --line:#212936;
-    --text:#E8EAED;
-    --text-dim:#8B92A5;
-    --gold:#F5A623;
-    --gold-soft:#F5A62322;
-    --cyan:#2DE1E8;
-    --cyan-soft:#2DE1E822;
-    --loss:#E8536B;
-  }
-  *{box-sizing:border-box;}
-  body{
-    margin:0;background:var(--bg);color:var(--text);
-    font-family:'Inter',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:600;line-height:1.15;margin:0;}
-  a{color:inherit;text-decoration:none;}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
-
-  /* NAV (shared) */
-  .nav{position:sticky;top:0;z-index:50;background:rgba(10,14,20,0.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
-  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
-  .brand-mark{width:32px;height:32px;border-radius:8px;object-fit:cover;}
-  .nav-links{display:flex;gap:32px;font-size:15px;color:var(--text-dim);}
-  .nav-links a:hover{color:var(--text);}
-  .nav-links a.active{color:var(--cyan);}
-  .nav-cta{padding:9px 20px;border-radius:9px;background:var(--gold);color:#1A1204;font-weight:600;font-size:14px;box-shadow:0 0 20px rgba(245,166,35,0.35);}
-  .nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;}
-  @media (max-width:800px){
-    .nav-links{position:fixed;top:68px;left:0;right:0;background:var(--bg-raised);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--line);transform:translateY(-150%);transition:transform .25s ease;}
-    .nav-links.open{transform:translateY(0);}
-    .nav-toggle{display:block;}
-    .nav-cta{display:none;}
-  }
-
-  /* PAGE HEAD */
-  .page-head{padding:56px 0 32px;position:relative;overflow:hidden;}
-  .page-head::before{content:'';position:absolute;top:-180px;right:-140px;width:420px;height:420px;background:radial-gradient(circle,rgba(45,225,232,0.13),transparent 70%);pointer-events:none;}
-  .eyebrow{color:var(--cyan);font-size:14px;font-weight:600;margin-bottom:12px;}
-  .page-head h1{font-size:36px;letter-spacing:-0.4px;margin-bottom:10px;position:relative;}
-  .page-head p{color:var(--text-dim);font-size:16px;max-width:520px;position:relative;}
-
-  /* FILTER TABS */
-  .filters{display:flex;gap:10px;flex-wrap:wrap;padding:8px 0 40px;}
-  .filter-btn{
-    padding:9px 18px;border-radius:22px;border:1px solid var(--line);
-    color:var(--text-dim);font-size:14px;font-weight:600;background:transparent;cursor:pointer;
-    transition:all .15s ease;
-  }
-  .filter-btn:hover{border-color:var(--cyan);color:var(--text);}
-  .filter-btn.active{background:var(--gold);border-color:var(--gold);color:#1A1204;box-shadow:0 0 16px rgba(245,166,35,0.35);}
-
-  /* PREDICTION CARDS */
-  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding-bottom:80px;}
-  .cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
-  @media (max-width:800px){.cards-grid{grid-template-columns:1fr;}}
-  @media (max-width:800px){.cards{grid-template-columns:1fr;}}
-  .card{
-    display:block;cursor:pointer;
-    background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:24px;
-    transition:border-color .2s ease;
-  }
-  .card:hover{border-color:rgba(45,225,232,0.35);}
-  .card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
-  .sport-tag{font-size:12px;font-weight:700;color:var(--cyan);background:var(--cyan-soft);padding:4px 10px;border-radius:6px;}
-  .kickoff{font-size:12px;color:var(--text-dim);}
-  .live-badge{
-    display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:#E8536B;
-  }
-  .live-badge::before{
-    content:'';width:7px;height:7px;border-radius:50%;background:#E8536B;
-    box-shadow:0 0 8px #E8536B;animation:livePulse 1.4s infinite;
-  }
-  @keyframes livePulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
-  .filter-btn.live-tab.active{background:#E8536B;border-color:#E8536B;box-shadow:0 0 16px rgba(232,83,107,0.35);}
-  .card.is-live{border-color:rgba(232,83,107,0.4);}
-  .card-match{font-size:19px;font-weight:600;font-family:'Space Grotesk',sans-serif;margin-bottom:4px;}
-  .card-league{font-size:13px;color:var(--text-dim);margin-bottom:18px;}
-  .card-divider{border-top:1px dashed var(--line);margin:0 0 16px;}
-  .card-row{display:flex;justify-content:space-between;align-items:flex-end;}
-  .pick-label{font-size:12px;color:var(--text-dim);margin-bottom:4px;}
-  .pick-value{font-size:17px;font-weight:700;color:var(--gold);}
-  .odds{font-size:13px;color:var(--text-dim);text-align:right;}
-  .odds b{color:var(--text);font-size:16px;}
-  .confidence{display:flex;align-items:center;gap:6px;margin-top:14px;font-size:12px;color:var(--text-dim);}
-  .conf-bar{flex:1;height:5px;background:var(--line);border-radius:3px;overflow:hidden;}
-  .conf-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--cyan));}
-
-  /* MULTI-BET CARDS */
-  .multi-card{
-    background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:24px;
-    grid-column:1 / -1;position:relative;overflow:hidden;
-  }
-  .multi-card::before{
-    content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;
-    background:radial-gradient(circle,rgba(245,166,35,0.15),transparent 70%);pointer-events:none;
-  }
-  .multi-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;position:relative;}
-  .multi-badge{font-size:12px;font-weight:700;color:var(--gold);background:var(--gold-soft);padding:5px 12px;border-radius:6px;}
-  .multi-odds{text-align:right;}
-  .multi-odds-label{font-size:11px;color:var(--text-dim);}
-  .multi-odds-val{font-size:22px;font-weight:700;font-family:'Space Grotesk',sans-serif;color:var(--gold);}
-  .multi-legs{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);position:relative;}
-  .leg-row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--line);gap:12px;}
-  .leg-row:last-child{border-bottom:none;}
-  .leg-num{width:22px;height:22px;border-radius:50%;background:var(--cyan-soft);color:var(--cyan);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-  .leg-info{flex:1;min-width:0;}
-  .leg-match{font-size:14px;font-weight:500;}
-  .leg-meta{font-size:12px;color:var(--text-dim);}
-  .leg-pick{font-size:13px;font-weight:600;color:var(--gold);white-space:nowrap;}
-  .multi-footer{display:flex;justify-content:space-between;align-items:center;margin-top:16px;position:relative;}
-  @media (max-width:600px){
-    .leg-row{flex-wrap:wrap;}
-    .leg-pick{width:100%;padding-left:32px;}
-  }
-
-  .empty{text-align:center;padding:60px 20px;color:var(--text-dim);display:none;}
-
-  /* SEARCH */
-  .search-wrap{position:relative;margin-bottom:28px;}
-  .search-input{
-    width:100%;padding:15px 46px 15px 46px;border-radius:12px;
-    background:var(--bg-card);border:1px solid var(--line);color:var(--text);
-    font-size:15px;font-family:'Inter',sans-serif;
-  }
-  .search-input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(45,225,232,0.12);}
-  .search-input::placeholder{color:var(--text-dim);}
-  .search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--text-dim);font-size:16px;pointer-events:none;}
-  .search-clear{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--text-dim);background:none;border:none;font-size:18px;cursor:pointer;display:none;}
-  .search-results{
-    position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:40;
-    background:var(--bg-card);border:1px solid var(--line);border-radius:12px;
-    max-height:360px;overflow-y:auto;box-shadow:0 20px 50px -10px rgba(0,0,0,0.6);
-    display:none;
-  }
-  .search-result-row{
-    display:flex;align-items:center;justify-content:space-between;gap:12px;
-    padding:13px 16px;border-bottom:1px solid var(--line);cursor:pointer;
-  }
-  .search-result-row:last-child{border-bottom:none;}
-  .search-result-row:hover{background:var(--bg-raised);}
-  .sr-match{font-size:14px;font-weight:500;}
-  .sr-meta{font-size:12px;color:var(--text-dim);}
-  .sr-pick{font-size:12.5px;color:var(--gold);font-weight:600;white-space:nowrap;}
-  .search-empty{padding:20px 16px;color:var(--text-dim);font-size:13.5px;text-align:center;}
-
-  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);font-size:13px;}
-  .footer-grid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-  .footer-links{display:flex;gap:20px;}
-  .footer-links a:hover{color:var(--text);}
-
-  .data-status{
-    font-size:11.5px;color:var(--text-dim);text-align:center;padding:10px 0 24px;
-    display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;
-  }
-  .data-status .dot{width:6px;height:6px;border-radius:50%;background:var(--win,#3DD68C);flex-shrink:0;}
-  .data-status.error .dot{background:var(--loss);}
-
-  .site-bg-video{
-    position:fixed;inset:0;width:100%;height:100%;
-    object-fit:cover;opacity:0.7;z-index:-2;pointer-events:none;
-  }
-  .site-bg-overlay{
-    position:fixed;inset:0;z-index:-1;
-    background:linear-gradient(180deg,rgba(10,14,20,0.55) 0%,rgba(10,14,20,0.72) 40%,var(--bg) 85%);
-    pointer-events:none;
-  }
-  .loader-overlay{
-    position:fixed;inset:0;z-index:999;
-    background:rgba(10,14,20,0.8);backdrop-filter:blur(4px);
-    display:flex;align-items:center;justify-content:center;
-    opacity:0;pointer-events:none;transition:opacity .25s ease;
-  }
-  .loader-overlay.active{opacity:1;pointer-events:all;}
-  .loader-video{width:150px;height:150px;object-fit:contain;}
-
-  .date-group{margin-bottom:36px;}
-  .date-group-head{
-    display:flex;align-items:center;gap:12px;margin-bottom:16px;
-    font-size:13px;font-weight:700;color:var(--text-dim);letter-spacing:0.4px;text-transform:uppercase;
-  }
-  .date-group-head::after{content:'';flex:1;height:1px;background:var(--line);}
-  .date-group-head.is-today{color:var(--gold);}
+:root{
+--bg:#0A0E14;
+--bg-raised:#10151D;
+--bg-card:#131A24;
+--line:#212936;
+--text:#E8EAED;
+--text-dim:#8B92A5;
+--gold:#F5A623;
+--gold-soft:#F5A62322;
+--cyan:#2DE1E8;
+--cyan-soft:#2DE1E822;
+--loss:#E8536B;
+}
+*{box-sizing:border-box;}
+body{
+margin:0;background:var(--bg);color:var(--text);
+font-family:'Inter',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:600;line-height:1.15;margin:0;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+/* NAV (shared) */
+.nav{position:sticky;top:0;z-index:50;background:rgba(10,14,20,0.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+.brand-mark{width:32px;height:32px;border-radius:8px;object-fit:cover;}
+.nav-links{display:flex;gap:32px;font-size:15px;color:var(--text-dim);}
+.nav-links a:hover{color:var(--text);}
+.nav-links a.active{color:var(--cyan);}
+.nav-cta{padding:9px 20px;border-radius:9px;background:var(--gold);color:#1A1204;font-weight:600;font-size:14px;box-shadow:0 0 20px rgba(245,166,35,0.35);}
+.nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;}
+@media (max-width:800px){
+.nav-links{position:fixed;top:68px;left:0;right:0;background:var(--bg-raised);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--line);transform:translateY(-150%);transition:transform .25s ease;}
+.nav-links.open{transform:translateY(0);}
+.nav-toggle{display:block;}
+.nav-cta{display:none;}
+}
+/* PAGE HEAD */
+.page-head{padding:56px 0 32px;position:relative;overflow:hidden;}
+.page-head::before{content:'';position:absolute;top:-180px;right:-140px;width:420px;height:420px;background:radial-gradient(circle,rgba(45,225,232,0.13),transparent 70%);pointer-events:none;}
+.eyebrow{color:var(--cyan);font-size:14px;font-weight:600;margin-bottom:12px;}
+.page-head h1{font-size:36px;letter-spacing:-0.4px;margin-bottom:10px;position:relative;}
+.page-head p{color:var(--text-dim);font-size:16px;max-width:520px;position:relative;}
+/* FILTER TABS */
+.filters{display:flex;gap:10px;flex-wrap:wrap;padding:8px 0 40px;}
+.filter-btn{
+padding:9px 18px;border-radius:22px;border:1px solid var(--line);
+color:var(--text-dim);font-size:14px;font-weight:600;background:transparent;cursor:pointer;
+transition:all .15s ease;
+}
+.filter-btn:hover{border-color:var(--cyan);color:var(--text);}
+.filter-btn.active{background:var(--gold);border-color:var(--gold);color:#1A1204;box-shadow:0 0 16px rgba(245,166,35,0.35);}
+/* PREDICTION CARDS */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding-bottom:80px;}
+.cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+@media (max-width:800px){.cards-grid{grid-template-columns:1fr;}}
+@media (max-width:800px){.cards{grid-template-columns:1fr;}}
+.card{
+display:block;cursor:pointer;
+background:var(--bg-card);border:1px solid var(--line);border-radius:16px 16px 0 0;padding:24px;
+transition:border-color .2s ease;
+border-bottom:none;
+}
+.card.no-unlock-btn{border-radius:16px;border-bottom:1px solid var(--line);}
+.card:hover{border-color:rgba(45,225,232,0.35);}
+.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+.sport-tag{font-size:12px;font-weight:700;color:var(--cyan);background:var(--cyan-soft);padding:4px 10px;border-radius:6px;}
+.kickoff{font-size:12px;color:var(--text-dim);}
+.live-badge{
+display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:#E8536B;
+}
+.live-badge::before{
+content:'';width:7px;height:7px;border-radius:50%;background:#E8536B;
+box-shadow:0 0 8px #E8536B;animation:livePulse 1.4s infinite;
+}
+@keyframes livePulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.filter-btn.live-tab.active{background:#E8536B;border-color:#E8536B;box-shadow:0 0 16px rgba(232,83,107,0.35);}
+.card.is-live{border-color:rgba(232,83,107,0.4);}
+.card-match{font-size:19px;font-weight:600;font-family:'Space Grotesk',sans-serif;margin-bottom:4px;}
+.card-league{font-size:13px;color:var(--text-dim);margin-bottom:18px;}
+.card-divider{border-top:1px dashed var(--line);margin:0 0 16px;}
+.card-row{display:flex;justify-content:space-between;align-items:flex-end;}
+.pick-label{font-size:12px;color:var(--text-dim);margin-bottom:4px;}
+.pick-value{font-size:17px;font-weight:700;color:var(--gold);}
+.odds{font-size:13px;color:var(--text-dim);text-align:right;}
+.odds b{color:var(--text);font-size:16px;}
+.confidence{display:flex;align-items:center;gap:6px;margin-top:14px;font-size:12px;color:var(--text-dim);}
+.conf-bar{flex:1;height:5px;background:var(--line);border-radius:3px;overflow:hidden;}
+.conf-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--cyan));}
+/* UNLOCK BUTTON — sits directly beneath a locked card, same visual card, no gap */
+.unlock-btn{
+display:flex;align-items:center;justify-content:center;gap:8px;
+background:var(--gold-soft);border:1px solid var(--line);border-top:1px dashed var(--line);
+border-radius:0 0 16px 16px;padding:13px 20px;
+font-size:13.5px;font-weight:700;color:var(--gold);cursor:pointer;
+transition:background .15s ease;
+}
+.unlock-btn:hover{background:rgba(245,166,35,0.18);}
+/* MULTI-BET CARDS */
+.multi-card{
+background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:24px;
+grid-column:1 / -1;position:relative;overflow:hidden;
+}
+.multi-card::before{
+content:'';position:absolute;top:-60px;right:-60px;width:180px;height:180px;
+background:radial-gradient(circle,rgba(245,166,35,0.15),transparent 70%);pointer-events:none;
+}
+.multi-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;position:relative;}
+.multi-badge{font-size:12px;font-weight:700;color:var(--gold);background:var(--gold-soft);padding:5px 12px;border-radius:6px;}
+.multi-odds{text-align:right;}
+.multi-odds-label{font-size:11px;color:var(--text-dim);}
+.multi-odds-val{font-size:22px;font-weight:700;font-family:'Space Grotesk',sans-serif;color:var(--gold);}
+.multi-legs{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);position:relative;}
+.leg-row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--line);gap:12px;}
+.leg-row:last-child{border-bottom:none;}
+.leg-num{width:22px;height:22px;border-radius:50%;background:var(--cyan-soft);color:var(--cyan);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.leg-info{flex:1;min-width:0;}
+.leg-match{font-size:14px;font-weight:500;}
+.leg-meta{font-size:12px;color:var(--text-dim);}
+.leg-pick{font-size:13px;font-weight:600;color:var(--gold);white-space:nowrap;}
+.multi-footer{display:flex;justify-content:space-between;align-items:center;margin-top:16px;position:relative;}
+.multi-unlock-btn{
+display:block;text-align:center;margin-top:16px;position:relative;
+background:var(--gold);color:#1A1204;font-weight:700;font-size:14px;
+padding:12px;border-radius:10px;
+}
+@media (max-width:600px){
+.leg-row{flex-wrap:wrap;}
+.leg-pick{width:100%;padding-left:32px;}
+}
+.empty{text-align:center;padding:60px 20px;color:var(--text-dim);display:none;}
+/* SEARCH */
+.search-wrap{position:relative;margin-bottom:28px;}
+.search-input{
+width:100%;padding:15px 46px 15px 46px;border-radius:12px;
+background:var(--bg-card);border:1px solid var(--line);color:var(--text);
+font-size:15px;font-family:'Inter',sans-serif;
+}
+.search-input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(45,225,232,0.12);}
+.search-input::placeholder{color:var(--text-dim);}
+.search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--text-dim);font-size:16px;pointer-events:none;}
+.search-clear{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--text-dim);background:none;border:none;font-size:18px;cursor:pointer;display:none;}
+.search-results{
+position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:40;
+background:var(--bg-card);border:1px solid var(--line);border-radius:12px;
+max-height:360px;overflow-y:auto;box-shadow:0 20px 50px -10px rgba(0,0,0,0.6);
+display:none;
+}
+.search-result-row{
+display:flex;align-items:center;justify-content:space-between;gap:12px;
+padding:13px 16px;border-bottom:1px solid var(--line);cursor:pointer;
+}
+.search-result-row:last-child{border-bottom:none;}
+.search-result-row:hover{background:var(--bg-raised);}
+.sr-match{font-size:14px;font-weight:500;}
+.sr-meta{font-size:12px;color:var(--text-dim);}
+.sr-pick{font-size:12.5px;color:var(--gold);font-weight:600;white-space:nowrap;}
+.search-empty{padding:20px 16px;color:var(--text-dim);font-size:13.5px;text-align:center;}
+footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);font-size:13px;}
+.footer-grid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-links{display:flex;gap:20px;}
+.footer-links a:hover{color:var(--text);}
+.data-status{
+font-size:11.5px;color:var(--text-dim);text-align:center;padding:10px 0 24px;
+display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;
+}
+.data-status .dot{width:6px;height:6px;border-radius:50%;background:var(--win,#3DD68C);flex-shrink:0;}
+.data-status.error .dot{background:var(--loss);}
+.site-bg-video{
+position:fixed;inset:0;width:100%;height:100%;
+object-fit:cover;opacity:0.7;z-index:-2;pointer-events:none;
+}
+.site-bg-overlay{
+position:fixed;inset:0;z-index:-1;
+background:linear-gradient(180deg,rgba(10,14,20,0.55) 0%,rgba(10,14,20,0.72) 40%,var(--bg) 85%);
+pointer-events:none;
+}
+.loader-overlay{
+position:fixed;inset:0;z-index:999;
+background:rgba(10,14,20,0.8);backdrop-filter:blur(4px);
+display:flex;align-items:center;justify-content:center;
+opacity:0;pointer-events:none;transition:opacity .25s ease;
+}
+.loader-overlay.active{opacity:1;pointer-events:all;}
+.loader-video{width:150px;height:150px;object-fit:contain;}
+.date-group{margin-bottom:36px;}
+.date-group-head{
+display:flex;align-items:center;gap:12px;margin-bottom:16px;
+font-size:13px;font-weight:700;color:var(--text-dim);letter-spacing:0.4px;text-transform:uppercase;
+}
+.date-group-head::after{content:'';flex:1;height:1px;background:var(--line);}
+.date-group-head.is-today{color:var(--gold);}
 </style>
 </head>
 <body>
-
 <video class="site-bg-video" autoplay muted loop playsinline>
-  <source src="hero-bg.mp4" type="video/mp4">
+<source src="hero-bg.mp4" type="video/mp4">
 </video>
 <div class="site-bg-overlay"></div>
-
 <nav class="nav">
-  <div class="wrap">
-    <a href="index.html" class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</a>
-    <div class="nav-links" id="navLinks">
-      <a href="predictions.html" class="active">Predictions</a>
-      <a href="track-record.html">Track Record</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <a href="pricing.html" class="nav-cta">Get Picks</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
-  </div>
-</nav>
-
-<section class="page-head">
-  <div class="wrap">
-    <div class="eyebrow" id="pageEyebrow">UPCOMING FIXTURES</div>
-    <h1>Predictions & analysis</h1>
-    <p>Search any team we cover, or browse every upcoming fixture across football and basketball. Tap any match for the full breakdown — form, head-to-head, and every market we modeled.</p>
-  </div>
-</section>
-
 <div class="wrap">
-  <div class="search-wrap">
-    <span class="search-icon">🔍</span>
-    <input type="text" class="search-input" id="searchInput" placeholder="Search a team or match (e.g. Arsenal, Lakers)…" autocomplete="off">
-    <button class="search-clear" id="searchClear">✕</button>
-    <div class="search-results" id="searchResults"></div>
-  </div>
-
-  <div class="filters" id="filters">
-    <button class="filter-btn active" data-sport="all">All Sports</button>
-    <button class="filter-btn" data-sport="Football">⚽ Football</button>
-    <button class="filter-btn" data-sport="Basketball">🏀 Basketball</button>
-    <button class="filter-btn live-tab" data-sport="Live">🔴 Live</button>
-    <button class="filter-btn" data-sport="Multi">🔥 Multi-Bets</button>
-  </div>
-
-  <div class="cards" id="cards"></div>
-  <div class="empty" id="emptyState">No predictions in this category today — check back soon.</div>
-  <div class="data-status" id="dataStatus"></div>
+<a href="index.html" class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</a>
+<div class="nav-links" id="navLinks">
+<a href="predictions.html" class="active">Predictions</a>
+<a href="track-record.html">Track Record</a>
+<a href="pricing.html">Pricing</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
 </div>
-
+<a href="pricing.html" class="nav-cta">Get Picks</a>
+<button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+</div>
+</nav>
+<section class="page-head">
+<div class="wrap">
+<div class="eyebrow" id="pageEyebrow">UPCOMING FIXTURES</div>
+<h1>Predictions & analysis</h1>
+<p>Search any team we cover, or browse every upcoming fixture across football and basketball. Tap any match for the full breakdown — form, head-to-head, and every market we modeled.</p>
+</div>
+</section>
+<div class="wrap">
+<div class="search-wrap">
+<span class="search-icon">🔍</span>
+<input type="text" class="search-input" id="searchInput" placeholder="Search a team or match (e.g. Arsenal, Lakers)…" autocomplete="off">
+<button class="search-clear" id="searchClear">✕</button>
+<div class="search-results" id="searchResults"></div>
+</div>
+<div class="filters" id="filters">
+<button class="filter-btn active" data-sport="all">All Sports</button>
+<button class="filter-btn" data-sport="Football">⚽ Football</button>
+<button class="filter-btn" data-sport="Basketball">🏀 Basketball</button>
+<button class="filter-btn live-tab" data-sport="Live">🔴 Live</button>
+<button class="filter-btn" data-sport="Multi">🔥 Multi-Bets</button>
+</div>
+<div class="cards" id="cards"></div>
+<div class="empty" id="emptyState">No predictions in this category today — check back soon.</div>
+<div class="data-status" id="dataStatus"></div>
+</div>
 <footer>
-  <div class="wrap footer-grid">
-    <div class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</div>
-    <div class="footer-links">
-      <a href="predictions.html">Predictions</a>
-      <a href="track-record.html">Track Record</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div>&copy; 2026 Money Odds. All rights reserved.</div>
-  </div>
-</footer>
-
-<div class="loader-overlay" id="loaderOverlay">
-  <video class="loader-video" autoplay muted loop playsinline>
-    <source src="loading-logo.mp4" type="video/mp4">
-  </video>
+<div class="wrap footer-grid">
+<div class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</div>
+<div class="footer-links">
+<a href="predictions.html">Predictions</a>
+<a href="track-record.html">Track Record</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
 </div>
-
+<div>&copy; 2026 Money Odds. All rights reserved.</div>
+</div>
+</footer>
+<div class="loader-overlay" id="loaderOverlay">
+<video class="loader-video" autoplay muted loop playsinline>
+<source src="loading-logo.mp4" type="video/mp4">
+</video>
+</div>
 <script>
-  function showLoader(){ document.getElementById('loaderOverlay').classList.add('active'); }
-  function hideLoader(){ document.getElementById('loaderOverlay').classList.remove('active'); }
-  showLoader();
-  document.getElementById('navToggle').addEventListener('click', function(){
-    document.getElementById('navLinks').classList.toggle('open');
-  });
-
-  let predictions = [];
-  let multiBets = [];
-
-  const cardsEl = document.getElementById('cards');
-  const emptyEl = document.getElementById('emptyState');
-
-  function formatKickoff(iso){
-    if(!iso) return '';
-    try {
-      const d = new Date(iso);
-      return d.toLocaleString('en-GB', { weekday: 'short', hour: '2-digit', minute: '2-digit' });
-    } catch(e){ return ''; }
-  }
-
-  function multiCardHTML(m){
-    const legsHTML = m.legs.map((l, i) => `
-      <a class="leg-row" href="match.html?id=${encodeURIComponent(l.id)}" style="cursor:pointer;">
-        <div class="leg-num">${i+1}</div>
-        <div class="leg-info">
-          <div class="leg-match">${l.icon} ${l.match}</div>
-          <div class="leg-meta">${l.meta}</div>
-        </div>
-        <div class="leg-pick">${l.pick ?? '🔒'}</div>
-      </a>
-    `).join('');
-    return `
-      <div class="multi-card">
-        <div class="multi-top">
-          <span class="multi-badge">🔥 ${m.title}</span>
-          <div class="multi-odds">
-            <div class="multi-odds-label">Combined Fair Odds</div>
-            <div class="multi-odds-val">${m.combined_fair_odds ?? '—'}</div>
-          </div>
-        </div>
-        <div class="multi-legs">${legsHTML}</div>
-      </div>
-    `;
-  }
-
-  const LIVE_WINDOW_MS = 3 * 60 * 60 * 1000; // assume a match wraps up within 3 hours of kickoff
-
-  function matchState(kickoffIso){
-    if(!kickoffIso) return 'upcoming';
-    const kt = new Date(kickoffIso).getTime();
-    if(isNaN(kt)) return 'upcoming';
-    const now = Date.now();
-    if(kt > now) return 'upcoming';
-    if(now - kt <= LIVE_WINDOW_MS) return 'live';
-    return 'finished';
-  }
-
-  function cardHTML(p){
-    const state = matchState(p.kickoff);
-    const kickoffHTML = state === 'live'
-      ? '<span class="live-badge">LIVE</span>'
-      : formatKickoff(p.kickoff);
-    const locked = p.pick === undefined;
-    const pickBlock = locked
-      ? `<div class="pick-label">🔒 Locked</div><div class="pick-value" style="color:var(--text-dim);">Subscribe to unlock</div>`
-      : `<div class="pick-label">Our pick</div><div class="pick-value">${p.pick}</div>`;
-    const oddsBlock = locked
-      ? `<div class="odds">Model Fair Odds<br><b>🔒</b></div>`
-      : `<div class="odds">Model Fair Odds<br><b>${p.fair_odds ?? '—'}</b></div>`;
-    const confBlock = locked
-      ? `<div class="confidence"><span>Confidence</span><div class="conf-bar"><div class="conf-fill" style="width:0%"></div></div><span>🔒</span></div>`
-      : `<div class="confidence"><span>Confidence</span><div class="conf-bar"><div class="conf-fill" style="width:${p.confidence}%"></div></div><span>${p.confidence}%</span></div>`;
-    return `
-      <a class="card ${state === 'live' ? 'is-live' : ''}" href="match.html?id=${encodeURIComponent(p.id)}">
-        <div class="card-top">
-          <span class="sport-tag">${p.icon} ${p.sport}</span>
-          <span class="kickoff">${kickoffHTML}</span>
-        </div>
-        <div class="card-match">${p.match}</div>
-        <div class="card-league">${p.league}</div>
-        <div class="card-divider"></div>
-        <div class="card-row">
-          <div>
-            ${pickBlock}
-          </div>
-          ${oddsBlock}
-        </div>
-        ${confBlock}
-      </a>
-    `;
-  }
-
-  function dateGroupLabel(dateKey){
-    const today = new Date(); today.setHours(0,0,0,0);
-    const tomorrow = new Date(today); tomorrow.setDate(today.getDate() + 1);
-    const d = new Date(dateKey + 'T00:00:00');
-    if(dateKey === today.toISOString().slice(0,10)) return { label: 'Today', isToday: true };
-    if(dateKey === tomorrow.toISOString().slice(0,10)) return { label: 'Tomorrow', isToday: false };
-    return { label: d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' }), isToday: false };
-  }
-
-  function renderGrouped(filtered){
-    const groups = {};
-    filtered.forEach(p => {
-      let key = 'tbd';
-      if(p.kickoff){
-        const dt = new Date(p.kickoff);
-        if(!isNaN(dt.getTime())) key = dt.toISOString().slice(0,10);
-      }
-      (groups[key] = groups[key] || []).push(p);
-    });
-    const keys = Object.keys(groups).sort();
-    cardsEl.innerHTML = keys.map(key => {
-      const cards = groups[key].map(cardHTML).join('');
-      if(key === 'tbd'){
-        return `<div class="date-group"><div class="date-group-head">Date TBD</div><div class="cards-grid">${cards}</div></div>`;
-      }
-      const { label, isToday } = dateGroupLabel(key);
-      return `<div class="date-group"><div class="date-group-head ${isToday ? 'is-today' : ''}">${label}</div><div class="cards-grid">${cards}</div></div>`;
-    }).join('');
-  }
-
-  function render(sport){
-    if(sport === 'Multi'){
-      cardsEl.style.display = multiBets.length ? 'grid' : 'none';
-      emptyEl.style.display = multiBets.length ? 'none' : 'block';
-      cardsEl.innerHTML = multiBets.map(multiCardHTML).join('');
-      return;
-    }
-    let filtered;
-    if(sport === 'Live'){
-      filtered = predictions.filter(p => matchState(p.kickoff) === 'live');
-    } else if(sport === 'all'){
-      filtered = predictions;
-    } else {
-      filtered = predictions.filter(p => p.sport === sport);
-    }
-    const showGrouped = sport !== 'Live';
-    cardsEl.style.display = filtered.length ? 'block' : 'none';
-    emptyEl.style.display = filtered.length ? 'none' : 'block';
-    if(sport === 'Live' && !filtered.length){
-      emptyEl.textContent = 'Nothing live right now — check back once a predicted match kicks off.';
-    }
-    if(showGrouped){
-      renderGrouped(filtered);
-    } else {
-      cardsEl.style.display = filtered.length ? 'grid' : 'none';
-      cardsEl.innerHTML = filtered.map(cardHTML).join('');
-    }
-  }
-
-  document.getElementById('filters').addEventListener('click', function(e){
-    const btn = e.target.closest('.filter-btn');
-    if(!btn) return;
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    render(btn.dataset.sport);
-  });
-
-  const statusEl = document.getElementById('dataStatus');
-
-  function formatUpdated(iso){
-    try {
-      return new Date(iso).toLocaleString('en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
-    } catch(e){ return iso; }
-  }
-
-  fetch('fixtures.json?_=' + Date.now())
-    .then(r => {
-      if(!r.ok) throw new Error('fixtures.json returned HTTP ' + r.status + ' — the file may not exist yet at this path.');
-      return r.json();
-    })
-    .then(data => {
-      const now = Date.now();
-      const all = data.fixtures || [];
-      predictions = all.filter(p => {
-        if(!p.kickoff) return true;
-        const kt = new Date(p.kickoff).getTime();
-        if(isNaN(kt)) return true;
-        return (now - kt) <= LIVE_WINDOW_MS; // keep upcoming + live, drop only truly finished
-      });
-      const liveCount = predictions.filter(p => matchState(p.kickoff) === 'live').length;
-      const stale = all.length - predictions.length;
-      render('all');
-      statusEl.className = 'data-status';
-      statusEl.innerHTML = `<span class="dot"></span> Live data · updated ${formatUpdated(data.generated_at)} · ${predictions.length} fixtures${liveCount ? ` · ${liveCount} live now` : ''}${stale ? ` · ${stale} finished, hidden` : ''}`;
-      hideLoader();
-    })
-    .catch((err) => {
-      predictions = [];
-      emptyEl.textContent = "Today's analysis is still being generated — check back shortly.";
-      render('all');
-      statusEl.className = 'data-status error';
-      statusEl.innerHTML = `<span class="dot"></span> Couldn't load fixtures.json (${err.message}) — if this persists, the automation may not have run yet, or this page may be an older cached version.`;
-      hideLoader();
-    });
-
-  fetch('predictions.json?_=' + Date.now())
-    .then(r => r.ok ? r.json() : Promise.reject())
-    .then(data => { multiBets = data.multi_bets || []; })
-    .catch(() => { multiBets = []; });
-
-  // ---------------------------------------------------------------- search
-  const searchInput = document.getElementById('searchInput');
-  const searchResults = document.getElementById('searchResults');
-  const searchClear = document.getElementById('searchClear');
-
-  function runSearch(query){
-    const q = query.trim().toLowerCase();
-    if(!q){
-      searchResults.style.display = 'none';
-      searchClear.style.display = 'none';
-      return;
-    }
-    searchClear.style.display = 'block';
-    const matches = predictions.filter(p =>
-      p.match.toLowerCase().includes(q) ||
-      (p.home_team || '').toLowerCase().includes(q) ||
-      (p.away_team || '').toLowerCase().includes(q)
-    ).slice(0, 8);
-
-    if(!matches.length){
-      searchResults.innerHTML = `<div class="search-empty">No upcoming analysis found for "${query}". We only cover 12 major football competitions and the NBA right now — see the Predictions tabs above for full coverage.</div>`;
-    } else {
-      searchResults.innerHTML = matches.map(p => `
-        <div class="search-result-row" data-id="${p.id}">
-          <div>
-            <div class="sr-match">${p.icon} ${p.match}</div>
-            <div class="sr-meta">${p.league} · ${formatKickoff(p.kickoff)}</div>
-          </div>
-          <div class="sr-pick">${p.pick}</div>
-        </div>
-      `).join('');
-    }
-    searchResults.style.display = 'block';
-  }
-
-  searchInput.addEventListener('input', () => runSearch(searchInput.value));
-  searchInput.addEventListener('focus', () => { if(searchInput.value.trim()) runSearch(searchInput.value); });
-
-  searchResults.addEventListener('click', function(e){
-    const row = e.target.closest('.search-result-row');
-    if(!row || !row.dataset.id) return;
-    window.location.href = 'match.html?id=' + encodeURIComponent(row.dataset.id);
-  });
-
-  searchClear.addEventListener('click', function(){
-    searchInput.value = '';
-    searchResults.style.display = 'none';
-    searchClear.style.display = 'none';
-    searchInput.focus();
-  });
-
-  document.addEventListener('click', function(e){
-    if(!e.target.closest('.search-wrap')){
-      searchResults.style.display = 'none';
-    }
-  });
+function showLoader(){ document.getElementById('loaderOverlay').classList.add('active'); }
+function hideLoader(){ document.getElementById('loaderOverlay').classList.remove('active'); }
+showLoader();
+document.getElementById('navToggle').addEventListener('click', function(){
+document.getElementById('navLinks').classList.toggle('open');
+});
+let predictions = [];
+let multiBets = [];
+const cardsEl = document.getElementById('cards');
+const emptyEl = document.getElementById('emptyState');
+function formatKickoff(iso){
+if(!iso) return '';
+try {
+const d = new Date(iso);
+return d.toLocaleString('en-GB', { weekday: 'short', hour: '2-digit', minute: '2-digit' });
+} catch(e){ return ''; }
+}
+function multiCardHTML(m){
+const legsHTML = m.legs.map((l, i) => `
+<a class="leg-row" href="match.html?id=${encodeURIComponent(l.id)}" style="cursor:pointer;">
+<div class="leg-num">${i+1}</div>
+<div class="leg-info">
+<div class="leg-match">${l.icon} ${l.match}</div>
+<div class="leg-meta">${l.meta}</div>
+</div>
+<div class="leg-pick">${l.pick ?? '🔒'}</div>
+</a>
+`).join('');
+const anyLocked = m.legs.some(l => l.pick === undefined || l.pick === null);
+const unlockHTML = anyLocked
+? `<a class="multi-unlock-btn" href="pricing.html">🔓 Unlock this accumulator — Ksh 59 / $2</a>`
+: '';
+return `
+<div class="multi-card">
+<div class="multi-top">
+<span class="multi-badge">🔥 ${m.title}</span>
+<div class="multi-odds">
+<div class="multi-odds-label">Combined Fair Odds</div>
+<div class="multi-odds-val">${m.combined_fair_odds ?? '—'}</div>
+</div>
+</div>
+<div class="multi-legs">${legsHTML}</div>
+${unlockHTML}
+</div>
+`;
+}
+const LIVE_WINDOW_MS = 3 * 60 * 60 * 1000; // assume a match wraps up within 3 hours of kickoff
+function matchState(kickoffIso){
+if(!kickoffIso) return 'upcoming';
+const kt = new Date(kickoffIso).getTime();
+if(isNaN(kt)) return 'upcoming';
+const now = Date.now();
+if(kt > now) return 'upcoming';
+if(now - kt <= LIVE_WINDOW_MS) return 'live';
+return 'finished';
+}
+function cardHTML(p){
+const state = matchState(p.kickoff);
+const kickoffHTML = state === 'live'
+? '<span class="live-badge">LIVE</span>'
+: formatKickoff(p.kickoff);
+const locked = p.pick === undefined;
+const pickBlock = locked
+? `<div class="pick-label">🔒 Locked</div><div class="pick-value" style="color:var(--text-dim);">Subscribe to unlock</div>`
+: `<div class="pick-label">Our pick</div><div class="pick-value">${p.pick}</div>`;
+const oddsBlock = locked
+? `<div class="odds">Model Fair Odds<br><b>🔒</b></div>`
+: `<div class="odds">Model Fair Odds<br><b>${p.fair_odds ?? '—'}</b></div>`;
+const confBlock = locked
+? `<div class="confidence"><span>Confidence</span><div class="conf-bar"><div class="conf-fill" style="width:0%"></div></div><span>🔒</span></div>`
+: `<div class="confidence"><span>Confidence</span><div class="conf-bar"><div class="conf-fill" style="width:${p.confidence}%"></div></div><span>${p.confidence}%</span></div>`;
+// The unlock button sits directly under the card, as its own element, so
+// tapping it never gets swallowed by the card's own link to match.html —
+// a nested <a> inside an <a> is invalid HTML and behaves unreliably.
+const unlockHTML = locked
+? `<a class="unlock-btn" href="pricing.html">🔓 Unlock this pick — Ksh 59 / $2</a>`
+: '';
+return `
+<div>
+<a class="card ${state === 'live' ? 'is-live' : ''} ${locked ? '' : 'no-unlock-btn'}" href="match.html?id=${encodeURIComponent(p.id)}">
+<div class="card-top">
+<span class="sport-tag">${p.icon} ${p.sport}</span>
+<span class="kickoff">${kickoffHTML}</span>
+</div>
+<div class="card-match">${p.match}</div>
+<div class="card-league">${p.league}</div>
+<div class="card-divider"></div>
+<div class="card-row">
+<div>
+${pickBlock}
+</div>
+${oddsBlock}
+</div>
+${confBlock}
+</a>
+${unlockHTML}
+</div>
+`;
+}
+function dateGroupLabel(dateKey){
+const today = new Date(); today.setHours(0,0,0,0);
+const tomorrow = new Date(today); tomorrow.setDate(today.getDate() + 1);
+const d = new Date(dateKey + 'T00:00:00');
+if(dateKey === today.toISOString().slice(0,10)) return { label: 'Today', isToday: true };
+if(dateKey === tomorrow.toISOString().slice(0,10)) return { label: 'Tomorrow', isToday: false };
+return { label: d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' }), isToday: false };
+}
+function renderGrouped(filtered){
+const groups = {};
+filtered.forEach(p => {
+let key = 'tbd';
+if(p.kickoff){
+const dt = new Date(p.kickoff);
+if(!isNaN(dt.getTime())) key = dt.toISOString().slice(0,10);
+}
+(groups[key] = groups[key] || []).push(p);
+});
+const keys = Object.keys(groups).sort();
+cardsEl.innerHTML = keys.map(key => {
+const cards = groups[key].map(cardHTML).join('');
+if(key === 'tbd'){
+return `<div class="date-group"><div class="date-group-head">Date TBD</div><div class="cards-grid">${cards}</div></div>`;
+}
+const { label, isToday } = dateGroupLabel(key);
+return `<div class="date-group"><div class="date-group-head ${isToday ? 'is-today' : ''}">${label}</div><div class="cards-grid">${cards}</div></div>`;
+}).join('');
+}
+function render(sport){
+if(sport === 'Multi'){
+cardsEl.style.display = multiBets.length ? 'grid' : 'none';
+emptyEl.style.display = multiBets.length ? 'none' : 'block';
+cardsEl.innerHTML = multiBets.map(multiCardHTML).join('');
+return;
+}
+let filtered;
+if(sport === 'Live'){
+filtered = predictions.filter(p => matchState(p.kickoff) === 'live');
+} else if(sport === 'all'){
+filtered = predictions;
+} else {
+filtered = predictions.filter(p => p.sport === sport);
+}
+const showGrouped = sport !== 'Live';
+cardsEl.style.display = filtered.length ? 'block' : 'none';
+emptyEl.style.display = filtered.length ? 'none' : 'block';
+if(sport === 'Live' && !filtered.length){
+emptyEl.textContent = 'Nothing live right now — check back once a predicted match kicks off.';
+}
+if(showGrouped){
+renderGrouped(filtered);
+} else {
+cardsEl.style.display = filtered.length ? 'grid' : 'none';
+cardsEl.innerHTML = filtered.map(cardHTML).join('');
+}
+}
+document.getElementById('filters').addEventListener('click', function(e){
+const btn = e.target.closest('.filter-btn');
+if(!btn) return;
+document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+render(btn.dataset.sport);
+});
+const statusEl = document.getElementById('dataStatus');
+function formatUpdated(iso){
+try {
+return new Date(iso).toLocaleString('en-GB', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+} catch(e){ return iso; }
+}
+fetch('fixtures.json?_=' + Date.now())
+.then(r => {
+if(!r.ok) throw new Error('fixtures.json returned HTTP ' + r.status + ' — the file may not exist yet at this path.');
+return r.json();
+})
+.then(data => {
+const now = Date.now();
+const all = data.fixtures || [];
+predictions = all.filter(p => {
+if(!p.kickoff) return true;
+const kt = new Date(p.kickoff).getTime();
+if(isNaN(kt)) return true;
+return (now - kt) <= LIVE_WINDOW_MS; // keep upcoming + live, drop only truly finished
+});
+const liveCount = predictions.filter(p => matchState(p.kickoff) === 'live').length;
+const stale = all.length - predictions.length;
+render('all');
+statusEl.className = 'data-status';
+statusEl.innerHTML = `<span class="dot"></span> Live data · updated ${formatUpdated(data.generated_at)} · ${predictions.length} fixtures${liveCount ? ` · ${liveCount} live now` : ''}${stale ? ` · ${stale} finished, hidden` : ''}`;
+hideLoader();
+})
+.catch((err) => {
+predictions = [];
+emptyEl.textContent = "Today's analysis is still being generated — check back shortly.";
+render('all');
+statusEl.className = 'data-status error';
+statusEl.innerHTML = `<span class="dot"></span> Couldn't load fixtures.json (${err.message}) — if this persists, the automation may not have run yet, or this page may be an older cached version.`;
+hideLoader();
+});
+fetch('predictions.json?_=' + Date.now())
+.then(r => r.ok ? r.json() : Promise.reject())
+.then(data => { multiBets = data.multi_bets || []; })
+.catch(() => { multiBets = []; });
+// ---------------------------------------------------------------- search
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+const searchClear = document.getElementById('searchClear');
+function runSearch(query){
+const q = query.trim().toLowerCase();
+if(!q){
+searchResults.style.display = 'none';
+searchClear.style.display = 'none';
+return;
+}
+searchClear.style.display = 'block';
+const matches = predictions.filter(p =>
+p.match.toLowerCase().includes(q) ||
+(p.home_team || '').toLowerCase().includes(q) ||
+(p.away_team || '').toLowerCase().includes(q)
+).slice(0, 8);
+if(!matches.length){
+searchResults.innerHTML = `<div class="search-empty">No upcoming analysis found for "${query}". We only cover 12 major football competitions and the NBA right now — see the Predictions tabs above for full coverage.</div>`;
+} else {
+searchResults.innerHTML = matches.map(p => `
+<div class="search-result-row" data-id="${p.id}">
+<div>
+<div class="sr-match">${p.icon} ${p.match}</div>
+<div class="sr-meta">${p.league} · ${formatKickoff(p.kickoff)}</div>
+</div>
+<div class="sr-pick">${p.pick}</div>
+</div>
+`).join('');
+}
+searchResults.style.display = 'block';
+}
+searchInput.addEventListener('input', () => runSearch(searchInput.value));
+searchInput.addEventListener('focus', () => { if(searchInput.value.trim()) runSearch(searchInput.value); });
+searchResults.addEventListener('click', function(e){
+const row = e.target.closest('.search-result-row');
+if(!row || !row.dataset.id) return;
+window.location.href = 'match.html?id=' + encodeURIComponent(row.dataset.id);
+});
+searchClear.addEventListener('click', function(){
+searchInput.value = '';
+searchResults.style.display = 'none';
+searchClear.style.display = 'none';
+searchInput.focus();
+});
+document.addEventListener('click', function(e){
+if(!e.target.closest('.search-wrap')){
+searchResults.style.display = 'none';
+}
+});
 </script>
-
 </body>
 </html>
