@@ -10,329 +10,374 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#0A0E14;--bg-raised:#10151D;--bg-card:#131A24;--line:#212936;
-    --text:#E8EAED;--text-dim:#8B92A5;--gold:#F5A623;--gold-soft:#F5A62322;
-    --cyan:#2DE1E8;--cyan-soft:#2DE1E822;--win:#3DD68C;--win-soft:#3DD68C1c;
-    --loss:#E8536B;--loss-soft:#E8536B1c;--draw:#8B92A5;--draw-soft:#8B92A522;
-  }
-  *{box-sizing:border-box;}
-  body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;}
-  h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:600;line-height:1.15;margin:0;}
-  a{color:inherit;text-decoration:none;}
-  .wrap{max-width:900px;margin:0 auto;padding:0 24px;}
-
-  .nav{position:sticky;top:0;z-index:50;background:rgba(10,14,20,0.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
-  .nav .wrap{max-width:1120px;display:flex;align-items:center;justify-content:space-between;height:68px;}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
-  .brand-mark{width:32px;height:32px;border-radius:8px;object-fit:cover;}
-  .nav-links{display:flex;gap:32px;font-size:15px;color:var(--text-dim);}
-  .nav-links a:hover{color:var(--text);}
-  .nav-cta{padding:9px 20px;border-radius:9px;background:var(--gold);color:#1A1204;font-weight:600;font-size:14px;box-shadow:0 0 20px rgba(245,166,35,0.35);}
-  .nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;}
-  @media (max-width:800px){
-    .nav-links{position:fixed;top:68px;left:0;right:0;background:var(--bg-raised);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--line);transform:translateY(-150%);transition:transform .25s ease;}
-    .nav-links.open{transform:translateY(0);}
-    .nav-toggle{display:block;}
-    .nav-cta{display:none;}
-  }
-
-  .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--text-dim);font-size:14px;font-weight:600;padding:24px 0 0;}
-  .back-link:hover{color:var(--cyan);}
-
-  .match-head{padding:20px 0 32px;text-align:center;position:relative;}
-  .match-head::before{content:'';position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(45,225,232,0.12),transparent 70%);pointer-events:none;}
-  .match-league{color:var(--cyan);font-size:13px;font-weight:600;margin-bottom:10px;position:relative;}
-  .match-title{font-size:28px;margin-bottom:8px;position:relative;}
-  @media (max-width:600px){.match-title{font-size:22px;}}
-  .match-kickoff{color:var(--text-dim);font-size:14px;position:relative;}
-
-  .loading, .error-state{text-align:center;padding:80px 20px;color:var(--text-dim);}
-
-  .section{margin-bottom:32px;}
-  .section-title{font-size:16px;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
-
-  /* PREDICTION HERO CARD */
-  .predict-card{
-    background:var(--bg-card);border:1px solid var(--line);border-radius:18px;padding:28px;
-    position:relative;overflow:hidden;margin-bottom:32px;
-  }
-  .predict-card::before{
-    content:'';position:absolute;inset:0;border-radius:18px;padding:1px;
-    background:linear-gradient(135deg,rgba(245,166,35,0.5),rgba(45,225,232,0.35));
-    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-    -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
-  }
-  .predict-label{font-size:12px;color:var(--text-dim);margin-bottom:8px;position:relative;}
-  .predict-pick{font-size:26px;font-weight:700;color:var(--gold);font-family:'Space Grotesk',sans-serif;margin-bottom:16px;position:relative;}
-  .predict-row{display:flex;gap:32px;flex-wrap:wrap;position:relative;}
-  .predict-stat-label{font-size:11px;color:var(--text-dim);margin-bottom:2px;}
-  .predict-stat-val{font-size:18px;font-weight:700;font-family:'Space Grotesk',sans-serif;}
-
-  /* MARKETS BREAKDOWN */
-  .markets-list{display:flex;flex-direction:column;gap:12px;}
-  .market-row{display:flex;align-items:center;gap:14px;}
-  .market-label{width:140px;flex-shrink:0;font-size:13.5px;}
-  .market-bar-track{flex:1;height:8px;background:var(--bg-card);border:1px solid var(--line);border-radius:5px;overflow:hidden;}
-  .market-bar-fill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--gold));border-radius:5px;}
-  .market-pct{width:42px;text-align:right;font-size:13px;font-weight:700;color:var(--text-dim);}
-  .market-row.best .market-label{color:var(--gold);font-weight:700;}
-  .market-row.best .market-pct{color:var(--gold);}
-
-  /* FORM */
-  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-  @media (max-width:600px){.form-grid{grid-template-columns:1fr;}}
-  .form-team{background:var(--bg-card);border:1px solid var(--line);border-radius:14px;padding:20px;}
-  .form-team-name{font-weight:600;margin-bottom:14px;font-size:15px;}
-  .form-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px;gap:10px;}
-  .form-row:last-child{border-bottom:none;}
-  .form-opp{color:var(--text-dim);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-  .form-score{font-weight:600;flex-shrink:0;}
-  .form-badge{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;}
-  .form-badge.W{background:var(--win-soft);color:var(--win);}
-  .form-badge.L{background:var(--loss-soft);color:var(--loss);}
-  .form-badge.D{background:var(--draw-soft);color:var(--draw);}
-  .form-empty{color:var(--text-dim);font-size:13px;padding:10px 0;}
-
-  /* H2H */
-  .h2h-summary{display:flex;gap:16px;margin-bottom:16px;flex-wrap:wrap;}
-  .h2h-stat{background:var(--bg-card);border:1px solid var(--line);border-radius:12px;padding:14px 20px;text-align:center;flex:1;min-width:90px;}
-  .h2h-stat-num{font-size:20px;font-weight:700;font-family:'Space Grotesk',sans-serif;color:var(--gold);}
-  .h2h-stat-label{font-size:11px;color:var(--text-dim);margin-top:2px;}
-  .h2h-list{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden;}
-  .h2h-row{display:flex;justify-content:space-between;align-items:center;padding:13px 18px;border-bottom:1px solid var(--line);font-size:13.5px;gap:10px;}
-  .h2h-row:last-child{border-bottom:none;}
-  .h2h-date{color:var(--text-dim);font-size:12px;width:80px;flex-shrink:0;}
-  .h2h-fixture{flex:1;min-width:0;}
-  .h2h-score{font-weight:700;font-family:'Space Grotesk',sans-serif;flex-shrink:0;}
-
-  .disclaimer{background:var(--bg-raised);border:1px solid var(--line);border-radius:10px;padding:14px 18px;font-size:12.5px;color:var(--text-dim);margin:32px 0;line-height:1.6;}
-
-  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);font-size:13px;}
-  .footer-grid{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-
-  .site-bg-video{
-    position:fixed;inset:0;width:100%;height:100%;
-    object-fit:cover;opacity:0.7;z-index:-2;pointer-events:none;
-  }
-  .site-bg-overlay{
-    position:fixed;inset:0;z-index:-1;
-    background:linear-gradient(180deg,rgba(10,14,20,0.55) 0%,rgba(10,14,20,0.72) 40%,var(--bg) 85%);
-    pointer-events:none;
-  }
-  .loader-overlay{
-    position:fixed;inset:0;z-index:999;
-    background:rgba(10,14,20,0.8);backdrop-filter:blur(4px);
-    display:flex;align-items:center;justify-content:center;
-    opacity:0;pointer-events:none;transition:opacity .25s ease;
-  }
-  .loader-overlay.active{opacity:1;pointer-events:all;}
-  .loader-video{width:150px;height:150px;object-fit:contain;}
+:root{
+--bg:#0A0E14;--bg-raised:#10151D;--bg-card:#131A24;--line:#212936;
+--text:#E8EAED;--text-dim:#8B92A5;--gold:#F5A623;--gold-soft:#F5A62322;
+--cyan:#2DE1E8;--cyan-soft:#2DE1E822;--win:#3DD68C;--win-soft:#3DD68C1c;
+--loss:#E8536B;--loss-soft:#E8536B1c;--draw:#8B92A5;--draw-soft:#8B92A522;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:600;line-height:1.15;margin:0;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px;}
+.nav{position:sticky;top:0;z-index:50;background:rgba(10,14,20,0.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.nav .wrap{max-width:1120px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+.brand-mark{width:32px;height:32px;border-radius:8px;object-fit:cover;}
+.nav-links{display:flex;gap:32px;font-size:15px;color:var(--text-dim);}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{padding:9px 20px;border-radius:9px;background:var(--gold);color:#1A1204;font-weight:600;font-size:14px;box-shadow:0 0 20px rgba(245,166,35,0.35);}
+.nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;}
+@media (max-width:800px){
+.nav-links{position:fixed;top:68px;left:0;right:0;background:var(--bg-raised);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--line);transform:translateY(-150%);transition:transform .25s ease;}
+.nav-links.open{transform:translateY(0);}
+.nav-toggle{display:block;}
+.nav-cta{display:none;}
+}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--text-dim);font-size:14px;font-weight:600;padding:24px 0 0;}
+.back-link:hover{color:var(--cyan);}
+.match-head{padding:20px 0 32px;text-align:center;position:relative;}
+.match-head::before{content:'';position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(45,225,232,0.12),transparent 70%);pointer-events:none;}
+.match-league{color:var(--cyan);font-size:13px;font-weight:600;margin-bottom:10px;position:relative;}
+.match-title{font-size:28px;margin-bottom:8px;position:relative;}
+@media (max-width:600px){.match-title{font-size:22px;}}
+.match-kickoff{color:var(--text-dim);font-size:14px;position:relative;}
+.loading, .error-state{text-align:center;padding:80px 20px;color:var(--text-dim);}
+.section{margin-bottom:32px;}
+.section-title{font-size:16px;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+/* PREDICTION HERO CARD */
+.predict-card{
+background:var(--bg-card);border:1px solid var(--line);border-radius:18px;padding:28px;
+position:relative;overflow:hidden;margin-bottom:32px;
+}
+.predict-card::before{
+content:'';position:absolute;inset:0;border-radius:18px;padding:1px;
+background:linear-gradient(135deg,rgba(245,166,35,0.5),rgba(45,225,232,0.35));
+-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
+}
+.predict-label{font-size:12px;color:var(--text-dim);margin-bottom:8px;position:relative;}
+.predict-pick{font-size:26px;font-weight:700;color:var(--gold);font-family:'Space Grotesk',sans-serif;margin-bottom:16px;position:relative;}
+.predict-row{display:flex;gap:32px;flex-wrap:wrap;position:relative;}
+.predict-stat-label{font-size:11px;color:var(--text-dim);margin-bottom:2px;}
+.predict-stat-val{font-size:18px;font-weight:700;font-family:'Space Grotesk',sans-serif;}
+.unlock-btn{display:inline-block;margin-top:16px;padding:12px 24px;border-radius:10px;background:var(--gold);color:#1A1204;font-weight:700;font-size:14.5px;border:none;cursor:pointer;box-shadow:0 0 20px rgba(245,166,35,0.35);position:relative;}
+.unlock-btn:hover{filter:brightness(1.05);}
+/* MARKETS BREAKDOWN */
+.markets-list{display:flex;flex-direction:column;gap:12px;}
+.market-row{display:flex;align-items:center;gap:14px;}
+.market-label{width:140px;flex-shrink:0;font-size:13.5px;}
+.market-bar-track{flex:1;height:8px;background:var(--bg-card);border:1px solid var(--line);border-radius:5px;overflow:hidden;}
+.market-bar-fill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--gold));border-radius:5px;}
+.market-pct{width:42px;text-align:right;font-size:13px;font-weight:700;color:var(--text-dim);}
+.market-row.best .market-label{color:var(--gold);font-weight:700;}
+.market-row.best .market-pct{color:var(--gold);}
+/* FORM */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media (max-width:600px){.form-grid{grid-template-columns:1fr;}}
+.form-team{background:var(--bg-card);border:1px solid var(--line);border-radius:14px;padding:20px;}
+.form-team-name{font-weight:600;margin-bottom:14px;font-size:15px;}
+.form-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px;gap:10px;}
+.form-row:last-child{border-bottom:none;}
+.form-opp{color:var(--text-dim);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.form-score{font-weight:600;flex-shrink:0;}
+.form-badge{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;}
+.form-badge.W{background:var(--win-soft);color:var(--win);}
+.form-badge.L{background:var(--loss-soft);color:var(--loss);}
+.form-badge.D{background:var(--draw-soft);color:var(--draw);}
+.form-empty{color:var(--text-dim);font-size:13px;padding:10px 0;}
+/* H2H */
+.h2h-summary{display:flex;gap:16px;margin-bottom:16px;flex-wrap:wrap;}
+.h2h-stat{background:var(--bg-card);border:1px solid var(--line);border-radius:12px;padding:14px 20px;text-align:center;flex:1;min-width:90px;}
+.h2h-stat-num{font-size:20px;font-weight:700;font-family:'Space Grotesk',sans-serif;color:var(--gold);}
+.h2h-stat-label{font-size:11px;color:var(--text-dim);margin-top:2px;}
+.h2h-list{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+.h2h-row{display:flex;justify-content:space-between;align-items:center;padding:13px 18px;border-bottom:1px solid var(--line);font-size:13.5px;gap:10px;}
+.h2h-row:last-child{border-bottom:none;}
+.h2h-date{color:var(--text-dim);font-size:12px;width:80px;flex-shrink:0;}
+.h2h-fixture{flex:1;min-width:0;}
+.h2h-score{font-weight:700;font-family:'Space Grotesk',sans-serif;flex-shrink:0;}
+.disclaimer{background:var(--bg-raised);border:1px solid var(--line);border-radius:10px;padding:14px 18px;font-size:12.5px;color:var(--text-dim);margin:32px 0;line-height:1.6;}
+footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);font-size:13px;}
+.footer-grid{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.site-bg-video{
+position:fixed;inset:0;width:100%;height:100%;
+object-fit:cover;opacity:0.7;z-index:-2;pointer-events:none;
+}
+.site-bg-overlay{
+position:fixed;inset:0;z-index:-1;
+background:linear-gradient(180deg,rgba(10,14,20,0.55) 0%,rgba(10,14,20,0.72) 40%,var(--bg) 85%);
+pointer-events:none;
+}
+.loader-overlay{
+position:fixed;inset:0;z-index:999;
+background:rgba(10,14,20,0.8);backdrop-filter:blur(4px);
+display:flex;align-items:center;justify-content:center;
+opacity:0;pointer-events:none;transition:opacity .25s ease;
+}
+.loader-overlay.active{opacity:1;pointer-events:all;}
+.loader-video{width:150px;height:150px;object-fit:contain;}
 </style>
 </head>
 <body>
-
 <video class="site-bg-video" autoplay muted loop playsinline>
-  <source src="hero-bg.mp4" type="video/mp4">
+<source src="hero-bg.mp4" type="video/mp4">
 </video>
 <div class="site-bg-overlay"></div>
-
 <nav class="nav">
-  <div class="wrap">
-    <a href="index.html" class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</a>
-    <div class="nav-links" id="navLinks">
-      <a href="predictions.html">Predictions</a>
-      <a href="track-record.html">Track Record</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <a href="pricing.html" class="nav-cta">Get Picks</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
-  </div>
+<div class="wrap">
+<a href="index.html" class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</a>
+<div class="nav-links" id="navLinks">
+<a href="predictions.html">Predictions</a>
+<a href="track-record.html">Track Record</a>
+<a href="pricing.html">Pricing</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</div>
+<a href="pricing.html" class="nav-cta">Get Picks</a>
+<button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+</div>
 </nav>
 
 <div class="wrap">
-  <a href="predictions.html" class="back-link">← Back to predictions</a>
-
-  <div id="content">
-    <div class="loading">Loading match analysis…</div>
-  </div>
+<a href="predictions.html" class="back-link">← Back to predictions</a>
+<div id="content">
+<div class="loading">Loading match analysis…</div>
+</div>
 </div>
 
 <footer>
-  <div class="footer-grid">
-    <div class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</div>
-    <div>&copy; 2026 Money Odds. All rights reserved.</div>
-  </div>
+<div class="footer-grid">
+<div class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</div>
+<div>&copy; 2026 Money Odds. All rights reserved.</div>
+</div>
 </footer>
 
 <div class="loader-overlay" id="loaderOverlay">
-  <video class="loader-video" autoplay muted loop playsinline>
-    <source src="loading-logo.mp4" type="video/mp4">
-  </video>
+<video class="loader-video" autoplay muted loop playsinline>
+<source src="loading-logo.mp4" type="video/mp4">
+</video>
 </div>
 
 <script>
-  function showLoader(){ document.getElementById('loaderOverlay').classList.add('active'); }
-  function hideLoader(){ document.getElementById('loaderOverlay').classList.remove('active'); }
-  showLoader();
-  document.getElementById('navToggle').addEventListener('click', function(){
-    document.getElementById('navLinks').classList.toggle('open');
-  });
+// ---- CONFIGURE THIS: your deployed Worker's base URL ----
+const WORKER_BASE = "https://money-odds-api.YOUR-SUBDOMAIN.workers.dev";
+// ----------------------------------------------------------
 
-  const params = new URLSearchParams(window.location.search);
-  const matchId = params.get('id');
-  const contentEl = document.getElementById('content');
+function showLoader(){ document.getElementById('loaderOverlay').classList.add('active'); }
+function hideLoader(){ document.getElementById('loaderOverlay').classList.remove('active'); }
+showLoader();
 
-  function formatKickoff(iso){
-    if(!iso) return '';
-    try {
-      return new Date(iso).toLocaleString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' });
-    } catch(e){ return iso; }
-  }
+document.getElementById('navToggle').addEventListener('click', function(){
+document.getElementById('navLinks').classList.toggle('open');
+});
 
-  function formTeamHTML(name, games){
-    if(!games || !games.length){
-      return `<div class="form-team"><div class="form-team-name">${name}</div><div class="form-empty">No recent match data available yet.</div></div>`;
-    }
-    const rows = games.map(g => `
-      <div class="form-row">
-        <div class="form-badge ${g.result}">${g.result}</div>
-        <div class="form-opp">${g.venue === 'H' ? 'vs' : '@'} ${g.opponent}</div>
-        <div class="form-score">${g.score}</div>
-      </div>
-    `).join('');
-    return `<div class="form-team"><div class="form-team-name">${name} — last ${games.length}</div>${rows}</div>`;
-  }
+const params = new URLSearchParams(window.location.search);
+const matchId = params.get('id');
+const contentEl = document.getElementById('content');
 
-  function h2hHTML(h2h){
-    if(!h2h || !h2h.matches || !h2h.matches.length){
-      return `<div class="form-empty">No head-to-head meetings found in the data we have access to (current season only on our free data tier).</div>`;
-    }
-    const summary = (h2h.home_wins != null) ? `
-      <div class="h2h-summary">
-        <div class="h2h-stat"><div class="h2h-stat-num">${h2h.home_wins}</div><div class="h2h-stat-label">Home wins</div></div>
-        <div class="h2h-stat"><div class="h2h-stat-num">${h2h.draws ?? 0}</div><div class="h2h-stat-label">Draws</div></div>
-        <div class="h2h-stat"><div class="h2h-stat-num">${h2h.away_wins}</div><div class="h2h-stat-label">Away wins</div></div>
-      </div>` : '';
-    const rows = h2h.matches.map(m => `
-      <div class="h2h-row">
-        <div class="h2h-date">${m.date}</div>
-        <div class="h2h-fixture">${m.home} vs ${m.away}</div>
-        <div class="h2h-score">${m.score}</div>
-      </div>
-    `).join('');
-    return summary + `<div class="h2h-list">${rows}</div>`;
-  }
+function formatKickoff(iso){
+if(!iso) return '';
+try {
+return new Date(iso).toLocaleString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' });
+} catch(e){ return iso; }
+}
 
-  function render(fixture, details){
-    const locked = fixture.pick === undefined;
-    const markets = fixture.markets || [];
+function formTeamHTML(name, games){
+if(!games || !games.length){
+return `<div class="form-team"><div class="form-team-name">${name}</div><div class="form-empty">No recent match data available yet.</div></div>`;
+}
+const rows = games.map(g => `
+<div class="form-row">
+<div class="form-badge ${g.result}">${g.result}</div>
+<div class="form-opp">${g.venue === 'H' ? 'vs' : '@'} ${g.opponent}</div>
+<div class="form-score">${g.score}</div>
+</div>
+`).join('');
+return `<div class="form-team"><div class="form-team-name">${name} — last ${games.length}</div>${rows}</div>`;
+}
 
-    const marketsHTML = markets.map(m => `
-      <div class="market-row ${m.label === fixture.pick ? 'best' : ''}">
-        <div class="market-label">${m.label}</div>
-        <div class="market-bar-track"><div class="market-bar-fill" style="width:${m.probability}%"></div></div>
-        <div class="market-pct">${m.probability}%</div>
-      </div>
-    `).join('');
+function h2hHTML(h2h){
+if(!h2h || !h2h.matches || !h2h.matches.length){
+return `<div class="form-empty">No head-to-head meetings found in the data we have access to (current season only on our free data tier).</div>`;
+}
+const summary = (h2h.home_wins != null) ? `
+<div class="h2h-summary">
+<div class="h2h-stat"><div class="h2h-stat-num">${h2h.home_wins}</div><div class="h2h-stat-label">Home wins</div></div>
+<div class="h2h-stat"><div class="h2h-stat-num">${h2h.draws ?? 0}</div><div class="h2h-stat-label">Draws</div></div>
+<div class="h2h-stat"><div class="h2h-stat-num">${h2h.away_wins}</div><div class="h2h-stat-label">Away wins</div></div>
+</div>` : '';
+const rows = h2h.matches.map(m => `
+<div class="h2h-row">
+<div class="h2h-date">${m.date}</div>
+<div class="h2h-fixture">${m.home} vs ${m.away}</div>
+<div class="h2h-score">${m.score}</div>
+</div>
+`).join('');
+return summary + `<div class="h2h-list">${rows}</div>`;
+}
 
-    let scoreLineHTML = '';
-    if(fixture.expected_goals){
-      scoreLineHTML = `
-        <div>
-          <div class="predict-stat-label">Model xG</div>
-          <div class="predict-stat-val">${fixture.expected_goals.home_expected_goals} – ${fixture.expected_goals.away_expected_goals}</div>
-        </div>`;
-    } else if(fixture.predicted_score){
-      scoreLineHTML = `
-        <div>
-          <div class="predict-stat-label">Model Projected Score</div>
-          <div class="predict-stat-val">${fixture.predicted_score.home} – ${fixture.predicted_score.away}</div>
-        </div>`;
-    }
+// Reads a saved access token (set after a successful payment on pricing.html)
+function getSavedToken(){
+try {
+const raw = localStorage.getItem('moneyOddsAccess');
+if(!raw) return null;
+const data = JSON.parse(raw);
+if(!data.token || !data.expiry || data.expiry < Date.now()) return null;
+return data.token;
+} catch(e){ return null; }
+}
 
-    const predictCardHTML = locked ? `
-      <div class="predict-card">
-        <div class="predict-label">MONEY ODDS PICK</div>
-        <div class="predict-pick">🔒 Locked</div>
-        <div class="predict-row">
-          <div style="color:var(--text-dim);font-size:14px;">Subscribe for Ksh 59 (7 days, all matches) to see our pick, confidence, model odds, and the full market breakdown for this fixture.</div>
-        </div>
-      </div>
-    ` : `
-      <div class="predict-card">
-        <div class="predict-label">MONEY ODDS PICK</div>
-        <div class="predict-pick">${fixture.pick}</div>
-        <div class="predict-row">
-          <div><div class="predict-stat-label">Confidence</div><div class="predict-stat-val" style="color:var(--gold);">${fixture.confidence}%</div></div>
-          <div><div class="predict-stat-label">Model Fair Odds</div><div class="predict-stat-val">${fixture.fair_odds ?? '—'}</div></div>
-          ${scoreLineHTML}
-        </div>
-      </div>
-    `;
+// Fetches the real (unredacted) pick for this match id from the Worker,
+// using the saved token. Returns null if there's no valid token or the
+// Worker rejects it (expired/invalid) — caller falls back to locked view.
+async function fetchUnlockedPick(id, token){
+try {
+const res = await fetch(`${WORKER_BASE}/unlocked-picks?token=${encodeURIComponent(token)}`);
+if(!res.ok) return null;
+const data = await res.json();
+if(!data.ok || !data.privateData) return null;
+const picks = data.privateData.picks || {};
+return picks[String(id)] || null;
+} catch(e){ return null; }
+}
 
-    const marketsSectionHTML = locked ? '' : `
-      <div class="section">
-        <div class="section-title">📊 Full Market Breakdown</div>
-        <div class="markets-list">${marketsHTML}</div>
-      </div>
-    `;
+// LOCKED view: match name, kickoff, and the payment prompt ONLY.
+// No recent form, no H2H, no markets — none of that is shown until paid,
+// since it still has analytical value we don't want to give away for free.
+function renderLocked(fixture){
+contentEl.innerHTML = `
+<div class="match-head">
+<div class="match-league">${fixture.icon || ''} ${fixture.league}</div>
+<h1 class="match-title">${fixture.match}</h1>
+<div class="match-kickoff">${formatKickoff(fixture.kickoff)}</div>
+</div>
+<div class="predict-card">
+<div class="predict-label">MONEY ODDS PICK</div>
+<div class="predict-pick">🔒 Locked</div>
+<div class="predict-row">
+<div style="color:var(--text-dim);font-size:14px;">Subscribe for Ksh 59 (7 days, all matches) to see our pick, confidence, model odds, recent form, head-to-head history, and the full market breakdown for this fixture.</div>
+</div>
+<a href="pricing.html" class="unlock-btn">Unlock for Ksh 59 / $2 →</a>
+</div>
+<div class="disclaimer">This analysis is generated by a statistical model from real fixture and results data. No outcome is guaranteed. Bet responsibly and only with money you can afford to lose.</div>
+`;
+}
 
-    contentEl.innerHTML = `
-      <div class="match-head">
-        <div class="match-league">${fixture.icon || ''} ${fixture.league}</div>
-        <h1 class="match-title">${fixture.match}</h1>
-        <div class="match-kickoff">${formatKickoff(fixture.kickoff)}</div>
-      </div>
+// UNLOCKED view: everything, using the real pick data merged in.
+function renderUnlocked(fixture, pick, details){
+const markets = pick.markets || [];
+const marketsHTML = markets.map(m => `
+<div class="market-row ${m.label === pick.pick ? 'best' : ''}">
+<div class="market-label">${m.label}</div>
+<div class="market-bar-track"><div class="market-bar-fill" style="width:${m.probability}%"></div></div>
+<div class="market-pct">${m.probability}%</div>
+</div>
+`).join('');
 
-      ${predictCardHTML}
-      ${marketsSectionHTML}
+let scoreLineHTML = '';
+if(pick.expected_goals){
+scoreLineHTML = `
+<div>
+<div class="predict-stat-label">Model xG</div>
+<div class="predict-stat-val">${pick.expected_goals.home_expected_goals} – ${pick.expected_goals.away_expected_goals}</div>
+</div>`;
+} else if(pick.predicted_score){
+scoreLineHTML = `
+<div>
+<div class="predict-stat-label">Model Projected Score</div>
+<div class="predict-stat-val">${pick.predicted_score.home} – ${pick.predicted_score.away}</div>
+</div>`;
+}
 
-      <div class="section">
-        <div class="section-title">📈 Recent Form</div>
-        <div class="form-grid">
-          ${formTeamHTML(fixture.home_team, details.home_recent)}
-          ${formTeamHTML(fixture.away_team, details.away_recent)}
-        </div>
-      </div>
+contentEl.innerHTML = `
+<div class="match-head">
+<div class="match-league">${fixture.icon || ''} ${fixture.league}</div>
+<h1 class="match-title">${fixture.match}</h1>
+<div class="match-kickoff">${formatKickoff(fixture.kickoff)}</div>
+</div>
+<div class="predict-card">
+<div class="predict-label">MONEY ODDS PICK</div>
+<div class="predict-pick">${pick.pick}</div>
+<div class="predict-row">
+<div><div class="predict-stat-label">Confidence</div><div class="predict-stat-val" style="color:var(--gold);">${pick.confidence}%</div></div>
+<div><div class="predict-stat-label">Model Fair Odds</div><div class="predict-stat-val">${pick.fair_odds ?? '—'}</div></div>
+${scoreLineHTML}
+</div>
+</div>
+<div class="section">
+<div class="section-title">📊 Full Market Breakdown</div>
+<div class="markets-list">${marketsHTML}</div>
+</div>
+<div class="section">
+<div class="section-title">📈 Recent Form</div>
+<div class="form-grid">
+${formTeamHTML(fixture.home_team, details.home_recent)}
+${formTeamHTML(fixture.away_team, details.away_recent)}
+</div>
+</div>
+<div class="section">
+<div class="section-title">🤝 Head-to-Head</div>
+${h2hHTML(details.h2h)}
+</div>
+<div class="disclaimer">This analysis is generated by a statistical model from real fixture and results data. No outcome is guaranteed. Bet responsibly and only with money you can afford to lose.</div>
+`;
+}
 
-      <div class="section">
-        <div class="section-title">🤝 Head-to-Head</div>
-        ${h2hHTML(details.h2h)}
-      </div>
+if(!matchId){
+contentEl.innerHTML = '<div class="error-state">No match specified.</div>';
+hideLoader();
+} else {
+fetch('fixtures.json?_=' + Date.now())
+.then(r => r.ok ? r.json() : Promise.reject())
+.then(async (fixturesData) => {
+const fixture = (fixturesData.fixtures || []).find(f => String(f.id) === String(matchId));
 
-      <div class="disclaimer">This analysis is generated by a statistical model from real fixture and results data. No outcome is guaranteed. Bet responsibly and only with money you can afford to lose.</div>
-    `;
-  }
+if(!fixture){
+contentEl.innerHTML = '<div class="error-state">This match analysis is no longer available — it may have already kicked off or been superseded by a newer slate. <br><br><a href="predictions.html" style="color:var(--cyan);font-weight:600;">See today\'s predictions →</a></div>';
+hideLoader();
+return;
+}
 
-  if(!matchId){
-    contentEl.innerHTML = '<div class="error-state">No match specified.</div>';
-    hideLoader();
-  } else {
-    Promise.all([
-      fetch('fixtures.json?_=' + Date.now()).then(r => r.ok ? r.json() : Promise.reject()),
-      fetch('match_details.json?_=' + Date.now()).then(r => r.ok ? r.json() : Promise.reject()),
-    ])
-      .then(([fixturesData, detailsData]) => {
-        const fixture = (fixturesData.fixtures || []).find(f => String(f.id) === String(matchId));
-        const details = detailsData[String(matchId)] || { home_recent: [], away_recent: [], h2h: null };
-        if(!fixture){
-          contentEl.innerHTML = '<div class="error-state">This match analysis is no longer available — it may have already kicked off or been superseded by a newer slate. <br><br><a href="predictions.html" style="color:var(--cyan);font-weight:600;">See today\'s predictions →</a></div>';
-          hideLoader();
-          return;
-        }
-        document.title = `${fixture.match} — Money Odds`;
-        render(fixture, details);
-        hideLoader();
-      })
-      .catch(() => {
-        contentEl.innerHTML = '<div class="error-state">Couldn\'t load match data right now. Please try again shortly.</div>';
-        hideLoader();
-      });
-  }
+document.title = `${fixture.match} — Money Odds`;
+
+const token = getSavedToken();
+if(!token){
+renderLocked(fixture);
+hideLoader();
+return;
+}
+
+// We have a token — try to fetch the real pick + full match details.
+// Only fetch match_details.json (the H2H/form data) once we know the
+// user actually has a valid token, so a casual visitor never triggers
+// or sees that request path resolve into rendered content.
+const pick = await fetchUnlockedPick(matchId, token);
+if(!pick){
+// Token invalid/expired/rejected — fall back to locked view.
+renderLocked(fixture);
+hideLoader();
+return;
+}
+
+let details = { home_recent: [], away_recent: [], h2h: null };
+try {
+const detailsRes = await fetch('match_details.json?_=' + Date.now());
+if(detailsRes.ok){
+const detailsData = await detailsRes.json();
+details = detailsData[String(matchId)] || details;
+}
+} catch(e){ /* non-fatal — show pick even if form/H2H fails to load */ }
+
+renderUnlocked(fixture, pick, details);
+hideLoader();
+})
+.catch(() => {
+contentEl.innerHTML = '<div class="error-state">Couldn\'t load match data right now. Please try again shortly.</div>';
+hideLoader();
+});
+}
 </script>
-
 </body>
 </html>
