@@ -77,6 +77,14 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 .footer-grid{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
 .site-bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.7;z-index:-2;pointer-events:none;}
 .site-bg-overlay{position:fixed;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,14,20,0.55) 0%,rgba(10,14,20,0.72) 40%,var(--bg) 85%);pointer-events:none;}
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:200;background:rgba(6,9,14,0.75);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:var(--bg-card);border:1px solid var(--line);border-radius:18px;padding:28px;max-width:400px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.5);}
+.modal-close{position:absolute;top:16px;right:16px;background:none;border:none;color:var(--text-dim);font-size:22px;cursor:pointer;line-height:1;padding:4px;}
+.modal-close:hover{color:var(--text);}
+.modal-title{font-size:19px;margin-bottom:4px;}
+.modal-sub{font-size:13px;color:var(--text-dim);margin-bottom:20px;}
 </style>
 </head>
 <body>
@@ -106,15 +114,6 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <p>Unlock every pick, every sport, every match — site-wide — for a full week. No per-match fees.</p>
 </div>
 
-<div class="field-group" style="max-width:420px;margin:0 auto 8px;">
-<label for="custName">Full name</label>
-<input type="text" id="custName" placeholder="Jane Wanjiru" autocomplete="name">
-</div>
-<div class="field-group" style="max-width:420px;margin:0 auto 32px;">
-<label for="custEmail">Email (for your receipt)</label>
-<input type="email" id="custEmail" placeholder="you@example.com" autocomplete="email">
-</div>
-
 <div class="plan-grid">
 <!-- M-PESA / KES -->
 <div class="plan-card featured">
@@ -128,11 +127,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <li>Head-to-head + recent form on every fixture</li>
 <li>Multi-bet accumulators unlocked</li>
 </ul>
-<div class="field-group">
-<label for="custPhone">M-Pesa phone number</label>
-<input type="tel" id="custPhone" placeholder="0712 345 678" autocomplete="tel">
-</div>
-<button class="pay-btn" id="mpesaBtn" onclick="startMpesaPayment()">Pay Ksh 59 with M-Pesa</button>
+<button class="pay-btn" id="mpesaBtn" onclick="openMpesaModal()">Pay Ksh 59 with M-Pesa</button>
 <div class="status-box" id="mpesaStatus"></div>
 </div>
 
@@ -163,6 +158,31 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 </div>
 
 <div class="disclaimer">Money Odds provides statistical analysis derived from real fixture and results data. No outcome is guaranteed. Bet responsibly and only with money you can afford to lose.</div>
+</div>
+
+<!-- M-PESA CHECKOUT MODAL -->
+<div class="modal-overlay" id="mpesaModal">
+<div class="modal-box">
+<button class="modal-close" onclick="closeMpesaModal()" aria-label="Close">×</button>
+<div class="modal-title">Pay with M-Pesa</div>
+<div class="modal-sub">Ksh 59 unlocks every prediction for 7 days. You'll get a prompt on your phone to enter your M-Pesa PIN.</div>
+
+<div class="field-group">
+<label for="modalName">Full name</label>
+<input type="text" id="modalName" placeholder="Jane Wanjiru" autocomplete="name">
+</div>
+<div class="field-group">
+<label for="modalEmail">Email (for your receipt)</label>
+<input type="email" id="modalEmail" placeholder="you@example.com" autocomplete="email">
+</div>
+<div class="field-group" style="margin-bottom:20px;">
+<label for="modalPhone">M-Pesa phone number</label>
+<input type="tel" id="modalPhone" placeholder="0712 345 678" autocomplete="tel">
+</div>
+
+<button class="pay-btn" id="modalSubmitBtn" onclick="submitMpesaModal()">Continue to Payment</button>
+<div class="status-box" id="modalStatus"></div>
+</div>
 </div>
 
 <footer>
@@ -237,24 +257,39 @@ setTimeout(poll, 3000);
 poll();
 }
 
-function startMpesaPayment(){
-const name = document.getElementById('custName').value.trim();
-const email = document.getElementById('custEmail').value.trim();
-const phone = document.getElementById('custPhone').value.trim();
+function openMpesaModal(){
+document.getElementById('mpesaModal').classList.add('open');
+// Give the modal a beat to render before focusing, nicer on mobile
+setTimeout(() => document.getElementById('modalName').focus(), 100);
+}
+
+function closeMpesaModal(){
+document.getElementById('mpesaModal').classList.remove('open');
+}
+
+// Close on tapping the dark overlay outside the box (not the box itself)
+document.getElementById('mpesaModal').addEventListener('click', function(e){
+if(e.target === this) closeMpesaModal();
+});
+
+function submitMpesaModal(){
+const name = document.getElementById('modalName').value.trim();
+const email = document.getElementById('modalEmail').value.trim();
+const phone = document.getElementById('modalPhone').value.trim();
 
 if(!name || !email || !phone){
-setStatus('mpesaStatus', 'error', 'Please fill in your name, email, and M-Pesa phone number first.');
+setStatus('modalStatus', 'error', 'Please fill in your name, email, and M-Pesa phone number.');
 return;
 }
 if(!PRICING || !PRICING.korapay_public_key){
-setStatus('mpesaStatus', 'error', 'Payment system is still loading — please wait a moment and try again.');
+setStatus('modalStatus', 'error', 'Payment system is still loading — please wait a moment and try again.');
 return;
 }
 
 const reference = generateReference();
-const btn = document.getElementById('mpesaBtn');
-btn.disabled = true;
-btn.textContent = 'Opening M-Pesa checkout…';
+const submitBtn = document.getElementById('modalSubmitBtn');
+submitBtn.disabled = true;
+submitBtn.textContent = 'Opening M-Pesa checkout…';
 
 window.Korapay.initialize({
 key: PRICING.korapay_public_key,
@@ -268,24 +303,24 @@ phone_number: phone,
 },
 notification_url: `${WORKER_BASE}/webhook`,
 onClose: function(){
-btn.disabled = false;
-btn.textContent = 'Pay Ksh 59 with M-Pesa';
+submitBtn.disabled = false;
+submitBtn.textContent = 'Continue to Payment';
 },
 onSuccess: function(){
 // This fires client-side as soon as Kora's modal reports success —
 // we still confirm server-side via the webhook + polling below
 // before actually unlocking anything, since client-side callbacks
 // can be spoofed/unreliable on their own.
-setStatus('mpesaStatus', 'pending', 'Confirming your payment…');
-pollForCompletion(reference, 'mpesaStatus', () => {
-btn.textContent = 'Unlocked ✓';
+setStatus('modalStatus', 'pending', 'Confirming your payment…');
+pollForCompletion(reference, 'modalStatus', () => {
+submitBtn.textContent = 'Unlocked ✓';
 setTimeout(() => { window.location.href = 'predictions.html'; }, 1500);
 });
 },
 onFailed: function(data){
-btn.disabled = false;
-btn.textContent = 'Pay Ksh 59 with M-Pesa';
-setStatus('mpesaStatus', 'error', 'Payment did not go through. Please try again.');
+submitBtn.disabled = false;
+submitBtn.textContent = 'Continue to Payment';
+setStatus('modalStatus', 'error', 'Payment did not go through. Please try again.');
 },
 });
 }
