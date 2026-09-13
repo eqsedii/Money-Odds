@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T07:43:38.028463Z",
+  "generated_at": "2026-09-13T22:14:41.928570Z",
   "cycle_start": "2026-09-12",
   "cycle_end": "2026-09-18",
   "predictions": [
@@ -29,34 +29,6 @@
       "league": "Campeonato Brasileiro S\u00e9rie A",
       "comp_code": "BSA",
       "kickoff": "2026-09-14T23:00:00Z",
-      "locked": true
-    },
-    {
-      "id": 555007,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Mirassol FC vs EC Vit\u00f3ria",
-      "home_team": "Mirassol FC",
-      "away_team": "EC Vit\u00f3ria",
-      "home_team_id": 4364,
-      "away_team_id": 1782,
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "comp_code": "BSA",
-      "kickoff": "2026-09-13T19:00:00Z",
-      "locked": true
-    },
-    {
-      "id": 555005,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "CR Flamengo vs SC Corinthians Paulista",
-      "home_team": "CR Flamengo",
-      "away_team": "SC Corinthians Paulista",
-      "home_team_id": 1783,
-      "away_team_id": 1779,
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "comp_code": "BSA",
-      "kickoff": "2026-09-13T20:30:00Z",
       "locked": true
     }
   ],
