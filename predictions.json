@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-12T22:02:17.178125Z",
+  "generated_at": "2026-09-13T07:43:38.028463Z",
   "cycle_start": "2026-09-12",
   "cycle_end": "2026-09-18",
   "predictions": [
@@ -58,20 +58,6 @@
       "comp_code": "BSA",
       "kickoff": "2026-09-13T20:30:00Z",
       "locked": true
-    },
-    {
-      "id": 555009,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Santos FC vs Cruzeiro EC",
-      "home_team": "Santos FC",
-      "away_team": "Cruzeiro EC",
-      "home_team_id": 6685,
-      "away_team_id": 1771,
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "comp_code": "BSA",
-      "kickoff": "2026-09-13T00:00:00Z",
-      "locked": true
     }
   ],
   "multi_bets": [
@@ -89,30 +75,6 @@
           "id": 555001,
           "icon": "\u26bd",
           "match": "EC Bahia vs Clube do Remo",
-          "meta": "Campeonato Brasileiro S\u00e9rie A"
-        }
-      ]
-    },
-    {
-      "title": "3-Leg Accumulator",
-      "locked": true,
-      "legs": [
-        {
-          "id": 555007,
-          "icon": "\u26bd",
-          "match": "Mirassol FC vs EC Vit\u00f3ria",
-          "meta": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "id": 555005,
-          "icon": "\u26bd",
-          "match": "CR Flamengo vs SC Corinthians Paulista",
-          "meta": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "id": 555009,
-          "icon": "\u26bd",
-          "match": "Santos FC vs Cruzeiro EC",
           "meta": "Campeonato Brasileiro S\u00e9rie A"
         }
       ]

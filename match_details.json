@@ -1,228 +1,4 @@
 {
-  "555002": {
-    "home_recent": [
-      {
-        "date": "2026-09-06",
-        "opponent": "SE Palmeiras",
-        "venue": "H",
-        "score": "0-0",
-        "result": "D"
-      },
-      {
-        "date": "2026-08-30",
-        "opponent": "CR Flamengo",
-        "venue": "A",
-        "score": "0-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-08-24",
-        "opponent": "CA Paranaense",
-        "venue": "H",
-        "score": "2-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-08-16",
-        "opponent": "EC Vit\u00f3ria",
-        "venue": "A",
-        "score": "0-1",
-        "result": "L"
-      },
-      {
-        "date": "2026-08-09",
-        "opponent": "Fluminense FC",
-        "venue": "H",
-        "score": "1-1",
-        "result": "D"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-09-05",
-        "opponent": "EC Bahia",
-        "venue": "H",
-        "score": "2-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-08-29",
-        "opponent": "S\u00e3o Paulo FC",
-        "venue": "A",
-        "score": "1-2",
-        "result": "L"
-      },
-      {
-        "date": "2026-08-23",
-        "opponent": "Gr\u00eamio FBPA",
-        "venue": "H",
-        "score": "1-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-08-15",
-        "opponent": "CA Paranaense",
-        "venue": "A",
-        "score": "1-1",
-        "result": "D"
-      },
-      {
-        "date": "2026-08-09",
-        "opponent": "SC Corinthians Paulista",
-        "venue": "H",
-        "score": "0-2",
-        "result": "L"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 5,
-      "home_wins": 0,
-      "draws": 0,
-      "away_wins": 0,
-      "matches": [
-        {
-          "date": "2026-03-21",
-          "home": "RB Bragantino",
-          "away": "Botafogo FR",
-          "score": "1-2",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2025-08-30",
-          "home": "Botafogo FR",
-          "away": "RB Bragantino",
-          "score": "4-1",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2025-04-12",
-          "home": "RB Bragantino",
-          "away": "Botafogo FR",
-          "score": "1-0",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        }
-      ]
-    }
-  },
-  "555009": {
-    "home_recent": [
-      {
-        "date": "2026-09-06",
-        "opponent": "SC Internacional",
-        "venue": "A",
-        "score": "3-2",
-        "result": "W"
-      },
-      {
-        "date": "2026-08-30",
-        "opponent": "SC Corinthians Paulista",
-        "venue": "A",
-        "score": "1-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-08-23",
-        "opponent": "Mirassol FC",
-        "venue": "H",
-        "score": "1-1",
-        "result": "D"
-      },
-      {
-        "date": "2026-08-16",
-        "opponent": "CR Vasco da Gama",
-        "venue": "A",
-        "score": "3-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-08-09",
-        "opponent": "CA Paranaense",
-        "venue": "H",
-        "score": "0-2",
-        "result": "L"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-09-06",
-        "opponent": "CA Paranaense",
-        "venue": "H",
-        "score": "3-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-08-30",
-        "opponent": "CR Vasco da Gama",
-        "venue": "A",
-        "score": "1-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-08-22",
-        "opponent": "CR Flamengo",
-        "venue": "H",
-        "score": "2-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-08-16",
-        "opponent": "SC Corinthians Paulista",
-        "venue": "A",
-        "score": "2-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-08-09",
-        "opponent": "Mirassol FC",
-        "venue": "H",
-        "score": "3-1",
-        "result": "W"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 5,
-      "home_wins": 0,
-      "draws": 1,
-      "away_wins": 0,
-      "matches": [
-        {
-          "date": "2026-03-22",
-          "home": "Cruzeiro EC",
-          "away": "Santos FC",
-          "score": "0-0",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2025-12-07",
-          "home": "Santos FC",
-          "away": "Cruzeiro EC",
-          "score": "3-0",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2025-08-10",
-          "home": "Cruzeiro EC",
-          "away": "Santos FC",
-          "score": "1-2",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2023-09-14",
-          "home": "Santos FC",
-          "away": "Cruzeiro EC",
-          "score": "0-3",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2023-05-06",
-          "home": "Cruzeiro EC",
-          "away": "Santos FC",
-          "score": "2-1",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        }
-      ]
-    }
-  },
   "555007": {
     "home_recent": [
       {
@@ -527,6 +303,13 @@
   "554941": {
     "home_recent": [
       {
+        "date": "2026-09-12",
+        "opponent": "RB Bragantino",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
         "date": "2026-09-06",
         "opponent": "SE Palmeiras",
         "venue": "H",
@@ -553,13 +336,6 @@
         "venue": "A",
         "score": "0-1",
         "result": "L"
-      },
-      {
-        "date": "2026-08-09",
-        "opponent": "Fluminense FC",
-        "venue": "H",
-        "score": "1-1",
-        "result": "D"
       }
     ],
     "away_recent": [

@@ -1,36 +1,8 @@
 {
-  "generated_at": "2026-09-12T22:02:17.176958Z",
+  "generated_at": "2026-09-13T07:43:38.027505Z",
   "cycle_start": "2026-09-12",
   "cycle_end": "2026-09-18",
   "fixtures": [
-    {
-      "id": 555002,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Botafogo FR vs RB Bragantino",
-      "home_team": "Botafogo FR",
-      "away_team": "RB Bragantino",
-      "home_team_id": 1770,
-      "away_team_id": 4286,
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "comp_code": "BSA",
-      "kickoff": "2026-09-12T23:30:00Z",
-      "locked": true
-    },
-    {
-      "id": 555009,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Santos FC vs Cruzeiro EC",
-      "home_team": "Santos FC",
-      "away_team": "Cruzeiro EC",
-      "home_team_id": 6685,
-      "away_team_id": 1771,
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "comp_code": "BSA",
-      "kickoff": "2026-09-13T00:00:00Z",
-      "locked": true
-    },
     {
       "id": 555007,
       "sport": "Football",
