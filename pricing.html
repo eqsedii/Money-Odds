@@ -170,10 +170,6 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <label for="modalName">Full name</label>
 <input type="text" id="modalName" placeholder="Jane Wanjiru" autocomplete="name">
 </div>
-<div class="field-group">
-<label for="modalEmail">Email (for your receipt)</label>
-<input type="email" id="modalEmail" placeholder="you@example.com" autocomplete="email">
-</div>
 <div class="field-group" style="margin-bottom:20px;">
 <label for="modalPhone">M-Pesa phone number</label>
 <input type="tel" id="modalPhone" placeholder="0712 345 678" autocomplete="tel">
@@ -227,11 +223,10 @@ if(e.target === this) closeMpesaModal();
 
 function submitMpesaModal(){
 const name = document.getElementById('modalName').value.trim();
-const email = document.getElementById('modalEmail').value.trim();
 const phone = document.getElementById('modalPhone').value.trim();
 
-if(!name || !email || !phone){
-setStatus('modalStatus', 'error', 'Please fill in your name, email, and M-Pesa phone number.');
+if(!name || !phone){
+setStatus('modalStatus', 'error', 'Please fill in your name and M-Pesa phone number.');
 return;
 }
 
@@ -243,7 +238,7 @@ setStatus('modalStatus', 'pending', 'Check your phone for the M-Pesa PIN promptâ
 fetch(`${WORKER_BASE}/sasapay-initiate`, {
 method: 'POST',
 headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ phone, name, email }),
+body: JSON.stringify({ phone, name }),
 })
 .then(r => r.json())
 .then(data => {
