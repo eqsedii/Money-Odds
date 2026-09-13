@@ -250,7 +250,9 @@ body: JSON.stringify({ phone, name, email }),
 if(!data.ok || !data.checkoutRequestId){
 submitBtn.disabled = false;
 submitBtn.textContent = 'Continue to Payment';
-setStatus('modalStatus', 'error', 'Could not start the M-Pesa request. Please check the number and try again.');
+// TEMP DEBUG: showing the raw error so we can diagnose the SasaPay
+// integration — replace with the generic message once this is working.
+setStatus('modalStatus', 'error', 'DEBUG: ' + JSON.stringify(data));
 return;
 }
 pollSasapayCompletion(data.checkoutRequestId, 'modalStatus', () => {
