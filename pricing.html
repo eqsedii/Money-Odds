@@ -9,7 +9,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://korablobstorage.blob.core.windows.net/modal-bucket/korapay-collections.min.js"></script>
 <style>
 :root{
 --bg:#0A0E14;--bg-raised:#10151D;--bg-card:#131A24;--line:#212936;
@@ -201,22 +200,6 @@ document.getElementById('navToggle').addEventListener('click', function(){
 document.getElementById('navLinks').classList.toggle('open');
 });
 
-let PRICING = null;
-
-async function loadPricing(){
-try {
-const res = await fetch(`${WORKER_BASE}/pricing`);
-PRICING = await res.json();
-} catch(e){
-console.error('Could not load pricing config', e);
-}
-}
-loadPricing();
-
-function generateReference(){
-return `moneyodds_${Date.now()}_${Math.random().toString(36).slice(2, 10)}`;
-}
-
 function saveAccessToken(token, expiry){
 localStorage.setItem('moneyOddsAccess', JSON.stringify({ token, expiry }));
 }
@@ -225,36 +208,6 @@ function setStatus(elId, type, message){
 const el = document.getElementById(elId);
 el.className = `status-box show ${type}`;
 el.textContent = message;
-}
-
-// Polls /check-payment until the webhook has processed the payment
-// (Kora's webhook can take a few seconds after the customer approves on
-// their phone), or gives up after ~2 minutes.
-async function pollForCompletion(apiRef, statusElId, onSuccess){
-const maxAttempts = 40; // ~2 minutes at 3s intervals
-let attempts = 0;
-
-const poll = async () => {
-attempts++;
-try {
-const res = await fetch(`${WORKER_BASE}/check-payment?api_ref=${encodeURIComponent(apiRef)}`);
-const data = await res.json();
-
-if(data.status === 'complete'){
-saveAccessToken(data.token, data.expiry);
-setStatus(statusElId, 'success', '✓ Payment confirmed! Your picks are unlocked for 7 days.');
-onSuccess();
-return;
-}
-} catch(e){ /* keep polling */ }
-
-if(attempts >= maxAttempts){
-setStatus(statusElId, 'error', 'Still waiting on confirmation. If you completed the M-Pesa prompt, this can take a minute — try refreshing shortly, or use "Restore" with your phone number below.');
-return;
-}
-setTimeout(poll, 3000);
-};
-poll();
 }
 
 function openMpesaModal(){
@@ -281,48 +234,70 @@ if(!name || !email || !phone){
 setStatus('modalStatus', 'error', 'Please fill in your name, email, and M-Pesa phone number.');
 return;
 }
-if(!PRICING || !PRICING.korapay_public_key){
-setStatus('modalStatus', 'error', 'Payment system is still loading — please wait a moment and try again.');
-return;
-}
 
-const reference = generateReference();
 const submitBtn = document.getElementById('modalSubmitBtn');
 submitBtn.disabled = true;
-submitBtn.textContent = 'Opening M-Pesa checkout…';
+submitBtn.textContent = 'Sending M-Pesa prompt…';
+setStatus('modalStatus', 'pending', 'Check your phone for the M-Pesa PIN prompt…');
 
-window.Korapay.initialize({
-key: PRICING.korapay_public_key,
-reference: reference,
-amount: PRICING.kes,
-currency: "KES",
-customer: {
-name: name,
-email: email,
-phone_number: phone,
-},
-notification_url: `${WORKER_BASE}/webhook`,
-onClose: function(){
+fetch(`${WORKER_BASE}/sasapay-initiate`, {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ phone, name, email }),
+})
+.then(r => r.json())
+.then(data => {
+if(!data.ok || !data.checkoutRequestId){
 submitBtn.disabled = false;
 submitBtn.textContent = 'Continue to Payment';
-},
-onSuccess: function(){
-// This fires client-side as soon as Kora's modal reports success —
-// we still confirm server-side via the webhook + polling below
-// before actually unlocking anything, since client-side callbacks
-// can be spoofed/unreliable on their own.
-setStatus('modalStatus', 'pending', 'Confirming your payment…');
-pollForCompletion(reference, 'modalStatus', () => {
+setStatus('modalStatus', 'error', 'Could not start the M-Pesa request. Please check the number and try again.');
+return;
+}
+pollSasapayCompletion(data.checkoutRequestId, 'modalStatus', () => {
 submitBtn.textContent = 'Unlocked ✓';
 setTimeout(() => { window.location.href = 'predictions.html'; }, 1500);
 });
-},
-onFailed: function(data){
+})
+.catch(() => {
 submitBtn.disabled = false;
 submitBtn.textContent = 'Continue to Payment';
-setStatus('modalStatus', 'error', 'Payment did not go through. Please try again.');
-},
+setStatus('modalStatus', 'error', 'Something went wrong reaching our payment system. Please try again.');
 });
+}
+
+// Polls our own Worker (not SasaPay directly) for the webhook-confirmed
+// result of a specific STK push — mirrors the Kora polling pattern.
+async function pollSasapayCompletion(checkoutRequestId, statusElId, onSuccess){
+const maxAttempts = 40; // ~2 minutes at 3s intervals
+let attempts = 0;
+
+const poll = async () => {
+attempts++;
+try {
+const res = await fetch(`${WORKER_BASE}/sasapay-check?checkout_id=${encodeURIComponent(checkoutRequestId)}`);
+const data = await res.json();
+
+if(data.status === 'complete'){
+saveAccessToken(data.token, data.expiry);
+setStatus(statusElId, 'success', '✓ Payment confirmed! Your picks are unlocked for 7 days.');
+onSuccess();
+return;
+}
+if(data.status === 'failed'){
+setStatus(statusElId, 'error', 'Payment was not completed (cancelled or failed). Please try again.');
+document.getElementById('modalSubmitBtn').disabled = false;
+document.getElementById('modalSubmitBtn').textContent = 'Continue to Payment';
+return;
+}
+} catch(e){ /* keep polling */ }
+
+if(attempts >= maxAttempts){
+setStatus(statusElId, 'error', 'Still waiting on confirmation. If you entered your PIN, this can take a minute — try refreshing shortly, or use "Restore" with your phone number below.');
+return;
+}
+setTimeout(poll, 3000);
+};
+poll();
 }
 
 function startCardPayment(){
