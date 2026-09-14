@@ -1,35 +1,6 @@
 {
-  "generated_at": "2026-09-13T22:14:41.927482Z",
+  "generated_at": "2026-09-14T08:10:45.075461Z",
   "cycle_start": "2026-09-12",
   "cycle_end": "2026-09-18",
-  "fixtures": [
-    {
-      "id": 555001,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "EC Bahia vs Clube do Remo",
-      "home_team": "EC Bahia",
-      "away_team": "Clube do Remo",
-      "home_team_id": 1777,
-      "away_team_id": 4287,
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "comp_code": "BSA",
-      "kickoff": "2026-09-14T23:00:00Z",
-      "locked": true
-    },
-    {
-      "id": 554941,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Botafogo FR vs Gr\u00eamio FBPA",
-      "home_team": "Botafogo FR",
-      "away_team": "Gr\u00eamio FBPA",
-      "home_team_id": 1770,
-      "away_team_id": 1767,
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "comp_code": "BSA",
-      "kickoff": "2026-09-16T22:30:00Z",
-      "locked": true
-    }
-  ]
+  "fixtures": []
 }
