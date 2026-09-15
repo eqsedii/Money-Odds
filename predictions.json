@@ -1,7 +1,22 @@
 {
-  "generated_at": "2026-09-14T23:01:44.765621Z",
+  "generated_at": "2026-09-15T08:05:25.475362Z",
   "cycle_start": "2026-09-12",
   "cycle_end": "2026-09-18",
-  "predictions": [],
+  "predictions": [
+    {
+      "id": 554941,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Botafogo FR vs Gr\u00eamio FBPA",
+      "home_team": "Botafogo FR",
+      "away_team": "Gr\u00eamio FBPA",
+      "home_team_id": 1770,
+      "away_team_id": 1767,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-09-16T22:30:00Z",
+      "locked": true
+    }
+  ],
   "multi_bets": []
 }
