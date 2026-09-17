@@ -76,7 +76,6 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 .footer-grid{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
 .site-bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.7;z-index:-2;pointer-events:none;}
 .site-bg-overlay{position:fixed;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,14,20,0.55) 0%,rgba(10,14,20,0.72) 40%,var(--bg) 85%);pointer-events:none;}
-/* MODAL */
 .modal-overlay{position:fixed;inset:0;z-index:200;background:rgba(6,9,14,0.75);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:20px;}
 .modal-overlay.open{display:flex;}
 .modal-box{background:var(--bg-card);border:1px solid var(--line);border-radius:18px;padding:28px;max-width:400px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.5);}
@@ -87,6 +86,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 </style>
 </head>
 <body>
+
 <video class="site-bg-video" autoplay muted loop playsinline>
 <source src="hero-bg.mp4" type="video/mp4">
 </video>
@@ -97,7 +97,6 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <a href="index.html" class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</a>
 <div class="nav-links" id="navLinks">
 <a href="predictions.html">Predictions</a>
-<a href="track-record.html">Track Record</a>
 <a href="pricing.html">Pricing</a>
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
@@ -165,7 +164,6 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <button class="modal-close" onclick="closeMpesaModal()" aria-label="Close">×</button>
 <div class="modal-title">Pay with M-Pesa</div>
 <div class="modal-sub">Ksh 59 unlocks every prediction for 7 days. You'll get a prompt on your phone to enter your M-Pesa PIN.</div>
-
 <div class="field-group">
 <label for="modalName">Full name</label>
 <input type="text" id="modalName" placeholder="Jane Wanjiru" autocomplete="name">
@@ -174,7 +172,6 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <label for="modalPhone">M-Pesa phone number</label>
 <input type="tel" id="modalPhone" placeholder="0712 345 678" autocomplete="tel">
 </div>
-
 <button class="pay-btn" id="modalSubmitBtn" onclick="submitMpesaModal()">Continue to Payment</button>
 <div class="status-box" id="modalStatus"></div>
 </div>
@@ -193,138 +190,130 @@ const WORKER_BASE = "https://money-odds-api.arphaxad98.workers.dev";
 // ----------------------------------------------------------
 
 document.getElementById('navToggle').addEventListener('click', function(){
-document.getElementById('navLinks').classList.toggle('open');
+  document.getElementById('navLinks').classList.toggle('open');
 });
 
 function saveAccessToken(token, expiry){
-localStorage.setItem('moneyOddsAccess', JSON.stringify({ token, expiry }));
+  localStorage.setItem('moneyOddsAccess', JSON.stringify({ token, expiry }));
 }
 
 function setStatus(elId, type, message){
-const el = document.getElementById(elId);
-el.className = `status-box show ${type}`;
-el.textContent = message;
+  const el = document.getElementById(elId);
+  el.className = `status-box show ${type}`;
+  el.textContent = message;
 }
 
 function openMpesaModal(){
-document.getElementById('mpesaModal').classList.add('open');
-// Give the modal a beat to render before focusing, nicer on mobile
-setTimeout(() => document.getElementById('modalName').focus(), 100);
+  document.getElementById('mpesaModal').classList.add('open');
+  setTimeout(() => document.getElementById('modalName').focus(), 100);
 }
 
 function closeMpesaModal(){
-document.getElementById('mpesaModal').classList.remove('open');
+  document.getElementById('mpesaModal').classList.remove('open');
 }
 
-// Close on tapping the dark overlay outside the box (not the box itself)
 document.getElementById('mpesaModal').addEventListener('click', function(e){
-if(e.target === this) closeMpesaModal();
+  if(e.target === this) closeMpesaModal();
 });
 
 function submitMpesaModal(){
-const name = document.getElementById('modalName').value.trim();
-const phone = document.getElementById('modalPhone').value.trim();
+  const name = document.getElementById('modalName').value.trim();
+  const phone = document.getElementById('modalPhone').value.trim();
+  if(!name || !phone){
+    setStatus('modalStatus', 'error', 'Please fill in your name and M-Pesa phone number.');
+    return;
+  }
 
-if(!name || !phone){
-setStatus('modalStatus', 'error', 'Please fill in your name and M-Pesa phone number.');
-return;
+  const submitBtn = document.getElementById('modalSubmitBtn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending M-Pesa prompt…';
+  setStatus('modalStatus', 'pending', 'Check your phone for the M-Pesa PIN prompt…');
+
+  fetch(`${WORKER_BASE}/payhero-initiate`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ phone, name }),
+  })
+  .then(r => r.json())
+  .then(data => {
+    if(!data.ok || !data.externalReference){
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Continue to Payment';
+      setStatus('modalStatus', 'error', 'DEBUG: ' + JSON.stringify(data));
+      return;
+    }
+    pollPayheroCompletion(data.externalReference, 'modalStatus', () => {
+      submitBtn.textContent = 'Unlocked ✓';
+      setTimeout(() => { window.location.href = 'predictions.html'; }, 1500);
+    });
+  })
+  .catch(() => {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Continue to Payment';
+    setStatus('modalStatus', 'error', 'Something went wrong reaching our payment system. Please try again.');
+  });
 }
 
-const submitBtn = document.getElementById('modalSubmitBtn');
-submitBtn.disabled = true;
-submitBtn.textContent = 'Sending M-Pesa prompt…';
-setStatus('modalStatus', 'pending', 'Check your phone for the M-Pesa PIN prompt…');
-
-fetch(`${WORKER_BASE}/payhero-initiate`, {
-method: 'POST',
-headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify({ phone, name }),
-})
-.then(r => r.json())
-.then(data => {
-if(!data.ok || !data.externalReference){
-submitBtn.disabled = false;
-submitBtn.textContent = 'Continue to Payment';
-// TEMP DEBUG: showing the raw error so we can diagnose the PayHero
-// integration — replace with the generic message once this is working.
-setStatus('modalStatus', 'error', 'DEBUG: ' + JSON.stringify(data));
-return;
-}
-pollPayheroCompletion(data.externalReference, 'modalStatus', () => {
-submitBtn.textContent = 'Unlocked ✓';
-setTimeout(() => { window.location.href = 'predictions.html'; }, 1500);
-});
-})
-.catch(() => {
-submitBtn.disabled = false;
-submitBtn.textContent = 'Continue to Payment';
-setStatus('modalStatus', 'error', 'Something went wrong reaching our payment system. Please try again.');
-});
-}
-
-// Polls our own Worker (not PayHero directly) for the webhook-confirmed
-// result of a specific STK push.
 async function pollPayheroCompletion(externalReference, statusElId, onSuccess){
-const maxAttempts = 40; // ~2 minutes at 3s intervals
-let attempts = 0;
+  const maxAttempts = 40; // ~2 minutes at 3s intervals
+  let attempts = 0;
 
-const poll = async () => {
-attempts++;
-try {
-const res = await fetch(`${WORKER_BASE}/payhero-check?ref=${encodeURIComponent(externalReference)}`);
-const data = await res.json();
+  const poll = async () => {
+    attempts++;
+    try {
+      const res = await fetch(`${WORKER_BASE}/payhero-check?ref=${encodeURIComponent(externalReference)}`);
+      const data = await res.json();
 
-if(data.status === 'complete'){
-saveAccessToken(data.token, data.expiry);
-setStatus(statusElId, 'success', '✓ Payment confirmed! Your picks are unlocked for 7 days.');
-onSuccess();
-return;
-}
-if(data.status === 'failed'){
-setStatus(statusElId, 'error', 'Payment was not completed (cancelled or failed). Please try again.');
-document.getElementById('modalSubmitBtn').disabled = false;
-document.getElementById('modalSubmitBtn').textContent = 'Continue to Payment';
-return;
-}
-} catch(e){ /* keep polling */ }
+      if(data.status === 'complete'){
+        saveAccessToken(data.token, data.expiry);
+        setStatus(statusElId, 'success', '✓ Payment confirmed! Your picks are unlocked for 7 days.');
+        onSuccess();
+        return;
+      }
+      if(data.status === 'failed'){
+        setStatus(statusElId, 'error', 'Payment was not completed (cancelled or failed). Please try again.');
+        document.getElementById('modalSubmitBtn').disabled = false;
+        document.getElementById('modalSubmitBtn').textContent = 'Continue to Payment';
+        return;
+      }
+    } catch(e){ /* keep polling */ }
 
-if(attempts >= maxAttempts){
-setStatus(statusElId, 'error', 'Still waiting on confirmation. If you entered your PIN, this can take a minute — try refreshing shortly, or use "Restore" with your phone number below.');
-return;
-}
-setTimeout(poll, 3000);
-};
-poll();
+    if(attempts >= maxAttempts){
+      setStatus(statusElId, 'error', 'Still waiting on confirmation. If you entered your PIN, this can take a minute — try refreshing shortly, or use "Restore" with your phone number below.');
+      return;
+    }
+    setTimeout(poll, 3000);
+  };
+  poll();
 }
 
 function startCardPayment(){
-// Intentionally disabled until international card support is confirmed
-// on the Kora account (see the note in worker.js and above this button).
-setStatus('cardStatus', 'error', 'Card payments aren\'t live yet — check back shortly.');
+  setStatus('cardStatus', 'error', 'Card payments aren\'t live yet — check back shortly.');
 }
 
 async function restoreAccess(){
-const phoneInput = document.getElementById('restorePhone').value.trim();
-if(!phoneInput){
-setStatus('restoreStatus', 'error', 'Enter the phone number you paid with.');
-return;
-}
-try {
-const res = await fetch(`${WORKER_BASE}/restore?phone=${encodeURIComponent(phoneInput)}`);
-const data = await res.json();
-if(data.status === 'active'){
-saveAccessToken(data.token, data.expiry);
-setStatus('restoreStatus', 'success', '✓ Access restored! Redirecting…');
-setTimeout(() => { window.location.href = 'predictions.html'; }, 1200);
-} else if(data.status === 'expired'){
-setStatus('restoreStatus', 'error', 'Your last subscription has expired — please pay again above.');
-} else {
-setStatus('restoreStatus', 'error', 'No active subscription found for that number.');
-}
-} catch(e){
-setStatus('restoreStatus', 'error', 'Something went wrong — please try again.');
-}
+  const phoneInput = document.getElementById('restorePhone').value.trim();
+  if(!phoneInput){
+    setStatus('restoreStatus', 'error', 'Enter the phone number you paid with.');
+    return;
+  }
+  try {
+    const res = await fetch(`${WORKER_BASE}/restore?phone=${encodeURIComponent(phoneInput)}`);
+    const data = await res.json();
+    if(data.status === 'active'){
+      saveAccessToken(data.token, data.expiry);
+      setStatus('restoreStatus', 'success', '✓ Access restored! Redirecting…');
+      setTimeout(() => { window.location.href = 'predictions.html'; }, 1200);
+    } else if(data.status === 'expired'){
+      setStatus('restoreStatus', 'error', 'Your last subscription has expired — please pay again above.');
+    } else {
+      setStatus('restoreStatus', 'error', 'No active subscription found for that number.');
+    }
+  } catch(e){
+    setStatus('restoreStatus', 'error', 'Something went wrong — please try again.');
+  }
 }
 </script>
+
 </body>
 </html>
