@@ -235,22 +235,22 @@ submitBtn.disabled = true;
 submitBtn.textContent = 'Sending M-Pesa prompt…';
 setStatus('modalStatus', 'pending', 'Check your phone for the M-Pesa PIN prompt…');
 
-fetch(`${WORKER_BASE}/sasapay-initiate`, {
+fetch(`${WORKER_BASE}/payhero-initiate`, {
 method: 'POST',
 headers: { 'Content-Type': 'application/json' },
 body: JSON.stringify({ phone, name }),
 })
 .then(r => r.json())
 .then(data => {
-if(!data.ok || !data.checkoutRequestId){
+if(!data.ok || !data.externalReference){
 submitBtn.disabled = false;
 submitBtn.textContent = 'Continue to Payment';
-// TEMP DEBUG: showing the raw error so we can diagnose the SasaPay
+// TEMP DEBUG: showing the raw error so we can diagnose the PayHero
 // integration — replace with the generic message once this is working.
 setStatus('modalStatus', 'error', 'DEBUG: ' + JSON.stringify(data));
 return;
 }
-pollSasapayCompletion(data.checkoutRequestId, 'modalStatus', () => {
+pollPayheroCompletion(data.externalReference, 'modalStatus', () => {
 submitBtn.textContent = 'Unlocked ✓';
 setTimeout(() => { window.location.href = 'predictions.html'; }, 1500);
 });
@@ -262,16 +262,16 @@ setStatus('modalStatus', 'error', 'Something went wrong reaching our payment sys
 });
 }
 
-// Polls our own Worker (not SasaPay directly) for the webhook-confirmed
-// result of a specific STK push — mirrors the Kora polling pattern.
-async function pollSasapayCompletion(checkoutRequestId, statusElId, onSuccess){
+// Polls our own Worker (not PayHero directly) for the webhook-confirmed
+// result of a specific STK push.
+async function pollPayheroCompletion(externalReference, statusElId, onSuccess){
 const maxAttempts = 40; // ~2 minutes at 3s intervals
 let attempts = 0;
 
 const poll = async () => {
 attempts++;
 try {
-const res = await fetch(`${WORKER_BASE}/sasapay-check?checkout_id=${encodeURIComponent(checkoutRequestId)}`);
+const res = await fetch(`${WORKER_BASE}/payhero-check?ref=${encodeURIComponent(externalReference)}`);
 const data = await res.json();
 
 if(data.status === 'complete'){
