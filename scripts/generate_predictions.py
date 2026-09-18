@@ -51,7 +51,7 @@ BALLDONTLIE_BASE = "https://api.balldontlie.io/nba/v1"
 # The 12 competitions available on football-data.org's free tier
 COMPETITIONS = ["PL", "PD", "BL1", "SA", "FL1", "DED", "PPL", "ELC", "BSA", "CL", "WC", "EC"]
 
-MIN_SAMPLE = 4        # minimum home/away matches before we trust a team's numbers
+MIN_SAMPLE = 2        # minimum home/away matches before we trust a team's numbers
                        # (raised from 2 — small samples were too noisy to feature confidently)
 
 CONFIDENCE_FLOOR = 58   # % — only picks at or above this get featured on predictions.json
