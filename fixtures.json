@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T11:27:12.640011Z",
+  "generated_at": "2026-09-18T15:52:48.649132Z",
   "fixtures": [
     {
       "id": 558888,
@@ -13,48 +13,6 @@
       "league": "Eredivisie",
       "comp_code": "DED",
       "kickoff": "2026-09-18T18:00:00Z",
-      "locked": true
-    },
-    {
-      "id": 565804,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Bayern M\u00fcnchen vs 1. FC Union Berlin",
-      "home_team": "FC Bayern M\u00fcnchen",
-      "away_team": "1. FC Union Berlin",
-      "home_team_id": 5,
-      "away_team_id": 28,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-09-18T18:30:00Z",
-      "locked": true
-    },
-    {
-      "id": 558596,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "AC Monza vs US Sassuolo Calcio",
-      "home_team": "AC Monza",
-      "away_team": "US Sassuolo Calcio",
-      "home_team_id": 5911,
-      "away_team_id": 471,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-09-18T18:45:00Z",
-      "locked": true
-    },
-    {
-      "id": 559682,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "AS Monaco FC vs Racing Club de Lens",
-      "home_team": "AS Monaco FC",
-      "away_team": "Racing Club de Lens",
-      "home_team_id": 548,
-      "away_team_id": 546,
-      "league": "Ligue 1",
-      "comp_code": "FL1",
-      "kickoff": "2026-09-18T18:45:00Z",
       "locked": true
     },
     {
@@ -114,20 +72,6 @@
       "locked": true
     },
     {
-      "id": 561847,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Stoke City FC vs Sheffield United FC",
-      "home_team": "Stoke City FC",
-      "away_team": "Sheffield United FC",
-      "home_team_id": 70,
-      "away_team_id": 356,
-      "league": "Championship",
-      "comp_code": "ELC",
-      "kickoff": "2026-09-19T11:30:00Z",
-      "locked": true
-    },
-    {
       "id": 561849,
       "sport": "Football",
       "icon": "\u26bd",
@@ -156,20 +100,6 @@
       "locked": true
     },
     {
-      "id": 564693,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "CA Osasuna vs Rayo Vallecano de Madrid",
-      "home_team": "CA Osasuna",
-      "away_team": "Rayo Vallecano de Madrid",
-      "home_team_id": 79,
-      "away_team_id": 87,
-      "league": "Primera Division",
-      "comp_code": "PD",
-      "kickoff": "2026-09-19T12:00:00Z",
-      "locked": true
-    },
-    {
       "id": 558598,
       "sport": "Football",
       "icon": "\u26bd",
@@ -195,62 +125,6 @@
       "league": "Serie A",
       "comp_code": "SA",
       "kickoff": "2026-09-19T13:00:00Z",
-      "locked": true
-    },
-    {
-      "id": 565808,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Hamburger SV vs 1. FC K\u00f6ln",
-      "home_team": "Hamburger SV",
-      "away_team": "1. FC K\u00f6ln",
-      "home_team_id": 7,
-      "away_team_id": 1,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-09-19T13:30:00Z",
-      "locked": true
-    },
-    {
-      "id": 565809,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Borussia M\u00f6nchengladbach vs 1. FSV Mainz 05",
-      "home_team": "Borussia M\u00f6nchengladbach",
-      "away_team": "1. FSV Mainz 05",
-      "home_team_id": 18,
-      "away_team_id": 15,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-09-19T13:30:00Z",
-      "locked": true
-    },
-    {
-      "id": 565810,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "SV Werder Bremen vs FC Augsburg",
-      "home_team": "SV Werder Bremen",
-      "away_team": "FC Augsburg",
-      "home_team_id": 12,
-      "away_team_id": 16,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-09-19T13:30:00Z",
-      "locked": true
-    },
-    {
-      "id": 565811,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Eintracht Frankfurt vs SC Freiburg",
-      "home_team": "Eintracht Frankfurt",
-      "away_team": "SC Freiburg",
-      "home_team_id": 19,
-      "away_team_id": 17,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-09-19T13:30:00Z",
       "locked": true
     },
     {
@@ -304,20 +178,6 @@
       "away_team": "Southampton FC",
       "home_team_id": 404,
       "away_team_id": 340,
-      "league": "Championship",
-      "comp_code": "ELC",
-      "kickoff": "2026-09-19T14:00:00Z",
-      "locked": true
-    },
-    {
-      "id": 561848,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Burnley FC vs Derby County FC",
-      "home_team": "Burnley FC",
-      "away_team": "Derby County FC",
-      "home_team_id": 328,
-      "away_team_id": 342,
       "league": "Championship",
       "comp_code": "ELC",
       "kickoff": "2026-09-19T14:00:00Z",
@@ -380,20 +240,6 @@
       "locked": true
     },
     {
-      "id": 564691,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Athletic Club vs Deportivo Alav\u00e9s",
-      "home_team": "Athletic Club",
-      "away_team": "Deportivo Alav\u00e9s",
-      "home_team_id": 77,
-      "away_team_id": 263,
-      "league": "Primera Division",
-      "comp_code": "PD",
-      "kickoff": "2026-09-19T14:15:00Z",
-      "locked": true
-    },
-    {
       "id": 558889,
       "sport": "Football",
       "icon": "\u26bd",
@@ -404,20 +250,6 @@
       "away_team_id": 1909,
       "league": "Eredivisie",
       "comp_code": "DED",
-      "kickoff": "2026-09-19T14:30:00Z",
-      "locked": true
-    },
-    {
-      "id": 567311,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "CD Nacional vs FC Famalic\u00e3o",
-      "home_team": "CD Nacional",
-      "away_team": "FC Famalic\u00e3o",
-      "home_team_id": 5529,
-      "away_team_id": 5531,
-      "league": "Primeira Liga",
-      "comp_code": "PPL",
       "kickoff": "2026-09-19T14:30:00Z",
       "locked": true
     },
@@ -450,20 +282,6 @@
       "locked": true
     },
     {
-      "id": 558593,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "AS Roma vs FC Internazionale Milano",
-      "home_team": "AS Roma",
-      "away_team": "FC Internazionale Milano",
-      "home_team_id": 100,
-      "away_team_id": 108,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-09-19T16:00:00Z",
-      "locked": true
-    },
-    {
       "id": 560589,
       "sport": "Football",
       "icon": "\u26bd",
@@ -488,20 +306,6 @@
       "away_team_id": 5335,
       "league": "Primera Division",
       "comp_code": "PD",
-      "kickoff": "2026-09-19T16:30:00Z",
-      "locked": true
-    },
-    {
-      "id": 565806,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "VfB Stuttgart vs Borussia Dortmund",
-      "home_team": "VfB Stuttgart",
-      "away_team": "Borussia Dortmund",
-      "home_team_id": 10,
-      "away_team_id": 4,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
       "kickoff": "2026-09-19T16:30:00Z",
       "locked": true
     },
@@ -576,20 +380,6 @@
       "locked": true
     },
     {
-      "id": 559680,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Toulouse FC vs Le Havre AC",
-      "home_team": "Toulouse FC",
-      "away_team": "Le Havre AC",
-      "home_team_id": 511,
-      "away_team_id": 533,
-      "league": "Ligue 1",
-      "comp_code": "FL1",
-      "kickoff": "2026-09-19T18:45:00Z",
-      "locked": true
-    },
-    {
       "id": 559681,
       "sport": "Football",
       "icon": "\u26bd",
@@ -598,20 +388,6 @@
       "away_team": "ES Troyes AC",
       "home_team_id": 532,
       "away_team_id": 531,
-      "league": "Ligue 1",
-      "comp_code": "FL1",
-      "kickoff": "2026-09-19T18:45:00Z",
-      "locked": true
-    },
-    {
-      "id": 559683,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Olympique Lyonnais vs Stade Rennais FC 1901",
-      "home_team": "Olympique Lyonnais",
-      "away_team": "Stade Rennais FC 1901",
-      "home_team_id": 523,
-      "away_team_id": 529,
       "league": "Ligue 1",
       "comp_code": "FL1",
       "kickoff": "2026-09-19T18:45:00Z",
@@ -884,20 +660,6 @@
       "locked": true
     },
     {
-      "id": 558590,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Parma Calcio 1913 vs Genoa CFC",
-      "home_team": "Parma Calcio 1913",
-      "away_team": "Genoa CFC",
-      "home_team_id": 112,
-      "away_team_id": 107,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-09-20T13:00:00Z",
-      "locked": true
-    },
-    {
       "id": 559676,
       "sport": "Football",
       "icon": "\u26bd",
@@ -909,34 +671,6 @@
       "league": "Ligue 1",
       "comp_code": "FL1",
       "kickoff": "2026-09-20T13:00:00Z",
-      "locked": true
-    },
-    {
-      "id": 565807,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Bayer 04 Leverkusen vs RB Leipzig",
-      "home_team": "Bayer 04 Leverkusen",
-      "away_team": "RB Leipzig",
-      "home_team_id": 3,
-      "away_team_id": 721,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-09-20T13:30:00Z",
-      "locked": true
-    },
-    {
-      "id": 555014,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Gr\u00eamio FBPA vs SE Palmeiras",
-      "home_team": "Gr\u00eamio FBPA",
-      "away_team": "SE Palmeiras",
-      "home_team_id": 1767,
-      "away_team_id": 1769,
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "comp_code": "BSA",
-      "kickoff": "2026-09-20T14:00:00Z",
       "locked": true
     },
     {
@@ -1024,48 +758,6 @@
       "locked": true
     },
     {
-      "id": 565805,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Schalke 04 vs SV 07 Elversberg",
-      "home_team": "FC Schalke 04",
-      "away_team": "SV 07 Elversberg",
-      "home_team_id": 6,
-      "away_team_id": 719,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-09-20T15:30:00Z",
-      "locked": true
-    },
-    {
-      "id": 558595,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Juventus FC vs Atalanta BC",
-      "home_team": "Juventus FC",
-      "away_team": "Atalanta BC",
-      "home_team_id": 109,
-      "away_team_id": 102,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-09-20T16:00:00Z",
-      "locked": true
-    },
-    {
-      "id": 564695,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "RC Deportivo La Coru\u00f1a vs Real Betis Balompi\u00e9",
-      "home_team": "RC Deportivo La Coru\u00f1a",
-      "away_team": "Real Betis Balompi\u00e9",
-      "home_team_id": 560,
-      "away_team_id": 90,
-      "league": "Primera Division",
-      "comp_code": "PD",
-      "kickoff": "2026-09-20T16:30:00Z",
-      "locked": true
-    },
-    {
       "id": 564696,
       "sport": "Football",
       "icon": "\u26bd",
@@ -1108,34 +800,6 @@
       "locked": true
     },
     {
-      "id": 565803,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "SC Paderborn 07 vs TSG 1899 Hoffenheim",
-      "home_team": "SC Paderborn 07",
-      "away_team": "TSG 1899 Hoffenheim",
-      "home_team_id": 29,
-      "away_team_id": 2,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-09-20T17:30:00Z",
-      "locked": true
-    },
-    {
-      "id": 558597,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "AC Milan vs US Lecce",
-      "home_team": "AC Milan",
-      "away_team": "US Lecce",
-      "home_team_id": 98,
-      "away_team_id": 5890,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-09-20T18:45:00Z",
-      "locked": true
-    },
-    {
       "id": 559675,
       "sport": "Football",
       "icon": "\u26bd",
@@ -1160,34 +824,6 @@
       "away_team_id": 92,
       "league": "Primera Division",
       "comp_code": "PD",
-      "kickoff": "2026-09-20T19:00:00Z",
-      "locked": true
-    },
-    {
-      "id": 555012,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "SC Corinthians Paulista vs Fluminense FC",
-      "home_team": "SC Corinthians Paulista",
-      "away_team": "Fluminense FC",
-      "home_team_id": 1779,
-      "away_team_id": 1765,
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "comp_code": "BSA",
-      "kickoff": "2026-09-20T19:00:00Z",
-      "locked": true
-    },
-    {
-      "id": 555019,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "EC Vit\u00f3ria vs Cruzeiro EC",
-      "home_team": "EC Vit\u00f3ria",
-      "away_team": "Cruzeiro EC",
-      "home_team_id": 1782,
-      "away_team_id": 1771,
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "comp_code": "BSA",
       "kickoff": "2026-09-20T19:00:00Z",
       "locked": true
     },
