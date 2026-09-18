@@ -597,10 +597,22 @@ def main():
     all_fixtures = football_fixtures + basketball_fixtures
     all_fixtures.sort(key=lambda f: f.get("kickoff") or "")
 
+    # Only fixtures that PASS THE CRITERIA (a computed pick with confidence >=
+    # CONFIDENCE_FLOOR) are published or sold. Fixtures with too little data, or
+    # a weak pick, are dropped everywhere public, so nothing ever sits "locked"
+    # for a paying subscriber with no pick behind the lock.
+    qualifying_ids = {
+        str(fx["id"]) for fx in all_fixtures
+        if (fx.get("confidence") or 0) >= CONFIDENCE_FLOOR
+    }
+
     # --- match_details.json: head-to-head + recent form, keyed by match id ---
     match_details = {}
 
-    football_by_kickoff = sorted(football_fixtures, key=lambda f: f.get("kickoff") or "")
+    football_by_kickoff = sorted(
+        [fx for fx in football_fixtures if str(fx["id"]) in qualifying_ids],
+        key=lambda f: f.get("kickoff") or "",
+    )
     h2h_budget = MAX_H2H_CALLS
     for fx in football_by_kickoff:
         matches_ref = fx["_all_matches_ref"]
@@ -621,6 +633,8 @@ def main():
         print(f"Reached MAX_H2H_CALLS budget ({MAX_H2H_CALLS}) — remaining fixtures have recent form but no head-to-head this run.")
 
     for fx in basketball_fixtures:
+        if str(fx["id"]) not in qualifying_ids:
+            continue
         match_details[str(fx["id"])] = {
             "home_recent": fx.get("_home_recent", []),
             "away_recent": fx.get("_away_recent", []),
@@ -631,7 +645,8 @@ def main():
     clean_fixtures = [strip_internal_fields(fx) for fx in all_fixtures]
 
     # --- PUBLIC fixtures.json: everyone sees this, no pick/confidence/odds ---
-    public_fixtures = [redact_for_public(fx) for fx in clean_fixtures]
+    qualifying = [fx for fx in clean_fixtures if str(fx["id"]) in qualifying_ids]
+    public_fixtures = [redact_for_public(fx) for fx in qualifying]
     with open(OUT_FIXTURES, "w") as f:
         json.dump({
             "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
@@ -642,7 +657,7 @@ def main():
         json.dump(match_details, f, indent=2)
 
     # --- ranking + featured selection use the FULL (private) data ---
-    ranked = sorted(clean_fixtures, key=lambda p: p.get("confidence") or -1, reverse=True)
+    ranked = sorted(qualifying, key=lambda p: p.get("confidence") or -1, reverse=True)
     top_singles = [p for p in ranked if p.get("confidence", 0) >= CONFIDENCE_FLOOR][:MAX_FEATURED]
     multis = build_multi_bets(ranked)
 
@@ -666,7 +681,7 @@ def main():
     # --- PRIVATE data: the actual proprietary picks — pushed to the private
     # repo only, never committed here. The Worker fetches this server-side
     # after verifying a real payment. ---
-    picks_map = {str(fx["id"]): extract_private_fields(fx) for fx in clean_fixtures}
+    picks_map = {str(fx["id"]): extract_private_fields(fx) for fx in qualifying}
     with open(OUT_PRIVATE_PICKS, "w") as f:
         json.dump({
             "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
@@ -690,3 +705,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
