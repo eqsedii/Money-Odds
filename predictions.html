@@ -489,7 +489,7 @@ function runSearch(query){
           <div class="sr-match">${p.icon} ${p.match}</div>
           <div class="sr-meta">${p.league} · ${formatKickoff(p.kickoff)}</div>
         </div>
-        <div class="sr-pick">${p.pick}</div>
+        <div class="sr-pick">${p.pick ?? '🔒'}</div>
       </div>
     `).join('');
   }
@@ -521,3 +521,5 @@ document.addEventListener('click', function(e){
 
 </body>
 </html>
+
+

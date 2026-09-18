@@ -53,6 +53,8 @@ a{color:inherit;text-decoration:none;}
 .predict-row{display:flex;gap:32px;flex-wrap:wrap;position:relative;}
 .predict-stat-label{font-size:11px;color:var(--text-dim);margin-bottom:2px;}
 .predict-stat-val{font-size:18px;font-weight:700;font-family:'Space Grotesk',sans-serif;}
+.unlock-btn{display:block;text-align:center;margin-top:20px;padding:14px 24px;border-radius:12px;background:var(--gold);color:#1A1204;font-weight:700;font-size:15px;box-shadow:0 0 20px rgba(245,166,35,0.35);position:relative;}
+.unlock-btn:active{transform:scale(0.98);}
 .markets-list{display:flex;flex-direction:column;gap:12px;}
 .market-row{display:flex;align-items:center;gap:14px;}
 .market-label{width:140px;flex-shrink:0;font-size:13.5px;}
@@ -95,12 +97,10 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 </style>
 </head>
 <body>
-
 <video class="site-bg-video" autoplay muted loop playsinline>
 <source src="hero-bg.mp4" type="video/mp4">
 </video>
 <div class="site-bg-overlay"></div>
-
 <nav class="nav">
 <div class="wrap">
 <a href="index.html" class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</a>
@@ -114,47 +114,39 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
 </div>
 </nav>
-
 <div class="wrap">
 <a href="predictions.html" class="back-link">← Back to predictions</a>
 <div id="content">
 <div class="loading">Loading match analysis…</div>
 </div>
 </div>
-
 <footer>
 <div class="footer-grid">
 <div class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</div>
 <div>&copy; 2026 Money Odds. All rights reserved.</div>
 </div>
 </footer>
-
 <div class="loader-overlay" id="loaderOverlay">
 <video class="loader-video" autoplay muted loop playsinline>
 <source src="loading-logo.mp4" type="video/mp4">
 </video>
 </div>
-
 <script>
 function showLoader(){ document.getElementById('loaderOverlay').classList.add('active'); }
 function hideLoader(){ document.getElementById('loaderOverlay').classList.remove('active'); }
 showLoader();
-
 document.getElementById('navToggle').addEventListener('click', function(){
   document.getElementById('navLinks').classList.toggle('open');
 });
-
 const params = new URLSearchParams(window.location.search);
 const matchId = params.get('id');
 const contentEl = document.getElementById('content');
-
 function formatKickoff(iso){
   if(!iso) return '';
   try {
     return new Date(iso).toLocaleString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' });
   } catch(e){ return iso; }
 }
-
 function formTeamHTML(name, games){
   if(!games || !games.length){
     return `<div class="form-team"><div class="form-team-name">${name}</div><div class="form-empty">No recent match data available yet.</div></div>`;
@@ -168,7 +160,6 @@ function formTeamHTML(name, games){
   `).join('');
   return `<div class="form-team"><div class="form-team-name">${name} — last ${games.length}</div>${rows}</div>`;
 }
-
 function h2hHTML(h2h){
   if(!h2h || !h2h.matches || !h2h.matches.length){
     return `<div class="form-empty">No head-to-head meetings found in the data we have access to (current season only on our free data tier).</div>`;
@@ -179,7 +170,6 @@ function h2hHTML(h2h){
       <div class="h2h-stat"><div class="h2h-stat-num">${h2h.draws ?? 0}</div><div class="h2h-stat-label">Draws</div></div>
       <div class="h2h-stat"><div class="h2h-stat-num">${h2h.away_wins}</div><div class="h2h-stat-label">Away wins</div></div>
     </div>` : '';
-
   const rows = h2h.matches.map(m => `
     <div class="h2h-row">
       <div class="h2h-date">${m.date}</div>
@@ -187,10 +177,8 @@ function h2hHTML(h2h){
       <div class="h2h-score">${m.score}</div>
     </div>
   `).join('');
-
   return summary + `<div class="h2h-list">${rows}</div>`;
 }
-
 function render(fixture, details){
   const locked = fixture.pick === undefined;
   const markets = fixture.markets || [];
@@ -201,7 +189,6 @@ function render(fixture, details){
       <div class="market-pct">${m.probability}%</div>
     </div>
   `).join('');
-
   let scoreLineHTML = '';
   if(fixture.expected_goals){
     scoreLineHTML = `
@@ -216,7 +203,6 @@ function render(fixture, details){
         <div class="predict-stat-val">${fixture.predicted_score.home} – ${fixture.predicted_score.away}</div>
       </div>`;
   }
-
   const predictCardHTML = locked ? `
     <div class="predict-card">
       <div class="predict-label">MONEY ODDS PICK</div>
@@ -224,6 +210,7 @@ function render(fixture, details){
       <div class="predict-row">
         <div style="color:var(--text-dim);font-size:14px;">Subscribe for Ksh 59 (7 days, all matches) to see our pick, confidence, model odds, and the full market breakdown for this fixture.</div>
       </div>
+      <a href="pricing.html" class="unlock-btn">Unlock all picks — Ksh 59 / 7 days</a>
     </div>
   ` : `
     <div class="predict-card">
@@ -236,14 +223,12 @@ function render(fixture, details){
       </div>
     </div>
   `;
-
   const marketsSectionHTML = locked ? '' : `
     <div class="section">
       <div class="section-title">📊 Full Market Breakdown</div>
       <div class="markets-list">${marketsHTML}</div>
     </div>
   `;
-
   contentEl.innerHTML = `
     <div class="match-head">
       <div class="match-league">${fixture.icon || ''} ${fixture.league}</div>
@@ -266,9 +251,7 @@ function render(fixture, details){
     <div class="disclaimer">This analysis is generated by a statistical model from real fixture and results data. No outcome is guaranteed. Bet responsibly and only with money you can afford to lose.</div>
   `;
 }
-
 const WORKER_BASE = "https://money-odds-api.arphaxad98.workers.dev";
-
 function getAccess(){
   try {
     const raw = localStorage.getItem('moneyOddsAccess');
@@ -278,7 +261,6 @@ function getAccess(){
     return token;
   } catch(e){ return null; }
 }
-
 async function loadUnlockedPicks(token){
   try {
     const res = await fetch(`${WORKER_BASE}/unlocked-picks?token=${encodeURIComponent(token)}`);
@@ -287,7 +269,6 @@ async function loadUnlockedPicks(token){
     return data.ok ? data.privateData : null;
   } catch(e){ return null; }
 }
-
 if(!matchId){
   contentEl.innerHTML = '<div class="error-state">No match specified.</div>';
   hideLoader();
@@ -298,16 +279,13 @@ if(!matchId){
         fetch('fixtures.json?_=' + Date.now()).then(r => r.ok ? r.json() : Promise.reject()),
         fetch('match_details.json?_=' + Date.now()).then(r => r.ok ? r.json() : Promise.reject()),
       ]);
-
       let fixture = (fixturesData.fixtures || []).find(f => String(f.id) === String(matchId));
       const details = detailsData[String(matchId)] || { home_recent: [], away_recent: [], h2h: null };
-
       if(!fixture){
         contentEl.innerHTML = '<div class="error-state">This match analysis is no longer available — it may have already kicked off or been superseded by a newer slate. <br><br><a href="predictions.html" style="color:var(--cyan);font-weight:600;">See today\'s predictions →</a></div>';
         hideLoader();
         return;
       }
-
       const token = getAccess();
       if(token){
         const unlockedData = await loadUnlockedPicks(token);
@@ -316,7 +294,6 @@ if(!matchId){
           fixture = { ...fixture, ...unlockedPick };
         }
       }
-
       document.title = `${fixture.match} — Money Odds`;
       render(fixture, details);
       hideLoader();
@@ -327,6 +304,5 @@ if(!matchId){
   })();
 }
 </script>
-
 </body>
 </html>
