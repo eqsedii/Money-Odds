@@ -6,27 +6,12 @@ Pulls real fixtures/results from free APIs and computes statistical
 predictions (no bookmaker odds are used or faked — everything shown
 is derived from the model itself).
 
-SUBSCRIPTION CYCLE WINDOW
---------------------------
-Access renews on a 7-day cycle that runs Saturday -> Saturday. We never
-want to generate (or sell) predictions for fixtures that fall after the
-current cycle's boundary, since a subscriber who pays today shouldn't
-be shown picks for a match that belongs to next cycle's payment period.
-
-Concretely: every day this script runs, it recomputes the *current*
-cycle (the most recent Saturday through the following Friday) and only
-considers fixtures up to and including that Friday. As the week
-progresses the window naturally shrinks (Wednesday's run only looks
-out to Friday, not a fresh 7 days from Wednesday) and kickoff
-times/lineups/etc. for those same fixtures get refreshed daily. Once
-Saturday arrives, a new 7-day cycle begins automatically.
-
 Writes PUBLIC files (committed to the public repo — no pick/confidence/
 odds/markets ever appear here, so a paying subscription is meaningful):
   - predictions.json     Today's/soonest featured fixtures + multi-bet
                           slates, redacted — id/teams/league only
-  - fixtures.json        EVERY fixture in the current cycle, redacted the
-                          same way — this is what powers site-wide search
+  - fixtures.json        EVERY upcoming fixture, redacted the same way —
+                          this is what powers site-wide search
   - match_details.json   Head-to-head + recent form — NOT proprietary,
                           stays public, keeps the free tier valuable
 
@@ -66,21 +51,24 @@ BALLDONTLIE_BASE = "https://api.balldontlie.io/nba/v1"
 # The 12 competitions available on football-data.org's free tier
 COMPETITIONS = ["PL", "PD", "BL1", "SA", "FL1", "DED", "PPL", "ELC", "BSA", "CL", "WC", "EC"]
 
-MIN_SAMPLE = 4       # minimum home/away matches before we trust a team's numbers (raised from 2 — small samples were too noisy to feature confidently)
-CONFIDENCE_FLOOR = 58  # % — only picks at or above this get featured on predictions.json/private_picks.json.
-                        # Replaces a fixed "always feature exactly 8" rule: on a weak day with no
-                        # strong signals, that forced weak picks to be presented with the same
-                        # visual confidence as genuinely strong ones. Now the count varies
-                        # honestly with how many fixtures actually clear the bar.
-MAX_FEATURED = 20    # sanity cap so a huge day doesn't produce an unreasonably long featured list
+MIN_SAMPLE = 4        # minimum home/away matches before we trust a team's numbers
+                       # (raised from 2 — small samples were too noisy to feature confidently)
+
+CONFIDENCE_FLOOR = 58   # % — only picks at or above this get featured on predictions.json
+                         # /private_picks.json. Replaces a fixed "always feature exactly 8"
+                         # rule: on a weak day with no strong signals, that forced weak picks
+                         # to be presented with the same visual confidence as genuinely
+                         # strong ones. The featured count now varies honestly with how many
+                         # fixtures actually clear the bar.
+MAX_FEATURED = 20       # sanity cap so a huge day doesn't produce an unreasonably long list
+
 MULTI_LEG_COUNTS = [2, 3]  # accumulator sizes to build from the top picks
-
-# --- subscription cycle window -------------------------------------------
-CYCLE_LENGTH_DAYS = 7
-CYCLE_ANCHOR_WEEKDAY = 5  # Python's date.weekday(): Monday=0 ... Saturday=5, Sunday=6
-
-MAX_H2H_CALLS = 40  # cap on head-to-head API calls per run (rate-limit / politeness budget)
+FIXTURE_WINDOW_DAYS = 10   # how far ahead "upcoming" fixtures are collected for search
+MAX_H2H_CALLS = 40         # cap on head-to-head API calls per run (rate-limit / politeness budget)
 RECENT_FORM_N = 5
+RECENT_FORM_WEIGHT = 0.35  # how much last-5 scoring form counts vs full-season average,
+                            # in the actual pick calculation (not just the "Recent Form"
+                            # display box on the match page)
 
 OUT_PREDICTIONS = "predictions.json"
 OUT_FIXTURES = "fixtures.json"
@@ -89,19 +77,6 @@ OUT_PRIVATE_PICKS = "private_picks.json"
 OUT_HISTORY = "history.json"
 
 # ---------------------------------------------------------------- utilities
-
-def compute_cycle_window(today=None):
-    """Returns (cycle_start, cycle_end_exclusive) for the CURRENT subscription
-    cycle. Cycles run Saturday -> Saturday. cycle_end_exclusive is the next
-    Saturday (i.e. the first day that belongs to the *following* cycle) —
-    callers should treat cycle_end_exclusive - 1 day as the last valid day
-    to pull fixtures for."""
-    today = today or datetime.date.today()
-    days_since_anchor = (today.weekday() - CYCLE_ANCHOR_WEEKDAY) % CYCLE_LENGTH_DAYS
-    cycle_start = today - datetime.timedelta(days=days_since_anchor)
-    cycle_end_exclusive = cycle_start + datetime.timedelta(days=CYCLE_LENGTH_DAYS)
-    return cycle_start, cycle_end_exclusive
-
 
 def http_get_json(url, headers=None, retries=3):
     headers = headers or {}
@@ -214,7 +189,9 @@ def compute_team_football_stats(matches):
 
 
 def recent_form_football(team_id, matches, n=RECENT_FORM_N):
-    """Last n finished matches (any venue) for a team, most recent first."""
+    """Last n finished matches (any venue) for a team, most recent first.
+    Used both for the public 'Recent Form' display and, via
+    recent_scoring_rates() below, for the pick calculation itself."""
     played = []
     for m in matches:
         if m.get("status") != "FINISHED":
@@ -245,11 +222,61 @@ def recent_form_football(team_id, matches, n=RECENT_FORM_N):
     return played[:n]
 
 
-def compute_football_pick(home, away, ht, at, lg_home, lg_away):
-    attack_home = avg(ht["home_for"]) / lg_home
-    defence_home = avg(ht["home_against"]) / lg_away
-    attack_away = avg(at["away_for"]) / lg_away
-    defence_away = avg(at["away_against"]) / lg_home
+def recent_scoring_rates(team_id, matches, n=RECENT_FORM_N):
+    """Average goals scored/conceded per match over the last n finished
+    matches, any venue — a recency signal independent of the season-long
+    home/away splits used elsewhere. Returns None if there's not enough
+    recent data to trust (caller falls back to season-only in that case)."""
+    played = []
+    for m in matches:
+        if m.get("status") != "FINISHED":
+            continue
+        home, away = m["homeTeam"], m["awayTeam"]
+        if home["id"] != team_id and away["id"] != team_id:
+            continue
+        score = m.get("score", {}).get("fullTime", {})
+        hg, ag = score.get("home"), score.get("away")
+        if hg is None or ag is None:
+            continue
+        is_home = home["id"] == team_id
+        for_score, against_score = (hg, ag) if is_home else (ag, hg)
+        played.append((m.get("utcDate", ""), for_score, against_score))
+    played.sort(key=lambda x: x[0], reverse=True)
+    recent = played[:n]
+    if len(recent) < 3:
+        return None
+    return {
+        "scored": avg([r[1] for r in recent]),
+        "conceded": avg([r[2] for r in recent]),
+        "n": len(recent),
+    }
+
+
+def compute_football_pick(home, away, ht, at, lg_home, lg_away, matches):
+    """Blends full-season home/away scoring rates (season-long signal, venue-
+    specific) with each team's last-5-games form (recency signal, any venue).
+    Previously this used season averages only, so a team's form from months
+    ago counted exactly as much as last week's — this is the fix for that."""
+    lg_avg_per_team = (lg_home + lg_away) / 2
+
+    season_attack_home = avg(ht["home_for"]) / lg_home
+    season_defence_home = avg(ht["home_against"]) / lg_away
+    season_attack_away = avg(at["away_for"]) / lg_away
+    season_defence_away = avg(at["away_against"]) / lg_home
+
+    home_recent = recent_scoring_rates(home["id"], matches)
+    away_recent = recent_scoring_rates(away["id"], matches)
+
+    def blend(season_rate, recent_dict, recent_key):
+        if not recent_dict:
+            return season_rate
+        recent_rate = recent_dict[recent_key] / lg_avg_per_team
+        return (1 - RECENT_FORM_WEIGHT) * season_rate + RECENT_FORM_WEIGHT * recent_rate
+
+    attack_home = blend(season_attack_home, home_recent, "scored")
+    defence_home = blend(season_defence_home, home_recent, "conceded")
+    attack_away = blend(season_attack_away, away_recent, "scored")
+    defence_away = blend(season_defence_away, away_recent, "conceded")
 
     lam_home = attack_home * defence_away * lg_home
     lam_away = attack_away * defence_home * lg_away
@@ -293,13 +320,11 @@ def compute_football_pick(home, away, ht, at, lg_home, lg_away):
 
 
 def build_football_fixtures(competitions=COMPETITIONS):
-    """Returns ALL fixtures within the CURRENT subscription cycle (Saturday ->
-    the following Friday, whatever's left of it from today), across all
+    """Returns ALL upcoming fixtures (within FIXTURE_WINDOW_DAYS) across all
     competitions, each with a computed pick — this is the full searchable set."""
     fixtures = []
     today = datetime.date.today()
-    _, cycle_end_exclusive = compute_cycle_window(today)
-    window_end = cycle_end_exclusive - datetime.timedelta(days=1)
+    window_end = today + datetime.timedelta(days=FIXTURE_WINDOW_DAYS)
 
     for code in competitions:
         matches = fetch_competition_matches(code)
@@ -330,7 +355,9 @@ def build_football_fixtures(competitions=COMPETITIONS):
             if len(ht["home_for"]) < MIN_SAMPLE or len(at["away_for"]) < MIN_SAMPLE:
                 continue
 
-            best_pick, best_prob, markets, xg = compute_football_pick(home, away, ht, at, lg_home, lg_away)
+            best_pick, best_prob, markets, xg = compute_football_pick(
+                home, away, ht, at, lg_home, lg_away, matches
+            )
             fixtures.append({
                 "id": m["id"],
                 "sport": "Football",
@@ -362,15 +389,15 @@ def bl_get(path):
 
 
 def build_basketball_fixtures():
-    """Returns fixtures for EVERY day left in the current subscription cycle
-    (today through the cycle's closing Friday), not just today — mirrors the
-    football window so the site always has a full cycle's worth of picks."""
+    """Returns fixtures for EVERY day in the FIXTURE_WINDOW_DAYS window, not
+    just today. The previous version only ever queried today's date, which
+    meant basketball coverage silently shrank to nothing outside of days
+    with same-day games — this pulls the same window football does."""
     if not BALLDONTLIE_API_KEY:
         return []
 
     today = datetime.date.today()
-    _, cycle_end_exclusive = compute_cycle_window(today)
-    window_end = cycle_end_exclusive - datetime.timedelta(days=1)
+    window_end = today + datetime.timedelta(days=FIXTURE_WINDOW_DAYS)
 
     fixtures = []
     season = today.year if today.month >= 10 else today.year - 1
@@ -497,6 +524,7 @@ def build_basketball_fixtures():
                     "matches": h2h_matches,
                 } if h2h_matches else None,
             })
+
     return fixtures
 
 # ---------------------------------------------------------------- assembly
@@ -505,6 +533,7 @@ def build_multi_bets(all_picks):
     ranked = sorted(all_picks, key=lambda p: p["confidence"], reverse=True)
     multis = []
     used = set()
+
     for size in MULTI_LEG_COUNTS:
         legs = [p for p in ranked if p["match"] not in used][:size]
         if len(legs) < size:
@@ -547,10 +576,6 @@ def main():
     print(f"FOOTBALL_DATA_API_KEY length: {len(FOOTBALL_API_KEY)} (should be 32 for a normal token)")
     print(f"BALLDONTLIE_API_KEY length: {len(BALLDONTLIE_API_KEY)}")
 
-    cycle_start, cycle_end_exclusive = compute_cycle_window()
-    print(f"Subscription cycle window: {cycle_start} -> {cycle_end_exclusive - datetime.timedelta(days=1)} "
-          f"(inclusive), next cycle starts {cycle_end_exclusive}")
-
     football_fixtures = build_football_fixtures() if FOOTBALL_API_KEY else []
     basketball_fixtures = build_basketball_fixtures()
     all_fixtures = football_fixtures + basketball_fixtures
@@ -559,17 +584,18 @@ def main():
     # --- match_details.json: head-to-head + recent form, keyed by match id ---
     match_details = {}
 
-    # Football: fetch real head-to-head via API, capped and soonest-first
     football_by_kickoff = sorted(football_fixtures, key=lambda f: f.get("kickoff") or "")
     h2h_budget = MAX_H2H_CALLS
     for fx in football_by_kickoff:
         matches_ref = fx["_all_matches_ref"]
         home_recent = recent_form_football(fx["home_team_id"], matches_ref)
         away_recent = recent_form_football(fx["away_team_id"], matches_ref)
+
         h2h = None
         if h2h_budget > 0:
             h2h = fetch_head2head(fx["id"])
             h2h_budget -= 1
+
         match_details[str(fx["id"])] = {
             "home_recent": home_recent,
             "away_recent": away_recent,
@@ -578,7 +604,6 @@ def main():
     if h2h_budget <= 0:
         print(f"Reached MAX_H2H_CALLS budget ({MAX_H2H_CALLS}) — remaining fixtures have recent form but no head-to-head this run.")
 
-    # Basketball: recent form + season-only h2h already computed inline
     for fx in basketball_fixtures:
         match_details[str(fx["id"])] = {
             "home_recent": fx.get("_home_recent", []),
@@ -594,20 +619,16 @@ def main():
     with open(OUT_FIXTURES, "w") as f:
         json.dump({
             "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
-            "cycle_start": cycle_start.isoformat(),
-            "cycle_end": (cycle_end_exclusive - datetime.timedelta(days=1)).isoformat(),
             "fixtures": public_fixtures,
         }, f, indent=2)
 
-    # match_details.json (H2H + recent form) is NOT proprietary — real stats,
-    # not our pick — so it stays public and helps the free tier feel valuable.
     with open(OUT_MATCH_DETAILS, "w") as f:
         json.dump(match_details, f, indent=2)
 
-    # --- ranking + multi-bets use the FULL (private) data ---
+    # --- ranking + featured selection use the FULL (private) data ---
     ranked = sorted(clean_fixtures, key=lambda p: p["confidence"], reverse=True)
     top_singles = [p for p in ranked if p["confidence"] >= CONFIDENCE_FLOOR][:MAX_FEATURED]
-    multis = build_multi_bets(top_singles)
+    multis = build_multi_bets(ranked)
 
     # --- PUBLIC predictions.json: which matches are featured, no picks ---
     public_top_singles = [redact_for_public(fx) for fx in top_singles]
@@ -622,8 +643,6 @@ def main():
     with open(OUT_PREDICTIONS, "w") as f:
         json.dump({
             "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
-            "cycle_start": cycle_start.isoformat(),
-            "cycle_end": (cycle_end_exclusive - datetime.timedelta(days=1)).isoformat(),
             "predictions": public_top_singles,
             "multi_bets": public_multis,
         }, f, indent=2)
@@ -635,23 +654,21 @@ def main():
     with open(OUT_PRIVATE_PICKS, "w") as f:
         json.dump({
             "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
-            "cycle_start": cycle_start.isoformat(),
-            "cycle_end": (cycle_end_exclusive - datetime.timedelta(days=1)).isoformat(),
             "picks": picks_map,
             "multi_bets": multis,  # full version, with real picks + combined odds
         }, f, indent=2)
 
     # Archive EVERY analyzed fixture (not just the featured top picks) so the
-    # Track Record page reflects everything we actually predicted, not just
-    # the headline slate. This file goes to the private repo, never the
-    # public one, since it holds real pick data for still-upcoming games.
+    # win-rate stat reflects everything we actually predicted, not just the
+    # headline slate. This file goes to the private repo, never the public
+    # one, since it holds real pick data for still-upcoming games.
     os.makedirs("archive", exist_ok=True)
     today_str = datetime.date.today().isoformat()
     with open(os.path.join("archive", f"{today_str}.json"), "w") as f:
         json.dump({"predictions": clean_fixtures}, f, indent=2)
 
     print(f"Wrote {len(clean_fixtures)} total fixtures ({len(public_fixtures)} public/redacted), "
-          f"{len(top_singles)} featured picks, {len(multis)} multi-bets, "
+          f"{len(top_singles)} featured picks (>= {CONFIDENCE_FLOOR}% confidence), {len(multis)} multi-bets, "
           f"{len(match_details)} match-detail entries, and {len(picks_map)} private picks.")
 
 
