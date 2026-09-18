@@ -349,15 +349,29 @@ def build_football_fixtures(competitions=COMPETITIONS):
 
         for m in upcoming:
             home, away = m["homeTeam"], m["awayTeam"]
-            ht, at = teams.get(home["id"]), teams.get(away["id"])
-            if not ht or not at:
-                continue
-            if len(ht["home_for"]) < MIN_SAMPLE or len(at["away_for"]) < MIN_SAMPLE:
-                continue
+            # A fixture should always be listed (locked) even with zero data
+            # behind it — only the PICK itself is gated by sample size, not
+            # whether the match shows up at all. Early in a season (or for a
+            # competition with sparse finished matches) this keeps the site
+            # from silently dropping to "0 fixtures" instead of showing
+            # locked cards.
+            ht = teams.get(home["id"], {"home_for": [], "home_against": []})
+            at = teams.get(away["id"], {"away_for": [], "away_against": []})
 
-            best_pick, best_prob, markets, xg = compute_football_pick(
-                home, away, ht, at, lg_home, lg_away, matches
-            )
+            has_sample = len(ht["home_for"]) >= MIN_SAMPLE and len(at["away_for"]) >= MIN_SAMPLE
+            pick_fields = {}
+            if has_sample:
+                best_pick, best_prob, markets, xg = compute_football_pick(
+                    home, away, ht, at, lg_home, lg_away, matches
+                )
+                pick_fields = {
+                    "pick": best_pick,
+                    "confidence": round(best_prob * 100),
+                    "fair_odds": round(1 / best_prob, 2) if best_prob > 0 else None,
+                    "markets": markets,
+                    "expected_goals": xg,
+                }
+
             fixtures.append({
                 "id": m["id"],
                 "sport": "Football",
@@ -370,11 +384,7 @@ def build_football_fixtures(competitions=COMPETITIONS):
                 "league": m.get("competition", {}).get("name", code),
                 "comp_code": code,
                 "kickoff": m.get("utcDate"),
-                "pick": best_pick,
-                "confidence": round(best_prob * 100),
-                "fair_odds": round(1 / best_prob, 2) if best_prob > 0 else None,
-                "markets": markets,
-                "expected_goals": xg,
+                **pick_fields,
                 "_all_matches_ref": matches,  # kept only for building match_details below; stripped before writing
             })
     return fixtures
@@ -462,28 +472,37 @@ def build_basketball_fixtures():
 
             home, away = g["home_team"], g["visitor_team"]
             hs, as_ = scoring_avg(home["id"]), scoring_avg(away["id"])
-            if hs["n"] < MIN_SAMPLE or as_["n"] < MIN_SAMPLE:
-                continue
+            has_sample = hs["n"] >= MIN_SAMPLE and as_["n"] >= MIN_SAMPLE
 
-            pred_home = (hs["scored"] + as_["allowed"]) / 2 * 1.02
-            pred_away = (as_["scored"] + hs["allowed"]) / 2
-            diff = pred_home - pred_away
-            total = pred_home + pred_away
-            win_prob_home = 1 / (1 + math.exp(-diff / 6))
+            pick_fields = {}
+            if has_sample:
+                pred_home = (hs["scored"] + as_["allowed"]) / 2 * 1.02
+                pred_away = (as_["scored"] + hs["allowed"]) / 2
+                diff = pred_home - pred_away
+                total = pred_home + pred_away
+                win_prob_home = 1 / (1 + math.exp(-diff / 6))
 
-            if abs(diff) >= 2:
-                pick = f"{home['full_name']} Win" if diff > 0 else f"{away['full_name']} Win"
-                confidence = max(win_prob_home, 1 - win_prob_home)
-            else:
-                pick = f"Over {round(total - 1, 1)} Points"
-                confidence = 0.58
+                if abs(diff) >= 2:
+                    pick = f"{home['full_name']} Win" if diff > 0 else f"{away['full_name']} Win"
+                    confidence = max(win_prob_home, 1 - win_prob_home)
+                else:
+                    pick = f"Over {round(total - 1, 1)} Points"
+                    confidence = 0.58
 
-            bball_markets = sorted([
-                {"label": f"{home['full_name']} Win", "probability": round(win_prob_home * 100)},
-                {"label": f"{away['full_name']} Win", "probability": round((1 - win_prob_home) * 100)},
-                {"label": f"Over {round(total - 1, 1)} Points", "probability": round(confidence * 100) if "Over" in pick else 58},
-                {"label": f"Under {round(total - 1, 1)} Points", "probability": 100 - (round(confidence * 100) if "Over" in pick else 58)},
-            ], key=lambda m: m["probability"], reverse=True)
+                bball_markets = sorted([
+                    {"label": f"{home['full_name']} Win", "probability": round(win_prob_home * 100)},
+                    {"label": f"{away['full_name']} Win", "probability": round((1 - win_prob_home) * 100)},
+                    {"label": f"Over {round(total - 1, 1)} Points", "probability": round(confidence * 100) if "Over" in pick else 58},
+                    {"label": f"Under {round(total - 1, 1)} Points", "probability": 100 - (round(confidence * 100) if "Over" in pick else 58)},
+                ], key=lambda m: m["probability"], reverse=True)
+
+                pick_fields = {
+                    "pick": pick,
+                    "confidence": round(confidence * 100),
+                    "fair_odds": round(1 / confidence, 2),
+                    "markets": bball_markets,
+                    "predicted_score": {"home": round(pred_home, 1), "away": round(pred_away, 1)},
+                }
 
             # Simple season-only head-to-head derived from data we already fetched (no extra calls)
             h2h_games = [
@@ -512,11 +531,7 @@ def build_basketball_fixtures():
                 "away_team_id": away["id"],
                 "league": "NBA",
                 "kickoff": g.get("date"),
-                "pick": pick,
-                "confidence": round(confidence * 100),
-                "fair_odds": round(1 / confidence, 2),
-                "markets": bball_markets,
-                "predicted_score": {"home": round(pred_home, 1), "away": round(pred_away, 1)},
+                **pick_fields,
                 "_home_recent": recent_form_bball(home["id"]),
                 "_away_recent": recent_form_bball(away["id"]),
                 "_h2h": {
@@ -530,7 +545,8 @@ def build_basketball_fixtures():
 # ---------------------------------------------------------------- assembly
 
 def build_multi_bets(all_picks):
-    ranked = sorted(all_picks, key=lambda p: p["confidence"], reverse=True)
+    candidates = [p for p in all_picks if p.get("confidence") is not None]
+    ranked = sorted(candidates, key=lambda p: p["confidence"], reverse=True)
     multis = []
     used = set()
 
@@ -626,8 +642,8 @@ def main():
         json.dump(match_details, f, indent=2)
 
     # --- ranking + featured selection use the FULL (private) data ---
-    ranked = sorted(clean_fixtures, key=lambda p: p["confidence"], reverse=True)
-    top_singles = [p for p in ranked if p["confidence"] >= CONFIDENCE_FLOOR][:MAX_FEATURED]
+    ranked = sorted(clean_fixtures, key=lambda p: p.get("confidence") or -1, reverse=True)
+    top_singles = [p for p in ranked if p.get("confidence", 0) >= CONFIDENCE_FLOOR][:MAX_FEATURED]
     multis = build_multi_bets(ranked)
 
     # --- PUBLIC predictions.json: which matches are featured, no picks ---
