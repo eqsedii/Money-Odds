@@ -376,42 +376,89 @@ function formatUpdated(iso){
   } catch(e){ return iso; }
 }
 
-fetch('fixtures.json?_=' + Date.now())
-  .then(r => {
+const WORKER_BASE = "https://money-odds-api.arphaxad98.workers.dev";
+
+function getAccess(){
+  try {
+    const raw = localStorage.getItem('moneyOddsAccess');
+    if(!raw) return null;
+    const { token, expiry } = JSON.parse(raw);
+    if(!token || Date.now() > expiry) return null;
+    return token;
+  } catch(e){ return null; }
+}
+
+async function loadUnlockedPicks(token){
+  try {
+    const res = await fetch(`${WORKER_BASE}/unlocked-picks?token=${encodeURIComponent(token)}`);
+    if(!res.ok) return null;
+    const data = await res.json();
+    return data.ok ? data.privateData : null;
+  } catch(e){ return null; }
+}
+
+function mergePicks(fixtureList, unlockedData){
+  if(!unlockedData || !unlockedData.picks) return fixtureList;
+  const picksMap = unlockedData.picks;
+  return fixtureList.map(f => {
+    const u = picksMap[String(f.id)];
+    return u ? { ...f, ...u } : f;
+  });
+}
+
+async function loadFixtures(){
+  try {
+    const r = await fetch('fixtures.json?_=' + Date.now());
     if(!r.ok) throw new Error('fixtures.json returned HTTP ' + r.status + ' — the file may not exist yet at this path.');
-    return r.json();
-  })
-  .then(data => {
+    const data = await r.json();
+
     const now = Date.now();
     const all = data.fixtures || [];
-    predictions = all.filter(p => {
+    const filtered = all.filter(p => {
       if(!p.kickoff) return true;
       const kt = new Date(p.kickoff).getTime();
       if(isNaN(kt)) return true;
       return (now - kt) <= LIVE_WINDOW_MS; // keep upcoming + live, drop only truly finished
     });
 
+    const token = getAccess();
+    let unlockedData = null;
+    if(token){
+      unlockedData = await loadUnlockedPicks(token);
+    }
+    predictions = mergePicks(filtered, unlockedData);
+
+    if(unlockedData && unlockedData.multi_bets){
+      multiBets = unlockedData.multi_bets; // full version, real picks + combined odds
+    } else {
+      try {
+        const pr = await fetch('predictions.json?_=' + Date.now());
+        if(pr.ok){
+          const prData = await pr.json();
+          multiBets = prData.multi_bets || [];
+        }
+      } catch(e){ multiBets = []; }
+    }
+
     const liveCount = predictions.filter(p => matchState(p.kickoff) === 'live').length;
     const stale = all.length - predictions.length;
 
     render('all');
     statusEl.className = 'data-status';
-    statusEl.innerHTML = `<span class="dot"></span> Live data · updated ${formatUpdated(data.generated_at)} · ${predictions.length} fixtures${liveCount ? ` · ${liveCount} live now` : ''}${stale ? ` · ${stale} finished, hidden` : ''}`;
+    const unlockNote = token ? (unlockedData ? ' · unlocked' : ' · subscription expired or invalid') : '';
+    statusEl.innerHTML = `<span class="dot"></span> Live data · updated ${formatUpdated(data.generated_at)} · ${predictions.length} fixtures${liveCount ? ` · ${liveCount} live now` : ''}${stale ? ` · ${stale} finished, hidden` : ''}${unlockNote}`;
     hideLoader();
-  })
-  .catch((err) => {
+  } catch(err){
     predictions = [];
     emptyEl.textContent = "Today's analysis is still being generated — check back shortly.";
     render('all');
     statusEl.className = 'data-status error';
     statusEl.innerHTML = `<span class="dot"></span> Couldn't load fixtures.json (${err.message}) — if this persists, the automation may not have run yet, or this page may be an older cached version.`;
     hideLoader();
-  });
+  }
+}
 
-fetch('predictions.json?_=' + Date.now())
-  .then(r => r.ok ? r.json() : Promise.reject())
-  .then(data => { multiBets = data.multi_bets || []; })
-  .catch(() => { multiBets = []; });
+loadFixtures();
 
 // ---------------------------------------------------------------- search
 const searchInput = document.getElementById('searchInput');

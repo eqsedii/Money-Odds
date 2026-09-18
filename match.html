@@ -267,32 +267,64 @@ function render(fixture, details){
   `;
 }
 
+const WORKER_BASE = "https://money-odds-api.arphaxad98.workers.dev";
+
+function getAccess(){
+  try {
+    const raw = localStorage.getItem('moneyOddsAccess');
+    if(!raw) return null;
+    const { token, expiry } = JSON.parse(raw);
+    if(!token || Date.now() > expiry) return null;
+    return token;
+  } catch(e){ return null; }
+}
+
+async function loadUnlockedPicks(token){
+  try {
+    const res = await fetch(`${WORKER_BASE}/unlocked-picks?token=${encodeURIComponent(token)}`);
+    if(!res.ok) return null;
+    const data = await res.json();
+    return data.ok ? data.privateData : null;
+  } catch(e){ return null; }
+}
+
 if(!matchId){
   contentEl.innerHTML = '<div class="error-state">No match specified.</div>';
   hideLoader();
 } else {
-  Promise.all([
-    fetch('fixtures.json?_=' + Date.now()).then(r => r.ok ? r.json() : Promise.reject()),
-    fetch('match_details.json?_=' + Date.now()).then(r => r.ok ? r.json() : Promise.reject()),
-  ])
-  .then(([fixturesData, detailsData]) => {
-    const fixture = (fixturesData.fixtures || []).find(f => String(f.id) === String(matchId));
-    const details = detailsData[String(matchId)] || { home_recent: [], away_recent: [], h2h: null };
+  (async () => {
+    try {
+      const [fixturesData, detailsData] = await Promise.all([
+        fetch('fixtures.json?_=' + Date.now()).then(r => r.ok ? r.json() : Promise.reject()),
+        fetch('match_details.json?_=' + Date.now()).then(r => r.ok ? r.json() : Promise.reject()),
+      ]);
 
-    if(!fixture){
-      contentEl.innerHTML = '<div class="error-state">This match analysis is no longer available — it may have already kicked off or been superseded by a newer slate. <br><br><a href="predictions.html" style="color:var(--cyan);font-weight:600;">See today\'s predictions →</a></div>';
+      let fixture = (fixturesData.fixtures || []).find(f => String(f.id) === String(matchId));
+      const details = detailsData[String(matchId)] || { home_recent: [], away_recent: [], h2h: null };
+
+      if(!fixture){
+        contentEl.innerHTML = '<div class="error-state">This match analysis is no longer available — it may have already kicked off or been superseded by a newer slate. <br><br><a href="predictions.html" style="color:var(--cyan);font-weight:600;">See today\'s predictions →</a></div>';
+        hideLoader();
+        return;
+      }
+
+      const token = getAccess();
+      if(token){
+        const unlockedData = await loadUnlockedPicks(token);
+        const unlockedPick = unlockedData && unlockedData.picks ? unlockedData.picks[String(fixture.id)] : null;
+        if(unlockedPick){
+          fixture = { ...fixture, ...unlockedPick };
+        }
+      }
+
+      document.title = `${fixture.match} — Money Odds`;
+      render(fixture, details);
       hideLoader();
-      return;
+    } catch(err){
+      contentEl.innerHTML = '<div class="error-state">Couldn\'t load match data right now. Please try again shortly.</div>';
+      hideLoader();
     }
-
-    document.title = `${fixture.match} — Money Odds`;
-    render(fixture, details);
-    hideLoader();
-  })
-  .catch(() => {
-    contentEl.innerHTML = '<div class="error-state">Couldn\'t load match data right now. Please try again shortly.</div>';
-    hideLoader();
-  });
+  })();
 }
 </script>
 
