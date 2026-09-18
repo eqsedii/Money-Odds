@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 """
 Money Odds — automated prediction generator.
@@ -689,21 +690,30 @@ def main():
             "multi_bets": multis,  # full version, with real picks + combined odds
         }, f, indent=2)
 
-    # Archive EVERY analyzed fixture (not just the featured top picks) so the
-    # win-rate stat reflects everything we actually predicted, not just the
-    # headline slate. This file goes to the private repo, never the public
-    # one, since it holds real pick data for still-upcoming games.
+    # Archive every QUALIFYING fixture (every fixture with a real pick +
+    # confidence >= CONFIDENCE_FLOOR) — not every analyzed fixture. A fixture
+    # can be analyzed but still have no pick (too little sample data yet);
+    # archiving those meant resolve_predictions.py could later try to grade
+    # a match with no "pick" field at all once it finished, which throws a
+    # KeyError and kills the whole resolve step. Keeping archive == qualifying
+    # also means "total fixtures analyzed" on the Track Record page now means
+    # exactly what it says: fixtures we actually produced a pick for. This
+    # file goes to the private repo, never the public one, since it holds
+    # real pick data for still-upcoming games.
     os.makedirs("archive", exist_ok=True)
     today_str = datetime.date.today().isoformat()
     with open(os.path.join("archive", f"{today_str}.json"), "w") as f:
-        json.dump({"predictions": clean_fixtures}, f, indent=2)
+        json.dump({"predictions": qualifying}, f, indent=2)
 
     print(f"Wrote {len(clean_fixtures)} total fixtures ({len(public_fixtures)} public/redacted), "
-          f"{len(top_singles)} featured picks (>= {CONFIDENCE_FLOOR}% confidence), {len(multis)} multi-bets, "
+          f"{len(qualifying)} archived with a real pick (>= {CONFIDENCE_FLOOR}% confidence), "
+          f"{len(top_singles)} featured picks, {len(multis)} multi-bets, "
           f"{len(match_details)} match-detail entries, and {len(picks_map)} private picks.")
 
 
 if __name__ == "__main__":
     main()
+
+
 
 

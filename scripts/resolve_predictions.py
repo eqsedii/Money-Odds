@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 """
 Money Odds — resolves past predictions against real results.
@@ -245,6 +246,14 @@ def main():
             if key in already_graded:
                 continue
 
+            # Older archive files (pre-fix) could contain a fixture with no
+            # "pick" at all — too little sample data at the time it was
+            # analyzed. There's nothing to grade, so skip it rather than
+            # KeyError-ing on entry["pick"] deep inside resolve_football/
+            # resolve_basketball and killing the whole run.
+            if "pick" not in entry:
+                continue
+
             if entry["sport"] == "Football":
                 outcome = resolve_football(entry)
             elif entry["sport"] == "Basketball":
@@ -287,3 +296,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
