@@ -1,5 +1,5 @@
 {
-  "total_analyzed_since_start": 123,
+  "total_analyzed_since_start": 138,
   "history": [
     {
       "date": "2026-09-10",
@@ -410,6 +410,16 @@
       "pick": "Over 2.5 Goals",
       "result": "win",
       "final_score": "7-2"
+    },
+    {
+      "date": "2026-09-09",
+      "id": 558888,
+      "sport": "Football",
+      "match": "FC Groningen vs PEC Zwolle",
+      "league": "Eredivisie",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "3-0"
     },
     {
       "date": "2026-09-08",
