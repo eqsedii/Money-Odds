@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 """
 Money Odds — automated prediction generator.
@@ -52,7 +51,7 @@ BALLDONTLIE_BASE = "https://api.balldontlie.io/nba/v1"
 # The 12 competitions available on football-data.org's free tier
 COMPETITIONS = ["PL", "PD", "BL1", "SA", "FL1", "DED", "PPL", "ELC", "BSA", "CL", "WC", "EC"]
 
-MIN_SAMPLE = 2        # minimum home/away matches before we trust a team's numbers
+MIN_SAMPLE = 4        # minimum home/away matches before we trust a team's numbers
                        # (raised from 2 — small samples were too noisy to feature confidently)
 
 CONFIDENCE_FLOOR = 58   # % — only picks at or above this get featured on predictions.json
@@ -580,8 +579,14 @@ def strip_internal_fields(fixture):
 
 def redact_for_public(fixture):
     """Public version: strips proprietary pick/confidence/odds/markets entirely.
-    This is what fixtures.json (and everyone browsing the site) actually sees."""
-    return {k: v for k, v in fixture.items() if k not in SENSITIVE_FIELDS} | {"locked": True}
+    This is what fixtures.json (and everyone browsing the site) actually sees.
+    has_pick is safe to expose — it says whether a prediction exists, not
+    what it is — so the frontend can hide fixtures the model hasn't reached
+    a confident pick for yet, instead of showing an empty locked card."""
+    base = {k: v for k, v in fixture.items() if k not in SENSITIVE_FIELDS}
+    base["has_pick"] = "pick" in fixture
+    base["locked"] = True
+    return base
 
 
 def extract_private_fields(fixture):
@@ -598,22 +603,10 @@ def main():
     all_fixtures = football_fixtures + basketball_fixtures
     all_fixtures.sort(key=lambda f: f.get("kickoff") or "")
 
-    # Only fixtures that PASS THE CRITERIA (a computed pick with confidence >=
-    # CONFIDENCE_FLOOR) are published or sold. Fixtures with too little data, or
-    # a weak pick, are dropped everywhere public, so nothing ever sits "locked"
-    # for a paying subscriber with no pick behind the lock.
-    qualifying_ids = {
-        str(fx["id"]) for fx in all_fixtures
-        if (fx.get("confidence") or 0) >= CONFIDENCE_FLOOR
-    }
-
     # --- match_details.json: head-to-head + recent form, keyed by match id ---
     match_details = {}
 
-    football_by_kickoff = sorted(
-        [fx for fx in football_fixtures if str(fx["id"]) in qualifying_ids],
-        key=lambda f: f.get("kickoff") or "",
-    )
+    football_by_kickoff = sorted(football_fixtures, key=lambda f: f.get("kickoff") or "")
     h2h_budget = MAX_H2H_CALLS
     for fx in football_by_kickoff:
         matches_ref = fx["_all_matches_ref"]
@@ -634,8 +627,6 @@ def main():
         print(f"Reached MAX_H2H_CALLS budget ({MAX_H2H_CALLS}) — remaining fixtures have recent form but no head-to-head this run.")
 
     for fx in basketball_fixtures:
-        if str(fx["id"]) not in qualifying_ids:
-            continue
         match_details[str(fx["id"])] = {
             "home_recent": fx.get("_home_recent", []),
             "away_recent": fx.get("_away_recent", []),
@@ -646,8 +637,7 @@ def main():
     clean_fixtures = [strip_internal_fields(fx) for fx in all_fixtures]
 
     # --- PUBLIC fixtures.json: everyone sees this, no pick/confidence/odds ---
-    qualifying = [fx for fx in clean_fixtures if str(fx["id"]) in qualifying_ids]
-    public_fixtures = [redact_for_public(fx) for fx in qualifying]
+    public_fixtures = [redact_for_public(fx) for fx in clean_fixtures]
     with open(OUT_FIXTURES, "w") as f:
         json.dump({
             "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
@@ -658,7 +648,7 @@ def main():
         json.dump(match_details, f, indent=2)
 
     # --- ranking + featured selection use the FULL (private) data ---
-    ranked = sorted(qualifying, key=lambda p: p.get("confidence") or -1, reverse=True)
+    ranked = sorted(clean_fixtures, key=lambda p: p.get("confidence") or -1, reverse=True)
     top_singles = [p for p in ranked if p.get("confidence", 0) >= CONFIDENCE_FLOOR][:MAX_FEATURED]
     multis = build_multi_bets(ranked)
 
@@ -682,7 +672,7 @@ def main():
     # --- PRIVATE data: the actual proprietary picks — pushed to the private
     # repo only, never committed here. The Worker fetches this server-side
     # after verifying a real payment. ---
-    picks_map = {str(fx["id"]): extract_private_fields(fx) for fx in qualifying}
+    picks_map = {str(fx["id"]): extract_private_fields(fx) for fx in clean_fixtures}
     with open(OUT_PRIVATE_PICKS, "w") as f:
         json.dump({
             "generated_at": datetime.datetime.utcnow().isoformat() + "Z",
@@ -690,30 +680,19 @@ def main():
             "multi_bets": multis,  # full version, with real picks + combined odds
         }, f, indent=2)
 
-    # Archive every QUALIFYING fixture (every fixture with a real pick +
-    # confidence >= CONFIDENCE_FLOOR) — not every analyzed fixture. A fixture
-    # can be analyzed but still have no pick (too little sample data yet);
-    # archiving those meant resolve_predictions.py could later try to grade
-    # a match with no "pick" field at all once it finished, which throws a
-    # KeyError and kills the whole resolve step. Keeping archive == qualifying
-    # also means "total fixtures analyzed" on the Track Record page now means
-    # exactly what it says: fixtures we actually produced a pick for. This
-    # file goes to the private repo, never the public one, since it holds
-    # real pick data for still-upcoming games.
+    # Archive EVERY analyzed fixture (not just the featured top picks) so the
+    # win-rate stat reflects everything we actually predicted, not just the
+    # headline slate. This file goes to the private repo, never the public
+    # one, since it holds real pick data for still-upcoming games.
     os.makedirs("archive", exist_ok=True)
     today_str = datetime.date.today().isoformat()
     with open(os.path.join("archive", f"{today_str}.json"), "w") as f:
-        json.dump({"predictions": qualifying}, f, indent=2)
+        json.dump({"predictions": clean_fixtures}, f, indent=2)
 
     print(f"Wrote {len(clean_fixtures)} total fixtures ({len(public_fixtures)} public/redacted), "
-          f"{len(qualifying)} archived with a real pick (>= {CONFIDENCE_FLOOR}% confidence), "
-          f"{len(top_singles)} featured picks, {len(multis)} multi-bets, "
+          f"{len(top_singles)} featured picks (>= {CONFIDENCE_FLOOR}% confidence), {len(multis)} multi-bets, "
           f"{len(match_details)} match-detail entries, and {len(picks_map)} private picks.")
 
 
 if __name__ == "__main__":
     main()
-
-
-
-
