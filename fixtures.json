@@ -1,20 +1,6 @@
 {
-  "generated_at": "2026-09-18T15:52:48.649132Z",
+  "generated_at": "2026-09-18T18:29:06.314838Z",
   "fixtures": [
-    {
-      "id": 558888,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Groningen vs PEC Zwolle",
-      "home_team": "FC Groningen",
-      "away_team": "PEC Zwolle",
-      "home_team_id": 677,
-      "away_team_id": 684,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-09-18T18:00:00Z",
-      "locked": true
-    },
     {
       "id": 560591,
       "sport": "Football",

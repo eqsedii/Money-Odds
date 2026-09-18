@@ -1,116 +1,4 @@
 {
-  "558888": {
-    "home_recent": [
-      {
-        "date": "2026-09-12",
-        "opponent": "Go Ahead Eagles",
-        "venue": "A",
-        "score": "1-1",
-        "result": "D"
-      },
-      {
-        "date": "2026-09-06",
-        "opponent": "FC Twente '65",
-        "venue": "H",
-        "score": "2-2",
-        "result": "D"
-      },
-      {
-        "date": "2026-08-28",
-        "opponent": "Fortuna Sittard",
-        "venue": "H",
-        "score": "2-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-08-23",
-        "opponent": "PSV",
-        "venue": "A",
-        "score": "1-5",
-        "result": "L"
-      },
-      {
-        "date": "2026-08-16",
-        "opponent": "ADO Den Haag",
-        "venue": "A",
-        "score": "4-1",
-        "result": "W"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-09-13",
-        "opponent": "Feyenoord Rotterdam",
-        "venue": "H",
-        "score": "0-7",
-        "result": "L"
-      },
-      {
-        "date": "2026-09-04",
-        "opponent": "Sparta Rotterdam",
-        "venue": "A",
-        "score": "2-2",
-        "result": "D"
-      },
-      {
-        "date": "2026-08-29",
-        "opponent": "NEC",
-        "venue": "H",
-        "score": "1-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-08-22",
-        "opponent": "SC Heerenveen",
-        "venue": "A",
-        "score": "2-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-08-16",
-        "opponent": "FC Twente '65",
-        "venue": "A",
-        "score": "1-3",
-        "result": "L"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 5,
-      "home_wins": 0,
-      "draws": 3,
-      "away_wins": 0,
-      "matches": [
-        {
-          "date": "2026-03-13",
-          "home": "PEC Zwolle",
-          "away": "FC Groningen",
-          "score": "1-1",
-          "competition": "Eredivisie"
-        },
-        {
-          "date": "2025-11-23",
-          "home": "FC Groningen",
-          "away": "PEC Zwolle",
-          "score": "2-2",
-          "competition": "Eredivisie"
-        },
-        {
-          "date": "2025-05-18",
-          "home": "PEC Zwolle",
-          "away": "FC Groningen",
-          "score": "2-0",
-          "competition": "Eredivisie"
-        },
-        {
-          "date": "2024-12-08",
-          "home": "FC Groningen",
-          "away": "PEC Zwolle",
-          "score": "0-0",
-          "competition": "Eredivisie"
-        }
-      ]
-    }
-  },
   "560591": {
     "home_recent": [
       {
@@ -4113,7 +4001,49 @@
         "result": "W"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 5,
+      "home_wins": 0,
+      "draws": 0,
+      "away_wins": 0,
+      "matches": [
+        {
+          "date": "2026-05-17",
+          "home": "PSV",
+          "away": "FC Twente '65",
+          "score": "5-1",
+          "competition": "Eredivisie"
+        },
+        {
+          "date": "2025-08-17",
+          "home": "FC Twente '65",
+          "away": "PSV",
+          "score": "0-2",
+          "competition": "Eredivisie"
+        },
+        {
+          "date": "2025-04-24",
+          "home": "FC Twente '65",
+          "away": "PSV",
+          "score": "1-3",
+          "competition": "Eredivisie"
+        },
+        {
+          "date": "2024-12-06",
+          "home": "PSV",
+          "away": "FC Twente '65",
+          "score": "6-1",
+          "competition": "Eredivisie"
+        },
+        {
+          "date": "2024-03-17",
+          "home": "PSV",
+          "away": "FC Twente '65",
+          "score": "1-0",
+          "competition": "Eredivisie"
+        }
+      ]
+    }
   },
   "558884": {
     "home_recent": [
