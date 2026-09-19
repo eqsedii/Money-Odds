@@ -220,6 +220,14 @@ function formatKickoff(iso){
   } catch(e){ return ''; }
 }
 
+function toLocalDateKey(d){
+  // Local calendar date, not UTC — using toISOString() here was the bug:
+  // it converts a local-midnight Date to UTC first, which shifts the date
+  // back a day for any positive UTC offset (e.g. Kenya, UTC+3), making
+  // today's fixtures land under "Tomorrow".
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+
 function multiCardHTML(m){
   const legsHTML = m.legs.map((l, i) => `
     <a class="leg-row" href="match.html?id=${encodeURIComponent(l.id)}" style="cursor:pointer;">
@@ -298,11 +306,12 @@ function cardHTML(p){
 }
 
 function dateGroupLabel(dateKey){
-  const today = new Date(); today.setHours(0,0,0,0);
-  const tomorrow = new Date(today); tomorrow.setDate(today.getDate() + 1);
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(today.getDate() + 1);
   const d = new Date(dateKey + 'T00:00:00');
-  if(dateKey === today.toISOString().slice(0,10)) return { label: 'Today', isToday: true };
-  if(dateKey === tomorrow.toISOString().slice(0,10)) return { label: 'Tomorrow', isToday: false };
+  if(dateKey === toLocalDateKey(today)) return { label: 'Today', isToday: true };
+  if(dateKey === toLocalDateKey(tomorrow)) return { label: 'Tomorrow', isToday: false };
   return { label: d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' }), isToday: false };
 }
 
@@ -312,7 +321,7 @@ function renderGrouped(filtered){
     let key = 'tbd';
     if(p.kickoff){
       const dt = new Date(p.kickoff);
-      if(!isNaN(dt.getTime())) key = dt.toISOString().slice(0,10);
+      if(!isNaN(dt.getTime())) key = toLocalDateKey(dt);
     }
     (groups[key] = groups[key] || []).push(p);
   });
