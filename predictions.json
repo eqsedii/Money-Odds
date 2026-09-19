@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T07:42:03.227127Z",
+  "generated_at": "2026-09-19T22:20:47.483694Z",
   "predictions": [
     {
       "id": 555010,
@@ -13,36 +13,6 @@
       "league": "Campeonato Brasileiro S\u00e9rie A",
       "comp_code": "BSA",
       "kickoff": "2026-09-20T22:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 555011,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "CA Mineiro vs Chapecoense AF",
-      "home_team": "CA Mineiro",
-      "away_team": "Chapecoense AF",
-      "home_team_id": 1766,
-      "away_team_id": 1772,
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "comp_code": "BSA",
-      "kickoff": "2026-09-19T19:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 555013,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "CR Flamengo vs RB Bragantino",
-      "home_team": "CR Flamengo",
-      "away_team": "RB Bragantino",
-      "home_team_id": 1783,
-      "away_team_id": 4286,
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "comp_code": "BSA",
-      "kickoff": "2026-09-20T21:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -62,32 +32,17 @@
       "locked": true
     },
     {
-      "id": 555015,
+      "id": 555013,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "Mirassol FC vs Botafogo FR",
-      "home_team": "Mirassol FC",
-      "away_team": "Botafogo FR",
-      "home_team_id": 4364,
-      "away_team_id": 1770,
+      "match": "CR Flamengo vs RB Bragantino",
+      "home_team": "CR Flamengo",
+      "away_team": "RB Bragantino",
+      "home_team_id": 1783,
+      "away_team_id": 4286,
       "league": "Campeonato Brasileiro S\u00e9rie A",
       "comp_code": "BSA",
-      "kickoff": "2026-09-19T20:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 555016,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Clube do Remo vs Santos FC",
-      "home_team": "Clube do Remo",
-      "away_team": "Santos FC",
-      "home_team_id": 4287,
-      "away_team_id": 6685,
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "comp_code": "BSA",
-      "kickoff": "2026-09-19T21:30:00Z",
+      "kickoff": "2026-09-20T21:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -119,9 +74,9 @@
           "meta": "Campeonato Brasileiro S\u00e9rie A"
         },
         {
-          "id": 555011,
+          "id": 555018,
           "icon": "\u26bd",
-          "match": "CA Mineiro vs Chapecoense AF",
+          "match": "CR Vasco da Gama vs Coritiba FBC",
           "meta": "Campeonato Brasileiro S\u00e9rie A"
         }
       ]
@@ -137,15 +92,15 @@
           "meta": "Campeonato Brasileiro S\u00e9rie A"
         },
         {
-          "id": 555018,
+          "id": 555017,
           "icon": "\u26bd",
-          "match": "CR Vasco da Gama vs Coritiba FBC",
+          "match": "S\u00e3o Paulo FC vs SC Internacional",
           "meta": "Campeonato Brasileiro S\u00e9rie A"
         },
         {
-          "id": 555015,
+          "id": 555014,
           "icon": "\u26bd",
-          "match": "Mirassol FC vs Botafogo FR",
+          "match": "Gr\u00eamio FBPA vs SE Palmeiras",
           "meta": "Campeonato Brasileiro S\u00e9rie A"
         }
       ]
