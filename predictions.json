@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T08:04:03.523545Z",
+  "generated_at": "2026-09-20T22:18:45.799095Z",
   "predictions": [
     {
       "id": 555010,
@@ -15,80 +15,7 @@
       "kickoff": "2026-09-20T22:30:00Z",
       "has_pick": true,
       "locked": true
-    },
-    {
-      "id": 555013,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "CR Flamengo vs RB Bragantino",
-      "home_team": "CR Flamengo",
-      "away_team": "RB Bragantino",
-      "home_team_id": 1783,
-      "away_team_id": 4286,
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "comp_code": "BSA",
-      "kickoff": "2026-09-20T21:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 555014,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Gr\u00eamio FBPA vs SE Palmeiras",
-      "home_team": "Gr\u00eamio FBPA",
-      "away_team": "SE Palmeiras",
-      "home_team_id": 1767,
-      "away_team_id": 1769,
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "comp_code": "BSA",
-      "kickoff": "2026-09-20T14:00:00Z",
-      "has_pick": true,
-      "locked": true
     }
   ],
-  "multi_bets": [
-    {
-      "title": "2-Leg Accumulator",
-      "locked": true,
-      "legs": [
-        {
-          "id": 555010,
-          "icon": "\u26bd",
-          "match": "CA Paranaense vs EC Bahia",
-          "meta": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "id": 555013,
-          "icon": "\u26bd",
-          "match": "CR Flamengo vs RB Bragantino",
-          "meta": "Campeonato Brasileiro S\u00e9rie A"
-        }
-      ]
-    },
-    {
-      "title": "3-Leg Accumulator",
-      "locked": true,
-      "legs": [
-        {
-          "id": 555014,
-          "icon": "\u26bd",
-          "match": "Gr\u00eamio FBPA vs SE Palmeiras",
-          "meta": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "id": 555019,
-          "icon": "\u26bd",
-          "match": "EC Vit\u00f3ria vs Cruzeiro EC",
-          "meta": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "id": 555012,
-          "icon": "\u26bd",
-          "match": "SC Corinthians Paulista vs Fluminense FC",
-          "meta": "Campeonato Brasileiro S\u00e9rie A"
-        }
-      ]
-    }
-  ]
+  "multi_bets": []
 }
