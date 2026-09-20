@@ -53,6 +53,11 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 .slip-leg .sl-meta{font-size:12px;color:var(--text-dim);margin-bottom:6px;}
 .slip-leg .sl-pick{font-size:13px;color:var(--gold);font-weight:600;}
 .slip-leg .sl-odds{float:right;color:var(--text-dim);font-weight:400;}
+.bm-row{display:flex;gap:8px;align-items:flex-start;margin-bottom:10px;}
+.bm-row input{margin-bottom:0;flex:1;}
+.bm-row .bm-name{width:110px;flex:0 0 110px;}
+.bm-badge-preview{font-size:11px;font-weight:700;padding:3px 9px;border-radius:8px;white-space:nowrap;align-self:center;}
+.bm-remove{background:none;border:none;color:var(--loss);font-size:13px;cursor:pointer;align-self:center;padding:6px;}
 .leg-grade-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:13.5px;}
 .leg-grade-row:last-child{border-bottom:none;}
 .leg-grade-row select{width:110px;margin-bottom:0;}
@@ -75,7 +80,12 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 <button class="btn btn-outline" onclick="addLegRow()">+ Add match</button>
 <label style="margin-top:16px;">Combined odds (shown to everyone, even before payment)</label>
 <input type="number" step="0.01" id="combinedOdds" placeholder="e.g. 24.50">
-<div class="btn-row">
+
+<label style="margin-top:6px;">Bookmaker booking links <span style="color:var(--text-dim);font-weight:400;">(paste a share link — the site is auto-detected from the URL)</span></label>
+<div id="bookmakerContainer"></div>
+<button class="btn btn-outline" onclick="addBookmakerRow()">+ Add bookmaker link</button>
+
+<div class="btn-row" style="margin-top:16px;">
 <button class="btn btn-gold" onclick="publishSlip()">Publish slip</button>
 </div>
 <div class="status-msg" id="publishStatus"></div>
@@ -136,10 +146,74 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 <script>
 // ---- CONFIGURE THESE TWO BEFORE USE ----
 const WORKER_BASE = "https://money-odds-api.arphaxad98.workers.dev";
-const ADMIN_KEY = "UkqNKxQ8dETMmaSJGWpvnA7ujeOBbPHwrDXtLV6g0f42513cFChsRoiIl9gXMc5VeVxfjjEAtIjL5XGJpbcDBMrRa5fgg9bhBNOedUEMHQUkvB7hafWeJcINo0Fkib82gSLWPlm7cfWw2KjDrkMwfL7PkBbMPkF1hUp550A2OiocFCSsQwXedCn0sNSke76aBfj68VSK1F6MDQMwJItJdg5sQhnlljPa6BduhSIHkuvFcj4nQ8VUnAvrfRTqOwIX";
+const ADMIN_KEY = "PASTE_YOUR_ADMIN_API_KEY_HERE";
 // -----------------------------------------
 
-let legCounter = 0;
+// mirrors worker.js's KNOWN_BOOKMAKERS, for an instant client-side preview badge
+const KNOWN_BOOKMAKERS = {
+  "odibets.com": { name: "OdiBets", color: "#0FA958" },
+  "betika.com": { name: "Betika", color: "#D0021B" },
+  "sportpesa.com": { name: "SportPesa", color: "#00A99D" },
+  "1xbet.com": { name: "1xBet", color: "#1E4DB7" },
+  "melbet.com": { name: "Melbet", color: "#F5A623" },
+  "mozzartbet.co.ke": { name: "Mozzart", color: "#E30613" },
+  "betwinner.com": { name: "BetWinner", color: "#00A651" },
+};
+
+function detectBookmakerClient(url){
+  try {
+    const host = new URL(url).hostname.replace(/^www\./, "");
+    const known = KNOWN_BOOKMAKERS[host];
+    if(known) return { domain: host, name: known.name, color: known.color };
+    const base = host.split(".")[0];
+    return { domain: host, name: base.charAt(0).toUpperCase() + base.slice(1), color: "#8B92A5" };
+  } catch(e){ return null; }
+}
+
+let bmCounter = 0;
+
+function addBookmakerRow(bm){
+  bm = bm || {};
+  bmCounter++;
+  const id = bmCounter;
+  const div = document.createElement("div");
+  div.className = "bm-row";
+  div.id = `bm-${id}`;
+  div.innerHTML = `
+    <input type="url" class="bm-url" placeholder="https://odibets.com/share/XXXXX" value="${bm.url ? bm.url.replace(/"/g,'&quot;') : ''}" oninput="previewBookmaker(${id})">
+    <input type="text" class="bm-name" placeholder="Auto" value="${bm.name ? bm.name.replace(/"/g,'&quot;') : ''}">
+    <span class="bm-badge-preview" id="bm-preview-${id}" style="background:#21293622;color:var(--text-dim);">—</span>
+    <button class="bm-remove" onclick="document.getElementById('bm-${id}').remove()">✕</button>
+  `;
+  document.getElementById("bookmakerContainer").appendChild(div);
+  if(bm.url) previewBookmaker(id);
+}
+
+function previewBookmaker(id){
+  const url = document.getElementById(`bm-${id}`).querySelector(".bm-url").value.trim();
+  const preview = document.getElementById(`bm-preview-${id}`);
+  const detected = url ? detectBookmakerClient(url) : null;
+  if(detected){
+    preview.textContent = detected.name;
+    preview.style.background = detected.color + "22";
+    preview.style.color = detected.color;
+  } else {
+    preview.textContent = "—";
+    preview.style.background = "#21293622";
+    preview.style.color = "var(--text-dim)";
+  }
+}
+
+function collectBookmakerLinks(){
+  const rows = document.querySelectorAll("#bookmakerContainer .bm-row");
+  const links = [];
+  rows.forEach(row => {
+    const url = row.querySelector(".bm-url").value.trim();
+    const name = row.querySelector(".bm-name").value.trim();
+    if(url) links.push({ url, name });
+  });
+  return links;
+}
 let historyCache = [];
 let selectedHistorySlip = null;
 let currentSlipData = null;
@@ -194,6 +268,8 @@ function editCurrentSlip(){
   document.getElementById("legsContainer").innerHTML = "";
   currentSlipData.legs.forEach(l => addLegRow(l));
   document.getElementById("combinedOdds").value = currentSlipData.combined_odds ?? "";
+  document.getElementById("bookmakerContainer").innerHTML = "";
+  (currentSlipData.bookmaker_links || []).forEach(b => addBookmakerRow(b));
   const note = document.getElementById("editingNote");
   note.className = "status-msg show";
   note.style.background = "var(--gold-soft)";
@@ -226,12 +302,13 @@ async function publishSlip(){
   }
 
   const combined_odds = parseFloat(document.getElementById("combinedOdds").value) || null;
+  const bookmaker_links = collectBookmakerLinks();
 
   try {
     const res = await fetch(`${WORKER_BASE}/admin/exclusive-slip`, {
       method: "POST",
       headers: adminHeaders(),
-      body: JSON.stringify({ legs, combined_odds }),
+      body: JSON.stringify({ legs, combined_odds, bookmaker_links }),
     });
     const data = await res.json();
     if(data.ok){
@@ -239,6 +316,7 @@ async function publishSlip(){
       document.getElementById("legsContainer").innerHTML = "";
       addLegRow();
       document.getElementById("combinedOdds").value = "";
+      document.getElementById("bookmakerContainer").innerHTML = "";
       document.getElementById("editingNote").className = "status-msg";
       document.getElementById("editingNote").textContent = "";
       loadCurrentSlip();
