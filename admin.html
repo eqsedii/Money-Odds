@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Money Odds</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#0A0E14;--bg-raised:#10151D;--bg-card:#131A24;--line:#212936;
+--text:#E8EAED;--text-dim:#8B92A5;--gold:#F5A623;--gold-soft:#F5A62322;
+--cyan:#2DE1E8;--win:#3DD68C;--win-soft:#3DD68C1c;--loss:#E8536B;--loss-soft:#E8536B1c;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.5;padding-bottom:80px;}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:600;margin:0;}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px;}
+header{padding:24px 0;border-bottom:1px solid var(--line);margin-bottom:24px;}
+header h1{font-size:22px;}
+header p{color:var(--text-dim);font-size:13px;margin-top:4px;}
+.card{background:var(--bg-card);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:24px;}
+.card h2{font-size:17px;margin-bottom:14px;}
+.card h2 span{font-size:12px;color:var(--text-dim);font-weight:500;display:block;margin-top:3px;}
+label{display:block;font-size:12.5px;color:var(--text-dim);margin-bottom:5px;}
+input,select,textarea{width:100%;padding:10px 12px;border-radius:8px;background:var(--bg-raised);border:1px solid var(--line);color:var(--text);font-size:14px;font-family:inherit;margin-bottom:12px;}
+textarea{resize:vertical;min-height:80px;}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
+.leg-row{border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:12px;position:relative;background:var(--bg-raised);}
+.leg-row .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.remove-leg{position:absolute;top:10px;right:10px;background:none;border:none;color:var(--loss);font-size:13px;cursor:pointer;padding:4px 8px;}
+.btn{padding:11px 18px;border-radius:9px;border:none;font-weight:700;font-size:14px;cursor:pointer;}
+.btn-gold{background:var(--gold);color:#1A1204;}
+.btn-cyan{background:var(--cyan);color:#03181a;}
+.btn-outline{background:transparent;border:1px solid var(--line);color:var(--text);}
+.btn-danger{background:var(--loss-soft);color:var(--loss);border:1px solid rgba(232,83,107,0.3);}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+.status-msg{margin-top:12px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;}
+.status-msg.show{display:block;}
+.status-msg.ok{background:var(--win-soft);color:var(--win);}
+.status-msg.err{background:var(--loss-soft);color:var(--loss);}
+.slip-preview{font-size:13px;color:var(--text-dim);white-space:pre-wrap;background:var(--bg-raised);border-radius:8px;padding:12px;margin-bottom:12px;max-height:240px;overflow-y:auto;}
+.hist-item{border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:10px;cursor:pointer;}
+.hist-item:hover{border-color:var(--cyan);}
+.hist-item .hi-top{display:flex;justify-content:space-between;font-size:13px;color:var(--text-dim);}
+.hist-item.selected{border-color:var(--gold);background:var(--gold-soft);}
+.leg-grade-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:13.5px;}
+.leg-grade-row:last-child{border-bottom:none;}
+.leg-grade-row select{width:110px;margin-bottom:0;}
+.note{font-size:12px;color:var(--text-dim);margin-top:4px;}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header>
+<h1>Money Odds — Admin</h1>
+<p>Exclusive slip management. This page must stay behind Cloudflare Access — never share this link.</p>
+</header>
+
+<div class="card">
+<h2>1. Publish a new Exclusive slip <span>Publishing archives whatever slip is currently live into history first — nothing is lost.</span></h2>
+<div id="legsContainer"></div>
+<button class="btn btn-outline" onclick="addLegRow()">+ Add match</button>
+<label style="margin-top:16px;">Combined odds (shown to everyone, even before payment)</label>
+<input type="number" step="0.01" id="combinedOdds" placeholder="e.g. 24.50">
+<div class="btn-row">
+<button class="btn btn-gold" onclick="publishSlip()">Publish slip</button>
+</div>
+<div class="status-msg" id="publishStatus"></div>
+</div>
+
+<div class="card">
+<h2>2. Current live slip</h2>
+<div class="slip-preview" id="currentSlipPreview">Loading…</div>
+<div class="btn-row">
+<button class="btn btn-outline" onclick="loadCurrentSlip()">Refresh</button>
+<button class="btn btn-danger" onclick="archiveCurrent()">Archive without replacing</button>
+</div>
+<div class="status-msg" id="archiveStatus"></div>
+</div>
+
+<div class="card">
+<h2>3. Grade a past slip <span>Pick one from history, mark each leg, save.</span></h2>
+<div id="historyList">Loading…</div>
+<div id="gradeForm" style="display:none;margin-top:14px;">
+<div id="gradeLegsContainer"></div>
+<label>Overall result</label>
+<select id="overallResult">
+<option value="win">Win</option>
+<option value="loss">Loss</option>
+</select>
+<div class="btn-row">
+<button class="btn btn-cyan" onclick="saveGrade()">Save result</button>
+</div>
+<div class="status-msg" id="gradeStatus"></div>
+</div>
+</div>
+
+<div class="card">
+<h2>4. Manual unlock from a pasted M-Pesa message <span>Use this if PayHero is down. Amount in the message decides which product unlocks — Ksh 59 = main subscription, Ksh 39 = current Exclusive slip.</span></h2>
+<label>Customer's phone number (required only for the Ksh 59 subscription)</label>
+<input type="tel" id="smsPhone" placeholder="0712345678">
+<label>Paste the full M-Pesa confirmation text</label>
+<textarea id="smsText" placeholder="UIH7L6RH5L Confirmed. KSH59.00 sent to..."></textarea>
+<div class="btn-row">
+<button class="btn btn-gold" onclick="submitSms()">Unlock</button>
+</div>
+<div class="status-msg" id="smsStatus"></div>
+</div>
+
+<div class="card">
+<h2>5. Visitor stats</h2>
+<p class="note">Not built here — check Cloudflare dashboard → your Pages project → Analytics tab (Web Analytics). It's already tracking total and daily visits with zero code needed.</p>
+</div>
+
+</div>
+
+<script>
+// ---- CONFIGURE THESE TWO BEFORE USE ----
+const WORKER_BASE = "https://money-odds-api.arphaxad98.workers.dev";
+const ADMIN_KEY = "PASTE_YOUR_ADMIN_API_KEY_HERE";
+// -----------------------------------------
+
+let legCounter = 0;
+let historyCache = [];
+let selectedHistorySlip = null;
+
+function adminHeaders(){
+  return { "Content-Type": "application/json", "X-Admin-Key": ADMIN_KEY };
+}
+
+function setStatus(id, ok, msg){
+  const el = document.getElementById(id);
+  el.className = "status-msg show " + (ok ? "ok" : "err");
+  el.textContent = msg;
+}
+
+function addLegRow(){
+  legCounter++;
+  const id = legCounter;
+  const div = document.createElement("div");
+  div.className = "leg-row";
+  div.id = `leg-${id}`;
+  div.innerHTML = `
+    <button class="remove-leg" onclick="document.getElementById('leg-${id}').remove()">Remove</button>
+    <label>Match</label>
+    <input type="text" class="leg-match" placeholder="e.g. Arsenal vs Chelsea">
+    <div class="grid2">
+      <div><label>League</label><input type="text" class="leg-league" placeholder="e.g. Premier League"></div>
+      <div><label>Kickoff</label><input type="datetime-local" class="leg-kickoff"></div>
+    </div>
+    <div class="grid2">
+      <div><label>Pick</label><input type="text" class="leg-pick" placeholder="e.g. Over 2.5 Goals"></div>
+      <div><label>Odds</label><input type="number" step="0.01" class="leg-odds" placeholder="e.g. 1.85"></div>
+    </div>
+  `;
+  document.getElementById("legsContainer").appendChild(div);
+}
+addLegRow(); // start with one row
+
+async function publishSlip(){
+  const rows = document.querySelectorAll("#legsContainer .leg-row");
+  const legs = [];
+  rows.forEach(row => {
+    const match = row.querySelector(".leg-match").value.trim();
+    const league = row.querySelector(".leg-league").value.trim();
+    const kickoffRaw = row.querySelector(".leg-kickoff").value;
+    const pick = row.querySelector(".leg-pick").value.trim();
+    const odds = row.querySelector(".leg-odds").value;
+    if(!match || !pick) return;
+    legs.push({
+      match, league,
+      kickoff: kickoffRaw ? new Date(kickoffRaw).toISOString() : null,
+      pick,
+      odds: odds ? parseFloat(odds) : null,
+    });
+  });
+
+  if(!legs.length){
+    setStatus("publishStatus", false, "Add at least one match with a match name and pick.");
+    return;
+  }
+
+  const combined_odds = parseFloat(document.getElementById("combinedOdds").value) || null;
+
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/exclusive-slip`, {
+      method: "POST",
+      headers: adminHeaders(),
+      body: JSON.stringify({ legs, combined_odds }),
+    });
+    const data = await res.json();
+    if(data.ok){
+      setStatus("publishStatus", true, `✓ Published slip ${data.slip_id}. Old slip (if any) archived to history.`);
+      document.getElementById("legsContainer").innerHTML = "";
+      addLegRow();
+      document.getElementById("combinedOdds").value = "";
+      loadCurrentSlip();
+      loadHistory();
+    } else {
+      setStatus("publishStatus", false, "Error: " + JSON.stringify(data));
+    }
+  } catch(e){
+    setStatus("publishStatus", false, "Request failed: " + e.message);
+  }
+}
+
+async function loadCurrentSlip(){
+  const el = document.getElementById("currentSlipPreview");
+  el.textContent = "Loading…";
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/exclusive-current-full`, { headers: adminHeaders() });
+    const data = await res.json();
+    if(!data.ok){ el.textContent = "Error: " + JSON.stringify(data); return; }
+    if(!data.slip){ el.textContent = "No slip currently live."; return; }
+    el.textContent = JSON.stringify(data.slip, null, 2);
+  } catch(e){
+    el.textContent = "Failed to load: " + e.message;
+  }
+}
+
+async function archiveCurrent(){
+  if(!confirm("Archive the current slip without publishing a replacement? It becomes ungraded history.")) return;
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/exclusive-archive-current`, { method: "POST", headers: adminHeaders() });
+    const data = await res.json();
+    if(data.ok){
+      setStatus("archiveStatus", true, `✓ Archived ${data.archived_slip_id}.`);
+      loadCurrentSlip();
+      loadHistory();
+    } else {
+      setStatus("archiveStatus", false, "Error: " + JSON.stringify(data));
+    }
+  } catch(e){
+    setStatus("archiveStatus", false, "Request failed: " + e.message);
+  }
+}
+
+async function loadHistory(){
+  const el = document.getElementById("historyList");
+  el.innerHTML = "Loading…";
+  try {
+    const res = await fetch(`${WORKER_BASE}/exclusive-history`);
+    const data = await res.json();
+    historyCache = data.history || [];
+    if(!historyCache.length){ el.innerHTML = "No past slips yet."; return; }
+    el.innerHTML = historyCache.map((s, i) => `
+      <div class="hist-item" onclick="selectHistorySlip(${i})">
+        <div class="hi-top"><span>${new Date(s.created_at).toLocaleString()}</span><span>${s.graded_at ? "✓ Graded (" + (s.overall_result || "?") + ")" : "Ungraded"}</span></div>
+        <div>${s.legs.length} legs · combined odds ${s.combined_odds ?? "—"}</div>
+      </div>
+    `).join("");
+  } catch(e){
+    el.innerHTML = "Failed to load: " + e.message;
+  }
+}
+
+function selectHistorySlip(i){
+  selectedHistorySlip = historyCache[i];
+  document.querySelectorAll(".hist-item").forEach((el, idx) => el.classList.toggle("selected", idx === i));
+  const container = document.getElementById("gradeLegsContainer");
+  container.innerHTML = selectedHistorySlip.legs.map((l, li) => `
+    <div class="leg-grade-row">
+      <span>${l.match} — <b>${l.pick}</b></span>
+      <select id="gradeLeg-${li}">
+        <option value="">—</option>
+        <option value="win" ${l.result === "win" ? "selected" : ""}>Win</option>
+        <option value="loss" ${l.result === "loss" ? "selected" : ""}>Loss</option>
+      </select>
+    </div>
+  `).join("");
+  document.getElementById("overallResult").value = selectedHistorySlip.overall_result || "win";
+  document.getElementById("gradeForm").style.display = "block";
+}
+
+async function saveGrade(){
+  if(!selectedHistorySlip) return;
+  const legs = selectedHistorySlip.legs.map((l, li) => ({
+    match: l.match,
+    result: document.getElementById(`gradeLeg-${li}`).value || null,
+  }));
+  const overall_result = document.getElementById("overallResult").value;
+
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/exclusive-grade`, {
+      method: "POST",
+      headers: adminHeaders(),
+      body: JSON.stringify({ slip_id: selectedHistorySlip.slip_id, legs, overall_result }),
+    });
+    const data = await res.json();
+    if(data.ok){
+      setStatus("gradeStatus", true, "✓ Saved.");
+      loadHistory();
+    } else {
+      setStatus("gradeStatus", false, "Error: " + JSON.stringify(data));
+    }
+  } catch(e){
+    setStatus("gradeStatus", false, "Request failed: " + e.message);
+  }
+}
+
+async function submitSms(){
+  const message = document.getElementById("smsText").value.trim();
+  const phone = document.getElementById("smsPhone").value.trim();
+  if(!message){ setStatus("smsStatus", false, "Paste the M-Pesa message first."); return; }
+
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/sms-paste`, {
+      method: "POST",
+      headers: adminHeaders(),
+      body: JSON.stringify({ message, phone }),
+    });
+    const data = await res.json();
+    if(data.ok){
+      setStatus("smsStatus", true, `✓ Unlocked ${data.unlocked}` + (data.token ? ` — token: ${data.token}` : "") + (data.phone ? ` — phone: ${data.phone}` : ""));
+      document.getElementById("smsText").value = "";
+    } else {
+      setStatus("smsStatus", false, "Error: " + JSON.stringify(data));
+    }
+  } catch(e){
+    setStatus("smsStatus", false, "Request failed: " + e.message);
+  }
+}
+
+loadCurrentSlip();
+loadHistory();
+</script>
+
+</body>
+</html>
