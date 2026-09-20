@@ -46,6 +46,13 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 .hist-item:hover{border-color:var(--cyan);}
 .hist-item .hi-top{display:flex;justify-content:space-between;font-size:13px;color:var(--text-dim);}
 .hist-item.selected{border-color:var(--gold);background:var(--gold-soft);}
+.slip-empty{color:var(--text-dim);font-size:13.5px;padding:14px;background:var(--bg-raised);border-radius:8px;}
+.slip-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--text-dim);margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--line);}
+.slip-leg{border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-bottom:8px;background:var(--bg-raised);}
+.slip-leg .sl-match{font-weight:600;font-size:14px;margin-bottom:2px;}
+.slip-leg .sl-meta{font-size:12px;color:var(--text-dim);margin-bottom:6px;}
+.slip-leg .sl-pick{font-size:13px;color:var(--gold);font-weight:600;}
+.slip-leg .sl-odds{float:right;color:var(--text-dim);font-weight:400;}
 .leg-grade-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:13.5px;}
 .leg-grade-row:last-child{border-bottom:none;}
 .leg-grade-row select{width:110px;margin-bottom:0;}
@@ -63,6 +70,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 
 <div class="card">
 <h2>1. Publish a new Exclusive slip <span>Publishing archives whatever slip is currently live into history first — nothing is lost.</span></h2>
+<div class="status-msg" id="editingNote" style="background:var(--gold-soft);color:var(--gold);"></div>
 <div id="legsContainer"></div>
 <button class="btn btn-outline" onclick="addLegRow()">+ Add match</button>
 <label style="margin-top:16px;">Combined odds (shown to everyone, even before payment)</label>
@@ -75,10 +83,16 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 
 <div class="card">
 <h2>2. Current live slip</h2>
-<div class="slip-preview" id="currentSlipPreview">Loading…</div>
-<div class="btn-row">
+<div id="currentSlipPreview">Loading…</div>
+<div class="btn-row" id="archiveRow">
 <button class="btn btn-outline" onclick="loadCurrentSlip()">Refresh</button>
-<button class="btn btn-danger" onclick="archiveCurrent()">Archive without replacing</button>
+<button class="btn btn-cyan" id="editBtn" onclick="editCurrentSlip()">Edit this slip</button>
+<button class="btn btn-danger" id="archiveBtn" onclick="showArchiveConfirm()">Archive without replacing</button>
+</div>
+<div class="btn-row" id="archiveConfirmRow" style="display:none;">
+<span style="font-size:13px;color:var(--text-dim);align-self:center;">Archive it? It becomes ungraded history.</span>
+<button class="btn btn-danger" onclick="archiveCurrent()">Yes, archive</button>
+<button class="btn btn-outline" onclick="cancelArchiveConfirm()">Cancel</button>
 </div>
 <div class="status-msg" id="archiveStatus"></div>
 </div>
@@ -122,12 +136,13 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 <script>
 // ---- CONFIGURE THESE TWO BEFORE USE ----
 const WORKER_BASE = "https://money-odds-api.arphaxad98.workers.dev";
-const ADMIN_KEY = "kJA4UuFcELXWS5iRtwo3TOmnVr2hvfNbDQsIP9pla61qCx87dG0MKBHegjvgpmgfoJLbbQ98ENV3rRpnTRPPAqPPxndTMIRTp8dtcOrXSTreetAprl0lpNIVx3PK13MUX6XQldHvJ78rBJ07iIqc6L4wKa1oN13LhPv36600Ap1ulgE832D3vb9oQtkmdniRL1mV61JBjbGnikeI64jsKhoBw1TFi0wvnnFUTbtldw8GWgAWHB4aPh2j2p90mAaO";
+const ADMIN_KEY = "PASTE_YOUR_ADMIN_API_KEY_HERE";
 // -----------------------------------------
 
 let legCounter = 0;
 let historyCache = [];
 let selectedHistorySlip = null;
+let currentSlipData = null;
 
 function adminHeaders(){
   return { "Content-Type": "application/json", "X-Admin-Key": ADMIN_KEY };
@@ -139,7 +154,16 @@ function setStatus(id, ok, msg){
   el.textContent = msg;
 }
 
-function addLegRow(){
+function isoToDatetimeLocal(iso){
+  if(!iso) return "";
+  const d = new Date(iso);
+  if(isNaN(d.getTime())) return "";
+  const pad = n => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
+
+function addLegRow(leg){
+  leg = leg || {};
   legCounter++;
   const id = legCounter;
   const div = document.createElement("div");
@@ -148,19 +172,35 @@ function addLegRow(){
   div.innerHTML = `
     <button class="remove-leg" onclick="document.getElementById('leg-${id}').remove()">Remove</button>
     <label>Match</label>
-    <input type="text" class="leg-match" placeholder="e.g. Arsenal vs Chelsea">
+    <input type="text" class="leg-match" placeholder="e.g. Arsenal vs Chelsea" value="${leg.match ? leg.match.replace(/"/g,'&quot;') : ''}">
     <div class="grid2">
-      <div><label>League</label><input type="text" class="leg-league" placeholder="e.g. Premier League"></div>
-      <div><label>Kickoff</label><input type="datetime-local" class="leg-kickoff"></div>
+      <div><label>League</label><input type="text" class="leg-league" placeholder="e.g. Premier League" value="${leg.league ? leg.league.replace(/"/g,'&quot;') : ''}"></div>
+      <div><label>Kickoff</label><input type="datetime-local" class="leg-kickoff" value="${isoToDatetimeLocal(leg.kickoff)}"></div>
     </div>
     <div class="grid2">
-      <div><label>Pick</label><input type="text" class="leg-pick" placeholder="e.g. Over 2.5 Goals"></div>
-      <div><label>Odds</label><input type="number" step="0.01" class="leg-odds" placeholder="e.g. 1.85"></div>
+      <div><label>Pick</label><input type="text" class="leg-pick" placeholder="e.g. Over 2.5 Goals" value="${leg.pick ? leg.pick.replace(/"/g,'&quot;') : ''}"></div>
+      <div><label>Odds</label><input type="number" step="0.01" class="leg-odds" placeholder="e.g. 1.85" value="${leg.odds ?? ''}"></div>
     </div>
   `;
   document.getElementById("legsContainer").appendChild(div);
 }
 addLegRow(); // start with one row
+
+function editCurrentSlip(){
+  if(!currentSlipData){
+    setStatus("editingNote", false, "Nothing to edit — no slip currently live.");
+    return;
+  }
+  document.getElementById("legsContainer").innerHTML = "";
+  currentSlipData.legs.forEach(l => addLegRow(l));
+  document.getElementById("combinedOdds").value = currentSlipData.combined_odds ?? "";
+  const note = document.getElementById("editingNote");
+  note.className = "status-msg show";
+  note.style.background = "var(--gold-soft)";
+  note.style.color = "var(--gold)";
+  note.textContent = `Editing slip ${currentSlipData.slip_id} — fix what's needed below, then Publish. This slip auto-archives as usual, so the old version stays in history.`;
+  document.getElementById("legsContainer").scrollIntoView({ behavior: "smooth", block: "start" });
+}
 
 async function publishSlip(){
   const rows = document.querySelectorAll("#legsContainer .leg-row");
@@ -199,6 +239,8 @@ async function publishSlip(){
       document.getElementById("legsContainer").innerHTML = "";
       addLegRow();
       document.getElementById("combinedOdds").value = "";
+      document.getElementById("editingNote").className = "status-msg";
+      document.getElementById("editingNote").textContent = "";
       loadCurrentSlip();
       loadHistory();
     } else {
@@ -209,22 +251,56 @@ async function publishSlip(){
   }
 }
 
+function renderSlipCard(slip){
+  const meta = `<div class="slip-meta"><span>Published ${new Date(slip.created_at).toLocaleString()}</span><span>Combined odds: ${slip.combined_odds ?? "—"}</span></div>`;
+  const legsHtml = slip.legs.map(l => `
+    <div class="slip-leg">
+      <div class="sl-match">${l.match}<span class="sl-odds">${l.odds ?? "—"}</span></div>
+      <div class="sl-meta">${l.league || "—"}${l.kickoff ? " · " + new Date(l.kickoff).toLocaleString() : ""}</div>
+      <div class="sl-pick">${l.pick}</div>
+    </div>
+  `).join("");
+  return meta + legsHtml;
+}
+
 async function loadCurrentSlip(){
   const el = document.getElementById("currentSlipPreview");
-  el.textContent = "Loading…";
+  el.innerHTML = "Loading…";
+  document.getElementById("archiveRow").style.display = "flex";
+  cancelArchiveConfirm();
   try {
     const res = await fetch(`${WORKER_BASE}/admin/exclusive-current-full`, { headers: adminHeaders() });
     const data = await res.json();
-    if(!data.ok){ el.textContent = "Error: " + JSON.stringify(data); return; }
-    if(!data.slip){ el.textContent = "No slip currently live."; return; }
-    el.textContent = JSON.stringify(data.slip, null, 2);
+    if(!data.ok){ el.innerHTML = `<div class="slip-empty">Error: ${JSON.stringify(data)}</div>`; currentSlipData = null; return; }
+    if(!data.slip){
+      el.innerHTML = `<div class="slip-empty">No slip currently live.</div>`;
+      document.getElementById("archiveBtn").style.display = "none";
+      document.getElementById("editBtn").style.display = "none";
+      currentSlipData = null;
+      return;
+    }
+    document.getElementById("archiveBtn").style.display = "inline-block";
+    document.getElementById("editBtn").style.display = "inline-block";
+    currentSlipData = data.slip;
+    el.innerHTML = renderSlipCard(data.slip);
   } catch(e){
-    el.textContent = "Failed to load: " + e.message;
+    el.innerHTML = `<div class="slip-empty">Failed to load: ${e.message}</div>`;
+    currentSlipData = null;
   }
 }
 
+function showArchiveConfirm(){
+  document.getElementById("archiveRow").style.display = "none";
+  document.getElementById("archiveConfirmRow").style.display = "flex";
+}
+
+function cancelArchiveConfirm(){
+  document.getElementById("archiveConfirmRow").style.display = "none";
+  document.getElementById("archiveRow").style.display = "flex";
+}
+
 async function archiveCurrent(){
-  if(!confirm("Archive the current slip without publishing a replacement? It becomes ungraded history.")) return;
+  cancelArchiveConfirm();
   try {
     const res = await fetch(`${WORKER_BASE}/admin/exclusive-archive-current`, { method: "POST", headers: adminHeaders() });
     const data = await res.json();
