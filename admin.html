@@ -136,7 +136,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 <script>
 // ---- CONFIGURE THESE TWO BEFORE USE ----
 const WORKER_BASE = "https://money-odds-api.arphaxad98.workers.dev";
-const ADMIN_KEY = "UkqNKxQ8dETMmaSJGWpvnA7ujeOBbPHwrDXtLV6g0f42513cFChsRoiIl9gXMc5VeVxfjjEAtIjL5XGJpbcDBMrRa5fgg9bhBNOedUEMHQUkvB7hafWeJcINo0Fkib82gSLWPlm7cfWw2KjDrkMwfL7PkBbMPkF1hUp550A2OiocFCSsQwXedCn0sNSke76aBfj68VSK1F6MDQMwJItJdg5sQhnlljPa6BduhSIHkuvFcj4nQ8VUnAvrfRTqOwIX";
+const ADMIN_KEY = "PASTE_YOUR_ADMIN_API_KEY_HERE";
 // -----------------------------------------
 
 let legCounter = 0;
@@ -327,7 +327,10 @@ async function loadHistory(){
     el.innerHTML = historyCache.map((s, i) => `
       <div class="hist-item" onclick="selectHistorySlip(${i})">
         <div class="hi-top"><span>${new Date(s.created_at).toLocaleString()}</span><span>${s.graded_at ? "✓ Graded (" + (s.overall_result || "?") + ")" : "Ungraded"}</span></div>
-        <div>${s.legs.length} legs · combined odds ${s.combined_odds ?? "—"}</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span>${s.legs.length} legs · combined odds ${s.combined_odds ?? "—"}</span>
+          <button class="remove-leg" style="position:static;" onclick="event.stopPropagation(); deleteHistorySlip('${s.slip_id}')">Delete</button>
+        </div>
       </div>
     `).join("");
   } catch(e){
@@ -335,22 +338,86 @@ async function loadHistory(){
   }
 }
 
+async function deleteHistorySlip(slipId){
+  const proceed = window.__pendingDeleteSlip === slipId;
+  if(!proceed){
+    window.__pendingDeleteSlip = slipId;
+    setStatus("gradeStatus", false, "Tap Delete on that same slip again within a few seconds to confirm.");
+    setTimeout(() => { if(window.__pendingDeleteSlip === slipId) window.__pendingDeleteSlip = null; }, 4000);
+    return;
+  }
+  window.__pendingDeleteSlip = null;
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/exclusive-history-delete`, {
+      method: "POST",
+      headers: adminHeaders(),
+      body: JSON.stringify({ slip_id: slipId }),
+    });
+    const data = await res.json();
+    if(data.ok){
+      setStatus("gradeStatus", true, "✓ Deleted from history.");
+      if(selectedHistorySlip && selectedHistorySlip.slip_id === slipId){
+        selectedHistorySlip = null;
+        document.getElementById("gradeForm").style.display = "none";
+      }
+      loadHistory();
+    } else {
+      setStatus("gradeStatus", false, "Error: " + JSON.stringify(data));
+    }
+  } catch(e){
+    setStatus("gradeStatus", false, "Request failed: " + e.message);
+  }
+}
+
 function selectHistorySlip(i){
   selectedHistorySlip = historyCache[i];
   document.querySelectorAll(".hist-item").forEach((el, idx) => el.classList.toggle("selected", idx === i));
+  renderGradeLegs();
+  document.getElementById("overallResult").value = selectedHistorySlip.overall_result || "win";
+  document.getElementById("gradeForm").style.display = "block";
+}
+
+function renderGradeLegs(){
   const container = document.getElementById("gradeLegsContainer");
+  if(!selectedHistorySlip.legs.length){
+    container.innerHTML = `<div class="note">No matches left on this slip.</div>`;
+    return;
+  }
   container.innerHTML = selectedHistorySlip.legs.map((l, li) => `
     <div class="leg-grade-row">
       <span>${l.match} — <b>${l.pick}</b></span>
-      <select id="gradeLeg-${li}">
-        <option value="">—</option>
-        <option value="win" ${l.result === "win" ? "selected" : ""}>Win</option>
-        <option value="loss" ${l.result === "loss" ? "selected" : ""}>Loss</option>
-      </select>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <select id="gradeLeg-${li}">
+          <option value="">—</option>
+          <option value="win" ${l.result === "win" ? "selected" : ""}>Win</option>
+          <option value="loss" ${l.result === "loss" ? "selected" : ""}>Loss</option>
+        </select>
+        <button class="remove-leg" style="position:static;" onclick="removeLegFromSlip('${l.match.replace(/'/g,"\\'")}')">Remove</button>
+      </div>
     </div>
   `).join("");
-  document.getElementById("overallResult").value = selectedHistorySlip.overall_result || "win";
-  document.getElementById("gradeForm").style.display = "block";
+}
+
+async function removeLegFromSlip(match){
+  if(!selectedHistorySlip) return;
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/exclusive-history-remove-leg`, {
+      method: "POST",
+      headers: adminHeaders(),
+      body: JSON.stringify({ slip_id: selectedHistorySlip.slip_id, match }),
+    });
+    const data = await res.json();
+    if(data.ok){
+      selectedHistorySlip.legs = selectedHistorySlip.legs.filter(l => l.match !== match);
+      renderGradeLegs();
+      setStatus("gradeStatus", true, `✓ Removed. ${data.remaining_legs} match(es) left on this slip.`);
+      loadHistory();
+    } else {
+      setStatus("gradeStatus", false, "Error: " + JSON.stringify(data));
+    }
+  } catch(e){
+    setStatus("gradeStatus", false, "Request failed: " + e.message);
+  }
 }
 
 async function saveGrade(){
