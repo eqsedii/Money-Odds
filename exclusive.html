@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exclusive — Money Odds</title>
+<meta name="description" content="Hand-picked matches from our prediction specialist, sold per slip.">
+<link rel="icon" type="image/webp" href="favicon.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#0A0E14;--bg-raised:#10151D;--bg-card:#131A24;--line:#212936;
+--text:#E8EAED;--text-dim:#8B92A5;--gold:#F5A623;--gold-soft:#F5A62322;
+--cyan:#2DE1E8;--win:#3DD68C;--win-soft:#3DD68C1c;--loss:#E8536B;--loss-soft:#E8536B1c;
+--excl:#C084FC;--excl-soft:#C084FC22;--excl-deep:#7C3AED;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:600;line-height:1.15;margin:0;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:720px;margin:0 auto;padding:0 24px;}
+.nav{position:sticky;top:0;z-index:50;background:rgba(10,14,20,0.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.nav .wrap{max-width:1120px;display:flex;align-items:center;justify-content:space-between;height:68px;}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+.brand-mark{width:32px;height:32px;border-radius:8px;object-fit:cover;}
+.nav-links{display:flex;gap:32px;font-size:15px;color:var(--text-dim);}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{padding:9px 20px;border-radius:9px;background:var(--gold);color:#1A1204;font-weight:600;font-size:14px;}
+.nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;}
+@media (max-width:800px){
+.nav-links{position:fixed;top:68px;left:0;right:0;background:var(--bg-raised);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--line);transform:translateY(-150%);transition:transform .25s ease;}
+.nav-links.open{transform:translateY(0);}
+.nav-toggle{display:block;}
+.nav-cta{display:none;}
+}
+.hero{padding:44px 0 28px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-140px;left:50%;transform:translateX(-50%);width:560px;height:340px;background:radial-gradient(ellipse,rgba(192,132,252,0.22),transparent 70%);pointer-events:none;}
+.hero-badge{display:inline-block;padding:5px 14px;border-radius:20px;background:var(--excl-soft);color:var(--excl);font-size:12.5px;font-weight:700;margin-bottom:14px;position:relative;}
+.hero h1{font-size:30px;margin-bottom:10px;position:relative;}
+.hero p{color:var(--text-dim);font-size:15px;max-width:460px;margin:0 auto;position:relative;}
+.slip-card{background:var(--bg-card);border:1px solid var(--line);border-radius:18px;padding:26px;margin:24px 0;position:relative;overflow:hidden;}
+.slip-card::before{content:'';position:absolute;inset:0;border-radius:18px;padding:1px;background:linear-gradient(135deg,rgba(192,132,252,0.55),rgba(124,58,237,0.35));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;}
+.slip-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;position:relative;}
+.slip-label{font-size:12px;color:var(--text-dim);}
+.slip-odds{text-align:right;}
+.slip-odds-label{font-size:11px;color:var(--text-dim);}
+.slip-odds-val{font-size:26px;font-weight:700;font-family:'Space Grotesk',sans-serif;color:var(--excl);}
+.leg-locked{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);gap:10px;}
+.leg-locked:last-child{border-bottom:none;}
+.leg-match{font-size:14px;font-weight:500;}
+.leg-meta{font-size:12px;color:var(--text-dim);}
+.leg-lock-icon{color:var(--text-dim);font-size:13px;flex-shrink:0;}
+.leg-unlocked{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);gap:10px;}
+.leg-unlocked:last-child{border-bottom:none;}
+.leg-pick{font-size:13px;font-weight:600;color:var(--excl);white-space:nowrap;text-align:right;}
+.leg-pick .odds{display:block;font-size:11px;color:var(--text-dim);font-weight:400;}
+.empty-slip{text-align:center;color:var(--text-dim);font-size:14px;padding:30px 10px;}
+.buy-btn{width:100%;padding:15px;border-radius:12px;background:linear-gradient(135deg,var(--excl),var(--excl-deep));color:#fff;font-weight:700;font-size:15.5px;border:none;cursor:pointer;margin-top:18px;box-shadow:0 6px 20px rgba(124,58,237,0.35);}
+.buy-btn:disabled{opacity:0.5;cursor:not-allowed;}
+.status-box{margin-top:14px;padding:12px 14px;border-radius:10px;font-size:13.5px;display:none;}
+.status-box.show{display:block;}
+.status-box.pending{background:var(--gold-soft);color:var(--gold);}
+.status-box.success{background:var(--win-soft);color:var(--win);}
+.status-box.error{background:var(--loss-soft);color:var(--loss);}
+.restore-block{margin:20px 0;padding:18px;background:var(--bg-raised);border:1px solid var(--line);border-radius:14px;}
+.restore-block p{font-size:13px;color:var(--text-dim);margin:0 0 10px;}
+.restore-row{display:flex;gap:8px;}
+.restore-row input{flex:1;padding:10px 12px;border-radius:8px;background:var(--bg-card);border:1px solid var(--line);color:var(--text);font-size:13.5px;}
+.restore-row button{padding:10px 16px;border-radius:8px;background:var(--cyan);color:#03181a;font-weight:700;font-size:13px;border:none;cursor:pointer;white-space:nowrap;}
+.section{padding:36px 0;}
+.section h2{font-size:19px;margin-bottom:6px;}
+.section p.sub{color:var(--text-dim);font-size:13.5px;margin:0 0 18px;}
+.hist-slip{background:var(--bg-card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px;}
+.hist-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:12.5px;color:var(--text-dim);}
+.hist-result{font-weight:700;font-size:12px;padding:3px 10px;border-radius:12px;}
+.hist-result.win{background:var(--win-soft);color:var(--win);}
+.hist-result.loss{background:var(--loss-soft);color:var(--loss);}
+.hist-result.pending{background:var(--gold-soft);color:var(--gold);}
+.hist-leg{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:13px;gap:10px;}
+.hist-leg:last-child{border-bottom:none;}
+.hist-leg-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:8px;flex-shrink:0;}
+.hist-leg-badge.win{background:var(--win-soft);color:var(--win);}
+.hist-leg-badge.loss{background:var(--loss-soft);color:var(--loss);}
+.hist-leg-badge.pending{background:var(--bg-raised);color:var(--text-dim);}
+.disclaimer{background:var(--bg-raised);border:1px solid var(--line);border-radius:10px;padding:14px 18px;font-size:12.5px;color:var(--text-dim);margin:24px 0;line-height:1.6;}
+footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);font-size:13px;}
+.footer-grid{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.site-bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5;z-index:-2;pointer-events:none;}
+.site-bg-overlay{position:fixed;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,14,20,0.55) 0%,rgba(10,14,20,0.72) 40%,var(--bg) 85%);pointer-events:none;}
+.modal-overlay{position:fixed;inset:0;z-index:200;background:rgba(6,9,14,0.75);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:var(--bg-card);border:1px solid var(--line);border-radius:18px;padding:26px;max-width:380px;width:100%;position:relative;}
+.modal-close{position:absolute;top:14px;right:14px;background:none;border:none;color:var(--text-dim);font-size:22px;cursor:pointer;}
+.modal-title{font-size:18px;margin-bottom:4px;}
+.modal-sub{font-size:13px;color:var(--text-dim);margin-bottom:18px;}
+.field-group{margin-bottom:12px;}
+.field-group label{display:block;font-size:12px;color:var(--text-dim);margin-bottom:5px;}
+.field-group input{width:100%;padding:11px 14px;border-radius:9px;background:var(--bg-raised);border:1px solid var(--line);color:var(--text);font-size:14.5px;}
+</style>
+</head>
+<body>
+
+<video class="site-bg-video" autoplay muted loop playsinline>
+<source src="hero-bg.mp4" type="video/mp4">
+</video>
+<div class="site-bg-overlay"></div>
+
+<nav class="nav">
+<div class="wrap">
+<a href="index.html" class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</a>
+<div class="nav-links" id="navLinks">
+<a href="predictions.html">Predictions</a>
+<a href="pricing.html">Pricing</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</div>
+<a href="pricing.html" class="nav-cta">Get Picks</a>
+<button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+</div>
+</nav>
+
+<section class="hero">
+<div class="wrap">
+<div class="hero-badge">⭐ EXCLUSIVE</div>
+<h1>Hand-picked by our specialist</h1>
+<p>Not the model — a person. One curated multi-bet slip at a time, sold per slip for Ksh 39.</p>
+</div>
+</section>
+
+<div class="wrap">
+
+<div class="slip-card" id="slipCard">Loading…</div>
+
+<div class="restore-block">
+<p>Already paid for this slip but it's showing locked? Paste the unlock code you were given (or your admin gave you after a manual M-Pesa confirmation).</p>
+<div class="restore-row">
+<input type="text" id="restoreToken" placeholder="Unlock code">
+<button onclick="restoreWithToken()">Unlock</button>
+</div>
+<div class="status-box" id="restoreStatus"></div>
+</div>
+
+<div class="disclaimer">Exclusive picks are the specialist's own selections, made independently of the statistical model used elsewhere on this site. No outcome is guaranteed. Bet responsibly and only with money you can afford to lose.</div>
+
+<div class="section">
+<h2>Past results</h2>
+<p class="sub">Every Exclusive slip we've sold, graded honestly — wins and losses both.</p>
+<div id="historyList">Loading…</div>
+</div>
+
+</div>
+
+<!-- PAYMENT MODAL -->
+<div class="modal-overlay" id="payModal">
+<div class="modal-box">
+<button class="modal-close" onclick="closePayModal()">×</button>
+<div class="modal-title">Unlock this slip</div>
+<div class="modal-sub">Ksh 39 — one-time, this slip only. You'll get an M-Pesa PIN prompt.</div>
+<div class="field-group">
+<label for="modalName">Full name</label>
+<input type="text" id="modalName" placeholder="Jane Wanjiru">
+</div>
+<div class="field-group" style="margin-bottom:18px;">
+<label for="modalPhone">M-Pesa phone number</label>
+<input type="tel" id="modalPhone" placeholder="0712 345 678">
+</div>
+<button class="buy-btn" id="modalSubmitBtn" onclick="submitPayment()">Pay Ksh 39</button>
+<div class="status-box" id="modalStatus"></div>
+</div>
+</div>
+
+<footer>
+<div class="footer-grid">
+<div class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</div>
+<div>&copy; 2026 Money Odds. All rights reserved.</div>
+</div>
+</footer>
+
+<script>
+const WORKER_BASE = "https://money-odds-api.arphaxad98.workers.dev";
+
+document.getElementById('navToggle').addEventListener('click', function(){
+  document.getElementById('navLinks').classList.toggle('open');
+});
+
+function setStatus(id, type, msg){
+  const el = document.getElementById(id);
+  el.className = `status-box show ${type}`;
+  el.textContent = msg;
+}
+
+function getExclusiveAccess(){
+  try {
+    const raw = localStorage.getItem('moneyOddsExclusiveAccess');
+    if(!raw) return null;
+    return JSON.parse(raw);
+  } catch(e){ return null; }
+}
+
+function saveExclusiveAccess(token, slip_id){
+  localStorage.setItem('moneyOddsExclusiveAccess', JSON.stringify({ token, slip_id }));
+}
+
+let currentSlip = null;
+
+function renderLockedSlip(slip){
+  const legsHtml = slip.legs.map(l => `
+    <div class="leg-locked">
+      <div>
+        <div class="leg-match">${l.match}</div>
+        <div class="leg-meta">${l.league || ''}${l.kickoff ? ' · ' + new Date(l.kickoff).toLocaleString() : ''}</div>
+      </div>
+      <div class="leg-lock-icon">🔒</div>
+    </div>
+  `).join('');
+
+  document.getElementById('slipCard').innerHTML = `
+    <div class="slip-top">
+      <span class="slip-label">${slip.leg_count}-LEG SLIP</span>
+      <div class="slip-odds"><div class="slip-odds-label">Combined odds</div><div class="slip-odds-val">${slip.combined_odds ?? '—'}</div></div>
+    </div>
+    ${legsHtml}
+    <button class="buy-btn" onclick="openPayModal()">Unlock for Ksh ${slip.price}</button>
+  `;
+}
+
+function renderUnlockedSlip(slip){
+  const legsHtml = slip.legs.map(l => `
+    <div class="leg-unlocked">
+      <div>
+        <div class="leg-match">${l.match}</div>
+        <div class="leg-meta">${l.league || ''}${l.kickoff ? ' · ' + new Date(l.kickoff).toLocaleString() : ''}</div>
+      </div>
+      <div class="leg-pick">${l.pick}<span class="odds">${l.odds ?? ''}</span></div>
+    </div>
+  `).join('');
+
+  document.getElementById('slipCard').innerHTML = `
+    <div class="slip-top">
+      <span class="slip-label">✓ UNLOCKED — ${slip.legs.length}-LEG SLIP</span>
+      <div class="slip-odds"><div class="slip-odds-label">Combined odds</div><div class="slip-odds-val">${slip.combined_odds ?? '—'}</div></div>
+    </div>
+    ${legsHtml}
+  `;
+}
+
+async function loadSlip(){
+  try {
+    const res = await fetch(`${WORKER_BASE}/exclusive-current?_=` + Date.now());
+    const data = await res.json();
+    const slip = data.slip;
+
+    if(!slip){
+      document.getElementById('slipCard').innerHTML = `<div class="empty-slip">No Exclusive slip live right now — check back soon.</div>`;
+      currentSlip = null;
+      return;
+    }
+    currentSlip = slip;
+
+    const access = getExclusiveAccess();
+    if(access && access.slip_id === slip.slip_id){
+      const unlockRes = await fetch(`${WORKER_BASE}/exclusive-unlocked?token=${encodeURIComponent(access.token)}`);
+      const unlockData = await unlockRes.json();
+      if(unlockData.ok){
+        renderUnlockedSlip(unlockData.slip);
+        return;
+      }
+    }
+    renderLockedSlip(slip);
+  } catch(e){
+    document.getElementById('slipCard').innerHTML = `<div class="empty-slip">Couldn't load the current slip. Try again shortly.</div>`;
+  }
+}
+
+function openPayModal(){
+  document.getElementById('payModal').classList.add('open');
+}
+function closePayModal(){
+  document.getElementById('payModal').classList.remove('open');
+}
+document.getElementById('payModal').addEventListener('click', function(e){
+  if(e.target === this) closePayModal();
+});
+
+async function submitPayment(){
+  const name = document.getElementById('modalName').value.trim();
+  const phone = document.getElementById('modalPhone').value.trim();
+  if(!name || !phone){
+    setStatus('modalStatus', 'error', 'Please fill in your name and phone number.');
+    return;
+  }
+  const btn = document.getElementById('modalSubmitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Sending M-Pesa prompt…';
+  setStatus('modalStatus', 'pending', 'Check your phone for the M-Pesa PIN prompt…');
+
+  try {
+    const res = await fetch(`${WORKER_BASE}/payhero-initiate`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ phone, name, kind: 'exclusive' }),
+    });
+    const data = await res.json();
+    if(!data.ok || !data.externalReference){
+      btn.disabled = false;
+      btn.textContent = 'Pay Ksh 39';
+      setStatus('modalStatus', 'error', 'DEBUG: ' + JSON.stringify(data));
+      return;
+    }
+    pollExclusivePayment(data.externalReference, btn);
+  } catch(e){
+    btn.disabled = false;
+    btn.textContent = 'Pay Ksh 39';
+    setStatus('modalStatus', 'error', 'Something went wrong reaching our payment system.');
+  }
+}
+
+async function pollExclusivePayment(ref, btn){
+  const maxAttempts = 40;
+  let attempts = 0;
+  const poll = async () => {
+    attempts++;
+    try {
+      const res = await fetch(`${WORKER_BASE}/payhero-check?ref=${encodeURIComponent(ref)}`);
+      const data = await res.json();
+      if(data.status === 'complete' && data.token){
+        saveExclusiveAccess(data.token, data.slip_id || (currentSlip && currentSlip.slip_id));
+        setStatus('modalStatus', 'success', '✓ Unlocked! Loading your picks…');
+        btn.textContent = 'Unlocked ✓';
+        setTimeout(() => { closePayModal(); loadSlip(); }, 1200);
+        return;
+      }
+      if(data.status === 'failed'){
+        setStatus('modalStatus', 'error', 'Payment was not completed. Please try again.');
+        btn.disabled = false;
+        btn.textContent = 'Pay Ksh 39';
+        return;
+      }
+    } catch(e){ /* keep polling */ }
+    if(attempts >= maxAttempts){
+      setStatus('modalStatus', 'error', 'Still waiting on confirmation — if you entered your PIN, try the "Already paid" box below shortly, or contact us for your unlock code.');
+      return;
+    }
+    setTimeout(poll, 3000);
+  };
+  poll();
+}
+
+async function restoreWithToken(){
+  const token = document.getElementById('restoreToken').value.trim();
+  if(!token){ setStatus('restoreStatus', 'error', 'Paste your unlock code first.'); return; }
+  try {
+    const res = await fetch(`${WORKER_BASE}/exclusive-unlocked?token=${encodeURIComponent(token)}`);
+    const data = await res.json();
+    if(data.ok){
+      saveExclusiveAccess(token, data.slip.slip_id);
+      setStatus('restoreStatus', 'success', '✓ Unlocked!');
+      renderUnlockedSlip(data.slip);
+    } else {
+      setStatus('restoreStatus', 'error', data.note || 'That code didn\'t work — it may be for an older slip, or mistyped.');
+    }
+  } catch(e){
+    setStatus('restoreStatus', 'error', 'Something went wrong — please try again.');
+  }
+}
+
+function resultBadge(result){
+  if(result === 'win') return '<span class="hist-result win">✓ WIN</span>';
+  if(result === 'loss') return '<span class="hist-result loss">✗ LOSS</span>';
+  return '<span class="hist-result pending">Pending</span>';
+}
+
+function legBadge(result){
+  if(result === 'win') return '<span class="hist-leg-badge win">Won</span>';
+  if(result === 'loss') return '<span class="hist-leg-badge loss">Lost</span>';
+  return '<span class="hist-leg-badge pending">—</span>';
+}
+
+async function loadHistory(){
+  const el = document.getElementById('historyList');
+  try {
+    const res = await fetch(`${WORKER_BASE}/exclusive-history`);
+    const data = await res.json();
+    const history = data.history || [];
+    if(!history.length){
+      el.innerHTML = `<div class="empty-slip">No past slips yet — this is our first.</div>`;
+      return;
+    }
+    el.innerHTML = history.map(s => `
+      <div class="hist-slip">
+        <div class="hist-top">
+          <span>${new Date(s.created_at).toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' })} · combined odds ${s.combined_odds ?? '—'}</span>
+          ${resultBadge(s.overall_result)}
+        </div>
+        ${s.legs.map(l => `
+          <div class="hist-leg">
+            <span>${l.match} — ${l.pick}</span>
+            ${legBadge(l.result)}
+          </div>
+        `).join('')}
+      </div>
+    `).join('');
+  } catch(e){
+    el.innerHTML = `<div class="empty-slip">Couldn't load history right now.</div>`;
+  }
+}
+
+loadSlip();
+loadHistory();
+</script>
+
+</body>
+</html>
