@@ -81,10 +81,6 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 <label style="margin-top:16px;">Combined odds (shown to everyone, even before payment)</label>
 <input type="number" step="0.01" id="combinedOdds" placeholder="e.g. 24.50">
 
-<label style="margin-top:6px;">Bookmaker booking links <span style="color:var(--text-dim);font-weight:400;">(paste a share link — the site is auto-detected from the URL)</span></label>
-<div id="bookmakerContainer"></div>
-<button class="btn btn-outline" onclick="addBookmakerRow()">+ Add bookmaker link</button>
-
 <div class="btn-row" style="margin-top:16px;">
 <button class="btn btn-gold" onclick="publishSlip()">Publish slip</button>
 </div>
@@ -92,7 +88,18 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 </div>
 
 <div class="card">
-<h2>2. Current live slip</h2>
+<h2>2. Bookmaker links <span>Independent of the matches above — add or remove anytime. The same Ksh 99 payment unlocks both.</span></h2>
+<div class="bm-row">
+<input type="url" id="newBookmakerUrl" placeholder="https://odibets.com/share/XXXXX">
+<input type="text" id="newBookmakerName" class="bm-name" placeholder="Auto">
+<button class="btn btn-gold" onclick="addBookmaker()">Add</button>
+</div>
+<div class="status-msg" id="bookmakerAddStatus"></div>
+<div id="bookmakerList" style="margin-top:14px;">Loading…</div>
+</div>
+
+<div class="card">
+<h2>3. Current live slip</h2>
 <div id="currentSlipPreview">Loading…</div>
 <div class="btn-row" id="archiveRow">
 <button class="btn btn-outline" onclick="loadCurrentSlip()">Refresh</button>
@@ -108,7 +115,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 </div>
 
 <div class="card">
-<h2>3. Grade a past slip <span>Pick one from history, mark each leg, save.</span></h2>
+<h2>4. Grade a past slip <span>Pick one from history, mark each leg, save.</span></h2>
 <div id="historyList">Loading…</div>
 <div id="gradeForm" style="display:none;margin-top:14px;">
 <div id="gradeLegsContainer"></div>
@@ -125,7 +132,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 </div>
 
 <div class="card">
-<h2>4. Manual unlock from a pasted M-Pesa message <span>Use this if PayHero is down. Amount in the message decides which product unlocks — Ksh 59 = main subscription, Ksh 39 = current Exclusive slip.</span></h2>
+<h2>5. Manual unlock from a pasted M-Pesa message <span>Use this if PayHero is down. Amount in the message decides which product unlocks — Ksh 59 = main subscription, Ksh 99 = current VIP Golden Slip (matches + bookmaker links, both).</span></h2>
 <label>Customer's phone number (required only for the Ksh 59 subscription)</label>
 <input type="tel" id="smsPhone" placeholder="0712345678">
 <label>Paste the full M-Pesa confirmation text</label>
@@ -137,7 +144,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 </div>
 
 <div class="card">
-<h2>5. Visitor stats</h2>
+<h2>6. Visitor stats</h2>
 <p class="note">Not built here — check Cloudflare dashboard → your Pages project → Analytics tab (Web Analytics). It's already tracking total and daily visits with zero code needed.</p>
 </div>
 
@@ -146,7 +153,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 <script>
 // ---- CONFIGURE THESE TWO BEFORE USE ----
 const WORKER_BASE = "https://money-odds-api.arphaxad98.workers.dev";
-const ADMIN_KEY = "UkqNKxQ8dETMmaSJGWpvnA7ujeOBbPHwrDXtLV6g0f42513cFChsRoiIl9gXMc5VeVxfjjEAtIjL5XGJpbcDBMrRa5fgg9bhBNOedUEMHQUkvB7hafWeJcINo0Fkib82gSLWPlm7cfWw2KjDrkMwfL7PkBbMPkF1hUp550A2OiocFCSsQwXedCn0sNSke76aBfj68VSK1F6MDQMwJItJdg5sQhnlljPa6BduhSIHkuvFcj4nQ8VUnAvrfRTqOwIX";
+const ADMIN_KEY = "PASTE_YOUR_ADMIN_API_KEY_HERE";
 // -----------------------------------------
 
 // mirrors worker.js's KNOWN_BOOKMAKERS, for an instant client-side preview badge
@@ -170,50 +177,70 @@ function detectBookmakerClient(url){
   } catch(e){ return null; }
 }
 
-let bmCounter = 0;
+async function addBookmaker(){
+  const url = document.getElementById("newBookmakerUrl").value.trim();
+  const name = document.getElementById("newBookmakerName").value.trim();
+  if(!url){ setStatus("bookmakerAddStatus", false, "Paste a link first."); return; }
 
-function addBookmakerRow(bm){
-  bm = bm || {};
-  bmCounter++;
-  const id = bmCounter;
-  const div = document.createElement("div");
-  div.className = "bm-row";
-  div.id = `bm-${id}`;
-  div.innerHTML = `
-    <input type="url" class="bm-url" placeholder="https://odibets.com/share/XXXXX" value="${bm.url ? bm.url.replace(/"/g,'&quot;') : ''}" oninput="previewBookmaker(${id})">
-    <input type="text" class="bm-name" placeholder="Auto" value="${bm.name ? bm.name.replace(/"/g,'&quot;') : ''}">
-    <span class="bm-badge-preview" id="bm-preview-${id}" style="background:#21293622;color:var(--text-dim);">—</span>
-    <button class="bm-remove" onclick="document.getElementById('bm-${id}').remove()">✕</button>
-  `;
-  document.getElementById("bookmakerContainer").appendChild(div);
-  if(bm.url) previewBookmaker(id);
-}
-
-function previewBookmaker(id){
-  const url = document.getElementById(`bm-${id}`).querySelector(".bm-url").value.trim();
-  const preview = document.getElementById(`bm-preview-${id}`);
-  const detected = url ? detectBookmakerClient(url) : null;
-  if(detected){
-    preview.textContent = detected.name;
-    preview.style.background = detected.color + "22";
-    preview.style.color = detected.color;
-  } else {
-    preview.textContent = "—";
-    preview.style.background = "#21293622";
-    preview.style.color = "var(--text-dim)";
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/bookmakers-add`, {
+      method: "POST",
+      headers: adminHeaders(),
+      body: JSON.stringify({ url, name }),
+    });
+    const data = await res.json();
+    if(data.ok){
+      setStatus("bookmakerAddStatus", true, `✓ Added ${data.entry.name}.`);
+      document.getElementById("newBookmakerUrl").value = "";
+      document.getElementById("newBookmakerName").value = "";
+      loadBookmakerList();
+    } else if(res.status === 409){
+      setStatus("bookmakerAddStatus", false, "That exact link is already on the list.");
+    } else {
+      setStatus("bookmakerAddStatus", false, "Error: " + JSON.stringify(data));
+    }
+  } catch(e){
+    setStatus("bookmakerAddStatus", false, "Request failed: " + e.message);
   }
 }
 
-function collectBookmakerLinks(){
-  const rows = document.querySelectorAll("#bookmakerContainer .bm-row");
-  const links = [];
-  rows.forEach(row => {
-    const url = row.querySelector(".bm-url").value.trim();
-    const name = row.querySelector(".bm-name").value.trim();
-    if(url) links.push({ url, name });
-  });
-  return links;
+async function loadBookmakerList(){
+  const el = document.getElementById("bookmakerList");
+  el.innerHTML = "Loading…";
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/bookmakers-list`, { headers: adminHeaders() });
+    const data = await res.json();
+    const list = data.bookmakers || [];
+    if(!list.length){ el.innerHTML = `<div class="note">No bookmaker links added yet.</div>`; return; }
+    el.innerHTML = list.map(b => `
+      <div class="leg-grade-row">
+        <span><span class="bm-badge-preview" style="background:${b.color}22;color:${b.color};">${b.name}</span> &nbsp;${b.url}</span>
+        <button class="bm-remove" onclick="removeBookmaker('${b.id}')">Remove</button>
+      </div>
+    `).join("");
+  } catch(e){
+    el.innerHTML = "Failed to load: " + e.message;
+  }
 }
+
+async function removeBookmaker(id){
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/bookmakers-remove`, {
+      method: "POST",
+      headers: adminHeaders(),
+      body: JSON.stringify({ id }),
+    });
+    const data = await res.json();
+    if(data.ok){
+      loadBookmakerList();
+    } else {
+      setStatus("bookmakerAddStatus", false, "Error: " + JSON.stringify(data));
+    }
+  } catch(e){
+    setStatus("bookmakerAddStatus", false, "Request failed: " + e.message);
+  }
+}
+
 let legCounter = 0;
 let historyCache = [];
 let selectedHistorySlip = null;
@@ -269,8 +296,6 @@ function editCurrentSlip(){
   document.getElementById("legsContainer").innerHTML = "";
   currentSlipData.legs.forEach(l => addLegRow(l));
   document.getElementById("combinedOdds").value = currentSlipData.combined_odds ?? "";
-  document.getElementById("bookmakerContainer").innerHTML = "";
-  (currentSlipData.bookmaker_links || []).forEach(b => addBookmakerRow(b));
   const note = document.getElementById("editingNote");
   note.className = "status-msg show";
   note.style.background = "var(--gold-soft)";
@@ -297,19 +322,18 @@ async function publishSlip(){
     });
   });
 
-  const combined_odds = parseFloat(document.getElementById("combinedOdds").value) || null;
-  const bookmaker_links = collectBookmakerLinks();
-
-  if(!legs.length && !bookmaker_links.length){
-    setStatus("publishStatus", false, "Add at least one match, or at least one bookmaker link — a slip needs one or the other.");
+  if(!legs.length){
+    setStatus("publishStatus", false, "Add at least one match with a match name and pick.");
     return;
   }
+
+  const combined_odds = parseFloat(document.getElementById("combinedOdds").value) || null;
 
   try {
     const res = await fetch(`${WORKER_BASE}/admin/exclusive-slip`, {
       method: "POST",
       headers: adminHeaders(),
-      body: JSON.stringify({ legs, combined_odds, bookmaker_links }),
+      body: JSON.stringify({ legs, combined_odds }),
     });
     const data = await res.json();
     if(data.ok){
@@ -317,7 +341,6 @@ async function publishSlip(){
       document.getElementById("legsContainer").innerHTML = "";
       addLegRow();
       document.getElementById("combinedOdds").value = "";
-      document.getElementById("bookmakerContainer").innerHTML = "";
       document.getElementById("editingNote").className = "status-msg";
       document.getElementById("editingNote").textContent = "";
       loadCurrentSlip();
@@ -550,6 +573,7 @@ async function submitSms(){
 
 loadCurrentSlip();
 loadHistory();
+loadBookmakerList();
 </script>
 
 </body>

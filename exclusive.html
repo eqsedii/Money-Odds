@@ -140,6 +140,8 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 
 <div class="slip-card" id="slipCard">Loading…</div>
 
+<div class="slip-card" id="bookmakerCard" style="display:none;"></div>
+
 <div class="restore-block">
 <p>Already paid for this slip but it's showing locked? Paste the unlock code you were given (or your admin gave you after a manual M-Pesa confirmation).</p>
 <div class="restore-row">
@@ -223,21 +225,12 @@ function renderLockedSlip(slip){
     </div>
   `).join('');
 
-  const bookmakers = slip.bookmakers || [];
-  const bmHtml = bookmakers.length ? `
-    <div class="bm-row-locked">
-      <div class="bm-label">Bookable on:</div>
-      ${bookmakers.map(b => `<span class="bm-badge" style="background:${b.color}22;color:${b.color};">${b.name}</span>`).join('')}
-    </div>
-  ` : '';
-
   document.getElementById('slipCard').innerHTML = `
     <div class="slip-top">
       <span class="slip-label">${slip.leg_count}-LEG SLIP</span>
       <div class="slip-odds"><div class="slip-odds-label">Combined odds</div><div class="slip-odds-val">${slip.combined_odds ?? '—'}</div></div>
     </div>
     ${legsHtml}
-    ${bmHtml}
     <button class="buy-btn" onclick="openPayModal()">Unlock for Ksh ${slip.price}</button>
   `;
 }
@@ -253,26 +246,52 @@ function renderUnlockedSlip(slip){
     </div>
   `).join('');
 
-  const bookmakers = slip.bookmaker_links || [];
-  const bmHtml = bookmakers.length ? `
-    <div class="bm-row-unlocked">
-      <div class="bm-label">Booked on your behalf — open your pick straight on the bookmaker's slip:</div>
-      ${bookmakers.map(b => `
-        <a class="bm-btn" href="${b.url}" target="_blank" rel="noopener" style="background:${b.color};">
-          <span>${b.name}</span><span class="bm-arrow">→</span>
-        </a>
-      `).join('')}
-    </div>
-  ` : '';
-
   document.getElementById('slipCard').innerHTML = `
     <div class="slip-top">
       <span class="slip-label">✓ UNLOCKED — ${slip.legs.length}-LEG SLIP</span>
       <div class="slip-odds"><div class="slip-odds-label">Combined odds</div><div class="slip-odds-val">${slip.combined_odds ?? '—'}</div></div>
     </div>
     ${legsHtml}
-    ${bmHtml}
   `;
+}
+
+// Bookmaker links — fully independent of the matches slip above. Same
+// payment unlocks both, but they're separate features with separate data.
+function renderLockedBookmakers(list){
+  const el = document.getElementById('bookmakerCard');
+  if(!list.length){ el.innerHTML = ''; el.style.display = 'none'; return; }
+  el.style.display = 'block';
+  el.innerHTML = `
+    <div class="slip-label" style="margin-bottom:10px;">BOOKABLE ON</div>
+    <div class="bm-row-locked" style="border-top:none;padding-top:0;margin:0;">
+      ${list.map(b => `<span class="bm-badge" style="background:${b.color}22;color:${b.color};">${b.name}</span>`).join('')}
+    </div>
+    <div class="note" style="margin-top:10px;">Unlock the slip above to get the ready-made booking link for each.</div>
+  `;
+}
+
+function renderUnlockedBookmakers(list){
+  const el = document.getElementById('bookmakerCard');
+  if(!list.length){ el.innerHTML = ''; el.style.display = 'none'; return; }
+  el.style.display = 'block';
+  el.innerHTML = `
+    <div class="slip-label" style="margin-bottom:10px;">✓ UNLOCKED — BOOKING LINKS</div>
+    <div class="bm-row-unlocked" style="border-top:none;padding-top:0;margin:0;">
+      ${list.map(b => `
+        <a class="bm-btn" href="${b.url}" target="_blank" rel="noopener" style="background:${b.color};">
+          <span>${b.name}</span><span class="bm-arrow">→</span>
+        </a>
+      `).join('')}
+    </div>
+  `;
+}
+
+async function loadLockedBookmakers(){
+  try {
+    const res = await fetch(`${WORKER_BASE}/bookmakers-current?_=` + Date.now());
+    const data = await res.json();
+    renderLockedBookmakers(data.bookmakers || []);
+  } catch(e){ /* non-critical, leave section hidden */ }
 }
 
 async function loadSlip(){
@@ -282,8 +301,9 @@ async function loadSlip(){
     const slip = data.slip;
 
     if(!slip){
-      document.getElementById('slipCard').innerHTML = `<div class="empty-slip">No Exclusive slip live right now — check back soon.</div>`;
+      document.getElementById('slipCard').innerHTML = `<div class="empty-slip">No VIP Golden Slip picks live right now — check back soon.</div>`;
       currentSlip = null;
+      loadLockedBookmakers(); // bookmaker links are independent — can exist even with no match slip live
       return;
     }
     currentSlip = slip;
@@ -294,12 +314,15 @@ async function loadSlip(){
       const unlockData = await unlockRes.json();
       if(unlockData.ok){
         renderUnlockedSlip(unlockData.slip);
+        renderUnlockedBookmakers(unlockData.bookmakers || []);
         return;
       }
     }
     renderLockedSlip(slip);
+    loadLockedBookmakers();
   } catch(e){
     document.getElementById('slipCard').innerHTML = `<div class="empty-slip">Couldn't load the current slip. Try again shortly.</div>`;
+    loadLockedBookmakers();
   }
 }
 
@@ -387,6 +410,7 @@ async function restoreWithToken(){
       saveExclusiveAccess(token, data.slip.slip_id);
       setStatus('restoreStatus', 'success', '✓ Unlocked!');
       renderUnlockedSlip(data.slip);
+      renderUnlockedBookmakers(data.bookmakers || []);
     } else {
       setStatus('restoreStatus', 'error', data.note || 'That code didn\'t work — it may be for an older slip, or mistyped.');
     }
