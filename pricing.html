@@ -239,7 +239,12 @@ function submitMpesaModal(){
     if(!data.ok || !data.externalReference){
       submitBtn.disabled = false;
       submitBtn.textContent = 'Continue to Payment';
-      setStatus('modalStatus', 'error', 'DEBUG: ' + JSON.stringify(data));
+      console.error('PayHero payment initiation failed:', data);
+setStatus(
+  'modalStatus',
+  'error',
+  'Payment is temporarily unavailable. Please try again.'
+);
       return;
     }
     pollPayheroCompletion(data.externalReference, 'modalStatus', () => {
