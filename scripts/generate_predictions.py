@@ -341,13 +341,15 @@ def build_football_fixtures(competitions=COMPETITIONS):
         teams, lg_home, lg_away = compute_team_football_stats(matches)
 
         upcoming = [
-            m for m in matches
-            if m.get("status") in ("SCHEDULED", "TIMED")
-            and m.get("utcDate", "")[:10] >= str(today)
-            and m.get("utcDate", "")[:10] <= str(window_end)
-        ]
+    m for m in matches
+    if m.get("status") in ("SCHEDULED", "TIMED")
+    and m.get("utcDate", "")[:10] >= str(today)
+    and m.get("utcDate", "")[:10] <= str(window_end)
+]
 
-            home, away = m["homeTeam"], m["awayTeam"]
+for m in upcoming:
+    home, away = m["homeTeam"], m["awayTeam"]
+      print(f"[{code}] Upcoming within {FIXTURE_WINDOW_DAYS} days: {len(upcoming)}")
             # A fixture should always be listed (locked) even with zero data
             # behind it — only the PICK itself is gated by sample size, not
             # whether the match shows up at all. Early in a season (or for a
