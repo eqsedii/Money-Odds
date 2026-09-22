@@ -51,10 +51,10 @@ BALLDONTLIE_BASE = "https://api.balldontlie.io/nba/v1"
 # The 12 competitions available on football-data.org's free tier
 COMPETITIONS = ["PL", "PD", "BL1", "SA", "FL1", "DED", "PPL", "ELC", "BSA", "CL", "WC", "EC"]
 
-MIN_SAMPLE = 4        # minimum home/away matches before we trust a team's numbers
+MIN_SAMPLE = 2        # minimum home/away matches before we trust a team's numbers
                        # (raised from 2 — small samples were too noisy to feature confidently)
 
-CONFIDENCE_FLOOR = 58   # % — only picks at or above this get featured on predictions.json
+CONFIDENCE_FLOOR = 51   # % — only picks at or above this get featured on predictions.json
                          # /private_picks.json. Replaces a fixed "always feature exactly 8"
                          # rule: on a weak day with no strong signals, that forced weak picks
                          # to be presented with the same visual confidence as genuinely
@@ -63,7 +63,7 @@ CONFIDENCE_FLOOR = 58   # % — only picks at or above this get featured on pred
 MAX_FEATURED = 20       # sanity cap so a huge day doesn't produce an unreasonably long list
 
 MULTI_LEG_COUNTS = [2, 3]  # accumulator sizes to build from the top picks
-FIXTURE_WINDOW_DAYS = 10   # how far ahead "upcoming" fixtures are collected for search
+FIXTURE_WINDOW_DAYS = 14   # how far ahead "upcoming" fixtures are collected for search
 MAX_H2H_CALLS = 40         # cap on head-to-head API calls per run (rate-limit / politeness budget)
 RECENT_FORM_N = 5
 RECENT_FORM_WEIGHT = 0.35  # how much last-5 scoring form counts vs full-season average,
