@@ -356,11 +356,11 @@ async function submitPayment(){
     });
     const data = await res.json();
     if(!data.ok || !data.externalReference){
-      btn.disabled = false;
-      btn.textContent = 'Pay Ksh 99';
-      setStatus('modalStatus', 'error', 'DEBUG: ' + JSON.stringify(data));
-      return;
-    }
+  btn.disabled = false;
+  btn.textContent = 'Pay Ksh 99';
+  setStatus('modalStatus', 'error', 'Payment is temporarily unavailable. Please try again later.');
+  return;
+}
     pollExclusivePayment(data.externalReference, btn);
   } catch(e){
     btn.disabled = false;
