@@ -1,4 +1,20 @@
 {
-  "generated_at": "2026-09-21T23:07:12.958562Z",
-  "fixtures": []
+  "generated_at": "2026-09-22T08:01:33.800221Z",
+  "fixtures": [
+    {
+      "id": 554948,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "S\u00e3o Paulo FC vs Santos FC",
+      "home_team": "S\u00e3o Paulo FC",
+      "away_team": "Santos FC",
+      "home_team_id": 1776,
+      "away_team_id": 6685,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-10-02T23:00:00Z",
+      "has_pick": true,
+      "locked": true
+    }
+  ]
 }

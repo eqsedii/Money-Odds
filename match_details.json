@@ -1,1 +1,121 @@
-{}
+{
+  "554948": {
+    "home_recent": [
+      {
+        "date": "2026-09-20",
+        "opponent": "SC Internacional",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-09-12",
+        "opponent": "SE Palmeiras",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-09-05",
+        "opponent": "CA Mineiro",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-08-29",
+        "opponent": "RB Bragantino",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-08-23",
+        "opponent": "Chapecoense AF",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-09-19",
+        "opponent": "Clube do Remo",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-09-13",
+        "opponent": "Cruzeiro EC",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-09-06",
+        "opponent": "SC Internacional",
+        "venue": "A",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-08-30",
+        "opponent": "SC Corinthians Paulista",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-08-23",
+        "opponent": "Mirassol FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      }
+    ],
+    "h2h": {
+      "number_of_matches": 5,
+      "home_wins": 0,
+      "draws": 2,
+      "away_wins": 0,
+      "matches": [
+        {
+          "date": "2026-02-04",
+          "home": "Santos FC",
+          "away": "S\u00e3o Paulo FC",
+          "score": "1-1",
+          "competition": "Campeonato Brasileiro S\u00e9rie A"
+        },
+        {
+          "date": "2025-09-21",
+          "home": "Santos FC",
+          "away": "S\u00e3o Paulo FC",
+          "score": "1-0",
+          "competition": "Campeonato Brasileiro S\u00e9rie A"
+        },
+        {
+          "date": "2025-04-20",
+          "home": "S\u00e3o Paulo FC",
+          "away": "Santos FC",
+          "score": "2-1",
+          "competition": "Campeonato Brasileiro S\u00e9rie A"
+        },
+        {
+          "date": "2023-11-12",
+          "home": "Santos FC",
+          "away": "S\u00e3o Paulo FC",
+          "score": "0-0",
+          "competition": "Campeonato Brasileiro S\u00e9rie A"
+        },
+        {
+          "date": "2023-07-16",
+          "home": "S\u00e3o Paulo FC",
+          "away": "Santos FC",
+          "score": "4-1",
+          "competition": "Campeonato Brasileiro S\u00e9rie A"
+        }
+      ]
+    }
+  }
+}
