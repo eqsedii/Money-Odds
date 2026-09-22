@@ -346,8 +346,7 @@ def build_football_fixtures(competitions=COMPETITIONS):
             and m.get("utcDate", "")[:10] >= str(today)
             and m.get("utcDate", "")[:10] <= str(window_end)
         ]
-print(f"[{code}] Upcoming within {FIXTURE_WINDOW_DAYS} days: {len(upcoming)}")
-        for m in upcoming:
+
             home, away = m["homeTeam"], m["awayTeam"]
             # A fixture should always be listed (locked) even with zero data
             # behind it — only the PICK itself is gated by sample size, not
