@@ -54,7 +54,7 @@ COMPETITIONS = ["PL", "PD", "BL1", "SA", "FL1", "DED", "PPL", "ELC", "BSA", "CL"
 MIN_SAMPLE = 4        # minimum home/away matches before we trust a team's numbers
                        # (raised from 2 — small samples were too noisy to feature confidently)
 
-CONFIDENCE_FLOOR = 58   # % — only picks at or above this get featured on predictions.json
+CONFIDENCE_FLOOR = 51   # % — only picks at or above this get featured on predictions.json
                          # /private_picks.json. Replaces a fixed "always feature exactly 8"
                          # rule: on a weak day with no strong signals, that forced weak picks
                          # to be presented with the same visual confidence as genuinely
