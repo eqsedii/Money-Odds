@@ -63,7 +63,7 @@ CONFIDENCE_FLOOR = 51   # % — only picks at or above this get featured on pred
 MAX_FEATURED = 20       # sanity cap so a huge day doesn't produce an unreasonably long list
 
 MULTI_LEG_COUNTS = [2, 3]  # accumulator sizes to build from the top picks
-FIXTURE_WINDOW_DAYS = 10   # how far ahead "upcoming" fixtures are collected for search
+FIXTURE_WINDOW_DAYS = 14   # how far ahead "upcoming" fixtures are collected for search
 MAX_H2H_CALLS = 40         # cap on head-to-head API calls per run (rate-limit / politeness budget)
 RECENT_FORM_N = 5
 RECENT_FORM_WEIGHT = 0.35  # how much last-5 scoring form counts vs full-season average,
@@ -346,7 +346,7 @@ def build_football_fixtures(competitions=COMPETITIONS):
             and m.get("utcDate", "")[:10] >= str(today)
             and m.get("utcDate", "")[:10] <= str(window_end)
         ]
-
+print(f"[{code}] Upcoming within {FIXTURE_WINDOW_DAYS} days: {len(upcoming)}")
         for m in upcoming:
             home, away = m["homeTeam"], m["awayTeam"]
             # A fixture should always be listed (locked) even with zero data
