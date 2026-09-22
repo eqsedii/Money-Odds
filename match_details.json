@@ -117,5 +117,110 @@
         }
       ]
     }
+  },
+  "554940": {
+    "home_recent": [
+      {
+        "date": "2026-09-19",
+        "opponent": "Chapecoense AF",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-09-12",
+        "opponent": "Fluminense FC",
+        "venue": "H",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-09-05",
+        "opponent": "S\u00e3o Paulo FC",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-08-29",
+        "opponent": "EC Vit\u00f3ria",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-08-22",
+        "opponent": "SC Internacional",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-09-20",
+        "opponent": "CR Flamengo",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-09-12",
+        "opponent": "Botafogo FR",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-09-05",
+        "opponent": "EC Bahia",
+        "venue": "H",
+        "score": "2-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-08-29",
+        "opponent": "S\u00e3o Paulo FC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-08-23",
+        "opponent": "Gr\u00eamio FBPA",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      }
+    ],
+    "h2h": {
+      "number_of_matches": 5,
+      "home_wins": 0,
+      "draws": 1,
+      "away_wins": 0,
+      "matches": [
+        {
+          "date": "2026-02-04",
+          "home": "RB Bragantino",
+          "away": "CA Mineiro",
+          "score": "1-0",
+          "competition": "Campeonato Brasileiro S\u00e9rie A"
+        },
+        {
+          "date": "2025-11-16",
+          "home": "RB Bragantino",
+          "away": "CA Mineiro",
+          "score": "2-0",
+          "competition": "Campeonato Brasileiro S\u00e9rie A"
+        },
+        {
+          "date": "2025-08-03",
+          "home": "CA Mineiro",
+          "away": "RB Bragantino",
+          "score": "2-1",
+          "competition": "Campeonato Brasileiro S\u00e9rie A"
+        }
+      ]
+    }
   }
 }

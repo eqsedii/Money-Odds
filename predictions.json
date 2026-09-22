@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T16:14:31.403438Z",
+  "generated_at": "2026-09-22T18:20:21.671444Z",
   "predictions": [
     {
       "id": 554948,
@@ -15,7 +15,41 @@
       "kickoff": "2026-10-02T23:00:00Z",
       "has_pick": true,
       "locked": true
+    },
+    {
+      "id": 554940,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "CA Mineiro vs RB Bragantino",
+      "home_team": "CA Mineiro",
+      "away_team": "RB Bragantino",
+      "home_team_id": 1766,
+      "away_team_id": 4286,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-10-03T21:30:00Z",
+      "has_pick": true,
+      "locked": true
     }
   ],
-  "multi_bets": []
+  "multi_bets": [
+    {
+      "title": "2-Leg Accumulator",
+      "locked": true,
+      "legs": [
+        {
+          "id": 554948,
+          "icon": "\u26bd",
+          "match": "S\u00e3o Paulo FC vs Santos FC",
+          "meta": "Campeonato Brasileiro S\u00e9rie A"
+        },
+        {
+          "id": 554940,
+          "icon": "\u26bd",
+          "match": "CA Mineiro vs RB Bragantino",
+          "meta": "Campeonato Brasileiro S\u00e9rie A"
+        }
+      ]
+    }
+  ]
 }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T16:14:31.402888Z",
+  "generated_at": "2026-09-22T18:20:21.670365Z",
   "fixtures": [
     {
       "id": 554948,
@@ -13,6 +13,21 @@
       "league": "Campeonato Brasileiro S\u00e9rie A",
       "comp_code": "BSA",
       "kickoff": "2026-10-02T23:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 554940,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "CA Mineiro vs RB Bragantino",
+      "home_team": "CA Mineiro",
+      "away_team": "RB Bragantino",
+      "home_team_id": 1766,
+      "away_team_id": 4286,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-10-03T21:30:00Z",
       "has_pick": true,
       "locked": true
     }
