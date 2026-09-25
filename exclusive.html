@@ -1,3 +1,5 @@
+--- exclusive.html ---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -190,6 +192,14 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <script>
 const WORKER_BASE = "https://money-odds-api.arphaxad98.workers.dev";
 
+// Agent referral: ?ref=CODE on the link. Remembered for this visitor so it
+// still applies if they land on ?ref=CODE today and pay tomorrow.
+(function(){
+  const urlRef = new URLSearchParams(location.search).get('ref');
+  if(urlRef) localStorage.setItem('moneyOddsAgentRef', urlRef.trim().toUpperCase());
+})();
+function getAgentRef(){ return localStorage.getItem('moneyOddsAgentRef') || null; }
+
 document.getElementById('navToggle').addEventListener('click', function(){
   document.getElementById('navLinks').classList.toggle('open');
 });
@@ -352,7 +362,7 @@ async function submitPayment(){
     const res = await fetch(`${WORKER_BASE}/payhero-initiate`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ phone, name, kind: 'exclusive' }),
+      body: JSON.stringify({ phone, name, kind: 'exclusive', ref: getAgentRef() }),
     });
     const data = await res.json();
     if(!data.ok || !data.externalReference){
@@ -466,3 +476,6 @@ loadHistory();
 
 </body>
 </html>
+
+
+--- favicon.webp ---

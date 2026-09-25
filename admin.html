@@ -148,6 +148,36 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 <p class="note">Not built here — check Cloudflare dashboard → your Pages project → Analytics tab (Web Analytics). It's already tracking total and daily visits with zero code needed.</p>
 </div>
 
+<div class="card">
+<h2>7. Agent invite links <span>Applications only go through a one-time link. Generate one to send to whoever you're inviting.</span></h2>
+<div class="row2" style="display:flex;gap:10px;align-items:flex-end;margin-bottom:14px;">
+  <div style="flex:1;">
+    <label for="inviteLabelInput" style="margin-top:0;">Note (optional — who this is for)</label>
+    <input id="inviteLabelInput" type="text" placeholder="e.g. John's cousin">
+  </div>
+  <button class="btn btn-gold" style="width:auto;white-space:nowrap;" onclick="generateInvite()">Generate link</button>
+</div>
+<div class="status-msg" id="inviteGenStatus"></div>
+<div id="inviteList" class="note">Loading…</div>
+</div>
+
+<div class="card">
+<h2>8. Agent applications <span>New Money Odds Agent Portal (M.O.A.P) sign-ups. Approve to generate a code and shareable link.</span></h2>
+<div id="agentPendingList" class="note">Loading…</div>
+<div class="status-msg" id="agentApproveStatus"></div>
+</div>
+
+<div class="card">
+<h2>9. Active agents <span>Codes issued so far, with running commission balance (Ksh 40 per qualifying Ksh 99 payment).</span></h2>
+<div id="agentActiveList" class="note">Loading…</div>
+</div>
+
+<div class="card">
+<h2>10. Withdrawal requests <span>An agent hit the minimum threshold and requested payout. Send the amount to the phone number shown, then mark it paid.</span></h2>
+<div id="withdrawalList" class="note">Loading…</div>
+<div class="status-msg" id="withdrawalStatus"></div>
+</div>
+
 </div>
 
 <script>
@@ -574,7 +604,196 @@ async function submitSms(){
 loadCurrentSlip();
 loadHistory();
 loadBookmakerList();
+loadAgentPending();
+loadAgentActive();
+loadWithdrawals();
+loadInvites();
+function agentBadge(status){
+  const map = { pending: ["#F5A623","Pending"], approved: ["#3DD68C","Approved"], rejected: ["#E8536B","Rejected"] };
+  const [color, label] = map[status] || ["#8B92A5", status];
+  return `<span class="bm-badge-preview" style="background:${color}22;color:${color};">${label}</span>`;
+}
+
+
+async function generateInvite(){
+  const label = document.getElementById("inviteLabelInput").value.trim();
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/agent-invite-generate`, {
+      method: "POST",
+      headers: adminHeaders(),
+      body: JSON.stringify({ label }),
+    });
+    const data = await res.json();
+    if(data.ok){
+      setStatus("inviteGenStatus", true, `✓ Link ready: ${data.link}`);
+      document.getElementById("inviteLabelInput").value = "";
+      loadInvites();
+    } else {
+      setStatus("inviteGenStatus", false, "Error: " + JSON.stringify(data));
+    }
+  } catch(e){
+    setStatus("inviteGenStatus", false, "Request failed: " + e.message);
+  }
+}
+
+async function loadInvites(){
+  const el = document.getElementById("inviteList");
+  el.innerHTML = "Loading…";
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/agent-invite-list`, { headers: adminHeaders() });
+    const data = await res.json();
+    const list = (data.invites || []).slice(0, 20);
+    if(!list.length){ el.innerHTML = `<div class="note">No invite links generated yet.</div>`; return; }
+    el.innerHTML = list.map(inv => `
+      <div class="leg-grade-row">
+        <span>${inv.label || "(no note)"} ${agentBadge(inv.status === "unused" ? "pending" : "approved")}</span>
+        <span class="note">${new Date(inv.createdAt).toLocaleDateString()}</span>
+      </div>
+    `).join("");
+  } catch(e){
+    el.innerHTML = "Failed to load: " + e.message;
+  }
+}
+
+async function loadAgentPending(){
+  const el = document.getElementById("agentPendingList");
+  el.innerHTML = "Loading…";
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/agent-list?status=pending`, { headers: adminHeaders() });
+    const data = await res.json();
+    const list = data.applications || [];
+    if(!list.length){ el.innerHTML = `<div class="note">No pending applications.</div>`; return; }
+    el.innerHTML = list.map(app => `
+      <div class="leg-row">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <div>
+            <div style="font-weight:600;font-size:14px;">${app.name} ${agentBadge('pending')}</div>
+            <div class="note" style="margin-top:4px;">${app.phone} · ${app.county || ''}<br>ID: ${app.id_number || '—'} · ${app.email || 'no email'}<br>Address: ${app.address || '—'}<br>Next of kin: ${app.next_of_kin_name ? app.next_of_kin_name + ' (' + (app.next_of_kin_phone || 'no phone') + ')' : '—'}</div>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-cyan" onclick="approveAgent('${app.applicationId}')">Approve</button>
+          <button class="btn btn-danger" onclick="rejectAgent('${app.applicationId}')">Reject</button>
+        </div>
+      </div>
+    `).join("");
+  } catch(e){
+    el.innerHTML = "Failed to load: " + e.message;
+  }
+}
+
+async function approveAgent(applicationId){
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/agent-approve`, {
+      method: "POST",
+      headers: adminHeaders(),
+      body: JSON.stringify({ applicationId }),
+    });
+    const data = await res.json();
+    if(data.ok){
+      setStatus("agentApproveStatus", true, `✓ Approved — code ${data.code} — link: ${data.link}`);
+      loadAgentPending();
+      loadAgentActive();
+    } else {
+      setStatus("agentApproveStatus", false, "Error: " + JSON.stringify(data));
+    }
+  } catch(e){
+    setStatus("agentApproveStatus", false, "Request failed: " + e.message);
+  }
+}
+
+async function rejectAgent(applicationId){
+  const reason = prompt("Reason for rejection (optional):") || "";
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/agent-reject`, {
+      method: "POST",
+      headers: adminHeaders(),
+      body: JSON.stringify({ applicationId, reason }),
+    });
+    const data = await res.json();
+    if(data.ok){
+      setStatus("agentApproveStatus", true, "Application rejected.");
+      loadAgentPending();
+    } else {
+      setStatus("agentApproveStatus", false, "Error: " + JSON.stringify(data));
+    }
+  } catch(e){
+    setStatus("agentApproveStatus", false, "Request failed: " + e.message);
+  }
+}
+
+
+async function loadWithdrawals(){
+  const el = document.getElementById("withdrawalList");
+  el.innerHTML = "Loading…";
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/agent-withdrawals?status=pending`, { headers: adminHeaders() });
+    const data = await res.json();
+    const list = data.withdrawals || [];
+    if(!list.length){ el.innerHTML = `<div class="note">No pending withdrawal requests.</div>`; return; }
+    el.innerHTML = list.map(w => `
+      <div class="leg-row">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <div>
+            <div style="font-weight:600;font-size:14px;">${w.name} <span class="bm-badge-preview" style="background:var(--gold-soft);color:var(--gold);">${w.code}</span></div>
+            <div class="note" style="margin-top:4px;">Send to: <b style="color:var(--text);">${w.phone}</b></div>
+          </div>
+          <div style="font-size:18px;font-weight:700;color:var(--gold);white-space:nowrap;">Ksh ${w.amount}</div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-gold" onclick="markWithdrawalPaid('${w.id}')">Mark as paid</button>
+        </div>
+      </div>
+    `).join("");
+  } catch(e){
+    el.innerHTML = "Failed to load: " + e.message;
+  }
+}
+
+async function markWithdrawalPaid(withdrawalId){
+  if(!confirm("Confirm you have already sent this M-Pesa payment. This cannot be undone.")) return;
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/agent-withdrawal-complete`, {
+      method: "POST",
+      headers: adminHeaders(),
+      body: JSON.stringify({ withdrawalId }),
+    });
+    const data = await res.json();
+    if(data.ok){
+      setStatus("withdrawalStatus", true, "✓ Marked as paid.");
+      loadWithdrawals();
+      loadAgentActive();
+    } else {
+      setStatus("withdrawalStatus", false, "Error: " + JSON.stringify(data));
+    }
+  } catch(e){
+    setStatus("withdrawalStatus", false, "Request failed: " + e.message);
+  }
+}
+
+async function loadAgentActive(){
+  const el = document.getElementById("agentActiveList");
+  el.innerHTML = "Loading…";
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/agent-list?status=approved`, { headers: adminHeaders() });
+    const data = await res.json();
+    const list = data.applications || [];
+    if(!list.length){ el.innerHTML = `<div class="note">No approved agents yet.</div>`; return; }
+    el.innerHTML = list.map(a => `
+      <div class="leg-grade-row">
+        <span><b>${a.code}</b> &nbsp;${a.name} · ${a.phone}</span>
+        <span style="color:var(--gold);font-weight:700;">Ksh ${a.balance || 0}</span>
+      </div>
+    `).join("");
+  } catch(e){
+    el.innerHTML = "Failed to load: " + e.message;
+  }
+}
+
 </script>
 
 </body>
 </html>
+
+
+--- archive/2026-09-06.json ---

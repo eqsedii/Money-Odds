@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Portal — Money Odds</title>
+<meta name="description" content="Become a Money Odds agent. Earn Ksh 40 for every client who pays Ksh 99 through your unique link.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/webp" href="favicon.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#0A0E14;--bg-raised:#10151D;--bg-card:#131A24;--line:#212936;
+--text:#E8EAED;--text-dim:#8B92A5;--gold:#F5A623;--gold-soft:#F5A62322;
+--cyan:#2DE1E8;--cyan-soft:#2DE1E822;--win:#3DD68C;--win-soft:#3DD68C1c;
+--loss:#E8536B;--loss-soft:#E8536B1c;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:600;line-height:1.15;margin:0;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+.nav{position:sticky;top:0;z-index:50;background:rgba(10,14,20,0.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;}
+.brand-mark{width:32px;height:32px;border-radius:8px;object-fit:cover;}
+.nav-links{display:flex;gap:32px;font-size:15px;color:var(--text-dim);}
+.nav-links a:hover{color:var(--text);}
+.nav-links a.active{color:var(--cyan);}
+.nav-cta{padding:9px 20px;border-radius:9px;background:var(--gold);color:#1A1204;font-weight:600;font-size:14px;box-shadow:0 0 20px rgba(245,166,35,0.35);}
+.nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer;}
+@media (max-width:800px){
+.nav-links{position:fixed;top:68px;left:0;right:0;background:var(--bg-raised);flex-direction:column;padding:20px 24px;gap:18px;border-bottom:1px solid var(--line);transform:translateY(-150%);transition:transform .25s ease;}
+.nav-links.open{transform:translateY(0);}
+.nav-toggle{display:block;}
+.nav-cta{display:none;}
+}
+.page-head{padding:56px 0 36px;position:relative;overflow:hidden;text-align:center;}
+.page-head::before{content:'';position:absolute;top:-180px;left:50%;transform:translateX(-50%);width:500px;height:400px;background:radial-gradient(circle,rgba(245,166,35,0.14),transparent 70%);pointer-events:none;}
+.eyebrow{color:var(--gold);font-size:14px;font-weight:600;margin-bottom:12px;position:relative;letter-spacing:0.5px;}
+.page-head h1{font-size:34px;letter-spacing:-0.4px;margin-bottom:10px;position:relative;}
+.page-head p{color:var(--text-dim);font-size:16px;max-width:520px;margin:0 auto;position:relative;}
+.moap-tag{display:inline-block;margin-top:14px;font-size:12px;color:var(--text-dim);border:1px solid var(--line);border-radius:999px;padding:5px 14px;position:relative;}
+.commission-strip{max-width:440px;margin:24px auto 0;background:var(--gold-soft);border:1px solid rgba(245,166,35,0.35);border-radius:12px;padding:14px 18px;font-size:14px;color:var(--gold);font-weight:600;text-align:center;position:relative;}
+
+.panel-wrap{max-width:480px;margin:0 auto;padding:8px 0 80px;}
+.card{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:26px;}
+.card h2{font-size:18px;margin-bottom:4px;}
+.card .sub{color:var(--text-dim);font-size:13.5px;margin-bottom:20px;}
+label{display:block;font-size:12.5px;color:var(--text-dim);margin-bottom:5px;margin-top:14px;}
+label:first-of-type{margin-top:0;}
+input{width:100%;padding:11px 13px;border-radius:9px;background:var(--bg-raised);border:1px solid var(--line);color:var(--text);font-size:14.5px;font-family:inherit;}
+input:focus{outline:none;border-color:var(--cyan);}
+.optional-tag{color:var(--text-dim);font-weight:400;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+
+.terms-box{margin-top:18px;background:var(--bg-raised);border:1px solid var(--line);border-radius:10px;padding:14px;font-size:12px;color:var(--text-dim);line-height:1.6;}
+.read-terms-link{display:inline-block;margin-top:8px;font-size:12.5px;color:var(--cyan);font-weight:600;cursor:pointer;}
+.terms-modal-backdrop{display:none;position:fixed;inset:0;background:rgba(5,7,10,0.72);z-index:200;align-items:center;justify-content:center;padding:20px;}
+.terms-modal-backdrop.open{display:flex;}
+.terms-modal{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;max-width:560px;width:100%;max-height:82vh;display:flex;flex-direction:column;}
+.terms-modal-head{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+.terms-modal-head h3{font-size:16px;}
+.terms-modal-close{background:none;border:none;color:var(--text-dim);font-size:22px;cursor:pointer;line-height:1;}
+.terms-modal-body{padding:20px 22px;overflow-y:auto;font-size:13.5px;color:var(--text-dim);line-height:1.7;}
+.terms-modal-body b{color:var(--text);display:block;margin-top:16px;margin-bottom:4px;}
+.terms-modal-body b:first-child{margin-top:0;}
+.terms-modal-foot{padding:14px 22px;border-top:1px solid var(--line);}
+
+.agree-row{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:13px;color:var(--text-dim);}
+.agree-row input{width:auto;margin-top:3px;}
+.agree-row a{color:var(--cyan);font-weight:600;}
+
+.btn{width:100%;margin-top:20px;padding:13px 18px;border-radius:10px;border:none;font-weight:700;font-size:15px;cursor:pointer;background:var(--gold);color:#1A1204;box-shadow:0 0 20px rgba(245,166,35,0.3);}
+.btn:disabled{opacity:0.5;cursor:not-allowed;box-shadow:none;}
+.btn-outline{background:transparent;border:1px solid var(--line);color:var(--text);box-shadow:none;}
+
+.status-msg{margin-top:14px;padding:10px 14px;border-radius:8px;font-size:13px;display:none;}
+.status-msg.show{display:block;}
+.status-msg.ok{background:var(--win-soft);color:var(--win);}
+.status-msg.err{background:var(--loss-soft);color:var(--loss);}
+
+.pending-icon{width:56px;height:56px;border-radius:16px;background:var(--gold-soft);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 16px;}
+.center{text-align:center;}
+
+.link-row{display:flex;gap:8px;margin-top:16px;}
+.link-row input{font-size:12.5px;color:var(--text-dim);}
+.copy-btn{flex-shrink:0;padding:0 16px;border-radius:9px;border:1px solid var(--line);background:var(--bg-raised);color:var(--text);font-weight:600;font-size:13px;cursor:pointer;}
+.copy-btn.copied{border-color:var(--win);color:var(--win);}
+
+.rejected-box{background:var(--loss-soft);border:1px solid rgba(232,83,107,0.3);border-radius:10px;padding:14px;color:var(--loss);font-size:13.5px;margin-top:16px;}
+
+.step{display:none;}
+.step.active{display:block;}
+
+.tab-row{display:flex;gap:10px;margin-bottom:18px;}
+.tab-btn{flex:1;padding:10px;border-radius:9px;border:1px solid var(--line);background:var(--bg-raised);color:var(--text-dim);font-weight:600;font-size:13.5px;cursor:pointer;text-align:center;}
+.tab-btn.active{background:var(--gold-soft);border-color:var(--gold);color:var(--gold);}
+
+.dash-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:6px;}
+.dash-name{font-size:19px;font-weight:700;}
+.dash-code{font-size:12.5px;color:var(--text-dim);margin-top:2px;}
+.logout-link{font-size:12.5px;color:var(--text-dim);cursor:pointer;white-space:nowrap;}
+.logout-link:hover{color:var(--loss);}
+
+.balance-box{background:var(--bg-raised);border:1px solid var(--line);border-radius:12px;padding:18px;text-align:center;margin:18px 0;}
+.balance-box .bal-label{font-size:12px;color:var(--text-dim);}
+.balance-box .bal-value{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;color:var(--gold);margin-top:4px;}
+.balance-box .bal-min{font-size:12px;color:var(--text-dim);margin-top:6px;}
+
+.ref-table{margin-top:8px;}
+.ref-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--line);font-size:13.5px;}
+.ref-row:last-child{border-bottom:none;}
+.ref-phone{font-weight:600;}
+.ref-date{color:var(--text-dim);font-size:12px;}
+.ref-amount{color:var(--win);font-weight:700;}
+.empty-refs{color:var(--text-dim);font-size:13.5px;padding:14px 0;text-align:center;}
+
+.disclaimer{max-width:640px;margin:20px auto 0;text-align:center;background:var(--bg-raised);border:1px solid var(--line);border-radius:10px;padding:16px 20px;font-size:12px;color:var(--text-dim);line-height:1.6;}
+
+footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);font-size:13px;}
+.footer-grid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+.footer-links{display:flex;gap:20px;}
+.footer-links a:hover{color:var(--text);}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+<div class="wrap">
+<a href="index.html" class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</a>
+<div class="nav-links" id="navLinks">
+<a href="predictions.html">Predictions</a>
+<a href="pricing.html">Pricing</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</div>
+<a href="pricing.html" class="nav-cta">Get Picks</a>
+<button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+</div>
+</nav>
+
+<section class="page-head">
+<div class="wrap">
+<div class="eyebrow">AGENT PORTAL</div>
+<h1 id="headTitle">Money Odds Agent Portal</h1>
+<p id="headSub">Share your link. Every client who pays for the VIP Golden Slip through it earns you a commission.</p>
+<div class="moap-tag">M.O.A.P — Money Odds Agent Portal</div>
+<div class="commission-strip" id="commissionStrip">Ksh 40 commission for every client who pays Ksh 99 under your unique code</div>
+</div>
+</section>
+
+<div class="wrap">
+<div class="panel-wrap" id="panelWrap">
+
+  <!-- TABS (only shown when no application/session is in progress) -->
+  <div id="tabs" class="tab-row">
+    <button class="tab-btn active" id="tabApplyBtn" onclick="switchTab('apply')">Apply</button>
+    <button class="tab-btn" id="tabLoginBtn" onclick="switchTab('login')">Agent login</button>
+  </div>
+
+  <!-- STEP: APPLICATION FORM -->
+  <div class="step active" id="stepApply">
+    <div class="card">
+      <h2>Apply to become an agent</h2>
+      <div class="sub">Fill in your details below. A code is generated automatically once your application is approved.</div>
+
+      <label for="fName">Full name (as on National ID)</label>
+      <input id="fName" type="text" autocomplete="name">
+
+      <label for="fId">National ID number</label>
+      <input id="fId" type="text" inputmode="numeric">
+
+      <label for="fPhone">Phone number (M-Pesa registered)</label>
+      <input id="fPhone" type="tel" inputmode="tel" placeholder="07XXXXXXXX">
+
+      <label for="fEmail">Email address</label>
+      <input id="fEmail" type="email" autocomplete="email">
+
+      <div class="row2">
+        <div>
+          <label for="fCounty">County / Town</label>
+          <input id="fCounty" type="text">
+        </div>
+        <div>
+          <label for="fAddress">Physical address</label>
+          <input id="fAddress" type="text">
+        </div>
+      </div>
+
+      <div class="row2">
+        <div>
+          <label for="fNokName">Next of kin — name <span class="optional-tag">(optional)</span></label>
+          <input id="fNokName" type="text">
+        </div>
+        <div>
+          <label for="fNokPhone">Next of kin — phone <span class="optional-tag">(optional)</span></label>
+          <input id="fNokPhone" type="tel">
+        </div>
+      </div>
+
+      <div class="terms-box">
+        You'll be a non-exclusive, independent referral agent — not an employee. You earn Ksh 40 for every genuine Ksh 99 VIP Golden Slip payment made through your code or link. Self-referral or faking a referral forfeits your balance and ends your agent status.
+        <div class="read-terms-link" onclick="openTerms()">Read the full Terms &amp; Conditions →</div>
+      </div>
+      <div class="agree-row">
+        <input type="checkbox" id="fAgree">
+        <label for="fAgree" style="margin:0;">I have read and agree to the <a href="#" onclick="openTerms();return false;">Agent Terms &amp; Conditions</a>.</label>
+      </div>
+
+      <button class="btn" id="applyBtn" onclick="submitApplication()" disabled>Submit application</button>
+      <div class="status-msg" id="applyStatus"></div>
+    </div>
+  </div>
+
+  <!-- STEP: AGENT LOGIN (any device, any time) -->
+  <div class="step" id="stepLogin">
+    <div class="card">
+      <h2>Agent login</h2>
+      <div class="sub">Already approved? Sign in with your agent code and password.</div>
+
+      <label for="lCode">Agent code</label>
+      <input id="lCode" type="text" style="text-transform:uppercase;" placeholder="e.g. 482913MK">
+
+      <label for="lPassword">Password</label>
+      <input id="lPassword" type="password">
+
+      <button class="btn" onclick="submitLogin()">Log in</button>
+      <div class="status-msg" id="loginStatus"></div>
+    </div>
+  </div>
+
+  <!-- STEP: PENDING REVIEW -->
+  <div class="step" id="stepPending">
+    <div class="card center">
+      <div class="pending-icon">⏳</div>
+      <h2>Application received</h2>
+      <div class="sub" style="margin-top:8px;">Your application is under review. You'll be able to set your password here as soon as it's approved.</div>
+      <button class="btn btn-outline" onclick="checkStatus(true)">Check status</button>
+      <div class="status-msg" id="pendingStatus"></div>
+      <div id="rejectedArea"></div>
+    </div>
+  </div>
+
+  <!-- STEP: SET PASSWORD (first time only, right after approval) -->
+  <div class="step" id="stepSetPassword">
+    <div class="card">
+      <h2>🎉 You're approved — set your password</h2>
+      <div class="sub">Your agent code is <b id="setPwCode" style="color:var(--gold);"></b>. Choose a password — you'll use your code and this password to log in from now on, on any device.</div>
+
+      <label for="pwNew">New password</label>
+      <input id="pwNew" type="password">
+      <label for="pwConfirm">Confirm password</label>
+      <input id="pwConfirm" type="password">
+
+      <button class="btn" onclick="submitSetPassword()">Set password &amp; continue</button>
+      <div class="status-msg" id="setPwStatus"></div>
+    </div>
+  </div>
+
+  <!-- STEP: DASHBOARD -->
+  <div class="step" id="stepDashboard">
+    <div class="card">
+      <div class="dash-top">
+        <div>
+          <div class="dash-name" id="dashName">—</div>
+          <div class="dash-code">Agent code: <b id="dashCode" style="color:var(--gold);"></b></div>
+        </div>
+        <div class="logout-link" onclick="logout()">Log out</div>
+      </div>
+
+      <div class="link-row" style="margin-top:16px;">
+        <input id="dashLinkValue" type="text" readonly>
+        <button class="copy-btn" id="dashCopyBtn" onclick="copyDashLink()">Copy</button>
+      </div>
+
+      <div class="balance-box">
+        <div class="bal-label">YOUR BALANCE</div>
+        <div class="bal-value" id="dashBalance">Ksh 0</div>
+        <div class="bal-min" id="dashMinNote">Minimum payout: Ksh —</div>
+      </div>
+
+      <button class="btn" id="withdrawBtn" onclick="requestWithdrawal()">Request withdrawal</button>
+      <div class="status-msg" id="withdrawStatus"></div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <h2>Customers who used your link</h2>
+      <div class="sub">Each entry is one qualifying Ksh 99 payment credited to you.</div>
+      <div class="ref-table" id="refTable"></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="disclaimer">Money Odds provides statistical analysis for informational purposes. No outcome is guaranteed. Bet responsibly and only with money you can afford to lose.</div>
+</div>
+
+<footer>
+<div class="wrap footer-grid">
+<div class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</div>
+<div class="footer-links">
+<a href="predictions.html">Predictions</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</div>
+<div>&copy; 2026 Money Odds. All rights reserved.</div>
+</div>
+</footer>
+
+<div class="terms-modal-backdrop" id="termsModal" onclick="if(event.target===this) closeTerms()">
+  <div class="terms-modal">
+    <div class="terms-modal-head">
+      <h3>Money Odds Agent Terms &amp; Conditions</h3>
+      <button class="terms-modal-close" onclick="closeTerms()" aria-label="Close">&times;</button>
+    </div>
+    <div class="terms-modal-body">
+      <b>1. Appointment</b>Mode Techs Kenya ("the Company"), trading as Money Odds, appoints the Agent as a non-exclusive, independent referral agent. This does not create an employment, partnership, or agency-in-law relationship. The Agent is responsible for their own tax obligations on commissions earned.
+      <b>2. Referral Code</b>On approval, the Agent is issued one unique referral code, personal to them and non-transferable, and sets a password known only to them. The Company may reissue or deactivate a code at its discretion, including on suspected misuse.
+      <b>3. Commission</b>The Agent earns Ksh 40 for every VIP Golden Slip purchase of Ksh 99 completed by a client using the Agent's code or link, subject to Clause 4.
+      <b>4. Qualifying Referrals</b>A referral qualifies only where the payment is a genuine Ksh 99 transaction confirmed successful, and the paying phone number is not the Agent's own registered number. The Company's transaction records are final in determining whether a referral qualifies.
+      <b>5. Payment of Commission</b>Commission accrues to the Agent's balance. Once the balance reaches the minimum payout threshold shown in the dashboard, the Agent may request a withdrawal; the Company pays it out via M-Pesa to the Agent's registered number, manually confirmed by the Company.
+      <b>6. Fraud and Misuse</b>Self-referral, use of multiple SIM cards or proxies, or any attempt to fake a referral forfeits the Agent's balance and is grounds for immediate termination.
+      <b>7. Marketing Conduct</b>The Agent may promote Money Odds through personal networks and social media, but may not make false or exaggerated claims about outcomes or guaranteed winnings, or use paid advertising bearing the Company's name without written consent.
+      <b>8. Term and Termination</b>Either party may terminate with written notice (including WhatsApp or email). The Company may terminate immediately for breach of Clauses 4, 6, or 7. Commission already earned on qualifying referrals remains payable.
+      <b>9. No Guarantee of Earnings</b>The Company makes no guarantee as to referral volume or income. Participation is voluntary and at the Agent's own initiative and expense.
+      <b>10. Confidentiality</b>The Agent shall keep confidential any non-public information about the Company's systems, pricing, or internal processes, including their own login credentials.
+      <b>11. Governing Law</b>This Agreement is governed by the laws of the Republic of Kenya.
+    </div>
+    <div class="terms-modal-foot">
+      <button class="btn" style="margin-top:0;" onclick="closeTerms()">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const WORKER_BASE = "https://money-odds-api.arphaxad98.workers.dev";
+const SITE_BASE = location.origin;
+const INVITE_KEY = new URLSearchParams(location.search).get('key') || '';
+const APP_KEY = 'moneyOddsAgentApp';      // { applicationId, phone } — set right after applying
+const SESSION_KEY = 'moneyOddsAgentSession'; // { token, code } — set after password setup or login
+
+document.getElementById('navToggle').addEventListener('click', function(){
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.getElementById('fAgree').addEventListener('change', function(){
+  document.getElementById('applyBtn').disabled = !this.checked;
+});
+
+function openTerms(){ document.getElementById('termsModal').classList.add('open'); }
+function closeTerms(){ document.getElementById('termsModal').classList.remove('open'); }
+
+function setStatus(id, ok, msg){
+  const el = document.getElementById(id);
+  el.className = 'status-msg show ' + (ok ? 'ok' : 'err');
+  el.textContent = msg;
+}
+
+function showStep(name){
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById(name).classList.add('active');
+  document.getElementById('tabs').style.display = (name === 'stepApply' || name === 'stepLogin') ? 'flex' : 'none';
+}
+
+function switchTab(which){
+  document.getElementById('tabApplyBtn').classList.toggle('active', which === 'apply');
+  document.getElementById('tabLoginBtn').classList.toggle('active', which === 'login');
+  showStep(which === 'apply' ? 'stepApply' : 'stepLogin');
+}
+
+function normalizePhoneDisplay(p){
+  return (p || '').replace(/[^0-9]/g, '');
+}
+
+// ---------------------------------------------------------------- APPLY
+async function submitApplication(){
+  const payload = {
+    name: document.getElementById('fName').value.trim(),
+    id_number: document.getElementById('fId').value.trim(),
+    phone: normalizePhoneDisplay(document.getElementById('fPhone').value),
+    email: document.getElementById('fEmail').value.trim(),
+    county: document.getElementById('fCounty').value.trim(),
+    address: document.getElementById('fAddress').value.trim(),
+    next_of_kin_name: document.getElementById('fNokName').value.trim(),
+    next_of_kin_phone: document.getElementById('fNokPhone').value.trim(),
+  };
+  if(!payload.name || !payload.id_number || !payload.phone || !payload.county){
+    setStatus('applyStatus', false, 'Please fill in your name, ID number, phone and county.');
+    return;
+  }
+  const btn = document.getElementById('applyBtn');
+  btn.disabled = true;
+  btn.textContent = 'Submitting…';
+
+  try {
+    const res = await fetch(`${WORKER_BASE}/agent-apply`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...payload, inviteKey: INVITE_KEY }),
+    });
+    const data = await res.json();
+    if(!data.ok){
+      setStatus('applyStatus', false, data.error === 'duplicate_application'
+        ? 'An application from this phone number already exists — try the Agent login tab if you were already approved.'
+        : 'Something went wrong — please try again.');
+      btn.disabled = false;
+      btn.textContent = 'Submit application';
+      return;
+    }
+    localStorage.setItem(APP_KEY, JSON.stringify({ applicationId: data.applicationId, phone: payload.phone }));
+    showStep('stepPending');
+  } catch(e){
+    setStatus('applyStatus', false, 'Request failed: ' + e.message);
+    btn.disabled = false;
+    btn.textContent = 'Submit application';
+  }
+}
+
+async function checkStatus(manual){
+  const raw = localStorage.getItem(APP_KEY);
+  if(!raw) return;
+  const { applicationId } = JSON.parse(raw);
+  try {
+    const res = await fetch(`${WORKER_BASE}/agent-status?id=${encodeURIComponent(applicationId)}`);
+    const data = await res.json();
+    if(data.status === 'approved'){
+      if(data.passwordSet){
+        // Already set up (e.g. re-visiting this device) — send them to log in.
+        document.getElementById('lCode').value = data.code;
+        showStep('stepLogin');
+      } else {
+        document.getElementById('setPwCode').textContent = data.code;
+        showStep('stepSetPassword');
+      }
+    } else if(data.status === 'rejected'){
+      document.getElementById('rejectedArea').innerHTML =
+        `<div class="rejected-box">Your application wasn't approved${data.reason ? ': ' + data.reason : '.'} Contact us if you think this is a mistake.</div>`;
+    } else if(manual){
+      setStatus('pendingStatus', true, 'Still under review — check back soon.');
+    }
+  } catch(e){
+    if(manual) setStatus('pendingStatus', false, 'Could not check status: ' + e.message);
+  }
+}
+
+// ---------------------------------------------------------- SET PASSWORD
+async function submitSetPassword(){
+  const pw = document.getElementById('pwNew').value;
+  const confirm_ = document.getElementById('pwConfirm').value;
+  if(!pw || pw.length < 6){
+    setStatus('setPwStatus', false, 'Password must be at least 6 characters.');
+    return;
+  }
+  if(pw !== confirm_){
+    setStatus('setPwStatus', false, "Passwords don't match.");
+    return;
+  }
+  const app = JSON.parse(localStorage.getItem(APP_KEY) || '{}');
+  const code = document.getElementById('setPwCode').textContent;
+  try {
+    const res = await fetch(`${WORKER_BASE}/agent-set-password`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code, phone: app.phone, password: pw }),
+    });
+    const data = await res.json();
+    if(!data.ok){
+      setStatus('setPwStatus', false, 'Could not set password: ' + (data.error || 'unknown error'));
+      return;
+    }
+    await loginWithCredentials(code, pw);
+  } catch(e){
+    setStatus('setPwStatus', false, 'Request failed: ' + e.message);
+  }
+}
+
+// ---------------------------------------------------------------- LOGIN
+async function submitLogin(){
+  const code = document.getElementById('lCode').value.trim().toUpperCase();
+  const pw = document.getElementById('lPassword').value;
+  if(!code || !pw){
+    setStatus('loginStatus', false, 'Enter your agent code and password.');
+    return;
+  }
+  await loginWithCredentials(code, pw, 'loginStatus');
+}
+
+async function loginWithCredentials(code, pw, statusElId){
+  try {
+    const res = await fetch(`${WORKER_BASE}/agent-login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code, password: pw }),
+    });
+    const data = await res.json();
+    if(!data.ok){
+      const msg = data.error === 'invalid_credentials' ? 'Incorrect code or password.' : 'Login failed.';
+      if(statusElId) setStatus(statusElId, false, msg); else setStatus('setPwStatus', false, msg);
+      return;
+    }
+    localStorage.setItem(SESSION_KEY, JSON.stringify({ token: data.token, code }));
+    localStorage.removeItem(APP_KEY);
+    await loadDashboard();
+  } catch(e){
+    const msg = 'Request failed: ' + e.message;
+    if(statusElId) setStatus(statusElId, false, msg); else setStatus('setPwStatus', false, msg);
+  }
+}
+
+function logout(){
+  localStorage.removeItem(SESSION_KEY);
+  document.getElementById('lCode').value = '';
+  document.getElementById('lPassword').value = '';
+  switchTab('login');
+}
+
+// ------------------------------------------------------------ DASHBOARD
+async function loadDashboard(){
+  const raw = localStorage.getItem(SESSION_KEY);
+  if(!raw) { switchTab('apply'); return; }
+  const { token } = JSON.parse(raw);
+  try {
+    const res = await fetch(`${WORKER_BASE}/agent-dashboard`, {
+      headers: { 'X-Agent-Token': token },
+    });
+    const data = await res.json();
+    if(!data.ok){
+      logout();
+      return;
+    }
+    document.getElementById('dashName').textContent = data.name;
+    document.getElementById('dashCode').textContent = data.code;
+    document.getElementById('dashLinkValue').value = `${SITE_BASE}/exclusive.html?ref=${data.code}`;
+    document.getElementById('dashBalance').textContent = `Ksh ${data.balance}`;
+    document.getElementById('dashMinNote').textContent = `Minimum payout: Ksh ${data.minPayout}`;
+
+    const btn = document.getElementById('withdrawBtn');
+    if(data.withdrawalPending){
+      btn.disabled = true;
+      btn.textContent = 'Withdrawal requested — awaiting payout';
+    } else if(data.balance < data.minPayout){
+      btn.disabled = true;
+      btn.textContent = `Request withdrawal (need Ksh ${data.minPayout - data.balance} more)`;
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Request withdrawal';
+    }
+
+    const refTable = document.getElementById('refTable');
+    if(!data.referrals || !data.referrals.length){
+      refTable.innerHTML = `<div class="empty-refs">No customers yet — share your link to start earning.</div>`;
+    } else {
+      refTable.innerHTML = data.referrals.map(r => `
+        <div class="ref-row">
+          <div>
+            <div class="ref-phone">${r.phone}</div>
+            <div class="ref-date">${new Date(r.date).toLocaleDateString()}</div>
+          </div>
+          <div class="ref-amount">+Ksh ${r.amount}</div>
+        </div>
+      `).join('');
+    }
+
+    document.getElementById('headTitle').textContent = `Welcome back, ${data.name.split(' ')[0]}`;
+    document.getElementById('headSub').textContent = 'Your referrals and balance are below.';
+    document.getElementById('commissionStrip').style.display = 'none';
+    showStep('stepDashboard');
+  } catch(e){
+    setStatus('withdrawStatus', false, 'Could not load dashboard: ' + e.message);
+  }
+}
+
+async function requestWithdrawal(){
+  const raw = localStorage.getItem(SESSION_KEY);
+  if(!raw) return;
+  const { token } = JSON.parse(raw);
+  const btn = document.getElementById('withdrawBtn');
+  btn.disabled = true;
+  btn.textContent = 'Sending request…';
+  try {
+    const res = await fetch(`${WORKER_BASE}/agent-withdraw-request`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Agent-Token': token },
+    });
+    const data = await res.json();
+    if(data.ok){
+      setStatus('withdrawStatus', true, "✓ Withdrawal requested — you'll be paid via M-Pesa once confirmed.");
+      loadDashboard();
+    } else {
+      setStatus('withdrawStatus', false, 'Could not request withdrawal: ' + (data.error || 'unknown error'));
+      loadDashboard();
+    }
+  } catch(e){
+    setStatus('withdrawStatus', false, 'Request failed: ' + e.message);
+  }
+}
+
+function copyDashLink(){
+  const input = document.getElementById('dashLinkValue');
+  input.select();
+  navigator.clipboard.writeText(input.value).then(() => {
+    const btn = document.getElementById('dashCopyBtn');
+    btn.textContent = 'Copied';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1800);
+  });
+}
+
+// ------------------------------------------------------------------ INIT
+(function init(){
+  if(!INVITE_KEY){
+    document.getElementById('tabApplyBtn').style.display = 'none';
+  }
+  if(localStorage.getItem(SESSION_KEY)){
+    loadDashboard();
+  } else if(localStorage.getItem(APP_KEY)){
+    showStep('stepPending');
+    checkStatus(false);
+  } else if(INVITE_KEY){
+    switchTab('apply');
+  } else {
+    switchTab('login');
+  }
+})();
+</script>
+
+</body>
+</html>
