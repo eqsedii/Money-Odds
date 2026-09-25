@@ -1,6 +1,96 @@
 {
-  "generated_at": "2026-09-24T23:45:54.855609Z",
+  "generated_at": "2026-09-25T02:33:27.595011Z",
   "predictions": [
+    {
+      "id": 565820,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Borussia Dortmund vs SV Werder Bremen",
+      "home_team": "Borussia Dortmund",
+      "away_team": "SV Werder Bremen",
+      "home_team_id": 4,
+      "away_team_id": 12,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-10-09T18:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 567326,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Sporting Clube de Braga vs Sporting Clube de Portugal",
+      "home_team": "Sporting Clube de Braga",
+      "away_team": "Sporting Clube de Portugal",
+      "home_team_id": 5613,
+      "away_team_id": 498,
+      "league": "Primeira Liga",
+      "comp_code": "PPL",
+      "kickoff": "2026-10-09T19:15:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 559669,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Racing Club de Lens vs Olympique Lyonnais",
+      "home_team": "Racing Club de Lens",
+      "away_team": "Olympique Lyonnais",
+      "home_team_id": 546,
+      "away_team_id": 523,
+      "league": "Ligue 1",
+      "comp_code": "FL1",
+      "kickoff": "2026-10-09T18:45:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 558881,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "PSV vs SC Heerenveen",
+      "home_team": "PSV",
+      "away_team": "SC Heerenveen",
+      "home_team_id": 674,
+      "away_team_id": 673,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-10-09T18:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 555024,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Fluminense FC vs Coritiba FBC",
+      "home_team": "Fluminense FC",
+      "away_team": "Coritiba FBC",
+      "home_team_id": 1765,
+      "away_team_id": 4241,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-10-09T00:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 564706,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "M\u00e1laga CF vs RCD Espanyol de Barcelona",
+      "home_team": "M\u00e1laga CF",
+      "away_team": "RCD Espanyol de Barcelona",
+      "home_team_id": 84,
+      "away_team_id": 80,
+      "league": "Primera Division",
+      "comp_code": "PD",
+      "kickoff": "2026-10-09T19:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
     {
       "id": 555021,
       "sport": "Football",
@@ -73,6 +163,51 @@
       "league": "Campeonato Brasileiro S\u00e9rie A",
       "comp_code": "BSA",
       "kickoff": "2026-10-07T22:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 561862,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "West Ham United FC vs Queens Park Rangers FC",
+      "home_team": "West Ham United FC",
+      "away_team": "Queens Park Rangers FC",
+      "home_team_id": 563,
+      "away_team_id": 69,
+      "league": "Championship",
+      "comp_code": "ELC",
+      "kickoff": "2026-10-09T19:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 555026,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "SE Palmeiras vs EC Bahia",
+      "home_team": "SE Palmeiras",
+      "away_team": "EC Bahia",
+      "home_team_id": 1769,
+      "away_team_id": 1777,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-10-09T00:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 567327,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Moreirense FC vs Gil Vicente FC",
+      "home_team": "Moreirense FC",
+      "away_team": "Gil Vicente FC",
+      "home_team_id": 583,
+      "away_team_id": 5533,
+      "league": "Primeira Liga",
+      "comp_code": "PPL",
+      "kickoff": "2026-10-09T17:45:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -158,16 +293,16 @@
       "locked": true,
       "legs": [
         {
-          "id": 555021,
+          "id": 565820,
           "icon": "\u26bd",
-          "match": "Botafogo FR vs CR Vasco da Gama",
-          "meta": "Campeonato Brasileiro S\u00e9rie A"
+          "match": "Borussia Dortmund vs SV Werder Bremen",
+          "meta": "Bundesliga"
         },
         {
-          "id": 555029,
+          "id": 567326,
           "icon": "\u26bd",
-          "match": "EC Vit\u00f3ria vs Chapecoense AF",
-          "meta": "Campeonato Brasileiro S\u00e9rie A"
+          "match": "Sporting Clube de Braga vs Sporting Clube de Portugal",
+          "meta": "Primeira Liga"
         }
       ]
     },
@@ -176,21 +311,21 @@
       "locked": true,
       "legs": [
         {
-          "id": 555027,
+          "id": 559669,
           "icon": "\u26bd",
-          "match": "Clube do Remo vs Gr\u00eamio FBPA",
-          "meta": "Campeonato Brasileiro S\u00e9rie A"
+          "match": "Racing Club de Lens vs Olympique Lyonnais",
+          "meta": "Ligue 1"
         },
         {
-          "id": 555028,
+          "id": 558881,
           "icon": "\u26bd",
-          "match": "Santos FC vs CR Flamengo",
-          "meta": "Campeonato Brasileiro S\u00e9rie A"
+          "match": "PSV vs SC Heerenveen",
+          "meta": "Eredivisie"
         },
         {
-          "id": 555025,
+          "id": 555024,
           "icon": "\u26bd",
-          "match": "SC Internacional vs SC Corinthians Paulista",
+          "match": "Fluminense FC vs Coritiba FBC",
           "meta": "Campeonato Brasileiro S\u00e9rie A"
         }
       ]
