@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T23:38:12.421299Z",
+  "generated_at": "2026-09-28T02:40:14.188276Z",
   "predictions": [
     {
       "id": 560594,
@@ -43,6 +43,21 @@
       "league": "Ligue 1",
       "comp_code": "FL1",
       "kickoff": "2026-10-11T15:15:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 560597,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Coventry City FC vs Newcastle United FC",
+      "home_team": "Coventry City FC",
+      "away_team": "Newcastle United FC",
+      "home_team_id": 1076,
+      "away_team_id": 67,
+      "league": "Premier League",
+      "comp_code": "PL",
+      "kickoff": "2026-10-12T19:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -285,21 +300,6 @@
       "kickoff": "2026-10-11T15:30:00Z",
       "has_pick": true,
       "locked": true
-    },
-    {
-      "id": 560593,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Arsenal FC vs Leeds United FC",
-      "home_team": "Arsenal FC",
-      "away_team": "Leeds United FC",
-      "home_team_id": 57,
-      "away_team_id": 341,
-      "league": "Premier League",
-      "comp_code": "PL",
-      "kickoff": "2026-10-10T11:30:00Z",
-      "has_pick": true,
-      "locked": true
     }
   ],
   "multi_bets": [
@@ -332,16 +332,16 @@
           "meta": "Ligue 1"
         },
         {
+          "id": 560597,
+          "icon": "\u26bd",
+          "match": "Coventry City FC vs Newcastle United FC",
+          "meta": "Premier League"
+        },
+        {
           "id": 565818,
           "icon": "\u26bd",
           "match": "TSG 1899 Hoffenheim vs Hamburger SV",
           "meta": "Bundesliga"
-        },
-        {
-          "id": 567321,
-          "icon": "\u26bd",
-          "match": "Casa Pia AC vs CD Santa Clara",
-          "meta": "Primeira Liga"
         }
       ]
     }
