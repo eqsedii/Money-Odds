@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T19:05:10.658958Z",
+  "generated_at": "2026-09-29T00:53:02.384313Z",
   "predictions": [
     {
       "id": 560594,
@@ -272,6 +272,21 @@
       "locked": true
     },
     {
+      "id": 561869,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Wolverhampton Wanderers FC vs Bolton Wanderers FC",
+      "home_team": "Wolverhampton Wanderers FC",
+      "away_team": "Bolton Wanderers FC",
+      "home_team_id": 76,
+      "away_team_id": 60,
+      "league": "Championship",
+      "comp_code": "ELC",
+      "kickoff": "2026-10-13T18:45:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 565815,
       "sport": "Football",
       "icon": "\u26bd",
@@ -283,21 +298,6 @@
       "league": "Bundesliga",
       "comp_code": "BL1",
       "kickoff": "2026-10-10T16:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 565816,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "SC Freiburg vs FC Schalke 04",
-      "home_team": "SC Freiburg",
-      "away_team": "FC Schalke 04",
-      "home_team_id": 17,
-      "away_team_id": 6,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-10-11T15:30:00Z",
       "has_pick": true,
       "locked": true
     }
