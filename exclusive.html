@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -145,12 +143,25 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <div class="slip-card" id="bookmakerCard" style="display:none;"></div>
 
 <div class="restore-block">
-<p>Already paid for this slip but it's showing locked? Paste the unlock code you were given (or your admin gave you after a manual M-Pesa confirmation).</p>
+<p>Already paid for this slip? Enter the phone number you paid with — no code needed.</p>
+<div class="restore-row">
+<input type="tel" id="restorePhone" placeholder="Your M-Pesa phone number">
+<button onclick="restoreByPhone()">Restore</button>
+</div>
+<div class="status-box" id="restorePhoneStatus"></div>
+</div>
+
+<div class="restore-block">
+<p>Have an unlock code instead (from your admin)? Paste it here.</p>
 <div class="restore-row">
 <input type="text" id="restoreToken" placeholder="Unlock code">
 <button onclick="restoreWithToken()">Unlock</button>
 </div>
 <div class="status-box" id="restoreStatus"></div>
+</div>
+
+<div class="restore-block">
+<p style="margin-bottom:0;">Still stuck? Email <a href="mailto:support@moneyoddspredictions.co.ke" style="color:var(--cyan);font-weight:600;">support@moneyoddspredictions.co.ke</a> and we'll sort it out.</p>
 </div>
 
 <div class="disclaimer">VIP Golden Slip picks are the specialist's own selections, made independently of the statistical model used elsewhere on this site. Bookmaker booking codes can expire or their odds can shift before kickoff — treat a code as a starting point, not a locked-in guarantee of that exact stake or odds. No outcome is guaranteed. Bet responsibly and only with money you can afford to lose.</div>
@@ -191,14 +202,6 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 
 <script>
 const WORKER_BASE = "https://money-odds-api.arphaxad98.workers.dev";
-
-// Agent referral: ?ref=CODE on the link. Remembered for this visitor so it
-// still applies if they land on ?ref=CODE today and pay tomorrow.
-(function(){
-  const urlRef = new URLSearchParams(location.search).get('ref');
-  if(urlRef) localStorage.setItem('moneyOddsAgentRef', urlRef.trim().toUpperCase());
-})();
-function getAgentRef(){ return localStorage.getItem('moneyOddsAgentRef') || null; }
 
 document.getElementById('navToggle').addEventListener('click', function(){
   document.getElementById('navLinks').classList.toggle('open');
@@ -362,15 +365,15 @@ async function submitPayment(){
     const res = await fetch(`${WORKER_BASE}/payhero-initiate`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ phone, name, kind: 'exclusive', ref: getAgentRef() }),
+      body: JSON.stringify({ phone, name, kind: 'exclusive' }),
     });
     const data = await res.json();
     if(!data.ok || !data.externalReference){
-  btn.disabled = false;
-  btn.textContent = 'Pay Ksh 99';
-  setStatus('modalStatus', 'error', 'Payment is temporarily unavailable. Please try again later.');
-  return;
-}
+      btn.disabled = false;
+      btn.textContent = 'Pay Ksh 99';
+      setStatus('modalStatus', 'error', 'DEBUG: ' + JSON.stringify(data));
+      return;
+    }
     pollExclusivePayment(data.externalReference, btn);
   } catch(e){
     btn.disabled = false;
@@ -408,6 +411,27 @@ async function pollExclusivePayment(ref, btn){
     setTimeout(poll, 3000);
   };
   poll();
+}
+
+async function restoreByPhone(){
+  const phone = document.getElementById('restorePhone').value.trim();
+  if(!phone){ setStatus('restorePhoneStatus', 'error', 'Enter the phone number you paid with.'); return; }
+  try {
+    const res = await fetch(`${WORKER_BASE}/exclusive-restore?phone=${encodeURIComponent(phone)}`);
+    const data = await res.json();
+    if(data.ok){
+      saveExclusiveAccess(data.token, data.slip.slip_id);
+      setStatus('restorePhoneStatus', 'success', '✓ Unlocked!');
+      renderUnlockedSlip(data.slip);
+      renderUnlockedBookmakers(data.bookmakers || []);
+    } else if(data.status === 'expired'){
+      setStatus('restorePhoneStatus', 'error', data.note || 'Your last purchase was for an earlier slip — it doesn\'t cover the one currently live.');
+    } else {
+      setStatus('restorePhoneStatus', 'error', 'No purchase found for that number. Double-check it, or use an unlock code below if you have one.');
+    }
+  } catch(e){
+    setStatus('restorePhoneStatus', 'error', 'Something went wrong — please try again.');
+  }
 }
 
 async function restoreWithToken(){
@@ -476,6 +500,3 @@ loadHistory();
 
 </body>
 </html>
-
-
-
