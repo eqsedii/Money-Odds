@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T21:43:28.146377Z",
+  "generated_at": "2026-10-03T03:00:51.205814Z",
   "predictions": [
     {
       "id": 560594,
@@ -13,6 +13,51 @@
       "league": "Premier League",
       "comp_code": "PL",
       "kickoff": "2026-10-11T13:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 561882,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Southampton FC vs Bolton Wanderers FC",
+      "home_team": "Southampton FC",
+      "away_team": "Bolton Wanderers FC",
+      "home_team_id": 340,
+      "away_team_id": 60,
+      "league": "Championship",
+      "comp_code": "ELC",
+      "kickoff": "2026-10-17T14:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 565829,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "FC Schalke 04 vs 1. FSV Mainz 05",
+      "home_team": "FC Schalke 04",
+      "away_team": "1. FSV Mainz 05",
+      "home_team_id": 6,
+      "away_team_id": 15,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-10-17T13:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 560610,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Manchester City FC vs Ipswich Town FC",
+      "home_team": "Manchester City FC",
+      "away_team": "Ipswich Town FC",
+      "home_team_id": 65,
+      "away_team_id": 349,
+      "league": "Premier League",
+      "comp_code": "PL",
+      "kickoff": "2026-10-17T14:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -107,6 +152,21 @@
       "locked": true
     },
     {
+      "id": 558869,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Telstar 1963 vs Feyenoord Rotterdam",
+      "home_team": "Telstar 1963",
+      "away_team": "Feyenoord Rotterdam",
+      "home_team_id": 1912,
+      "away_team_id": 675,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-10-17T18:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 565820,
       "sport": "Football",
       "icon": "\u26bd",
@@ -163,6 +223,21 @@
       "league": "Serie A",
       "comp_code": "SA",
       "kickoff": "2026-10-11T18:45:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 558871,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "ADO Den Haag vs PSV",
+      "home_team": "ADO Den Haag",
+      "away_team": "PSV",
+      "home_team_id": 680,
+      "away_team_id": 674,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-10-17T14:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -225,81 +300,6 @@
       "kickoff": "2026-10-11T13:30:00Z",
       "has_pick": true,
       "locked": true
-    },
-    {
-      "id": 561868,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Middlesbrough FC vs Wolverhampton Wanderers FC",
-      "home_team": "Middlesbrough FC",
-      "away_team": "Wolverhampton Wanderers FC",
-      "home_team_id": 343,
-      "away_team_id": 76,
-      "league": "Championship",
-      "comp_code": "ELC",
-      "kickoff": "2026-10-10T14:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 560600,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Manchester United FC vs Tottenham Hotspur FC",
-      "home_team": "Manchester United FC",
-      "away_team": "Tottenham Hotspur FC",
-      "home_team_id": 66,
-      "away_team_id": 73,
-      "league": "Premier League",
-      "comp_code": "PL",
-      "kickoff": "2026-10-10T16:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 567324,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Arouca vs CF Estrela da Amadora",
-      "home_team": "FC Arouca",
-      "away_team": "CF Estrela da Amadora",
-      "home_team_id": 712,
-      "away_team_id": 9136,
-      "league": "Primeira Liga",
-      "comp_code": "PPL",
-      "kickoff": "2026-10-11T19:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 561869,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Wolverhampton Wanderers FC vs Bolton Wanderers FC",
-      "home_team": "Wolverhampton Wanderers FC",
-      "away_team": "Bolton Wanderers FC",
-      "home_team_id": 76,
-      "away_team_id": 60,
-      "league": "Championship",
-      "comp_code": "ELC",
-      "kickoff": "2026-10-13T18:45:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 565815,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "RB Leipzig vs Eintracht Frankfurt",
-      "home_team": "RB Leipzig",
-      "away_team": "Eintracht Frankfurt",
-      "home_team_id": 721,
-      "away_team_id": 19,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-10-10T16:30:00Z",
-      "has_pick": true,
-      "locked": true
     }
   ],
   "multi_bets": [
@@ -314,10 +314,10 @@
           "meta": "Premier League"
         },
         {
-          "id": 560595,
+          "id": 561882,
           "icon": "\u26bd",
-          "match": "Chelsea FC vs AFC Bournemouth",
-          "meta": "Premier League"
+          "match": "Southampton FC vs Bolton Wanderers FC",
+          "meta": "Championship"
         }
       ]
     },
@@ -326,22 +326,22 @@
       "locked": true,
       "legs": [
         {
-          "id": 559667,
+          "id": 565829,
           "icon": "\u26bd",
-          "match": "Stade Rennais FC 1901 vs AJ Auxerre",
-          "meta": "Ligue 1"
+          "match": "FC Schalke 04 vs 1. FSV Mainz 05",
+          "meta": "Bundesliga"
         },
         {
-          "id": 560597,
+          "id": 560610,
           "icon": "\u26bd",
-          "match": "Coventry City FC vs Newcastle United FC",
+          "match": "Manchester City FC vs Ipswich Town FC",
           "meta": "Premier League"
         },
         {
-          "id": 565818,
+          "id": 560595,
           "icon": "\u26bd",
-          "match": "TSG 1899 Hoffenheim vs Hamburger SV",
-          "meta": "Bundesliga"
+          "match": "Chelsea FC vs AFC Bournemouth",
+          "meta": "Premier League"
         }
       ]
     }
