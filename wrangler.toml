@@ -1,3 +1,7 @@
 name = "money-odds-api"
 main = "worker.js"
-compatibility_date = "2024-01-01"
+compatibility_date = "2026-09-08"
+
+[[kv_namespaces]]
+binding = "UNLOCKS"
+id = "9f8c99aff007414cb0f4c6788916f0fd"
