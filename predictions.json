@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T23:35:09.852482Z",
+  "generated_at": "2026-10-04T03:30:35.427594Z",
   "predictions": [
     {
       "id": 560594,
@@ -13,6 +13,21 @@
       "league": "Premier League",
       "comp_code": "PL",
       "kickoff": "2026-10-11T13:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 565826,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Borussia M\u00f6nchengladbach vs TSG 1899 Hoffenheim",
+      "home_team": "Borussia M\u00f6nchengladbach",
+      "away_team": "TSG 1899 Hoffenheim",
+      "home_team_id": 18,
+      "away_team_id": 2,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-10-18T15:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -62,6 +77,21 @@
       "locked": true
     },
     {
+      "id": 560608,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Nottingham Forest FC vs Arsenal FC",
+      "home_team": "Nottingham Forest FC",
+      "away_team": "Arsenal FC",
+      "home_team_id": 351,
+      "away_team_id": 57,
+      "league": "Premier League",
+      "comp_code": "PL",
+      "kickoff": "2026-10-18T15:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 560595,
       "sport": "Football",
       "icon": "\u26bd",
@@ -103,6 +133,21 @@
       "league": "Premier League",
       "comp_code": "PL",
       "kickoff": "2026-10-12T19:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 559665,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Olympique Lyonnais vs OGC Nice",
+      "home_team": "Olympique Lyonnais",
+      "away_team": "OGC Nice",
+      "home_team_id": 523,
+      "away_team_id": 522,
+      "league": "Ligue 1",
+      "comp_code": "FL1",
+      "kickoff": "2026-10-18T18:45:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -242,62 +287,17 @@
       "locked": true
     },
     {
-      "id": 565817,
+      "id": 558569,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "1. FC Union Berlin vs SV 07 Elversberg",
-      "home_team": "1. FC Union Berlin",
-      "away_team": "SV 07 Elversberg",
-      "home_team_id": 28,
-      "away_team_id": 719,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-10-10T13:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 560599,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Ipswich Town FC vs Fulham FC",
-      "home_team": "Ipswich Town FC",
-      "away_team": "Fulham FC",
-      "home_team_id": 349,
-      "away_team_id": 63,
-      "league": "Premier League",
-      "comp_code": "PL",
-      "kickoff": "2026-10-10T14:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558582,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Internazionale Milano vs Parma Calcio 1913",
-      "home_team": "FC Internazionale Milano",
-      "away_team": "Parma Calcio 1913",
-      "home_team_id": 108,
-      "away_team_id": 112,
+      "match": "AC Milan vs Atalanta BC",
+      "home_team": "AC Milan",
+      "away_team": "Atalanta BC",
+      "home_team_id": 98,
+      "away_team_id": 102,
       "league": "Serie A",
       "comp_code": "SA",
-      "kickoff": "2026-10-10T16:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 565814,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "1. FC K\u00f6ln vs Borussia M\u00f6nchengladbach",
-      "home_team": "1. FC K\u00f6ln",
-      "away_team": "Borussia M\u00f6nchengladbach",
-      "home_team_id": 1,
-      "away_team_id": 18,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-10-11T13:30:00Z",
+      "kickoff": "2026-10-18T16:00:00Z",
       "has_pick": true,
       "locked": true
     }
@@ -314,10 +314,10 @@
           "meta": "Premier League"
         },
         {
-          "id": 561882,
+          "id": 565826,
           "icon": "\u26bd",
-          "match": "Southampton FC vs Bolton Wanderers FC",
-          "meta": "Championship"
+          "match": "Borussia M\u00f6nchengladbach vs TSG 1899 Hoffenheim",
+          "meta": "Bundesliga"
         }
       ]
     },
@@ -325,6 +325,12 @@
       "title": "3-Leg Accumulator",
       "locked": true,
       "legs": [
+        {
+          "id": 561882,
+          "icon": "\u26bd",
+          "match": "Southampton FC vs Bolton Wanderers FC",
+          "meta": "Championship"
+        },
         {
           "id": 565829,
           "icon": "\u26bd",
@@ -335,12 +341,6 @@
           "id": 560610,
           "icon": "\u26bd",
           "match": "Manchester City FC vs Ipswich Town FC",
-          "meta": "Premier League"
-        },
-        {
-          "id": 560595,
-          "icon": "\u26bd",
-          "match": "Chelsea FC vs AFC Bournemouth",
           "meta": "Premier League"
         }
       ]
