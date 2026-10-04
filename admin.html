@@ -153,6 +153,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 <script>
 // ---- CONFIGURE THESE TWO BEFORE USE ----
 const WORKER_BASE = "https://moneyoddspredictions.co.ke";
+const PUBLIC_BASE = "https://money-odds-api.arphaxad98.workers.dev";
 const ADMIN_KEY = "kJvETRuAxnd1qpXtfbmCsGhw74NPFIc0OM5WQjglSUDr863LiKo9BVea2HkStF8bobVPGJ9vIRJXUjO35hH1C7mOws5O3d3q82Vvdnh0QUO2NP2tvwt2XjJJqvGIvfdNvHNcrh58KOmkCPhj340dQ4vV32Shtl22E2FCuRxWOa4oQArnFsguiPd8upk0DUShveLIIa8GTfpCEPA9LkAbOwtSsW4RtN9aohbG83rND5pB7F0gAaWlh7UWwhObPm0m";
 // -----------------------------------------
 
@@ -422,7 +423,7 @@ async function loadHistory(){
   const el = document.getElementById("historyList");
   el.innerHTML = "Loading…";
   try {
-    const res = await fetch(`${WORKER_BASE}/exclusive-history`);
+    const res = await fetch(`${PUBLIC_BASE}/exclusive-history`);
     const data = await res.json();
     historyCache = data.history || [];
     if(!historyCache.length){ el.innerHTML = "No past slips yet."; return; }
