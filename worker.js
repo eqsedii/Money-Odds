@@ -1044,9 +1044,9 @@ async function handleAdminAgentList(request, env) {
   return json({ ok: true, applications: out });
 }
 
-const AGENT_PORTAL_SITE_BASE = "https://money-odds.pages.dev";
+const AGENT_PORTAL_SITE_BASE = "https://moneyoddspredictions.co.ke";
 function agentLink(code) {
-  return `${AGENT_PORTAL_SITE_BASE}/exclusive.html?ref=${code}`;
+  return `${AGENT_PORTAL_SITE_BASE}/exclusive?ref=${code}`;
 }
 
 async function handleAdminAgentApprove(request, env) {
