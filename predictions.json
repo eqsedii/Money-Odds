@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T23:51:42.652992Z",
+  "generated_at": "2026-10-05T03:07:26.913334Z",
   "predictions": [
     {
       "id": 560594,
@@ -92,6 +92,21 @@
       "locked": true
     },
     {
+      "id": 567271,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Sporting Clube de Braga vs Gil Vicente FC",
+      "home_team": "Sporting Clube de Braga",
+      "away_team": "Gil Vicente FC",
+      "home_team_id": 5613,
+      "away_team_id": 5533,
+      "league": "Primeira Liga",
+      "comp_code": "PPL",
+      "kickoff": "2026-10-19T19:15:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 560595,
       "sport": "Football",
       "icon": "\u26bd",
@@ -148,6 +163,21 @@
       "league": "Ligue 1",
       "comp_code": "FL1",
       "kickoff": "2026-10-18T18:45:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 560606,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Tottenham Hotspur FC vs Coventry City FC",
+      "home_team": "Tottenham Hotspur FC",
+      "away_team": "Coventry City FC",
+      "home_team_id": 73,
+      "away_team_id": 1076,
+      "league": "Premier League",
+      "comp_code": "PL",
+      "kickoff": "2026-10-19T19:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -268,36 +298,6 @@
       "league": "Serie A",
       "comp_code": "SA",
       "kickoff": "2026-10-11T18:45:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558871,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "ADO Den Haag vs PSV",
-      "home_team": "ADO Den Haag",
-      "away_team": "PSV",
-      "home_team_id": 680,
-      "away_team_id": 674,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-10-17T14:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558569,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "AC Milan vs Atalanta BC",
-      "home_team": "AC Milan",
-      "away_team": "Atalanta BC",
-      "home_team_id": 98,
-      "away_team_id": 102,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-10-18T16:00:00Z",
       "has_pick": true,
       "locked": true
     }
