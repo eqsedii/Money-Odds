@@ -2,6 +2,46 @@
   "total_analyzed_since_start": 405,
   "history": [
     {
+      "date": "2026-10-08",
+      "id": 559669,
+      "sport": "Football",
+      "match": "Racing Club de Lens vs Olympique Lyonnais",
+      "league": "Ligue 1",
+      "pick": "BTTS - No",
+      "result": "loss",
+      "final_score": "2-1"
+    },
+    {
+      "date": "2026-10-07",
+      "id": 565820,
+      "sport": "Football",
+      "match": "Borussia Dortmund vs SV Werder Bremen",
+      "league": "Bundesliga",
+      "pick": "Borussia Dortmund Win",
+      "result": "loss",
+      "final_score": "2-2"
+    },
+    {
+      "date": "2026-10-06",
+      "id": 558881,
+      "sport": "Football",
+      "match": "PSV vs SC Heerenveen",
+      "league": "Eredivisie",
+      "pick": "Over 2.5 Goals",
+      "result": "loss",
+      "final_score": "2-0"
+    },
+    {
+      "date": "2026-10-05",
+      "id": 567327,
+      "sport": "Football",
+      "match": "Moreirense FC vs Gil Vicente FC",
+      "league": "Primeira Liga",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "0-1"
+    },
+    {
       "date": "2026-10-04",
       "id": 555023,
       "sport": "Football",
