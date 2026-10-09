@@ -1,5 +1,5 @@
 {
-  "total_analyzed_since_start": 384,
+  "total_analyzed_since_start": 405,
   "history": [
     {
       "date": "2026-10-04",
@@ -10,6 +10,26 @@
       "pick": "Cruzeiro EC Win",
       "result": "win",
       "final_score": "2-0"
+    },
+    {
+      "date": "2026-10-04",
+      "id": 555024,
+      "sport": "Football",
+      "match": "Fluminense FC vs Coritiba FBC",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "4-0"
+    },
+    {
+      "date": "2026-10-04",
+      "id": 555026,
+      "sport": "Football",
+      "match": "SE Palmeiras vs EC Bahia",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "SE Palmeiras Win",
+      "result": "win",
+      "final_score": "1-0"
     },
     {
       "date": "2026-10-01",
@@ -32,6 +52,16 @@
       "final_score": "4-0"
     },
     {
+      "date": "2026-09-27",
+      "id": 555020,
+      "sport": "Football",
+      "match": "CA Paranaense vs CA Mineiro",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "BTTS - Yes",
+      "result": "win",
+      "final_score": "2-2"
+    },
+    {
       "date": "2026-09-26",
       "id": 554940,
       "sport": "Football",
@@ -40,6 +70,16 @@
       "pick": "Under 2.5 Goals",
       "result": "win",
       "final_score": "1-0"
+    },
+    {
+      "date": "2026-09-24",
+      "id": 555028,
+      "sport": "Football",
+      "match": "Santos FC vs CR Flamengo",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "CR Flamengo Win",
+      "result": "loss",
+      "final_score": "2-2"
     },
     {
       "date": "2026-09-23",
