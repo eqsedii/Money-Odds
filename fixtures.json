@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T03:32:46.335629Z",
+  "generated_at": "2026-10-10T11:49:10.630283Z",
   "fixtures": [
     {
       "id": 560593,
@@ -362,21 +362,6 @@
       "locked": true
     },
     {
-      "id": 567321,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Casa Pia AC vs CD Santa Clara",
-      "home_team": "Casa Pia AC",
-      "away_team": "CD Santa Clara",
-      "home_team_id": 6618,
-      "away_team_id": 5530,
-      "league": "Primeira Liga",
-      "comp_code": "PPL",
-      "kickoff": "2026-10-10T14:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 559674,
       "sport": "Football",
       "icon": "\u26bd",
@@ -598,6 +583,21 @@
       "league": "Eredivisie",
       "comp_code": "DED",
       "kickoff": "2026-10-10T19:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 567321,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Casa Pia AC vs CD Santa Clara",
+      "home_team": "Casa Pia AC",
+      "away_team": "CD Santa Clara",
+      "home_team_id": 6618,
+      "away_team_id": 5530,
+      "league": "Primeira Liga",
+      "comp_code": "PPL",
+      "kickoff": "2026-10-10T19:30:00Z",
       "has_pick": true,
       "locked": true
     },
