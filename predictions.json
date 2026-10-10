@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T11:49:10.641992Z",
+  "generated_at": "2026-10-10T16:49:51.550788Z",
   "predictions": [
     {
       "id": 560594,
@@ -32,21 +32,6 @@
       "locked": true
     },
     {
-      "id": 560618,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Coventry City FC vs Fulham FC",
-      "home_team": "Coventry City FC",
-      "away_team": "Fulham FC",
-      "home_team_id": 1076,
-      "away_team_id": 63,
-      "league": "Premier League",
-      "comp_code": "PL",
-      "kickoff": "2026-10-24T14:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 565826,
       "sport": "Football",
       "icon": "\u26bd",
@@ -62,6 +47,21 @@
       "locked": true
     },
     {
+      "id": 560618,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Coventry City FC vs Fulham FC",
+      "home_team": "Coventry City FC",
+      "away_team": "Fulham FC",
+      "home_team_id": 1076,
+      "away_team_id": 63,
+      "league": "Premier League",
+      "comp_code": "PL",
+      "kickoff": "2026-10-24T14:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 561882,
       "sport": "Football",
       "icon": "\u26bd",
@@ -72,51 +72,6 @@
       "away_team_id": 60,
       "league": "Championship",
       "comp_code": "ELC",
-      "kickoff": "2026-10-17T14:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 565838,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Augsburg vs 1. FC Union Berlin",
-      "home_team": "FC Augsburg",
-      "away_team": "1. FC Union Berlin",
-      "home_team_id": 16,
-      "away_team_id": 28,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-10-24T13:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 565829,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Schalke 04 vs 1. FSV Mainz 05",
-      "home_team": "FC Schalke 04",
-      "away_team": "1. FSV Mainz 05",
-      "home_team_id": 6,
-      "away_team_id": 15,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-10-17T13:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 560610,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Manchester City FC vs Ipswich Town FC",
-      "home_team": "Manchester City FC",
-      "away_team": "Ipswich Town FC",
-      "home_team_id": 65,
-      "away_team_id": 349,
-      "league": "Premier League",
-      "comp_code": "PL",
       "kickoff": "2026-10-17T14:00:00Z",
       "has_pick": true,
       "locked": true
@@ -137,17 +92,17 @@
       "locked": true
     },
     {
-      "id": 560595,
+      "id": 565838,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "Chelsea FC vs AFC Bournemouth",
-      "home_team": "Chelsea FC",
-      "away_team": "AFC Bournemouth",
-      "home_team_id": 61,
-      "away_team_id": 1044,
-      "league": "Premier League",
-      "comp_code": "PL",
-      "kickoff": "2026-10-10T14:00:00Z",
+      "match": "FC Augsburg vs 1. FC Union Berlin",
+      "home_team": "FC Augsburg",
+      "away_team": "1. FC Union Berlin",
+      "home_team_id": 16,
+      "away_team_id": 28,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-10-24T13:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -182,6 +137,36 @@
       "locked": true
     },
     {
+      "id": 565829,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "FC Schalke 04 vs 1. FSV Mainz 05",
+      "home_team": "FC Schalke 04",
+      "away_team": "1. FSV Mainz 05",
+      "home_team_id": 6,
+      "away_team_id": 15,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-10-17T13:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 560610,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Manchester City FC vs Ipswich Town FC",
+      "home_team": "Manchester City FC",
+      "away_team": "Ipswich Town FC",
+      "home_team_id": 65,
+      "away_team_id": 349,
+      "league": "Premier League",
+      "comp_code": "PL",
+      "kickoff": "2026-10-17T14:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 560606,
       "sport": "Football",
       "icon": "\u26bd",
@@ -193,36 +178,6 @@
       "league": "Premier League",
       "comp_code": "PL",
       "kickoff": "2026-10-19T19:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 565834,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "SC Paderborn 07 vs Hamburger SV",
-      "home_team": "SC Paderborn 07",
-      "away_team": "Hamburger SV",
-      "home_team_id": 29,
-      "away_team_id": 7,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-10-24T13:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 565818,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "TSG 1899 Hoffenheim vs Hamburger SV",
-      "home_team": "TSG 1899 Hoffenheim",
-      "away_team": "Hamburger SV",
-      "home_team_id": 2,
-      "away_team_id": 7,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-10-10T13:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -253,6 +208,21 @@
       "league": "Eredivisie",
       "comp_code": "DED",
       "kickoff": "2026-10-17T18:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 560617,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Chelsea FC vs Tottenham Hotspur FC",
+      "home_team": "Chelsea FC",
+      "away_team": "Tottenham Hotspur FC",
+      "home_team_id": 61,
+      "away_team_id": 73,
+      "league": "Premier League",
+      "comp_code": "PL",
+      "kickoff": "2026-10-24T16:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -300,6 +270,36 @@
       "kickoff": "2026-10-11T18:45:00Z",
       "has_pick": true,
       "locked": true
+    },
+    {
+      "id": 558569,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "AC Milan vs Atalanta BC",
+      "home_team": "AC Milan",
+      "away_team": "Atalanta BC",
+      "home_team_id": 98,
+      "away_team_id": 102,
+      "league": "Serie A",
+      "comp_code": "SA",
+      "kickoff": "2026-10-18T16:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 558570,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Juventus FC vs SS Lazio",
+      "home_team": "Juventus FC",
+      "away_team": "SS Lazio",
+      "home_team_id": 109,
+      "away_team_id": 110,
+      "league": "Serie A",
+      "comp_code": "SA",
+      "kickoff": "2026-10-18T18:45:00Z",
+      "has_pick": true,
+      "locked": true
     }
   ],
   "multi_bets": [
@@ -326,16 +326,16 @@
       "locked": true,
       "legs": [
         {
-          "id": 560618,
-          "icon": "\u26bd",
-          "match": "Coventry City FC vs Fulham FC",
-          "meta": "Premier League"
-        },
-        {
           "id": 565826,
           "icon": "\u26bd",
           "match": "Borussia M\u00f6nchengladbach vs TSG 1899 Hoffenheim",
           "meta": "Bundesliga"
+        },
+        {
+          "id": 560618,
+          "icon": "\u26bd",
+          "match": "Coventry City FC vs Fulham FC",
+          "meta": "Premier League"
         },
         {
           "id": 561882,
