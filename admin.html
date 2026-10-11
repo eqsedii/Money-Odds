@@ -46,6 +46,11 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 .hist-item:hover{border-color:var(--cyan);}
 .hist-item .hi-top{display:flex;justify-content:space-between;font-size:13px;color:var(--text-dim);}
 .hist-item.selected{border-color:var(--gold);background:var(--gold-soft);}
+@keyframes histFadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+.hist-item{animation:histFadeIn .3s ease backwards;transition:border-color .15s ease,transform .1s ease;}
+.hist-item:active{transform:scale(0.99);}
+.see-more-btn{width:100%;padding:11px;border-radius:10px;background:none;border:1px solid var(--cyan);color:var(--cyan);font-weight:600;font-size:13.5px;cursor:pointer;margin-top:4px;transition:background .15s ease;}
+.see-more-btn:active{background:rgba(45,225,232,0.08);}
 .slip-empty{color:var(--text-dim);font-size:13.5px;padding:14px;background:var(--bg-raised);border-radius:8px;}
 .slip-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--text-dim);margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--line);}
 .slip-leg{border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-bottom:8px;background:var(--bg-raised);}
@@ -303,7 +308,7 @@ function addLegRow(leg){
   div.className = "leg-row";
   div.id = `leg-${id}`;
   div.innerHTML = `
-    <button class="remove-leg" onclick="document.getElementById('leg-${id}').remove()">Remove</button>
+    <button class="remove-leg" onclick="removeLegRow(${id})">Remove</button>
     <label>Match</label>
     <input type="text" class="leg-match" placeholder="e.g. Arsenal vs Chelsea" value="${leg.match ? leg.match.replace(/"/g,'&quot;') : ''}">
     <div class="grid2">
@@ -316,8 +321,78 @@ function addLegRow(leg){
     </div>
   `;
   document.getElementById("legsContainer").appendChild(div);
+  saveDraft();
 }
-addLegRow(); // start with one row
+
+function removeLegRow(id){
+  const row = document.getElementById(`leg-${id}`);
+  if(row) row.remove();
+  saveDraft();
+}
+
+// ---- Draft autosave (survives accidental refresh / tab close) ----
+const DRAFT_KEY = "moneyOddsDraftSlip";
+
+function collectDraftLegs(){
+  return Array.from(document.querySelectorAll("#legsContainer .leg-row")).map(row => ({
+    match: row.querySelector(".leg-match").value,
+    league: row.querySelector(".leg-league").value,
+    kickoffRaw: row.querySelector(".leg-kickoff").value,
+    pick: row.querySelector(".leg-pick").value,
+    odds: row.querySelector(".leg-odds").value,
+  }));
+}
+
+function saveDraft(){
+  try {
+    const legs = collectDraftLegs();
+    const combined = document.getElementById("combinedOdds").value;
+    localStorage.setItem(DRAFT_KEY, JSON.stringify({ legs, combined, savedAt: Date.now() }));
+  } catch(e){ /* storage unavailable — fail silently, not critical */ }
+}
+
+function clearDraft(){
+  try { localStorage.removeItem(DRAFT_KEY); } catch(e){}
+}
+
+function restoreDraftOrStart(){
+  let draft = null;
+  try { draft = JSON.parse(localStorage.getItem(DRAFT_KEY) || "null"); } catch(e){}
+  const hasContent = draft && Array.isArray(draft.legs) && draft.legs.some(l => (l.match || "").trim() || (l.pick || "").trim());
+  if(!hasContent){ addLegRow(); return; }
+
+  draft.legs.forEach(l => addLegRow({ match: l.match, league: l.league, pick: l.pick, odds: l.odds }));
+  const rows = document.querySelectorAll("#legsContainer .leg-row");
+  rows.forEach((row, i) => {
+    if(draft.legs[i] && draft.legs[i].kickoffRaw) row.querySelector(".leg-kickoff").value = draft.legs[i].kickoffRaw;
+  });
+  if(draft.combined) document.getElementById("combinedOdds").value = draft.combined;
+
+  const note = document.getElementById("editingNote");
+  note.className = "status-msg show";
+  note.style.background = "var(--gold-soft)";
+  note.style.color = "var(--gold)";
+  note.textContent = `Restored a draft from ${new Date(draft.savedAt).toLocaleTimeString()} — looks like the page reloaded before this was published. Check it over, or `;
+  const clearLink = document.createElement("a");
+  clearLink.href = "#";
+  clearLink.style.color = "var(--cyan)";
+  clearLink.textContent = "discard it and start fresh";
+  clearLink.onclick = (e) => {
+    e.preventDefault();
+    clearDraft();
+    document.getElementById("legsContainer").innerHTML = "";
+    document.getElementById("combinedOdds").value = "";
+    note.className = "status-msg";
+    note.textContent = "";
+    addLegRow();
+  };
+  note.appendChild(clearLink);
+  note.appendChild(document.createTextNode("."));
+}
+
+restoreDraftOrStart();
+document.getElementById("legsContainer").addEventListener("input", saveDraft);
+document.getElementById("combinedOdds").addEventListener("input", saveDraft);
 
 function editCurrentSlip(){
   if(!currentSlipData){
@@ -369,6 +444,7 @@ async function publishSlip(){
     const data = await res.json();
     if(data.ok){
       setStatus("publishStatus", true, `✓ Published slip ${data.slip_id}. Old slip (if any) archived to history.`);
+      clearDraft();
       document.getElementById("legsContainer").innerHTML = "";
       addLegRow();
       document.getElementById("combinedOdds").value = "";
@@ -449,6 +525,38 @@ async function archiveCurrent(){
   }
 }
 
+let historyShown = 0;
+const HISTORY_BATCH = 6;
+
+function historyItemHtml(s, i, delayIndex){
+  return `
+      <div class="hist-item" style="animation-delay:${delayIndex * 0.04}s;" onclick="selectHistorySlip(${i})">
+        <div class="hi-top"><span>${new Date(s.created_at).toLocaleString()}</span><span>${s.graded_at ? "✓ Graded (" + (s.overall_result || "?") + ")" : "Ungraded"}</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span>${s.legs.length} legs · combined odds ${s.combined_odds ?? "—"}</span>
+          <button class="remove-leg" style="position:static;" onclick="event.stopPropagation(); deleteHistorySlip('${s.slip_id}')">Delete</button>
+        </div>
+      </div>
+    `;
+}
+
+function renderHistoryList(){
+  const el = document.getElementById("historyList");
+  const slice = historyCache.slice(0, historyShown);
+  const startDelay = Math.max(0, historyShown - HISTORY_BATCH);
+  const items = slice.map((s, i) => historyItemHtml(s, i, i < startDelay ? 0 : i - startDelay)).join("");
+  const remaining = historyCache.length - historyShown;
+  const button = remaining > 0
+    ? `<button class="see-more-btn" onclick="showMoreHistory()">Show more (${historyShown} of ${historyCache.length})</button>`
+    : "";
+  el.innerHTML = items + button;
+}
+
+function showMoreHistory(){
+  historyShown = Math.min(historyShown + HISTORY_BATCH, historyCache.length);
+  renderHistoryList();
+}
+
 async function loadHistory(){
   const el = document.getElementById("historyList");
   el.innerHTML = "Loading…";
@@ -457,15 +565,8 @@ async function loadHistory(){
     const data = await res.json();
     historyCache = data.history || [];
     if(!historyCache.length){ el.innerHTML = "No past slips yet."; return; }
-    el.innerHTML = historyCache.map((s, i) => `
-      <div class="hist-item" onclick="selectHistorySlip(${i})">
-        <div class="hi-top"><span>${new Date(s.created_at).toLocaleString()}</span><span>${s.graded_at ? "✓ Graded (" + (s.overall_result || "?") + ")" : "Ungraded"}</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;">
-          <span>${s.legs.length} legs · combined odds ${s.combined_odds ?? "—"}</span>
-          <button class="remove-leg" style="position:static;" onclick="event.stopPropagation(); deleteHistorySlip('${s.slip_id}')">Delete</button>
-        </div>
-      </div>
-    `).join("");
+    historyShown = Math.min(HISTORY_BATCH, historyCache.length);
+    renderHistoryList();
   } catch(e){
     el.innerHTML = "Failed to load: " + e.message;
   }

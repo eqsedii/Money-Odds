@@ -91,6 +91,11 @@ a{color:inherit;text-decoration:none;}
 .hist-leg-badge.win{background:var(--win-soft);color:var(--win);}
 .hist-leg-badge.loss{background:var(--loss-soft);color:var(--loss);}
 .hist-leg-badge.pending{background:var(--bg-raised);color:var(--text-dim);}
+@keyframes histFadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.hist-slip{animation:histFadeIn .35s ease backwards;transition:border-color .2s ease,transform .15s ease;}
+.hist-slip:active{transform:scale(0.985);}
+.see-more-btn{width:100%;padding:13px;border-radius:12px;background:transparent;border:1px solid var(--cyan);color:var(--cyan);font-weight:600;font-size:14px;cursor:pointer;margin-top:4px;transition:background .2s ease,transform .15s ease;}
+.see-more-btn:active{transform:scale(0.98);background:rgba(45,225,232,0.08);}
 .disclaimer{background:var(--bg-raised);border:1px solid var(--line);border-radius:10px;padding:14px 18px;font-size:12.5px;color:var(--text-dim);margin:24px 0;line-height:1.6;}
 footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);font-size:13px;}
 .footer-grid{max-width:1120px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
@@ -465,18 +470,13 @@ function legBadge(result){
   return '<span class="hist-leg-badge pending">—</span>';
 }
 
-async function loadHistory(){
-  const el = document.getElementById('historyList');
-  try {
-    const res = await fetch(`${WORKER_BASE}/exclusive-history`);
-    const data = await res.json();
-    const history = data.history || [];
-    if(!history.length){
-      el.innerHTML = `<div class="empty-slip">No past slips yet — this is our first.</div>`;
-      return;
-    }
-    el.innerHTML = history.map(s => `
-      <div class="hist-slip">
+let pastResultsCache = [];
+let pastResultsShown = 0;
+const PAST_RESULTS_BATCH = 5;
+
+function slipCardHtml(s, delayIndex){
+  return `
+      <div class="hist-slip" style="animation-delay:${delayIndex * 0.05}s;">
         <div class="hist-top">
           <span>${new Date(s.created_at).toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' })} · combined odds ${s.combined_odds ?? '—'}</span>
           ${resultBadge(s.overall_result)}
@@ -488,7 +488,37 @@ async function loadHistory(){
           </div>
         `).join('')}
       </div>
-    `).join('');
+    `;
+}
+
+function renderPastResults(){
+  const el = document.getElementById('historyList');
+  const slice = pastResultsCache.slice(0, pastResultsShown);
+  const cards = slice.map((s, i) => slipCardHtml(s, i < pastResultsShown - PAST_RESULTS_BATCH ? 0 : i - (pastResultsShown - PAST_RESULTS_BATCH))).join('');
+  const remaining = pastResultsCache.length - pastResultsShown;
+  const button = remaining > 0
+    ? `<button class="see-more-btn" onclick="showMorePastResults()">See more (${pastResultsShown} of ${pastResultsCache.length})</button>`
+    : '';
+  el.innerHTML = cards + button;
+}
+
+function showMorePastResults(){
+  pastResultsShown = Math.min(pastResultsShown + PAST_RESULTS_BATCH, pastResultsCache.length);
+  renderPastResults();
+}
+
+async function loadHistory(){
+  const el = document.getElementById('historyList');
+  try {
+    const res = await fetch(`${WORKER_BASE}/exclusive-history`);
+    const data = await res.json();
+    pastResultsCache = data.history || [];
+    if(!pastResultsCache.length){
+      el.innerHTML = `<div class="empty-slip">No past slips yet — this is our first.</div>`;
+      return;
+    }
+    pastResultsShown = Math.min(PAST_RESULTS_BATCH, pastResultsCache.length);
+    renderPastResults();
   } catch(e){
     el.innerHTML = `<div class="empty-slip">Couldn't load history right now.</div>`;
   }
