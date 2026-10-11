@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T00:13:20.524194Z",
+  "generated_at": "2026-10-11T04:07:32.514825Z",
   "predictions": [
     {
       "id": 560594,
@@ -58,6 +58,21 @@
       "league": "Premier League",
       "comp_code": "PL",
       "kickoff": "2026-10-24T14:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 558563,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "FC Internazionale Milano vs ACF Fiorentina",
+      "home_team": "FC Internazionale Milano",
+      "away_team": "ACF Fiorentina",
+      "home_team_id": 108,
+      "away_team_id": 99,
+      "league": "Serie A",
+      "comp_code": "SA",
+      "kickoff": "2026-10-25T11:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -167,6 +182,21 @@
       "locked": true
     },
     {
+      "id": 565835,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "TSG 1899 Hoffenheim vs Bayer 04 Leverkusen",
+      "home_team": "TSG 1899 Hoffenheim",
+      "away_team": "Bayer 04 Leverkusen",
+      "home_team_id": 2,
+      "away_team_id": 3,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-10-25T14:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 560606,
       "sport": "Football",
       "icon": "\u26bd",
@@ -178,6 +208,21 @@
       "league": "Premier League",
       "comp_code": "PL",
       "kickoff": "2026-10-19T19:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 564720,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Athletic Club vs Getafe CF",
+      "home_team": "Athletic Club",
+      "away_team": "Getafe CF",
+      "home_team_id": 77,
+      "away_team_id": 82,
+      "league": "Primera Division",
+      "comp_code": "PD",
+      "kickoff": "2026-10-25T13:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -255,51 +300,6 @@
       "kickoff": "2026-10-23T18:30:00Z",
       "has_pick": true,
       "locked": true
-    },
-    {
-      "id": 558584,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Cagliari Calcio vs Juventus FC",
-      "home_team": "Cagliari Calcio",
-      "away_team": "Juventus FC",
-      "home_team_id": 104,
-      "away_team_id": 109,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-10-11T18:45:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558871,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "ADO Den Haag vs PSV",
-      "home_team": "ADO Den Haag",
-      "away_team": "PSV",
-      "home_team_id": 680,
-      "away_team_id": 674,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-10-17T14:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 565814,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "1. FC K\u00f6ln vs Borussia M\u00f6nchengladbach",
-      "home_team": "1. FC K\u00f6ln",
-      "away_team": "Borussia M\u00f6nchengladbach",
-      "home_team_id": 1,
-      "away_team_id": 18,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-10-11T13:30:00Z",
-      "has_pick": true,
-      "locked": true
     }
   ],
   "multi_bets": [
@@ -338,10 +338,10 @@
           "meta": "Premier League"
         },
         {
-          "id": 561882,
+          "id": 558563,
           "icon": "\u26bd",
-          "match": "Southampton FC vs Bolton Wanderers FC",
-          "meta": "Championship"
+          "match": "FC Internazionale Milano vs ACF Fiorentina",
+          "meta": "Serie A"
         }
       ]
     }
