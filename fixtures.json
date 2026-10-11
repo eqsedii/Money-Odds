@@ -1,51 +1,6 @@
 {
-  "generated_at": "2026-10-11T04:07:32.495356Z",
+  "generated_at": "2026-10-11T12:03:02.940184Z",
   "fixtures": [
-    {
-      "id": 558876,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Utrecht vs Willem II Tilburg",
-      "home_team": "FC Utrecht",
-      "away_team": "Willem II Tilburg",
-      "home_team_id": 676,
-      "away_team_id": 672,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-10-11T10:15:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558585,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Como 1907 vs AS Roma",
-      "home_team": "Como 1907",
-      "away_team": "AS Roma",
-      "home_team_id": 7397,
-      "away_team_id": 100,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-10-11T10:30:00Z",
-      "has_pick": false,
-      "locked": true
-    },
-    {
-      "id": 561859,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Southampton FC vs Portsmouth FC",
-      "home_team": "Southampton FC",
-      "away_team": "Portsmouth FC",
-      "home_team_id": 340,
-      "away_team_id": 325,
-      "league": "Championship",
-      "comp_code": "ELC",
-      "kickoff": "2026-10-11T11:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
     {
       "id": 564703,
       "sport": "Football",
