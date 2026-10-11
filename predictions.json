@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T21:07:00.109240Z",
+  "generated_at": "2026-10-11T00:13:20.524194Z",
   "predictions": [
     {
       "id": 560594,
@@ -182,6 +182,21 @@
       "locked": true
     },
     {
+      "id": 558869,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Telstar 1963 vs Feyenoord Rotterdam",
+      "home_team": "Telstar 1963",
+      "away_team": "Feyenoord Rotterdam",
+      "home_team_id": 1912,
+      "away_team_id": 675,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-10-17T18:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 558569,
       "sport": "Football",
       "icon": "\u26bd",
@@ -268,21 +283,6 @@
       "league": "Eredivisie",
       "comp_code": "DED",
       "kickoff": "2026-10-17T14:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558869,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Telstar 1963 vs Feyenoord Rotterdam",
-      "home_team": "Telstar 1963",
-      "away_team": "Feyenoord Rotterdam",
-      "home_team_id": 1912,
-      "away_team_id": 675,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-10-17T18:00:00Z",
       "has_pick": true,
       "locked": true
     },
