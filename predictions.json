@@ -1,33 +1,18 @@
 {
-  "generated_at": "2026-10-11T12:03:02.954624Z",
+  "generated_at": "2026-10-11T17:14:44.828956Z",
   "predictions": [
     {
-      "id": 560594,
+      "id": 558563,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "Hull City AFC vs Everton FC",
-      "home_team": "Hull City AFC",
-      "away_team": "Everton FC",
-      "home_team_id": 322,
-      "away_team_id": 62,
-      "league": "Premier League",
-      "comp_code": "PL",
-      "kickoff": "2026-10-11T13:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558560,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Cagliari Calcio vs Bologna FC 1909",
-      "home_team": "Cagliari Calcio",
-      "away_team": "Bologna FC 1909",
-      "home_team_id": 104,
-      "away_team_id": 103,
+      "match": "FC Internazionale Milano vs ACF Fiorentina",
+      "home_team": "FC Internazionale Milano",
+      "away_team": "ACF Fiorentina",
+      "home_team_id": 108,
+      "away_team_id": 99,
       "league": "Serie A",
       "comp_code": "SA",
-      "kickoff": "2026-10-24T13:00:00Z",
+      "kickoff": "2026-10-25T11:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -62,47 +47,17 @@
       "locked": true
     },
     {
-      "id": 558563,
+      "id": 558560,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "FC Internazionale Milano vs ACF Fiorentina",
-      "home_team": "FC Internazionale Milano",
-      "away_team": "ACF Fiorentina",
-      "home_team_id": 108,
-      "away_team_id": 99,
+      "match": "Cagliari Calcio vs Bologna FC 1909",
+      "home_team": "Cagliari Calcio",
+      "away_team": "Bologna FC 1909",
+      "home_team_id": 104,
+      "away_team_id": 103,
       "league": "Serie A",
       "comp_code": "SA",
-      "kickoff": "2026-10-25T11:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 561882,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Southampton FC vs Bolton Wanderers FC",
-      "home_team": "Southampton FC",
-      "away_team": "Bolton Wanderers FC",
-      "home_team_id": 340,
-      "away_team_id": 60,
-      "league": "Championship",
-      "comp_code": "ELC",
-      "kickoff": "2026-10-17T14:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 560608,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Nottingham Forest FC vs Arsenal FC",
-      "home_team": "Nottingham Forest FC",
-      "away_team": "Arsenal FC",
-      "home_team_id": 351,
-      "away_team_id": 57,
-      "league": "Premier League",
-      "comp_code": "PL",
-      "kickoff": "2026-10-18T15:30:00Z",
+      "kickoff": "2026-10-24T13:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -118,36 +73,6 @@
       "league": "Bundesliga",
       "comp_code": "BL1",
       "kickoff": "2026-10-17T13:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 559667,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Stade Rennais FC 1901 vs AJ Auxerre",
-      "home_team": "Stade Rennais FC 1901",
-      "away_team": "AJ Auxerre",
-      "home_team_id": 529,
-      "away_team_id": 519,
-      "league": "Ligue 1",
-      "comp_code": "FL1",
-      "kickoff": "2026-10-11T15:15:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 560597,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Coventry City FC vs Newcastle United FC",
-      "home_team": "Coventry City FC",
-      "away_team": "Newcastle United FC",
-      "home_team_id": 1076,
-      "away_team_id": 67,
-      "league": "Premier League",
-      "comp_code": "PL",
-      "kickoff": "2026-10-12T19:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -197,6 +122,51 @@
       "locked": true
     },
     {
+      "id": 560597,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Coventry City FC vs Newcastle United FC",
+      "home_team": "Coventry City FC",
+      "away_team": "Newcastle United FC",
+      "home_team_id": 1076,
+      "away_team_id": 67,
+      "league": "Premier League",
+      "comp_code": "PL",
+      "kickoff": "2026-10-12T19:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 561882,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Southampton FC vs Bolton Wanderers FC",
+      "home_team": "Southampton FC",
+      "away_team": "Bolton Wanderers FC",
+      "home_team_id": 340,
+      "away_team_id": 60,
+      "league": "Championship",
+      "comp_code": "ELC",
+      "kickoff": "2026-10-17T14:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 560608,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Nottingham Forest FC vs Arsenal FC",
+      "home_team": "Nottingham Forest FC",
+      "away_team": "Arsenal FC",
+      "home_team_id": 351,
+      "away_team_id": 57,
+      "league": "Premier League",
+      "comp_code": "PL",
+      "kickoff": "2026-10-18T15:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 560606,
       "sport": "Football",
       "icon": "\u26bd",
@@ -227,21 +197,6 @@
       "locked": true
     },
     {
-      "id": 558869,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Telstar 1963 vs Feyenoord Rotterdam",
-      "home_team": "Telstar 1963",
-      "away_team": "Feyenoord Rotterdam",
-      "home_team_id": 1912,
-      "away_team_id": 675,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-10-17T18:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 558569,
       "sport": "Football",
       "icon": "\u26bd",
@@ -257,17 +212,17 @@
       "locked": true
     },
     {
-      "id": 558570,
+      "id": 558584,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "Juventus FC vs SS Lazio",
-      "home_team": "Juventus FC",
-      "away_team": "SS Lazio",
-      "home_team_id": 109,
-      "away_team_id": 110,
+      "match": "Cagliari Calcio vs Juventus FC",
+      "home_team": "Cagliari Calcio",
+      "away_team": "Juventus FC",
+      "home_team_id": 104,
+      "away_team_id": 109,
       "league": "Serie A",
       "comp_code": "SA",
-      "kickoff": "2026-10-18T18:45:00Z",
+      "kickoff": "2026-10-11T18:45:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -287,17 +242,62 @@
       "locked": true
     },
     {
-      "id": 565833,
+      "id": 560613,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "VfB Stuttgart vs Borussia M\u00f6nchengladbach",
-      "home_team": "VfB Stuttgart",
-      "away_team": "Borussia M\u00f6nchengladbach",
-      "home_team_id": 10,
-      "away_team_id": 18,
+      "match": "Crystal Palace FC vs Newcastle United FC",
+      "home_team": "Crystal Palace FC",
+      "away_team": "Newcastle United FC",
+      "home_team_id": 354,
+      "away_team_id": 67,
+      "league": "Premier League",
+      "comp_code": "PL",
+      "kickoff": "2026-10-25T14:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 558871,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "ADO Den Haag vs PSV",
+      "home_team": "ADO Den Haag",
+      "away_team": "PSV",
+      "home_team_id": 680,
+      "away_team_id": 674,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-10-17T14:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 565832,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "RB Leipzig vs SV 07 Elversberg",
+      "home_team": "RB Leipzig",
+      "away_team": "SV 07 Elversberg",
+      "home_team_id": 721,
+      "away_team_id": 719,
       "league": "Bundesliga",
       "comp_code": "BL1",
-      "kickoff": "2026-10-23T18:30:00Z",
+      "kickoff": "2026-10-24T13:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 558856,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Sparta Rotterdam vs AFC Ajax",
+      "home_team": "Sparta Rotterdam",
+      "away_team": "AFC Ajax",
+      "home_team_id": 6806,
+      "away_team_id": 678,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-10-25T15:45:00Z",
       "has_pick": true,
       "locked": true
     }
@@ -308,16 +308,16 @@
       "locked": true,
       "legs": [
         {
-          "id": 560594,
+          "id": 558563,
           "icon": "\u26bd",
-          "match": "Hull City AFC vs Everton FC",
-          "meta": "Premier League"
+          "match": "FC Internazionale Milano vs ACF Fiorentina",
+          "meta": "Serie A"
         },
         {
-          "id": 558560,
+          "id": 565826,
           "icon": "\u26bd",
-          "match": "Cagliari Calcio vs Bologna FC 1909",
-          "meta": "Serie A"
+          "match": "Borussia M\u00f6nchengladbach vs TSG 1899 Hoffenheim",
+          "meta": "Bundesliga"
         }
       ]
     },
@@ -326,22 +326,22 @@
       "locked": true,
       "legs": [
         {
-          "id": 565826,
-          "icon": "\u26bd",
-          "match": "Borussia M\u00f6nchengladbach vs TSG 1899 Hoffenheim",
-          "meta": "Bundesliga"
-        },
-        {
           "id": 560618,
           "icon": "\u26bd",
           "match": "Coventry City FC vs Fulham FC",
           "meta": "Premier League"
         },
         {
-          "id": 558563,
+          "id": 558560,
           "icon": "\u26bd",
-          "match": "FC Internazionale Milano vs ACF Fiorentina",
+          "match": "Cagliari Calcio vs Bologna FC 1909",
           "meta": "Serie A"
+        },
+        {
+          "id": 565829,
+          "icon": "\u26bd",
+          "match": "FC Schalke 04 vs 1. FSV Mainz 05",
+          "meta": "Bundesliga"
         }
       ]
     }
