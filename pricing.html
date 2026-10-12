@@ -6,6 +6,9 @@
 <title>Pricing — Money Odds</title>
 <meta name="description" content="Unlock every prediction, every sport, for 7 days.">
 <link rel="icon" type="image/webp" href="favicon.webp">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0A0E14">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -83,6 +86,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 .modal-close:hover{color:var(--text);}
 .modal-title{font-size:19px;margin-bottom:4px;}
 .modal-sub{font-size:13px;color:var(--text-dim);margin-bottom:20px;}
+.footer-credit{text-align:center;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:11px;letter-spacing:0.6px;color:var(--text-dim);}
 </style>
 </head>
 <body>
@@ -182,6 +186,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <div class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</div>
 <div>&copy; 2026 Money Odds. All rights reserved.</div>
 </div>
+<div class="footer-credit">DEVELOPED AND REGULATED BY MODE TECHS KENYA.</div>
 </footer>
 
 <script>
@@ -329,5 +334,11 @@ async function restoreAccess(){
 @media (max-width:600px){.fab-exclusive{right:14px;bottom:18px;padding:12px 18px 12px 14px;font-size:13px;}}
 </style>
 
+
+<script>
+if("serviceWorker" in navigator){
+  window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js"));
+}
+</script>
 </body>
 </html>

@@ -7,6 +7,9 @@
 <meta name="description" content="Become a Money Odds agent. Earn Ksh 40 for every client who pays Ksh 99 through your unique link.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/webp" href="favicon.webp">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0A0E14">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -124,6 +127,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 .footer-grid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
 .footer-links{display:flex;gap:20px;}
 .footer-links a:hover{color:var(--text);}
+.footer-credit{text-align:center;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:11px;letter-spacing:0.6px;color:var(--text-dim);}
 </style>
 </head>
 <body>
@@ -308,6 +312,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 </div>
 <div>&copy; 2026 Money Odds. All rights reserved.</div>
 </div>
+<div class="footer-credit">DEVELOPED AND REGULATED BY MODE TECHS KENYA.</div>
 </footer>
 
 <div class="terms-modal-backdrop" id="termsModal" onclick="if(event.target===this) closeTerms()">
@@ -626,5 +631,11 @@ function copyDashLink(){
 })();
 </script>
 
+
+<script>
+if("serviceWorker" in navigator){
+  window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js"));
+}
+</script>
 </body>
 </html>

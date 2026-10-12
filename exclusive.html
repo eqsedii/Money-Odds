@@ -6,6 +6,9 @@
 <title>VIP Golden Slip — Money Odds</title>
 <meta name="description" content="Hand-picked matches from our prediction specialist, sold per slip.">
 <link rel="icon" type="image/webp" href="favicon.webp">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0A0E14">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -110,6 +113,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 .field-group{margin-bottom:12px;}
 .field-group label{display:block;font-size:12px;color:var(--text-dim);margin-bottom:5px;}
 .field-group input{width:100%;padding:11px 14px;border-radius:9px;background:var(--bg-raised);border:1px solid var(--line);color:var(--text);font-size:14.5px;}
+.footer-credit{text-align:center;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:11px;letter-spacing:0.6px;color:var(--text-dim);}
 </style>
 </head>
 <body>
@@ -203,6 +207,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <div class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</div>
 <div>&copy; 2026 Money Odds. All rights reserved.</div>
 </div>
+<div class="footer-credit">DEVELOPED AND REGULATED BY MODE TECHS KENYA.</div>
 </footer>
 
 <script>
@@ -526,6 +531,10 @@ async function loadHistory(){
 
 loadSlip();
 loadHistory();
+
+if("serviceWorker" in navigator){
+  window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js"));
+}
 </script>
 
 </body>
