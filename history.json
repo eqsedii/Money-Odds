@@ -1,5 +1,5 @@
 {
-  "total_analyzed_since_start": 495,
+  "total_analyzed_since_start": 508,
   "history": [
     {
       "date": "2026-10-10",
@@ -322,6 +322,16 @@
       "final_score": "4-0"
     },
     {
+      "date": "2026-09-28",
+      "id": 567324,
+      "sport": "Football",
+      "match": "FC Arouca vs CF Estrela da Amadora",
+      "league": "Primeira Liga",
+      "pick": "Over 2.5 Goals",
+      "result": "loss",
+      "final_score": "1-0"
+    },
+    {
       "date": "2026-09-27",
       "id": 555020,
       "sport": "Football",
@@ -450,6 +460,86 @@
       "pick": "Over 2.5 Goals",
       "result": "win",
       "final_score": "4-1"
+    },
+    {
+      "date": "2026-09-27",
+      "id": 558584,
+      "sport": "Football",
+      "match": "Cagliari Calcio vs Juventus FC",
+      "league": "Serie A",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "1-1"
+    },
+    {
+      "date": "2026-09-27",
+      "id": 559671,
+      "sport": "Football",
+      "match": "ES Troyes AC vs Olympique de Marseille",
+      "league": "Ligue 1",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "0-2"
+    },
+    {
+      "date": "2026-09-27",
+      "id": 564705,
+      "sport": "Football",
+      "match": "Real Racing Club de Santander vs Valencia CF",
+      "league": "Primera Division",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "2-2"
+    },
+    {
+      "date": "2026-09-27",
+      "id": 555030,
+      "sport": "Football",
+      "match": "CA Mineiro vs Santos FC",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "BTTS - Yes",
+      "result": "win",
+      "final_score": "2-1"
+    },
+    {
+      "date": "2026-09-27",
+      "id": 555035,
+      "sport": "Football",
+      "match": "CR Flamengo vs Fluminense FC",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "CR Flamengo Win",
+      "result": "win",
+      "final_score": "1-0"
+    },
+    {
+      "date": "2026-09-27",
+      "id": 555036,
+      "sport": "Football",
+      "match": "Gr\u00eamio FBPA vs SC Internacional",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "1-1"
+    },
+    {
+      "date": "2026-09-27",
+      "id": 555037,
+      "sport": "Football",
+      "match": "SE Palmeiras vs SC Corinthians Paulista",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "SE Palmeiras Win",
+      "result": "win",
+      "final_score": "4-1"
+    },
+    {
+      "date": "2026-09-27",
+      "id": 555031,
+      "sport": "Football",
+      "match": "EC Bahia vs Mirassol FC",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "EC Bahia Win",
+      "result": "win",
+      "final_score": "1-0"
     },
     {
       "date": "2026-09-26",
