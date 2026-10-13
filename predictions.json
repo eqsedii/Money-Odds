@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-10-13T13:24:36.507341Z",
+  "generated_at": "2026-10-13T20:41:20.096299Z",
   "predictions": [
     {
-      "id": 558563,
+      "id": 558560,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "FC Internazionale Milano vs ACF Fiorentina",
-      "home_team": "FC Internazionale Milano",
-      "away_team": "ACF Fiorentina",
-      "home_team_id": 108,
-      "away_team_id": 99,
+      "match": "Cagliari Calcio vs Bologna FC 1909",
+      "home_team": "Cagliari Calcio",
+      "away_team": "Bologna FC 1909",
+      "home_team_id": 104,
+      "away_team_id": 103,
       "league": "Serie A",
       "comp_code": "SA",
-      "kickoff": "2026-10-25T11:30:00Z",
+      "kickoff": "2026-10-24T13:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -28,6 +28,21 @@
       "league": "Bundesliga",
       "comp_code": "BL1",
       "kickoff": "2026-10-18T15:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 558563,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "FC Internazionale Milano vs ACF Fiorentina",
+      "home_team": "FC Internazionale Milano",
+      "away_team": "ACF Fiorentina",
+      "home_team_id": 108,
+      "away_team_id": 99,
+      "league": "Serie A",
+      "comp_code": "SA",
+      "kickoff": "2026-10-25T11:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -58,21 +73,6 @@
       "league": "Premier League",
       "comp_code": "PL",
       "kickoff": "2026-10-18T15:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558560,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Cagliari Calcio vs Bologna FC 1909",
-      "home_team": "Cagliari Calcio",
-      "away_team": "Bologna FC 1909",
-      "home_team_id": 104,
-      "away_team_id": 103,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-10-24T13:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -182,6 +182,21 @@
       "locked": true
     },
     {
+      "id": 558570,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Juventus FC vs SS Lazio",
+      "home_team": "Juventus FC",
+      "away_team": "SS Lazio",
+      "home_team_id": 109,
+      "away_team_id": 110,
+      "league": "Serie A",
+      "comp_code": "SA",
+      "kickoff": "2026-10-18T18:45:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 559665,
       "sport": "Football",
       "icon": "\u26bd",
@@ -285,21 +300,6 @@
       "kickoff": "2026-10-17T18:00:00Z",
       "has_pick": true,
       "locked": true
-    },
-    {
-      "id": 560606,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Tottenham Hotspur FC vs Coventry City FC",
-      "home_team": "Tottenham Hotspur FC",
-      "away_team": "Coventry City FC",
-      "home_team_id": 73,
-      "away_team_id": 1076,
-      "league": "Premier League",
-      "comp_code": "PL",
-      "kickoff": "2026-10-19T19:00:00Z",
-      "has_pick": true,
-      "locked": true
     }
   ],
   "multi_bets": [
@@ -308,9 +308,9 @@
       "locked": true,
       "legs": [
         {
-          "id": 558563,
+          "id": 558560,
           "icon": "\u26bd",
-          "match": "FC Internazionale Milano vs ACF Fiorentina",
+          "match": "Cagliari Calcio vs Bologna FC 1909",
           "meta": "Serie A"
         },
         {
@@ -326,6 +326,12 @@
       "locked": true,
       "legs": [
         {
+          "id": 558563,
+          "icon": "\u26bd",
+          "match": "FC Internazionale Milano vs ACF Fiorentina",
+          "meta": "Serie A"
+        },
+        {
           "id": 560610,
           "icon": "\u26bd",
           "match": "Manchester City FC vs Ipswich Town FC",
@@ -336,12 +342,6 @@
           "icon": "\u26bd",
           "match": "Nottingham Forest FC vs Arsenal FC",
           "meta": "Premier League"
-        },
-        {
-          "id": 558560,
-          "icon": "\u26bd",
-          "match": "Cagliari Calcio vs Bologna FC 1909",
-          "meta": "Serie A"
         }
       ]
     }
