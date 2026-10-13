@@ -118,6 +118,15 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 .loader-overlay{position:fixed;inset:0;z-index:999;background:rgba(10,14,20,0.8);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s ease;}
 .loader-overlay.active{opacity:1;pointer-events:all;}
 .loader-video{width:150px;height:150px;object-fit:contain;}
+.install-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:998;background:var(--bg-card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:none;align-items:center;gap:12px;box-shadow:0 10px 30px rgba(0,0,0,0.45);animation:installSlideUp .3s ease;}
+.install-banner.show{display:flex;}
+@keyframes installSlideUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+.install-banner img{width:38px;height:38px;border-radius:9px;flex-shrink:0;}
+.install-banner .install-text{flex:1;min-width:0;}
+.install-banner .install-text b{display:block;font-size:13.5px;color:var(--text);}
+.install-banner .install-text span{display:block;font-size:12px;color:var(--text-dim);margin-top:1px;}
+.install-banner button.install-go{padding:9px 14px;border-radius:9px;background:var(--gold);color:#1A1204;font-weight:700;font-size:13px;border:none;cursor:pointer;white-space:nowrap;}
+.install-banner button.install-dismiss{background:none;border:none;color:var(--text-dim);font-size:20px;line-height:1;cursor:pointer;padding:4px 2px;flex-shrink:0;}
 .footer-credit{text-align:center;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:11px;letter-spacing:0.6px;color:var(--text-dim);}
 </style>
 </head>
@@ -263,6 +272,16 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 </video>
 </div>
 
+<div class="install-banner" id="installBanner">
+<img src="/icons/icon-192.png" alt="Money Odds">
+<div class="install-text">
+<b id="installTitle">Install Money Odds</b>
+<span id="installSubtitle">Add it to your home screen for quick access</span>
+</div>
+<button class="install-go" id="installGoBtn">Install</button>
+<button class="install-dismiss" id="installDismissBtn" aria-label="Dismiss">&times;</button>
+</div>
+
 <script>
 function showLoader(){ document.getElementById('loaderOverlay').classList.add('active'); }
 function hideLoader(){ document.getElementById('loaderOverlay').classList.remove('active'); }
@@ -351,6 +370,70 @@ fetch('history.json?_=' + Date.now())
 if("serviceWorker" in navigator){
   window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js"));
 }
+
+// ---- Install prompt banner ----
+(function(){
+  const DISMISS_KEY = "moneyOddsInstallDismissed";
+  const banner = document.getElementById("installBanner");
+  const goBtn = document.getElementById("installGoBtn");
+  const dismissBtn = document.getElementById("installDismissBtn");
+  const subtitle = document.getElementById("installSubtitle");
+
+  // Already running as an installed app — never show.
+  const isStandalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+  if(isStandalone) return;
+
+  // User already dismissed it recently — don't nag every visit.
+  let dismissedAt = 0;
+  try { dismissedAt = parseInt(localStorage.getItem(DISMISS_KEY) || "0", 10); } catch(e){}
+  const daysSinceDismiss = (Date.now() - dismissedAt) / 86400000;
+  if(dismissedAt && daysSinceDismiss < 14) return;
+
+  function showBanner(){ banner.classList.add("show"); }
+  function hideBanner(){ banner.classList.remove("show"); }
+
+  dismissBtn.addEventListener("click", () => {
+    hideBanner();
+    try { localStorage.setItem(DISMISS_KEY, String(Date.now())); } catch(e){}
+  });
+
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+
+  if(isIOS){
+    // Safari gives no programmatic install trigger — only Share → Add to Home Screen.
+    subtitle.textContent = "Tap Share, then \"Add to Home Screen\"";
+    goBtn.textContent = "Show me";
+    goBtn.addEventListener("click", () => {
+      subtitle.textContent = "Tap the Share icon below, then \"Add to Home Screen\"";
+    });
+    showBanner();
+    return;
+  }
+
+  // Android/Chrome — real native install prompt.
+  let deferredPrompt = null;
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    showBanner();
+  });
+
+  goBtn.addEventListener("click", async () => {
+    if(!deferredPrompt) return;
+    hideBanner();
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if(outcome !== "accepted"){
+      try { localStorage.setItem(DISMISS_KEY, String(Date.now())); } catch(e){}
+    }
+    deferredPrompt = null;
+  });
+
+  window.addEventListener("appinstalled", () => {
+    hideBanner();
+    try { localStorage.removeItem(DISMISS_KEY); } catch(e){}
+  });
+})();
 </script>
 </body>
 </html>
