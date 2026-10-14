@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T14:25:40.495599Z",
+  "generated_at": "2026-10-14T19:18:21.038652Z",
   "predictions": [
     {
       "id": 558563,
@@ -28,21 +28,6 @@
       "league": "Bundesliga",
       "comp_code": "BL1",
       "kickoff": "2026-10-18T15:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 565829,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Schalke 04 vs 1. FSV Mainz 05",
-      "home_team": "FC Schalke 04",
-      "away_team": "1. FSV Mainz 05",
-      "home_team_id": 6,
-      "away_team_id": 15,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-10-17T13:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -152,17 +137,17 @@
       "locked": true
     },
     {
-      "id": 565833,
+      "id": 565829,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "VfB Stuttgart vs Borussia M\u00f6nchengladbach",
-      "home_team": "VfB Stuttgart",
-      "away_team": "Borussia M\u00f6nchengladbach",
-      "home_team_id": 10,
-      "away_team_id": 18,
+      "match": "FC Schalke 04 vs 1. FSV Mainz 05",
+      "home_team": "FC Schalke 04",
+      "away_team": "1. FSV Mainz 05",
+      "home_team_id": 6,
+      "away_team_id": 15,
       "league": "Bundesliga",
       "comp_code": "BL1",
-      "kickoff": "2026-10-23T18:30:00Z",
+      "kickoff": "2026-10-17T13:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -287,6 +272,21 @@
       "locked": true
     },
     {
+      "id": 565825,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "FC Bayern M\u00fcnchen vs RB Leipzig",
+      "home_team": "FC Bayern M\u00fcnchen",
+      "away_team": "RB Leipzig",
+      "home_team_id": 5,
+      "away_team_id": 721,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-10-17T16:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 558869,
       "sport": "Football",
       "icon": "\u26bd",
@@ -326,12 +326,6 @@
       "locked": true,
       "legs": [
         {
-          "id": 565829,
-          "icon": "\u26bd",
-          "match": "FC Schalke 04 vs 1. FSV Mainz 05",
-          "meta": "Bundesliga"
-        },
-        {
           "id": 560610,
           "icon": "\u26bd",
           "match": "Manchester City FC vs Ipswich Town FC",
@@ -342,6 +336,12 @@
           "icon": "\u26bd",
           "match": "Nottingham Forest FC vs Arsenal FC",
           "meta": "Premier League"
+        },
+        {
+          "id": 558560,
+          "icon": "\u26bd",
+          "match": "Cagliari Calcio vs Bologna FC 1909",
+          "meta": "Serie A"
         }
       ]
     }
