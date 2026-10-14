@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-10-13T20:41:20.096299Z",
+  "generated_at": "2026-10-14T00:17:06.644238Z",
   "predictions": [
     {
-      "id": 558560,
+      "id": 558563,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "Cagliari Calcio vs Bologna FC 1909",
-      "home_team": "Cagliari Calcio",
-      "away_team": "Bologna FC 1909",
-      "home_team_id": 104,
-      "away_team_id": 103,
+      "match": "FC Internazionale Milano vs ACF Fiorentina",
+      "home_team": "FC Internazionale Milano",
+      "away_team": "ACF Fiorentina",
+      "home_team_id": 108,
+      "away_team_id": 99,
       "league": "Serie A",
       "comp_code": "SA",
-      "kickoff": "2026-10-24T13:00:00Z",
+      "kickoff": "2026-10-25T11:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -28,21 +28,6 @@
       "league": "Bundesliga",
       "comp_code": "BL1",
       "kickoff": "2026-10-18T15:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558563,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Internazionale Milano vs ACF Fiorentina",
-      "home_team": "FC Internazionale Milano",
-      "away_team": "ACF Fiorentina",
-      "home_team_id": 108,
-      "away_team_id": 99,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-10-25T11:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -77,6 +62,21 @@
       "locked": true
     },
     {
+      "id": 558560,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Cagliari Calcio vs Bologna FC 1909",
+      "home_team": "Cagliari Calcio",
+      "away_team": "Bologna FC 1909",
+      "home_team_id": 104,
+      "away_team_id": 103,
+      "league": "Serie A",
+      "comp_code": "SA",
+      "kickoff": "2026-10-24T13:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 565838,
       "sport": "Football",
       "icon": "\u26bd",
@@ -103,21 +103,6 @@
       "league": "Bundesliga",
       "comp_code": "BL1",
       "kickoff": "2026-10-25T14:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 561882,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Southampton FC vs Bolton Wanderers FC",
-      "home_team": "Southampton FC",
-      "away_team": "Bolton Wanderers FC",
-      "home_team_id": 340,
-      "away_team_id": 60,
-      "league": "Championship",
-      "comp_code": "ELC",
-      "kickoff": "2026-10-17T14:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -178,21 +163,6 @@
       "league": "Serie A",
       "comp_code": "SA",
       "kickoff": "2026-10-18T16:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558570,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Juventus FC vs SS Lazio",
-      "home_team": "Juventus FC",
-      "away_team": "SS Lazio",
-      "home_team_id": 109,
-      "away_team_id": 110,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-10-18T18:45:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -272,6 +242,36 @@
       "locked": true
     },
     {
+      "id": 558549,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "AC Milan vs Bologna FC 1909",
+      "home_team": "AC Milan",
+      "away_team": "Bologna FC 1909",
+      "home_team_id": 98,
+      "away_team_id": 103,
+      "league": "Serie A",
+      "comp_code": "SA",
+      "kickoff": "2026-10-28T17:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 561882,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Southampton FC vs Bolton Wanderers FC",
+      "home_team": "Southampton FC",
+      "away_team": "Bolton Wanderers FC",
+      "home_team_id": 340,
+      "away_team_id": 60,
+      "league": "Championship",
+      "comp_code": "ELC",
+      "kickoff": "2026-10-17T14:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 565825,
       "sport": "Football",
       "icon": "\u26bd",
@@ -308,9 +308,9 @@
       "locked": true,
       "legs": [
         {
-          "id": 558560,
+          "id": 558563,
           "icon": "\u26bd",
-          "match": "Cagliari Calcio vs Bologna FC 1909",
+          "match": "FC Internazionale Milano vs ACF Fiorentina",
           "meta": "Serie A"
         },
         {
@@ -326,12 +326,6 @@
       "locked": true,
       "legs": [
         {
-          "id": 558563,
-          "icon": "\u26bd",
-          "match": "FC Internazionale Milano vs ACF Fiorentina",
-          "meta": "Serie A"
-        },
-        {
           "id": 560610,
           "icon": "\u26bd",
           "match": "Manchester City FC vs Ipswich Town FC",
@@ -342,6 +336,12 @@
           "icon": "\u26bd",
           "match": "Nottingham Forest FC vs Arsenal FC",
           "meta": "Premier League"
+        },
+        {
+          "id": 558560,
+          "icon": "\u26bd",
+          "match": "Cagliari Calcio vs Bologna FC 1909",
+          "meta": "Serie A"
         }
       ]
     }
