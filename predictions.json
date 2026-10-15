@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T19:18:21.038652Z",
+  "generated_at": "2026-10-14T23:48:06.614409Z",
   "predictions": [
     {
       "id": 558563,
@@ -257,21 +257,6 @@
       "locked": true
     },
     {
-      "id": 561882,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Southampton FC vs Bolton Wanderers FC",
-      "home_team": "Southampton FC",
-      "away_team": "Bolton Wanderers FC",
-      "home_team_id": 340,
-      "away_team_id": 60,
-      "league": "Championship",
-      "comp_code": "ELC",
-      "kickoff": "2026-10-17T14:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 565825,
       "sport": "Football",
       "icon": "\u26bd",
@@ -298,6 +283,21 @@
       "league": "Eredivisie",
       "comp_code": "DED",
       "kickoff": "2026-10-17T18:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 560606,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Tottenham Hotspur FC vs Coventry City FC",
+      "home_team": "Tottenham Hotspur FC",
+      "away_team": "Coventry City FC",
+      "home_team_id": 73,
+      "away_team_id": 1076,
+      "league": "Premier League",
+      "comp_code": "PL",
+      "kickoff": "2026-10-19T19:00:00Z",
       "has_pick": true,
       "locked": true
     }
