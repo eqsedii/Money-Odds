@@ -1,21 +1,6 @@
 {
-  "generated_at": "2026-10-16T13:53:03.434407Z",
+  "generated_at": "2026-10-16T18:46:50.020161Z",
   "fixtures": [
-    {
-      "id": 558872,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "SC Heerenveen vs SBV Excelsior",
-      "home_team": "SC Heerenveen",
-      "away_team": "SBV Excelsior",
-      "home_team_id": 673,
-      "away_team_id": 670,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-10-16T18:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
     {
       "id": 565828,
       "sport": "Football",

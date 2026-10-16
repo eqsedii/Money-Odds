@@ -2,6 +2,46 @@
   "total_analyzed_since_start": 563,
   "history": [
     {
+      "date": "2026-10-14",
+      "id": 564716,
+      "sport": "Football",
+      "match": "RC Deportivo La Coru\u00f1a vs Levante UD",
+      "league": "Primera Division",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "1-1"
+    },
+    {
+      "date": "2026-10-14",
+      "id": 561883,
+      "sport": "Football",
+      "match": "Burnley FC vs Wolverhampton Wanderers FC",
+      "league": "Championship",
+      "pick": "BTTS - Yes",
+      "result": "win",
+      "final_score": "1-2"
+    },
+    {
+      "date": "2026-10-13",
+      "id": 558573,
+      "sport": "Football",
+      "match": "Frosinone Calcio vs US Sassuolo Calcio",
+      "league": "Serie A",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "4-2"
+    },
+    {
+      "date": "2026-10-13",
+      "id": 559661,
+      "sport": "Football",
+      "match": "Le Mans FC vs Toulouse FC",
+      "league": "Ligue 1",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "0-3"
+    },
+    {
       "date": "2026-10-12",
       "id": 555033,
       "sport": "Football",
@@ -32,6 +72,16 @@
       "final_score": "0-6"
     },
     {
+      "date": "2026-10-12",
+      "id": 565828,
+      "sport": "Football",
+      "match": "Eintracht Frankfurt vs 1. FC K\u00f6ln",
+      "league": "Bundesliga",
+      "pick": "Over 2.5 Goals",
+      "result": "loss",
+      "final_score": "1-0"
+    },
+    {
       "date": "2026-10-11",
       "id": 561877,
       "sport": "Football",
@@ -50,6 +100,16 @@
       "pick": "Over 2.5 Goals",
       "result": "loss",
       "final_score": "0-1"
+    },
+    {
+      "date": "2026-10-11",
+      "id": 558872,
+      "sport": "Football",
+      "match": "SC Heerenveen vs SBV Excelsior",
+      "league": "Eredivisie",
+      "pick": "SBV Excelsior Win",
+      "result": "loss",
+      "final_score": "4-0"
     },
     {
       "date": "2026-10-10",
