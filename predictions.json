@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T07:33:36.037326Z",
+  "generated_at": "2026-10-17T12:50:54.683020Z",
   "predictions": [
     {
       "id": 565840,
@@ -47,17 +47,47 @@
       "locked": true
     },
     {
-      "id": 565829,
+      "id": 565838,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "FC Schalke 04 vs 1. FSV Mainz 05",
-      "home_team": "FC Schalke 04",
+      "match": "FC Augsburg vs 1. FC Union Berlin",
+      "home_team": "FC Augsburg",
+      "away_team": "1. FC Union Berlin",
+      "home_team_id": 16,
+      "away_team_id": 28,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-10-24T13:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 565835,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "TSG 1899 Hoffenheim vs Bayer 04 Leverkusen",
+      "home_team": "TSG 1899 Hoffenheim",
+      "away_team": "Bayer 04 Leverkusen",
+      "home_team_id": 2,
+      "away_team_id": 3,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-10-25T14:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 565846,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "SV 07 Elversberg vs 1. FSV Mainz 05",
+      "home_team": "SV 07 Elversberg",
       "away_team": "1. FSV Mainz 05",
-      "home_team_id": 6,
+      "home_team_id": 719,
       "away_team_id": 15,
       "league": "Bundesliga",
       "comp_code": "BL1",
-      "kickoff": "2026-10-17T13:30:00Z",
+      "kickoff": "2026-10-30T19:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -122,51 +152,6 @@
       "locked": true
     },
     {
-      "id": 565838,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Augsburg vs 1. FC Union Berlin",
-      "home_team": "FC Augsburg",
-      "away_team": "1. FC Union Berlin",
-      "home_team_id": 16,
-      "away_team_id": 28,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-10-24T13:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 565835,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "TSG 1899 Hoffenheim vs Bayer 04 Leverkusen",
-      "home_team": "TSG 1899 Hoffenheim",
-      "away_team": "Bayer 04 Leverkusen",
-      "home_team_id": 2,
-      "away_team_id": 3,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-10-25T14:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 565846,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "SV 07 Elversberg vs 1. FSV Mainz 05",
-      "home_team": "SV 07 Elversberg",
-      "away_team": "1. FSV Mainz 05",
-      "home_team_id": 719,
-      "away_team_id": 15,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-10-30T19:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 564730,
       "sport": "Football",
       "icon": "\u26bd",
@@ -212,17 +197,17 @@
       "locked": true
     },
     {
-      "id": 565833,
+      "id": 565829,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "VfB Stuttgart vs Borussia M\u00f6nchengladbach",
-      "home_team": "VfB Stuttgart",
-      "away_team": "Borussia M\u00f6nchengladbach",
-      "home_team_id": 10,
-      "away_team_id": 18,
+      "match": "FC Schalke 04 vs 1. FSV Mainz 05",
+      "home_team": "FC Schalke 04",
+      "away_team": "1. FSV Mainz 05",
+      "home_team_id": 6,
+      "away_team_id": 15,
       "league": "Bundesliga",
       "comp_code": "BL1",
-      "kickoff": "2026-10-23T18:30:00Z",
+      "kickoff": "2026-10-17T13:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -257,6 +242,21 @@
       "locked": true
     },
     {
+      "id": 565832,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "RB Leipzig vs SV 07 Elversberg",
+      "home_team": "RB Leipzig",
+      "away_team": "SV 07 Elversberg",
+      "home_team_id": 721,
+      "away_team_id": 719,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-10-24T13:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 558856,
       "sport": "Football",
       "icon": "\u26bd",
@@ -287,17 +287,17 @@
       "locked": true
     },
     {
-      "id": 564735,
+      "id": 565843,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "Rayo Vallecano de Madrid vs RC Celta de Vigo",
-      "home_team": "Rayo Vallecano de Madrid",
-      "away_team": "RC Celta de Vigo",
-      "home_team_id": 87,
-      "away_team_id": 558,
-      "league": "Primera Division",
-      "comp_code": "PD",
-      "kickoff": "2026-10-31T15:15:00Z",
+      "match": "SV Werder Bremen vs TSG 1899 Hoffenheim",
+      "home_team": "SV Werder Bremen",
+      "away_team": "TSG 1899 Hoffenheim",
+      "home_team_id": 12,
+      "away_team_id": 2,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-10-31T14:30:00Z",
       "has_pick": true,
       "locked": true
     }
@@ -332,16 +332,16 @@
           "meta": "Serie A"
         },
         {
-          "id": 565829,
+          "id": 565838,
           "icon": "\u26bd",
-          "match": "FC Schalke 04 vs 1. FSV Mainz 05",
+          "match": "FC Augsburg vs 1. FC Union Berlin",
           "meta": "Bundesliga"
         },
         {
-          "id": 558853,
+          "id": 565835,
           "icon": "\u26bd",
-          "match": "PSV vs Willem II Tilburg",
-          "meta": "Eredivisie"
+          "match": "TSG 1899 Hoffenheim vs Bayer 04 Leverkusen",
+          "meta": "Bundesliga"
         }
       ]
     }
