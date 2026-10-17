@@ -1,21 +1,6 @@
 {
-  "generated_at": "2026-10-16T18:46:50.030351Z",
+  "generated_at": "2026-10-16T23:23:00.201507Z",
   "predictions": [
-    {
-      "id": 558563,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Internazionale Milano vs ACF Fiorentina",
-      "home_team": "FC Internazionale Milano",
-      "away_team": "ACF Fiorentina",
-      "home_team_id": 108,
-      "away_team_id": 99,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-10-25T11:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
     {
       "id": 565826,
       "sport": "Football",
@@ -32,47 +17,17 @@
       "locked": true
     },
     {
-      "id": 560610,
+      "id": 558563,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "Manchester City FC vs Ipswich Town FC",
-      "home_team": "Manchester City FC",
-      "away_team": "Ipswich Town FC",
-      "home_team_id": 65,
-      "away_team_id": 349,
-      "league": "Premier League",
-      "comp_code": "PL",
-      "kickoff": "2026-10-17T14:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 560608,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Nottingham Forest FC vs Arsenal FC",
-      "home_team": "Nottingham Forest FC",
-      "away_team": "Arsenal FC",
-      "home_team_id": 351,
-      "away_team_id": 57,
-      "league": "Premier League",
-      "comp_code": "PL",
-      "kickoff": "2026-10-18T15:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558560,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Cagliari Calcio vs Bologna FC 1909",
-      "home_team": "Cagliari Calcio",
-      "away_team": "Bologna FC 1909",
-      "home_team_id": 104,
-      "away_team_id": 103,
+      "match": "FC Internazionale Milano vs ACF Fiorentina",
+      "home_team": "FC Internazionale Milano",
+      "away_team": "ACF Fiorentina",
+      "home_team_id": 108,
+      "away_team_id": 99,
       "league": "Serie A",
       "comp_code": "SA",
-      "kickoff": "2026-10-24T13:00:00Z",
+      "kickoff": "2026-10-25T11:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -118,6 +73,51 @@
       "league": "Bundesliga",
       "comp_code": "BL1",
       "kickoff": "2026-10-30T19:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 560610,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Manchester City FC vs Ipswich Town FC",
+      "home_team": "Manchester City FC",
+      "away_team": "Ipswich Town FC",
+      "home_team_id": 65,
+      "away_team_id": 349,
+      "league": "Premier League",
+      "comp_code": "PL",
+      "kickoff": "2026-10-17T14:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 560608,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Nottingham Forest FC vs Arsenal FC",
+      "home_team": "Nottingham Forest FC",
+      "away_team": "Arsenal FC",
+      "home_team_id": 351,
+      "away_team_id": 57,
+      "league": "Premier League",
+      "comp_code": "PL",
+      "kickoff": "2026-10-18T15:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 558560,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Cagliari Calcio vs Bologna FC 1909",
+      "home_team": "Cagliari Calcio",
+      "away_team": "Bologna FC 1909",
+      "home_team_id": 104,
+      "away_team_id": 103,
+      "league": "Serie A",
+      "comp_code": "SA",
+      "kickoff": "2026-10-24T13:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -197,36 +197,6 @@
       "locked": true
     },
     {
-      "id": 559651,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Stade Rennais FC 1901 vs RC Strasbourg Alsace",
-      "home_team": "Stade Rennais FC 1901",
-      "away_team": "RC Strasbourg Alsace",
-      "home_team_id": 529,
-      "away_team_id": 576,
-      "league": "Ligue 1",
-      "comp_code": "FL1",
-      "kickoff": "2026-10-25T16:15:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558871,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "ADO Den Haag vs PSV",
-      "home_team": "ADO Den Haag",
-      "away_team": "PSV",
-      "home_team_id": 680,
-      "away_team_id": 674,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-10-17T14:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 565832,
       "sport": "Football",
       "icon": "\u26bd",
@@ -253,6 +223,36 @@
       "league": "Eredivisie",
       "comp_code": "DED",
       "kickoff": "2026-10-25T15:45:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 559651,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Stade Rennais FC 1901 vs RC Strasbourg Alsace",
+      "home_team": "Stade Rennais FC 1901",
+      "away_team": "RC Strasbourg Alsace",
+      "home_team_id": 529,
+      "away_team_id": 576,
+      "league": "Ligue 1",
+      "comp_code": "FL1",
+      "kickoff": "2026-10-25T16:15:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 558871,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "ADO Den Haag vs PSV",
+      "home_team": "ADO Den Haag",
+      "away_team": "PSV",
+      "home_team_id": 680,
+      "away_team_id": 674,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-10-17T14:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -308,16 +308,16 @@
       "locked": true,
       "legs": [
         {
-          "id": 558563,
-          "icon": "\u26bd",
-          "match": "FC Internazionale Milano vs ACF Fiorentina",
-          "meta": "Serie A"
-        },
-        {
           "id": 565826,
           "icon": "\u26bd",
           "match": "Borussia M\u00f6nchengladbach vs TSG 1899 Hoffenheim",
           "meta": "Bundesliga"
+        },
+        {
+          "id": 558563,
+          "icon": "\u26bd",
+          "match": "FC Internazionale Milano vs ACF Fiorentina",
+          "meta": "Serie A"
         }
       ]
     },
@@ -326,22 +326,22 @@
       "locked": true,
       "legs": [
         {
-          "id": 560610,
+          "id": 565838,
           "icon": "\u26bd",
-          "match": "Manchester City FC vs Ipswich Town FC",
-          "meta": "Premier League"
+          "match": "FC Augsburg vs 1. FC Union Berlin",
+          "meta": "Bundesliga"
         },
         {
-          "id": 560608,
+          "id": 565835,
           "icon": "\u26bd",
-          "match": "Nottingham Forest FC vs Arsenal FC",
-          "meta": "Premier League"
+          "match": "TSG 1899 Hoffenheim vs Bayer 04 Leverkusen",
+          "meta": "Bundesliga"
         },
         {
-          "id": 558560,
+          "id": 565846,
           "icon": "\u26bd",
-          "match": "Cagliari Calcio vs Bologna FC 1909",
-          "meta": "Serie A"
+          "match": "SV 07 Elversberg vs 1. FSV Mainz 05",
+          "meta": "Bundesliga"
         }
       ]
     }
