@@ -2,6 +2,16 @@
   "total_analyzed_since_start": 640,
   "history": [
     {
+      "date": "2026-10-17",
+      "id": 558577,
+      "sport": "Football",
+      "match": "ACF Fiorentina vs Como 1907",
+      "league": "Serie A",
+      "pick": "Como 1907 Win",
+      "result": "win",
+      "final_score": "1-3"
+    },
+    {
       "date": "2026-10-16",
       "id": 565824,
       "sport": "Football",
@@ -112,6 +122,46 @@
       "final_score": "3-4"
     },
     {
+      "date": "2026-10-16",
+      "id": 560604,
+      "sport": "Football",
+      "match": "AFC Bournemouth vs Sunderland AFC",
+      "league": "Premier League",
+      "pick": "BTTS - Yes",
+      "result": "loss",
+      "final_score": "2-0"
+    },
+    {
+      "date": "2026-10-16",
+      "id": 560605,
+      "sport": "Football",
+      "match": "Leeds United FC vs Manchester United FC",
+      "league": "Premier League",
+      "pick": "BTTS - No",
+      "result": "loss",
+      "final_score": "1-1"
+    },
+    {
+      "date": "2026-10-16",
+      "id": 560609,
+      "sport": "Football",
+      "match": "Brighton & Hove Albion FC vs Crystal Palace FC",
+      "league": "Premier League",
+      "pick": "Brighton & Hove Albion FC Win",
+      "result": "win",
+      "final_score": "5-0"
+    },
+    {
+      "date": "2026-10-16",
+      "id": 559664,
+      "sport": "Football",
+      "match": "Angers SCO vs Olympique de Marseille",
+      "league": "Ligue 1",
+      "pick": "Under 2.5 Goals",
+      "result": "loss",
+      "final_score": "2-5"
+    },
+    {
       "date": "2026-10-15",
       "id": 565821,
       "sport": "Football",
@@ -160,6 +210,16 @@
       "pick": "Under 2.5 Goals",
       "result": "win",
       "final_score": "0-2"
+    },
+    {
+      "date": "2026-10-15",
+      "id": 558865,
+      "sport": "Football",
+      "match": "SC Cambuur-Leeuwarden vs AZ",
+      "league": "Eredivisie",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "2-2"
     },
     {
       "date": "2026-10-14",
@@ -219,6 +279,16 @@
       "league": "Campeonato Brasileiro S\u00e9rie A",
       "pick": "Under 2.5 Goals",
       "result": "win",
+      "final_score": "2-0"
+    },
+    {
+      "date": "2026-10-13",
+      "id": 564715,
+      "sport": "Football",
+      "match": "CA Osasuna vs Real Racing Club de Santander",
+      "league": "Primera Division",
+      "pick": "BTTS - Yes",
+      "result": "loss",
       "final_score": "2-0"
     },
     {
@@ -690,6 +760,26 @@
       "pick": "S\u00e3o Paulo FC Win",
       "result": "win",
       "final_score": "1-0"
+    },
+    {
+      "date": "2026-10-04",
+      "id": 558867,
+      "sport": "Football",
+      "match": "PEC Zwolle vs Go Ahead Eagles",
+      "league": "Eredivisie",
+      "pick": "Go Ahead Eagles Win",
+      "result": "loss",
+      "final_score": "4-1"
+    },
+    {
+      "date": "2026-10-04",
+      "id": 558574,
+      "sport": "Football",
+      "match": "Udinese Calcio vs US Lecce",
+      "league": "Serie A",
+      "pick": "Under 2.5 Goals",
+      "result": "loss",
+      "final_score": "0-3"
     },
     {
       "date": "2026-10-03",
