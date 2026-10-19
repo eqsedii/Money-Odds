@@ -292,6 +292,16 @@
       "final_score": "2-0"
     },
     {
+      "date": "2026-10-13",
+      "id": 555042,
+      "sport": "Football",
+      "match": "EC Bahia vs CR Flamengo",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Under 2.5 Goals",
+      "result": "loss",
+      "final_score": "0-3"
+    },
+    {
       "date": "2026-10-12",
       "id": 555033,
       "sport": "Football",
@@ -880,6 +890,76 @@
       "pick": "Over 2.5 Goals",
       "result": "win",
       "final_score": "1-2"
+    },
+    {
+      "date": "2026-10-04",
+      "id": 558866,
+      "sport": "Football",
+      "match": "FC Twente '65 vs FC Utrecht",
+      "league": "Eredivisie",
+      "pick": "FC Twente '65 Win",
+      "result": "loss",
+      "final_score": "1-2"
+    },
+    {
+      "date": "2026-10-04",
+      "id": 558870,
+      "sport": "Football",
+      "match": "NEC vs Fortuna Sittard",
+      "league": "Eredivisie",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "2-2"
+    },
+    {
+      "date": "2026-10-04",
+      "id": 558570,
+      "sport": "Football",
+      "match": "Juventus FC vs SS Lazio",
+      "league": "Serie A",
+      "pick": "Under 2.5 Goals",
+      "result": "loss",
+      "final_score": "0-3"
+    },
+    {
+      "date": "2026-10-04",
+      "id": 559665,
+      "sport": "Football",
+      "match": "Olympique Lyonnais vs OGC Nice",
+      "league": "Ligue 1",
+      "pick": "BTTS - No",
+      "result": "loss",
+      "final_score": "2-1"
+    },
+    {
+      "date": "2026-10-04",
+      "id": 564709,
+      "sport": "Football",
+      "match": "Real Madrid CF vs Sevilla FC",
+      "league": "Primera Division",
+      "pick": "Real Madrid CF Win",
+      "result": "win",
+      "final_score": "4-1"
+    },
+    {
+      "date": "2026-10-04",
+      "id": 555045,
+      "sport": "Football",
+      "match": "Fluminense FC vs Santos FC",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "BTTS - Yes",
+      "result": "win",
+      "final_score": "1-2"
+    },
+    {
+      "date": "2026-10-04",
+      "id": 555046,
+      "sport": "Football",
+      "match": "Gr\u00eamio FBPA vs Cruzeiro EC",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "BTTS - Yes",
+      "result": "win",
+      "final_score": "2-4"
     },
     {
       "date": "2026-10-03",
