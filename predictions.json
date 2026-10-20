@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T22:06:40.956352Z",
+  "generated_at": "2026-10-20T02:49:44.538141Z",
   "predictions": [
     {
       "id": 558563,
@@ -152,17 +152,17 @@
       "locked": true
     },
     {
-      "id": 558560,
+      "id": 558565,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "Cagliari Calcio vs Bologna FC 1909",
-      "home_team": "Cagliari Calcio",
-      "away_team": "Bologna FC 1909",
-      "home_team_id": 104,
-      "away_team_id": 103,
+      "match": "SS Lazio vs Parma Calcio 1913",
+      "home_team": "SS Lazio",
+      "away_team": "Parma Calcio 1913",
+      "home_team_id": 110,
+      "away_team_id": 112,
       "league": "Serie A",
       "comp_code": "SA",
-      "kickoff": "2026-10-24T13:00:00Z",
+      "kickoff": "2026-10-24T18:45:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -212,17 +212,17 @@
       "locked": true
     },
     {
-      "id": 558565,
+      "id": 558560,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "SS Lazio vs Parma Calcio 1913",
-      "home_team": "SS Lazio",
-      "away_team": "Parma Calcio 1913",
-      "home_team_id": 110,
-      "away_team_id": 112,
+      "match": "Cagliari Calcio vs Bologna FC 1909",
+      "home_team": "Cagliari Calcio",
+      "away_team": "Bologna FC 1909",
+      "home_team_id": 104,
+      "away_team_id": 103,
       "league": "Serie A",
       "comp_code": "SA",
-      "kickoff": "2026-10-24T18:45:00Z",
+      "kickoff": "2026-10-24T13:00:00Z",
       "has_pick": true,
       "locked": true
     },

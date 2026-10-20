@@ -1,5 +1,5 @@
 {
-  "total_analyzed_since_start": 662,
+  "total_analyzed_since_start": 681,
   "history": [
     {
       "date": "2026-10-17",
@@ -780,6 +780,16 @@
       "pick": "BTTS - No",
       "result": "loss",
       "final_score": "1-2"
+    },
+    {
+      "date": "2026-10-05",
+      "id": 555044,
+      "sport": "Football",
+      "match": "SC Corinthians Paulista vs EC Vit\u00f3ria",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "1-1"
     },
     {
       "date": "2026-10-04",
