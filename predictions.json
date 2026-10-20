@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T16:16:10.132854Z",
+  "generated_at": "2026-10-19T22:06:40.956352Z",
   "predictions": [
     {
       "id": 558563,
@@ -92,21 +92,6 @@
       "locked": true
     },
     {
-      "id": 558560,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Cagliari Calcio vs Bologna FC 1909",
-      "home_team": "Cagliari Calcio",
-      "away_team": "Bologna FC 1909",
-      "home_team_id": 104,
-      "away_team_id": 103,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-10-24T13:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 565838,
       "sport": "Football",
       "icon": "\u26bd",
@@ -163,6 +148,21 @@
       "league": "Serie A",
       "comp_code": "SA",
       "kickoff": "2026-10-31T17:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 558560,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Cagliari Calcio vs Bologna FC 1909",
+      "home_team": "Cagliari Calcio",
+      "away_team": "Bologna FC 1909",
+      "home_team_id": 104,
+      "away_team_id": 103,
+      "league": "Serie A",
+      "comp_code": "SA",
+      "kickoff": "2026-10-24T13:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -242,32 +242,17 @@
       "locked": true
     },
     {
-      "id": 560606,
+      "id": 560612,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "Tottenham Hotspur FC vs Coventry City FC",
-      "home_team": "Tottenham Hotspur FC",
-      "away_team": "Coventry City FC",
-      "home_team_id": 73,
-      "away_team_id": 1076,
+      "match": "Liverpool FC vs Brighton & Hove Albion FC",
+      "home_team": "Liverpool FC",
+      "away_team": "Brighton & Hove Albion FC",
+      "home_team_id": 64,
+      "away_team_id": 397,
       "league": "Premier League",
       "comp_code": "PL",
-      "kickoff": "2026-10-19T19:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558555,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "AS Roma vs Cagliari Calcio",
-      "home_team": "AS Roma",
-      "away_team": "Cagliari Calcio",
-      "home_team_id": 100,
-      "away_team_id": 104,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-10-27T19:45:00Z",
+      "kickoff": "2026-10-25T14:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -283,6 +268,21 @@
       "league": "Primeira Liga",
       "comp_code": "PPL",
       "kickoff": "2026-10-30T20:15:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 564735,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Rayo Vallecano de Madrid vs RC Celta de Vigo",
+      "home_team": "Rayo Vallecano de Madrid",
+      "away_team": "RC Celta de Vigo",
+      "home_team_id": 87,
+      "away_team_id": 558,
+      "league": "Primera Division",
+      "comp_code": "PD",
+      "kickoff": "2026-10-31T15:15:00Z",
       "has_pick": true,
       "locked": true
     },
