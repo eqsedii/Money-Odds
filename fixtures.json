@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T14:13:26.147365Z",
+  "generated_at": "2026-10-20T19:05:08.545648Z",
   "fixtures": [
     {
       "id": "bb-21717855",
@@ -40,36 +40,6 @@
       "away_team_id": 21,
       "league": "NBA",
       "kickoff": "2026-10-20",
-      "has_pick": false,
-      "locked": true
-    },
-    {
-      "id": 575359,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Sabah FK vs Borussia Dortmund",
-      "home_team": "Sabah FK",
-      "away_team": "Borussia Dortmund",
-      "home_team_id": 10233,
-      "away_team_id": 4,
-      "league": "UEFA Champions League",
-      "comp_code": "CL",
-      "kickoff": "2026-10-20T16:45:00Z",
-      "has_pick": false,
-      "locked": true
-    },
-    {
-      "id": 575360,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Fenerbah\u00e7e SK vs SK Slavia Praha",
-      "home_team": "Fenerbah\u00e7e SK",
-      "away_team": "SK Slavia Praha",
-      "home_team_id": 613,
-      "away_team_id": 930,
-      "league": "UEFA Champions League",
-      "comp_code": "CL",
-      "kickoff": "2026-10-20T16:45:00Z",
       "has_pick": false,
       "locked": true
     },
