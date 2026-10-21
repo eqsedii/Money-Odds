@@ -73,7 +73,7 @@ jobs:
           git config user.name "money-odds-bot"
           git config user.email "actions@github.com"
           git add predictions.json history.json fixtures.json match_details.json
-          git diff --quiet --cached || git commit -m "Auto-update predictions [skip ci]"
+          git diff --quiet --cached || git commit -m "Auto-update predictions"
           for attempt in 1 2 3 4 5; do
             if git push; then exit 0; fi
             echo "Push rejected (attempt $attempt) - rebasing onto remote and retrying"
