@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T14:29:17.981740Z",
+  "generated_at": "2026-10-21T21:04:16.846177Z",
   "predictions": [
     {
       "id": 558563,
@@ -47,21 +47,6 @@
       "locked": true
     },
     {
-      "id": 564720,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Athletic Club vs Getafe CF",
-      "home_team": "Athletic Club",
-      "away_team": "Getafe CF",
-      "home_team_id": 77,
-      "away_team_id": 82,
-      "league": "Primera Division",
-      "comp_code": "PD",
-      "kickoff": "2026-10-25T13:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 565835,
       "sport": "Football",
       "icon": "\u26bd",
@@ -103,6 +88,21 @@
       "league": "Bundesliga",
       "comp_code": "BL1",
       "kickoff": "2026-10-24T13:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 564720,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Athletic Club vs Getafe CF",
+      "home_team": "Athletic Club",
+      "away_team": "Getafe CF",
+      "home_team_id": 77,
+      "away_team_id": 82,
+      "league": "Primera Division",
+      "comp_code": "PD",
+      "kickoff": "2026-10-25T13:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -332,15 +332,15 @@
           "meta": "Bundesliga"
         },
         {
-          "id": 564720,
-          "icon": "\u26bd",
-          "match": "Athletic Club vs Getafe CF",
-          "meta": "Primera Division"
-        },
-        {
           "id": 565835,
           "icon": "\u26bd",
           "match": "TSG 1899 Hoffenheim vs Bayer 04 Leverkusen",
+          "meta": "Bundesliga"
+        },
+        {
+          "id": 565846,
+          "icon": "\u26bd",
+          "match": "SV 07 Elversberg vs 1. FSV Mainz 05",
           "meta": "Bundesliga"
         }
       ]
