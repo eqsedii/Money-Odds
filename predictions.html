@@ -133,6 +133,25 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 .date-group-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;font-size:13px;font-weight:700;color:var(--text-dim);letter-spacing:0.4px;text-transform:uppercase;}
 .date-group-head::after{content:'';flex:1;height:1px;background:var(--line);}
 .date-group-head.is-today{color:var(--gold);}
+/* compact, easier-to-scroll cards + sticky collapsible day headers */
+.date-group-head{position:sticky;top:60px;z-index:5;background:var(--bg);padding:10px 0;margin-bottom:10px;cursor:pointer;}
+.date-group-head::before{content:'▾';font-size:12px;}
+.date-group.collapsed .date-group-head::before{content:'▸';}
+.date-group.collapsed .cards-grid{display:none;}
+.date-group-head .dg-count{font-weight:500;opacity:.7;text-transform:none;}
+.cards-grid{gap:10px;}
+.card{padding:12px 14px;border-radius:12px;}
+.card-top{margin-bottom:6px;}
+.sport-tag{font-size:11px;padding:2px 8px;}
+.kickoff{font-size:13px;font-weight:700;color:var(--text);}
+.card-match{font-size:16px;margin-bottom:2px;}
+.card-league{font-size:12px;margin-bottom:8px;}
+.card-divider{display:none;}
+.pick-label{display:inline;margin:0 6px 0 0;}
+.pick-value{display:inline;font-size:15px;}
+.card-row{align-items:center;}
+.odds{font-size:11px;}.odds br{display:none;}.odds b{font-size:14px;margin-left:4px;}
+.confidence{margin-top:8px;}
 </style>
 </head>
 <body>
@@ -284,7 +303,7 @@ function cardHTML(p){
 
   const locked = p.pick === undefined;
   const pickBlock = locked
-    ? `<div class="pick-label">🔒 Locked</div><div class="pick-value" style="color:var(--text-dim);">Subscribe to unlock</div>`
+    ? `<div class="pick-label">🔒 Locked</div><div class="pick-value" style="color:var(--text-dim);">Unlock all matches · Ksh 59 / 7 days</div>`
     : `<div class="pick-label">Our pick</div><div class="pick-value">${p.pick}</div>`;
 
   const oddsBlock = locked
@@ -361,12 +380,14 @@ function renderGrouped(filtered){
 
   const keys = Object.keys(groups).sort();
   cardsEl.innerHTML = keys.map(key => {
-    const cards = groups[key].map(cardHTML).join('');
+    const sorted = groups[key].slice().sort((a, b) => (new Date(a.kickoff) - new Date(b.kickoff)) || String(a.league).localeCompare(String(b.league)));
+    const cards = sorted.map(cardHTML).join('');
+    const n = sorted.length;
     if(key === 'tbd'){
-      return `<div class="date-group"><div class="date-group-head">Date TBD</div><div class="cards-grid">${cards}</div></div>`;
+      return `<div class="date-group"><div class="date-group-head" onclick="this.parentNode.classList.toggle('collapsed')">Date TBD <span class="dg-count">(${n})</span></div><div class="cards-grid">${cards}</div></div>`;
     }
     const { label, isToday } = dateGroupLabel(key);
-    return `<div class="date-group"><div class="date-group-head ${isToday ? 'is-today' : ''}">${label}</div><div class="cards-grid">${cards}</div></div>`;
+    return `<div class="date-group"><div class="date-group-head ${isToday ? 'is-today' : ''}" onclick="this.parentNode.classList.toggle('collapsed')">${label} <span class="dg-count">(${n})</span></div><div class="cards-grid">${cards}</div></div>`;
   }).join('');
 }
 
