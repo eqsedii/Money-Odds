@@ -54,6 +54,24 @@ def http_get_json(url, headers=None):
         return None
 
 
+_FETCH_CACHE = {}
+
+def fetch_paced(url, headers, delay):
+    """Fetch each distinct URL only ONCE per run, then reuse the result.
+    The football URL returns a whole competition's matches, so every
+    prediction in that league can be graded from a single call. Previously
+    it re-downloaded the same data (and slept to respect the rate limit)
+    once per prediction, per archive file, every run — which is what made
+    this step take hours. The pacing sleep now only happens after a real
+    network call, never on a cache hit."""
+    if url in _FETCH_CACHE:
+        return _FETCH_CACHE[url]
+    data = http_get_json(url, headers=headers)
+    time.sleep(delay)
+    _FETCH_CACHE[url] = data
+    return data
+
+
 def grade_pick(pick, final_score_text, home_goals, away_goals):
     """Very literal grading: only handles the market types we generate."""
     p = pick.lower()
@@ -80,8 +98,7 @@ def resolve_football(entry):
         return None
 
     url = f"{FOOTBALL_BASE}/competitions/{code}/matches"
-    data = http_get_json(url, headers={"X-Auth-Token": FOOTBALL_API_KEY})
-    time.sleep(6.5)
+    data = fetch_paced(url, {"X-Auth-Token": FOOTBALL_API_KEY}, 6.5)
     if not data:
         return None
 
@@ -121,11 +138,11 @@ def resolve_basketball(entry):
     if not game_date:
         return None
 
-    data = http_get_json(
+    data = fetch_paced(
         f"{BALLDONTLIE_BASE}/games?dates[]={game_date}",
-        headers={"Authorization": BALLDONTLIE_API_KEY},
+        {"Authorization": BALLDONTLIE_API_KEY},
+        12.5,
     )
-    time.sleep(12.5)
     if not data:
         return None
 
