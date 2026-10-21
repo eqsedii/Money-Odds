@@ -81,6 +81,14 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 <div class="card">
 <h2>1. Publish a new Exclusive slip <span>Publishing archives whatever slip is currently live into history first — nothing is lost.</span></h2>
 <div class="status-msg" id="editingNote" style="background:var(--gold-soft);color:var(--gold);"></div>
+<div style="border:1px dashed var(--gold);border-radius:10px;padding:14px;margin-bottom:16px;">
+<label style="color:var(--gold);font-weight:600;">⚡ Auto-fill from screenshots</label>
+<input type="text" id="shotHint" placeholder="Pick wanted (optional) e.g. 1, X, 2, 1X, Over 2.5 — blank = betslip selection / favourite">
+<input type="file" id="shotFiles" accept="image/*" multiple style="display:none" onchange="autoFill(this.files)">
+<div class="btn-row"><button class="btn btn-cyan" onclick="document.getElementById('shotFiles').click()">Upload screenshots</button></div>
+<div class="note">Select several at once, or paste (Ctrl+V). A betslip screenshot fills every match in one go.</div>
+<div class="status-msg" id="shotStatus"></div>
+</div>
 <div id="legsContainer"></div>
 <button class="btn btn-outline" onclick="addLegRow()">+ Add match</button>
 <label style="margin-top:16px;">Combined odds (shown to everyone, even before payment)</label>
@@ -389,6 +397,54 @@ function restoreDraftOrStart(){
   note.appendChild(clearLink);
   note.appendChild(document.createTextNode("."));
 }
+
+
+// ---- Screenshot auto-fill ----
+function shrinkImage(file){
+  return new Promise((res, rej) => {
+    const img = new Image();
+    img.onload = () => {
+      const s = Math.min(1, 900 / img.width);
+      const c = document.createElement("canvas");
+      c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+      res(c.toDataURL("image/jpeg", 0.8));
+    };
+    img.onerror = rej;
+    img.src = URL.createObjectURL(file);
+  });
+}
+async function autoFill(files){
+  files = Array.from(files || []).filter(f => f.type.startsWith("image/"));
+  if(!files.length) return;
+  setStatus("shotStatus", true, `Reading ${files.length} screenshot(s)…`);
+  try {
+    const images = await Promise.all(files.map(shrinkImage));
+    const now = new Date();
+    const res = await fetch(`${WORKER_BASE}/admin/extract-slip`, {
+      method: "POST", headers: adminHeaders(),
+      body: JSON.stringify({ images, hint: document.getElementById("shotHint").value, today: now.toISOString().slice(0,10) })
+    });
+    const data = await res.json();
+    if(!res.ok) throw new Error(data.error || res.status);
+    if(!data.legs.length) throw new Error("Couldn't find any match in the screenshot(s).");
+    const rows = document.querySelectorAll("#legsContainer .leg-row");
+    if(rows.length === 1 && !rows[0].querySelector(".leg-match").value.trim() && !rows[0].querySelector(".leg-pick").value.trim()) rows[0].remove();
+    data.legs.forEach(l => {
+      addLegRow({ match: l.match, league: l.league, pick: l.pick, odds: l.odds });
+      if(l.kickoff){ const r = document.querySelectorAll("#legsContainer .leg-row"); r[r.length-1].querySelector(".leg-kickoff").value = l.kickoff; }
+    });
+    const prod = Array.from(document.querySelectorAll(".leg-odds")).reduce((p, i) => p * (parseFloat(i.value) || 1), 1);
+    if(prod > 1) document.getElementById("combinedOdds").value = prod.toFixed(2);
+    saveDraft();
+    setStatus("shotStatus", true, `Filled ${data.legs.length} match(es). Check them, then publish.`);
+  } catch(e){ setStatus("shotStatus", false, "Auto-fill failed: " + e.message); }
+  document.getElementById("shotFiles").value = "";
+}
+document.addEventListener("paste", e => {
+  const fs = Array.from(e.clipboardData?.files || []);
+  if(fs.length) autoFill(fs);
+});
 
 restoreDraftOrStart();
 document.getElementById("legsContainer").addEventListener("input", saveDraft);

@@ -293,6 +293,44 @@ async function handleExclusiveRestore(request, env) {
 
 // ---------------------------------------------------------------- admin
 
+
+// ---- Screenshot -> slip legs (free Gemini vision). Needs secret GEMINI_API_KEY ----
+const GEMINI_MODEL = "gemini-2.5-flash"; // change here if Google renames it
+async function handleAdminExtractSlip(request, env) {
+  if (!isAdmin(request, env)) return json({ error: "unauthorized" }, 401);
+  if (!env.GEMINI_API_KEY) return json({ error: "GEMINI_API_KEY not set on the worker" }, 500);
+  let body;
+  try { body = await request.json(); } catch (e) { return json({ error: "invalid_json_body" }, 400); }
+  const images = (Array.isArray(body.images) ? body.images : []).slice(0, 10);
+  const parts = [];
+  for (const img of images) {
+    const m = /^data:(image\/[a-z+]+);base64,(.+)$/i.exec(img || "");
+    if (m) parts.push({ inline_data: { mime_type: m[1], data: m[2] } });
+  }
+  if (!parts.length) return json({ error: "no_valid_images" }, 400);
+  const hint = String(body.hint || "").slice(0, 200);
+  parts.push({ text:
+    `Today is ${body.today || new Date().toISOString().slice(0, 10)} (East Africa Time). These are bookmaker screenshots (match pages or a betslip). ` +
+    `Return a JSON array, one object per distinct match: {"match":"Home vs Away","league":"","kickoff":"YYYY-MM-DDTHH:MM","pick":"","odds":0.00}. ` +
+    `Rules: dates on screen are day/month; choose the year so the date is the nearest upcoming one; kickoff is 24h time as shown. league = competition/country text shown, or "" if none. ` +
+    `If a screenshot is a betslip or has a highlighted/selected outcome, use that as pick and odds. ` +
+    (hint ? `Otherwise the pick wanted is: "${hint}" — find that market/outcome on the page (1=home win, X=draw, 2=away win; use the team name for 1/2, e.g. "Brooklyn FC to win") and use its exact odds. ` :
+            `Otherwise use the 1X2 market favourite (lowest odds) as the pick. `) +
+    `Copy odds exactly as shown. Use "" or null for anything not visible.` });
+  const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`, {
+    method: "POST",
+    headers: { "content-type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
+    body: JSON.stringify({ contents: [{ parts }], generationConfig: { responseMimeType: "application/json", temperature: 0 } }),
+  });
+  if (!resp.ok) return json({ error: "vision_failed", status: resp.status, detail: (await resp.text()).slice(0, 300) }, 502);
+  const data = await resp.json();
+  const text = ((data.candidates || [])[0]?.content?.parts || []).map((p) => p.text || "").join("");
+  const mm = text.match(/\[[\s\S]*\]/);
+  let legs = [];
+  try { legs = JSON.parse(mm ? mm[0] : "[]"); } catch (e) {}
+  return json({ legs });
+}
+
 async function handleAdminExclusiveSlip(request, env) {
   if (!isAdmin(request, env)) return json({ error: "unauthorized" }, 401);
 
@@ -1187,6 +1225,7 @@ export default {
       if (url.pathname === "/exclusive-restore") return await handleExclusiveRestore(request, env);
       if (url.pathname === "/bookmakers-current") return await handleBookmakersCurrent(request, env);
 
+      if (url.pathname === "/admin/extract-slip" && request.method === "POST") return await handleAdminExtractSlip(request, env);
       if (url.pathname === "/admin/exclusive-slip" && request.method === "POST") return await handleAdminExclusiveSlip(request, env);
       if (url.pathname === "/admin/exclusive-current-full") return await handleAdminExclusiveCurrentFull(request, env);
       if (url.pathname === "/admin/exclusive-archive-current" && request.method === "POST") return await handleAdminExclusiveArchiveCurrent(request, env);
