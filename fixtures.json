@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T08:21:55.427514Z",
+  "generated_at": "2026-10-21T14:29:17.965400Z",
   "fixtures": [
     {
       "id": "bb-21717858",
@@ -1124,21 +1124,6 @@
       "locked": true
     },
     {
-      "id": 559655,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Toulouse FC vs ES Troyes AC",
-      "home_team": "Toulouse FC",
-      "away_team": "ES Troyes AC",
-      "home_team_id": 511,
-      "away_team_id": 531,
-      "league": "Ligue 1",
-      "comp_code": "FL1",
-      "kickoff": "2026-10-24T15:15:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 558564,
       "sport": "Football",
       "icon": "\u26bd",
@@ -1785,6 +1770,21 @@
       "away_team": "FC Lorient",
       "home_team_id": 532,
       "away_team_id": 525,
+      "league": "Ligue 1",
+      "comp_code": "FL1",
+      "kickoff": "2026-10-25T16:15:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 559655,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Toulouse FC vs ES Troyes AC",
+      "home_team": "Toulouse FC",
+      "away_team": "ES Troyes AC",
+      "home_team_id": 511,
+      "away_team_id": 531,
       "league": "Ligue 1",
       "comp_code": "FL1",
       "kickoff": "2026-10-25T16:15:00Z",

@@ -4062,83 +4062,6 @@
     ],
     "h2h": null
   },
-  "559655": {
-    "home_recent": [
-      {
-        "date": "2026-10-16",
-        "opponent": "Le Mans FC",
-        "venue": "A",
-        "score": "3-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-10",
-        "opponent": "AS Monaco FC",
-        "venue": "A",
-        "score": "2-2",
-        "result": "D"
-      },
-      {
-        "date": "2026-09-19",
-        "opponent": "Le Havre AC",
-        "venue": "H",
-        "score": "3-2",
-        "result": "W"
-      },
-      {
-        "date": "2026-09-12",
-        "opponent": "FC Lorient",
-        "venue": "A",
-        "score": "2-2",
-        "result": "D"
-      },
-      {
-        "date": "2026-09-03",
-        "opponent": "Lille OSC",
-        "venue": "H",
-        "score": "0-1",
-        "result": "L"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-10-17",
-        "opponent": "Racing Club de Lens",
-        "venue": "H",
-        "score": "1-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "Olympique de Marseille",
-        "venue": "H",
-        "score": "0-2",
-        "result": "L"
-      },
-      {
-        "date": "2026-09-19",
-        "opponent": "Angers SCO",
-        "venue": "A",
-        "score": "0-2",
-        "result": "L"
-      },
-      {
-        "date": "2026-09-13",
-        "opponent": "Lille OSC",
-        "venue": "A",
-        "score": "0-2",
-        "result": "L"
-      },
-      {
-        "date": "2026-09-06",
-        "opponent": "RC Strasbourg Alsace",
-        "venue": "H",
-        "score": "2-6",
-        "result": "L"
-      }
-    ],
-    "h2h": null
-  },
   "558564": {
     "home_recent": [
       {
@@ -6984,6 +6907,83 @@
         "venue": "A",
         "score": "1-0",
         "result": "W"
+      }
+    ],
+    "h2h": null
+  },
+  "559655": {
+    "home_recent": [
+      {
+        "date": "2026-10-16",
+        "opponent": "Le Mans FC",
+        "venue": "A",
+        "score": "3-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "AS Monaco FC",
+        "venue": "A",
+        "score": "2-2",
+        "result": "D"
+      },
+      {
+        "date": "2026-09-19",
+        "opponent": "Le Havre AC",
+        "venue": "H",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-09-12",
+        "opponent": "FC Lorient",
+        "venue": "A",
+        "score": "2-2",
+        "result": "D"
+      },
+      {
+        "date": "2026-09-03",
+        "opponent": "Lille OSC",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-10-17",
+        "opponent": "Racing Club de Lens",
+        "venue": "H",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "Olympique de Marseille",
+        "venue": "H",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-09-19",
+        "opponent": "Angers SCO",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-09-13",
+        "opponent": "Lille OSC",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-09-06",
+        "opponent": "RC Strasbourg Alsace",
+        "venue": "H",
+        "score": "2-6",
+        "result": "L"
       }
     ],
     "h2h": null
