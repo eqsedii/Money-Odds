@@ -65,6 +65,11 @@ a{color:inherit;text-decoration:none;}
 .live-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:#E8536B;box-shadow:0 0 8px #E8536B;animation:livePulse 1.4s infinite;}
 @keyframes livePulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
 .filter-btn.live-tab.active{background:#E8536B;border-color:#E8536B;box-shadow:0 0 16px rgba(232,83,107,0.35);}
+.date-filters{display:flex;gap:8px;overflow-x:auto;padding:0 0 20px;scrollbar-width:none;-ms-overflow-style:none;}
+.date-filters::-webkit-scrollbar{display:none;}
+.date-chip{flex-shrink:0;padding:7px 15px;border-radius:18px;border:1px solid var(--line);color:var(--text-dim);font-size:13px;font-weight:600;background:transparent;cursor:pointer;white-space:nowrap;transition:all .15s ease;}
+.date-chip:hover{border-color:var(--cyan);color:var(--text);}
+.date-chip.active{background:var(--cyan);border-color:var(--cyan);color:#03181a;}
 .card.is-live{border-color:rgba(232,83,107,0.4);}
 .card-match{font-size:19px;font-weight:600;font-family:'Space Grotesk',sans-serif;margin-bottom:4px;}
 .card-league{font-size:13px;color:var(--text-dim);margin-bottom:18px;}
@@ -175,6 +180,8 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <button class="filter-btn" data-sport="Multi">🔥 Multi-Bets</button>
 </div>
 
+<div class="date-filters" id="dateFilters"></div>
+
 <div class="cards" id="cards"></div>
 <div class="empty" id="emptyState">No predictions in this category today — check back soon.</div>
 <div class="data-status" id="dataStatus"></div>
@@ -209,8 +216,11 @@ document.getElementById('navToggle').addEventListener('click', function(){
 
 let predictions = [];
 let multiBets = [];
+let currentSport = 'all';
+let currentDateKey = 'all';
 const cardsEl = document.getElementById('cards');
 const emptyEl = document.getElementById('emptyState');
+const dateFiltersEl = document.getElementById('dateFilters');
 
 function formatKickoff(iso){
   if(!iso) return '';
@@ -315,6 +325,29 @@ function dateGroupLabel(dateKey){
   return { label: d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' }), isToday: false };
 }
 
+function buildDateChips(){
+  const keys = new Set();
+  predictions.forEach(p => {
+    if(!p.kickoff) return;
+    const dt = new Date(p.kickoff);
+    if(!isNaN(dt.getTime())) keys.add(toLocalDateKey(dt));
+  });
+  const sortedKeys = Array.from(keys).sort();
+
+  const chips = ['<button class="date-chip active" data-date="all">All dates</button>']
+    .concat(sortedKeys.map(key => {
+      const { label } = dateGroupLabel(key);
+      // Short label for the chip itself — full weekday only used in the section headers above the cards.
+      const d = new Date(key + 'T00:00:00');
+      const shortLabel = (label === 'Today' || label === 'Tomorrow')
+        ? label
+        : d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' });
+      return `<button class="date-chip" data-date="${key}">${shortLabel}</button>`;
+    }));
+
+  dateFiltersEl.innerHTML = chips.join('');
+}
+
 function renderGrouped(filtered){
   const groups = {};
   filtered.forEach(p => {
@@ -338,6 +371,10 @@ function renderGrouped(filtered){
 }
 
 function render(sport){
+  currentSport = sport;
+  const dateFilterApplies = sport !== 'Multi' && sport !== 'Live';
+  dateFiltersEl.style.display = dateFilterApplies ? 'flex' : 'none';
+
   if(sport === 'Multi'){
     cardsEl.style.display = multiBets.length ? 'grid' : 'none';
     emptyEl.style.display = multiBets.length ? 'none' : 'block';
@@ -352,6 +389,17 @@ function render(sport){
     filtered = predictions;
   } else {
     filtered = predictions.filter(p => p.sport === sport);
+  }
+
+  if(dateFilterApplies && currentDateKey !== 'all'){
+    filtered = filtered.filter(p => {
+      if(!p.kickoff) return false;
+      const dt = new Date(p.kickoff);
+      return !isNaN(dt.getTime()) && toLocalDateKey(dt) === currentDateKey;
+    });
+    if(!filtered.length){
+      emptyEl.textContent = 'No predictions for this date in this category — try another date or "All dates".';
+    }
   }
 
   const showGrouped = sport !== 'Live';
@@ -376,6 +424,17 @@ document.getElementById('filters').addEventListener('click', function(e){
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   render(btn.dataset.sport);
+});
+
+dateFiltersEl.addEventListener('click', function(e){
+  const chip = e.target.closest('.date-chip');
+  if(!chip) return;
+  dateFiltersEl.querySelectorAll('.date-chip').forEach(c => c.classList.remove('active'));
+  chip.classList.add('active');
+  currentDateKey = chip.dataset.date;
+  emptyEl.textContent = 'No predictions in this category today — check back soon.';
+  render(currentSport);
+  window.scrollTo({ top: Math.max(0, dateFiltersEl.getBoundingClientRect().top + window.scrollY - 90), behavior: 'smooth' });
 });
 
 const statusEl = document.getElementById('dataStatus');
@@ -452,6 +511,7 @@ async function loadFixtures(){
     const liveCount = predictions.filter(p => matchState(p.kickoff) === 'live').length;
     const stale = all.length - predictions.length;
 
+    buildDateChips();
     render('all');
     statusEl.className = 'data-status';
     const unlockNote = token ? (unlockedData ? ' · unlocked' : ' · subscription expired or invalid') : '';
