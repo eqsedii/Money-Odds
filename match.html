@@ -107,20 +107,20 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 
 <nav class="nav">
 <div class="wrap">
-<a href="index.html" class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</a>
+<a href="/" class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</a>
 <div class="nav-links" id="navLinks">
-<a href="predictions.html">Predictions</a>
-<a href="pricing.html">Pricing</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
+<a href="/predictions">Predictions</a>
+<a href="/pricing">Pricing</a>
+<a href="/about">About</a>
+<a href="/contact">Contact</a>
 </div>
-<a href="pricing.html" class="nav-cta">Get Picks</a>
+<a href="/pricing" class="nav-cta">Get Picks</a>
 <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
 </div>
 </nav>
 
 <div class="wrap">
-<a href="predictions.html" class="back-link">← Back to predictions</a>
+<a href="/predictions" class="back-link">← Back to predictions</a>
 <div id="content">
 <div class="loading">Loading match analysis…</div>
 </div>
@@ -231,7 +231,7 @@ function render(fixture, details){
           <b style="color:var(--gold);">Ksh 59 is NOT for this one match.</b><br>It unlocks <b>ALL matches, all sports</b> for <b>7 days</b> — every pick, confidence and market breakdown on the site.
         </div>
       </div>
-      <a href="pricing.html" style="display:inline-block;padding:12px 22px;border-radius:10px;background:var(--gold);color:#1A1204;font-weight:700;font-size:14.5px;box-shadow:0 0 20px rgba(245,166,35,0.3);">Unlock ALL matches · Ksh 59 / 7 days →</a>
+      <a href="/pricing" style="display:inline-block;padding:12px 22px;border-radius:10px;background:var(--gold);color:#1A1204;font-weight:700;font-size:14.5px;box-shadow:0 0 20px rgba(245,166,35,0.3);">Unlock ALL matches · Ksh 59 / 7 days →</a>
     </div>
   ` : `
     <div class="predict-card">
@@ -311,7 +311,7 @@ if(!matchId){
       const details = detailsData[String(matchId)] || { home_recent: [], away_recent: [], h2h: null };
 
       if(!fixture){
-        contentEl.innerHTML = '<div class="error-state">This match analysis is no longer available — it may have already kicked off or been superseded by a newer slate. <br><br><a href="predictions.html" style="color:var(--cyan);font-weight:600;">See today\'s predictions →</a></div>';
+        contentEl.innerHTML = '<div class="error-state">This match analysis is no longer available — it may have already kicked off or been superseded by a newer slate. <br><br><a href="/predictions" style="color:var(--cyan);font-weight:600;">See today\'s predictions →</a></div>';
         hideLoader();
         return;
       }
@@ -336,7 +336,7 @@ if(!matchId){
 }
 </script>
 
-<a href="exclusive.html" class="fab-exclusive"><span class="fab-icon">⭐</span>VIP GOLDEN SLIP</a>
+<a href="/exclusive" class="fab-exclusive"><span class="fab-icon">⭐</span>VIP GOLDEN SLIP</a>
 
 <style>
 .fab-exclusive{position:fixed;right:18px;bottom:22px;z-index:80;display:flex;align-items:center;gap:8px;padding:13px 20px 13px 16px;border-radius:999px;background:linear-gradient(135deg,#C084FC,#7C3AED);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;box-shadow:0 6px 24px rgba(124,58,237,0.5),0 0 0 1px rgba(255,255,255,0.08);text-decoration:none;animation:fabPulse 2.4s infinite;}

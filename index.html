@@ -139,14 +139,14 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 
 <nav class="nav">
 <div class="wrap">
-<a href="index.html" class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</a>
+<a href="/" class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</a>
 <div class="nav-links" id="navLinks">
-<a href="predictions.html">Predictions</a>
-<a href="pricing.html">Pricing</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
+<a href="/predictions">Predictions</a>
+<a href="/pricing">Pricing</a>
+<a href="/about">About</a>
+<a href="/contact">Contact</a>
 </div>
-<a href="pricing.html" class="nav-cta">Get Picks</a>
+<a href="/pricing" class="nav-cta">Get Picks</a>
 <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
 </div>
 </nav>
@@ -165,8 +165,8 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <h1>Predictions built on data, not gut feeling.</h1>
 <p>Money Odds breaks down football and basketball matchups every day, using a statistical model built from real fixture and results data.</p>
 <div class="hero-actions">
-<a href="predictions.html" class="btn-primary">See today's picks</a>
-<a href="pricing.html" class="btn-secondary">Get full access</a>
+<a href="/predictions" class="btn-primary">See today's picks</a>
+<a href="/pricing" class="btn-secondary">Get full access</a>
 </div>
 </div>
 <div class="ticket" id="heroTicket">
@@ -233,7 +233,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <h3>Tennis <span style="font-size:11px;color:var(--text-dim);font-weight:600;">COMING SOON</span></h3>
 <p>ATP and WTA coverage is on the roadmap.</p>
 </div>
-<a href="predictions.html" class="sport-card" style="border-color:rgba(245,166,35,0.3);text-decoration:none;">
+<a href="/predictions" class="sport-card" style="border-color:rgba(245,166,35,0.3);text-decoration:none;">
 <div class="sport-icon" style="background:var(--gold-soft);color:var(--gold);">🔥</div>
 <h3>Multi-Bets</h3>
 <p>Curated accumulators combining our top picks for bigger combined odds.</p>
@@ -247,7 +247,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <div class="pricing-card">
 <h2>Unlock every prediction</h2>
 <p>Get every pick, every sport, every match — site-wide — for 7 days.</p>
-<a href="pricing.html" class="btn-primary">See pricing</a>
+<a href="/pricing" class="btn-primary">See pricing</a>
 <div class="disclaimer">Money Odds provides statistical analysis for informational purposes. No outcome is guaranteed. Bet responsibly and only with money you can afford to lose.</div>
 </div>
 </div>
@@ -257,9 +257,9 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <div class="wrap footer-grid">
 <div class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</div>
 <div class="footer-links">
-<a href="predictions.html">Predictions</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
+<a href="/predictions">Predictions</a>
+<a href="/about">About</a>
+<a href="/contact">Contact</a>
 </div>
 <div>&copy; 2026 Money Odds. All rights reserved.</div>
 </div>
@@ -313,7 +313,7 @@ fetch('predictions.json?_=' + Date.now())
       const ticketEl = document.getElementById('heroTicket');
       ticketEl.style.cursor = 'pointer';
       ticketEl.addEventListener('click', () => {
-        window.location.href = 'match.html?id=' + encodeURIComponent(top.id);
+        window.location.href = '/match?id=' + encodeURIComponent(top.id);
       });
     } else {
       document.getElementById('heroTicket').innerHTML =
@@ -356,7 +356,7 @@ fetch('history.json?_=' + Date.now())
   });
 </script>
 
-<a href="exclusive.html" class="fab-exclusive"><span class="fab-icon">⭐</span>VIP GOLDEN SLIP</a>
+<a href="/exclusive" class="fab-exclusive"><span class="fab-icon">⭐</span>VIP GOLDEN SLIP</a>
 
 <style>
 .fab-exclusive{position:fixed;right:18px;bottom:22px;z-index:80;display:flex;align-items:center;gap:8px;padding:13px 20px 13px 16px;border-radius:999px;background:linear-gradient(135deg,#C084FC,#7C3AED);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;box-shadow:0 6px 24px rgba(124,58,237,0.5),0 0 0 1px rgba(255,255,255,0.08);text-decoration:none;animation:fabPulse 2.4s infinite;}

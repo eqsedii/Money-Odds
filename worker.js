@@ -889,7 +889,7 @@ async function handleAgentApply(request, env) {
   let body;
   try { body = await request.json(); } catch (e) { return json({ error: "invalid_json_body" }, 400); }
 
-  // One unified public link (agents.html) — no invite keys. Admin approval is the gate.
+  // One unified public link (/agents) — no invite keys. Admin approval is the gate.
   const phone = normalizePhone(body.phone);
   const name = (body.name || "").trim().slice(0, 80);
   const town = (body.town || body.county || "").trim().slice(0, 80);
@@ -1036,7 +1036,7 @@ async function handleAdminAgentInviteGenerate(request, env) {
     createdAt: Date.now(),
   };
   await env.UNLOCKS.put(`agent-invite:${token}`, JSON.stringify(record));
-  return json({ ok: true, token, link: `${AGENT_PORTAL_SITE_BASE}/agents.html?key=${token}` });
+  return json({ ok: true, token, link: `${AGENT_PORTAL_SITE_BASE}/agents?key=${token}` });
 }
 
 async function handleAdminAgentInviteList(request, env) {
@@ -1112,7 +1112,7 @@ async function handleAdminAgentList(request, env) {
 
 const AGENT_PORTAL_SITE_BASE = "https://moneyoddspredictions.co.ke";
 function agentLink(code) {
-  return `${AGENT_PORTAL_SITE_BASE}/exclusive.html?ref=${code}`;
+  return `${AGENT_PORTAL_SITE_BASE}/exclusive?ref=${code}`;
 }
 
 async function handleAdminAgentApprove(request, env) {

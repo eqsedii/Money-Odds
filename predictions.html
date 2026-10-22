@@ -163,14 +163,14 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 
 <nav class="nav">
 <div class="wrap">
-<a href="index.html" class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</a>
+<a href="/" class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</a>
 <div class="nav-links" id="navLinks">
-<a href="predictions.html" class="active">Predictions</a>
-<a href="pricing.html">Pricing</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
+<a href="/predictions" class="active">Predictions</a>
+<a href="/pricing">Pricing</a>
+<a href="/about">About</a>
+<a href="/contact">Contact</a>
 </div>
-<a href="pricing.html" class="nav-cta">Get Picks</a>
+<a href="/pricing" class="nav-cta">Get Picks</a>
 <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
 </div>
 </nav>
@@ -210,9 +210,9 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <div class="wrap footer-grid">
 <div class="brand"><img src="logo-nav.webp" alt="Money Odds" class="brand-mark">Money Odds</div>
 <div class="footer-links">
-<a href="predictions.html">Predictions</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
+<a href="/predictions">Predictions</a>
+<a href="/about">About</a>
+<a href="/contact">Contact</a>
 </div>
 <div>&copy; 2026 Money Odds. All rights reserved.</div>
 </div>
@@ -259,7 +259,7 @@ function toLocalDateKey(d){
 
 function multiCardHTML(m){
   const legsHTML = m.legs.map((l, i) => `
-    <a class="leg-row" href="match.html?id=${encodeURIComponent(l.id)}" style="cursor:pointer;">
+    <a class="leg-row" href="/match?id=${encodeURIComponent(l.id)}" style="cursor:pointer;">
       <div class="leg-num">${i+1}</div>
       <div class="leg-info">
         <div class="leg-match">${l.icon} ${l.match}</div>
@@ -315,7 +315,7 @@ function cardHTML(p){
     : `<div class="confidence"><span>Confidence</span><div class="conf-bar"><div class="conf-fill" style="width:${p.confidence}%"></div></div><span>${p.confidence}%</span></div>`;
 
   return `
-    <a class="card ${state === 'live' ? 'is-live' : ''}" href="match.html?id=${encodeURIComponent(p.id)}">
+    <a class="card ${state === 'live' ? 'is-live' : ''}" href="/match?id=${encodeURIComponent(p.id)}">
       <div class="card-top">
         <span class="sport-tag">${p.icon} ${p.sport}</span>
         <span class="kickoff">${kickoffHTML}</span>
@@ -592,7 +592,7 @@ searchInput.addEventListener('focus', () => { if(searchInput.value.trim()) runSe
 searchResults.addEventListener('click', function(e){
   const row = e.target.closest('.search-result-row');
   if(!row || !row.dataset.id) return;
-  window.location.href = 'match.html?id=' + encodeURIComponent(row.dataset.id);
+  window.location.href = '/match?id=' + encodeURIComponent(row.dataset.id);
 });
 
 searchClear.addEventListener('click', function(){
@@ -609,7 +609,7 @@ document.addEventListener('click', function(e){
 });
 </script>
 
-<a href="exclusive.html" class="fab-exclusive"><span class="fab-icon">⭐</span>VIP GOLDEN SLIP</a>
+<a href="/exclusive" class="fab-exclusive"><span class="fab-icon">⭐</span>VIP GOLDEN SLIP</a>
 
 <style>
 .fab-exclusive{position:fixed;right:18px;bottom:22px;z-index:80;display:flex;align-items:center;gap:8px;padding:13px 20px 13px 16px;border-radius:999px;background:linear-gradient(135deg,#C084FC,#7C3AED);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;box-shadow:0 6px 24px rgba(124,58,237,0.5),0 0 0 1px rgba(255,255,255,0.08);text-decoration:none;animation:fabPulse 2.4s infinite;}
