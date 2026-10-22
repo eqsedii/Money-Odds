@@ -421,6 +421,7 @@ async function pollExclusivePayment(ref, btn){
         saveExclusiveAccess(data.token, data.slip_id || (currentSlip && currentSlip.slip_id));
         setStatus('modalStatus', 'success', '✓ Unlocked! Loading your picks…');
         btn.textContent = 'Unlocked ✓';
+        if(window.Celebrate) Celebrate.show({ emoji:'🏆', title:'VIP Golden Slip unlocked!', sub:'Payment received — your exclusive picks are loading. Good luck!', button:'Show me the slip' });
         setTimeout(() => { closePayModal(); loadSlip(); }, 1200);
         return;
       }
@@ -554,5 +555,6 @@ if("serviceWorker" in navigator){
 }
 </script>
 
+<script src="/effects.js" defer></script>
 </body>
 </html>

@@ -416,6 +416,7 @@ async function submitApplication(){
     localStorage.setItem(APP_KEY, JSON.stringify({ applicationId: data.applicationId, phone: payload.phone }));
     try { localStorage.removeItem(DRAFT_KEY); } catch(e){}
     showStep('stepPending');
+    if(window.Celebrate) Celebrate.show({ emoji:'🎊', title:'Application received!', sub:'Thanks ' + payload.name.split(' ')[0] + ' — we will review it shortly. Come back and tap “Approved? Set password” once approved.', button:'Got it' });
   } catch(e){
     setStatus('applyStatus', false, 'Request failed: ' + e.message);
     btn.disabled = false;
@@ -543,6 +544,11 @@ async function loginWithCredentials(code, pw, statusElId){
     localStorage.setItem(SESSION_KEY, JSON.stringify({ token: data.token, code }));
     localStorage.removeItem(APP_KEY);
     await loadDashboard();
+    if(window.Celebrate){
+      var nm = (document.getElementById('dashName').textContent || '').split(' ')[0];
+      if(statusElId) Celebrate.show({ emoji:'👋', title:'Welcome back' + (nm ? ', ' + nm : '') + '!', sub:'Your dashboard is ready.', button:'Let’s go', duration:2800 });
+      else Celebrate.show({ emoji:'🎉', title:'You’re in' + (nm ? ', ' + nm : '') + '!', sub:'Password set. Copy your link below and start earning Ksh 40 per client.', button:'Let’s earn' });
+    }
   } catch(e){
     const msg = 'Request failed: ' + e.message;
     if(statusElId) setStatus(statusElId, false, msg); else setStatus('setPwStatus', false, msg);
@@ -574,6 +580,14 @@ async function loadDashboard(){
     document.getElementById('dashCode').textContent = data.code;
     document.getElementById('dashLinkValue').value = `${SITE_BASE}/exclusive?ref=${data.code}`;
     document.getElementById('dashBalance').textContent = `Ksh ${data.balance}`;
+    try {
+      const lastKey = 'moneyOddsAgentLastBal_' + data.code;
+      const last = parseInt(localStorage.getItem(lastKey) || '-1', 10);
+      if(last >= 0 && data.balance > last && window.Celebrate){
+        Celebrate.show({ emoji:'💰', title:'+Ksh ' + (data.balance - last) + ' commission!', sub:'A client just paid through your link. Keep sharing!', button:'Nice!' });
+      }
+      localStorage.setItem(lastKey, String(data.balance));
+    } catch(e){}
     document.getElementById('dashMinNote').textContent = `Minimum payout: Ksh ${data.minPayout}`;
 
     const btn = document.getElementById('withdrawBtn');
@@ -667,5 +681,6 @@ if("serviceWorker" in navigator){
   window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js"));
 }
 </script>
+<script src="/effects.js" defer></script>
 </body>
 </html>

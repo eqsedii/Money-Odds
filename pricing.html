@@ -254,7 +254,8 @@ setStatus(
     }
     pollPayheroCompletion(data.externalReference, 'modalStatus', () => {
       submitBtn.textContent = 'Unlocked ✓';
-      setTimeout(() => { window.location.href = '/predictions'; }, 1500);
+      if(window.Celebrate) Celebrate.show({ emoji:'🎉', title:'Payment successful!', sub:'Welcome to Money Odds — all picks are unlocked for 7 days.', button:'See my picks' });
+      setTimeout(() => { window.location.href = '/predictions'; }, 4200);
     });
   })
   .catch(() => {
@@ -340,5 +341,6 @@ if("serviceWorker" in navigator){
   window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js"));
 }
 </script>
+<script src="/effects.js" defer></script>
 </body>
 </html>
