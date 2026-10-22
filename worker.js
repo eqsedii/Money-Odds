@@ -295,7 +295,7 @@ async function handleExclusiveRestore(request, env) {
 
 
 // ---- Screenshot -> slip legs (free Gemini vision). Needs secret GEMINI_API_KEY ----
-const GEMINI_MODEL = "gemini-2.5-flash"; // change here if Google renames it
+const GEMINI_MODEL = "gemini-3.8-flash"; // change here if Google renames it
 async function handleAdminExtractSlip(request, env) {
   if (!isAdmin(request, env)) return json({ error: "unauthorized" }, 401);
   if (!env.GEMINI_API_KEY) return json({ error: "GEMINI_API_KEY not set on the worker" }, 500);
@@ -317,14 +317,19 @@ async function handleAdminExtractSlip(request, env) {
     (hint ? `Otherwise the pick wanted is: "${hint}" — find that market/outcome on the page (1=home win, X=draw, 2=away win; use the team name for 1/2, e.g. "Brooklyn FC to win") and use its exact odds. ` :
             `Otherwise use the 1X2 market favourite (lowest odds) as the pick. `) +
     `Copy odds exactly as shown. Use "" or null for anything not visible.` });
-  const models = [GEMINI_MODEL, "gemini-flash-latest", "gemini-2.0-flash", "gemini-2.5-flash-lite"];
+  const models = [GEMINI_MODEL, "gemini-3.5-flash-lite", "gemini-flash-latest", "gemini-flash-lite-latest"];
   let text = "", errors = [];
   for (const model of [...new Set(models)]) {
-    const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
-      method: "POST",
-      headers: { "content-type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
-      body: JSON.stringify({ contents: [{ parts }], generationConfig: { responseMimeType: "application/json", temperature: 0 } }),
-    });
+    let resp;
+    for (let attempt = 0; attempt < 2; attempt++) { // retry once if Google is momentarily busy
+      resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+        method: "POST",
+        headers: { "content-type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
+        body: JSON.stringify({ contents: [{ parts }], generationConfig: { responseMimeType: "application/json", temperature: 0 } }),
+      });
+      if (resp.status !== 503 && resp.status !== 429) break;
+      await new Promise((r) => setTimeout(r, 1500));
+    }
     if (!resp.ok) {
       let msg = "";
       try { msg = (await resp.json()).error?.message || ""; } catch (e) {}
