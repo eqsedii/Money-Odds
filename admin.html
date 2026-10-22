@@ -426,7 +426,7 @@ async function autoFill(files){
       body: JSON.stringify({ images, hint: document.getElementById("shotHint").value, today: now.toISOString().slice(0,10) })
     });
     const data = await res.json();
-    if(!res.ok) throw new Error(data.error || res.status);
+    if(!res.ok) throw new Error((data.error || res.status) + (data.detail ? " — " + data.detail : ""));
     if(!data.legs.length) throw new Error("Couldn't find any match in the screenshot(s).");
     const rows = document.querySelectorAll("#legsContainer .leg-row");
     if(rows.length === 1 && !rows[0].querySelector(".leg-match").value.trim() && !rows[0].querySelector(".leg-pick").value.trim()) rows[0].remove();

@@ -317,14 +317,27 @@ async function handleAdminExtractSlip(request, env) {
     (hint ? `Otherwise the pick wanted is: "${hint}" — find that market/outcome on the page (1=home win, X=draw, 2=away win; use the team name for 1/2, e.g. "Brooklyn FC to win") and use its exact odds. ` :
             `Otherwise use the 1X2 market favourite (lowest odds) as the pick. `) +
     `Copy odds exactly as shown. Use "" or null for anything not visible.` });
-  const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`, {
-    method: "POST",
-    headers: { "content-type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
-    body: JSON.stringify({ contents: [{ parts }], generationConfig: { responseMimeType: "application/json", temperature: 0 } }),
-  });
-  if (!resp.ok) return json({ error: "vision_failed", status: resp.status, detail: (await resp.text()).slice(0, 300) }, 502);
-  const data = await resp.json();
-  const text = ((data.candidates || [])[0]?.content?.parts || []).map((p) => p.text || "").join("");
+  const models = [GEMINI_MODEL, "gemini-flash-latest", "gemini-2.0-flash", "gemini-2.5-flash-lite"];
+  let text = "", errors = [];
+  for (const model of [...new Set(models)]) {
+    const resp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
+      body: JSON.stringify({ contents: [{ parts }], generationConfig: { responseMimeType: "application/json", temperature: 0 } }),
+    });
+    if (!resp.ok) {
+      let msg = "";
+      try { msg = (await resp.json()).error?.message || ""; } catch (e) {}
+      errors.push(`${model}: ${resp.status} ${msg.slice(0, 160)}`);
+      if (resp.status === 400 || resp.status === 401 || resp.status === 403) break; // key/request problem — other models won't help
+      continue;
+    }
+    const data = await resp.json();
+    text = ((data.candidates || [])[0]?.content?.parts || []).map((p) => p.text || "").join("");
+    if (text) break;
+    errors.push(`${model}: empty reply`);
+  }
+  if (!text) return json({ error: "vision_failed", detail: errors.join(" | ") }, 502);
   const mm = text.match(/\[[\s\S]*\]/);
   let legs = [];
   try { legs = JSON.parse(mm ? mm[0] : "[]"); } catch (e) {}
