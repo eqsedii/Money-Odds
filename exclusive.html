@@ -254,6 +254,13 @@ function saveExclusiveAccess(token, slip_id){
 
 let currentSlip = null;
 
+// Countdown to the earliest kickoff on the slip (ticks via effects.js)
+function countdownHtml(legs){
+  const ts = (legs || []).map(l => new Date(l.kickoff).getTime()).filter(t => !isNaN(t));
+  if(!ts.length) return '';
+  return `<div class="fx-countdown" data-countdown="${new Date(Math.min(...ts)).toISOString()}"></div>`;
+}
+
 function renderLockedSlip(slip){
   const legsHtml = slip.legs.map(l => `
     <div class="leg-locked">
@@ -270,6 +277,7 @@ function renderLockedSlip(slip){
       <span class="slip-label">${slip.leg_count}-LEG SLIP</span>
       <div class="slip-odds"><div class="slip-odds-label">Combined odds</div><div class="slip-odds-val">${slip.combined_odds ?? '—'}</div></div>
     </div>
+    ${countdownHtml(slip.legs)}
     ${legsHtml}
     <button class="buy-btn" onclick="openPayModal()">Unlock for Ksh ${slip.price}</button>
   `;
@@ -291,6 +299,7 @@ function renderUnlockedSlip(slip){
       <span class="slip-label">✓ UNLOCKED — ${slip.legs.length}-LEG SLIP</span>
       <div class="slip-odds"><div class="slip-odds-label">Combined odds</div><div class="slip-odds-val">${slip.combined_odds ?? '—'}</div></div>
     </div>
+    ${countdownHtml(slip.legs)}
     ${legsHtml}
   `;
 }
@@ -556,5 +565,6 @@ if("serviceWorker" in navigator){
 </script>
 
 <script src="/effects.js" defer></script>
+<script>window.addEventListener("load",function(){if(window.FX)FX.liveUnlocks("https://money-odds-api.arphaxad98.workers.dev");});</script>
 </body>
 </html>

@@ -116,3 +116,78 @@
     if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
   }
 })();
+
+/* ===== extras: toast, countdown, count-up, flame, live unlocks ===== */
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var st = document.createElement('style');
+  st.textContent = `
+  .fx-toast-wrap{position:fixed;left:14px;bottom:84px;z-index:9000;display:flex;flex-direction:column;gap:8px;pointer-events:none;max-width:calc(100vw - 28px);}
+  .fx-toast{pointer-events:auto;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;background:rgba(19,26,36,.96);border:1px solid rgba(61,214,140,.4);box-shadow:0 8px 28px rgba(0,0,0,.45);font-size:13px;color:#E8EAED;animation:fxToastIn .45s cubic-bezier(.2,1.2,.4,1) both;}
+  .fx-toast.out{animation:fxToastOut .35s ease both;}
+  .fx-toast .dot{width:8px;height:8px;border-radius:50%;background:#3DD68C;box-shadow:0 0 10px #3DD68C;animation:fxPulse 1.4s infinite;flex:0 0 8px;}
+  .fx-toast small{display:block;color:#8B92A5;font-size:11px;margin-top:1px;}
+  @keyframes fxToastIn{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:none}}
+  @keyframes fxToastOut{to{opacity:0;transform:translateX(-30px)}}
+  @keyframes fxPulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .fx-countdown{margin:12px 0;padding:10px 14px;border-radius:10px;background:rgba(232,83,107,.1);border:1px solid rgba(232,83,107,.3);text-align:center;font-size:13.5px;font-weight:600;color:#F2A0AE;letter-spacing:.2px;}
+  .fx-countdown b{color:#fff;font-family:'Space Grotesk',sans-serif;font-size:16px;}
+  .fx-flame{display:inline-block;animation:fxFlame 1.1s ease-in-out infinite;transform-origin:50% 90%;}
+  @keyframes fxFlame{0%,100%{transform:scale(1) rotate(-3deg)}50%{transform:scale(1.18) rotate(4deg)}}
+  @media (prefers-reduced-motion: reduce){.fx-flame,.fx-toast .dot{animation:none}}
+  `;
+  document.head.appendChild(st);
+
+  var FX = window.FX = {};
+
+  FX.toast = function(html, ms){
+    var wrap = document.querySelector('.fx-toast-wrap');
+    if(!wrap){ wrap = document.createElement('div'); wrap.className = 'fx-toast-wrap'; document.body.appendChild(wrap); }
+    var t = document.createElement('div'); t.className = 'fx-toast'; t.innerHTML = '<span class="dot"></span><div>' + html + '</div>';
+    wrap.appendChild(t);
+    setTimeout(function(){ t.classList.add('out'); setTimeout(function(){ t.remove(); }, 360); }, ms || 5200);
+  };
+
+  // number count-up. FX.countUp(el, 87, {suffix:'%'})
+  FX.countUp = function(el, to, o){
+    o = o || {}; var suf = o.suffix || '', pre = o.prefix || '';
+    if(reduce || !isFinite(to)){ el.textContent = pre + to + suf; return; }
+    var t0 = performance.now(), d = o.duration || 1100;
+    (function f(t){
+      var p = Math.min(1, (t - t0) / d), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = pre + Math.round(to * e) + suf;
+      if(p < 1) requestAnimationFrame(f);
+    })(t0);
+  };
+
+  // countdown: any element with data-countdown="<ISO time>"
+  function fmt(ms){
+    var s = Math.floor(ms / 1000), d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600), m = Math.floor(s % 3600 / 60), x = s % 60, p = function(n){ return String(n).padStart(2, '0'); };
+    return (d ? d + 'd ' : '') + p(h) + 'h ' + p(m) + 'm ' + p(x) + 's';
+  }
+  setInterval(function(){
+    document.querySelectorAll('[data-countdown]').forEach(function(el){
+      var ms = new Date(el.getAttribute('data-countdown')).getTime() - Date.now();
+      if(isNaN(ms)) return;
+      el.innerHTML = ms > 0 ? '⏱ First kickoff in <b>' + fmt(ms) + '</b>' : '🔴 Matches are underway';
+    });
+  }, 1000);
+
+  // REAL recent unlocks only (first name, from actual payments). Nothing is shown if there are none.
+  FX.liveUnlocks = function(workerBase){
+    try { if(sessionStorage.getItem('fxLiveShown')) return; } catch(e){}
+    fetch(workerBase + '/recent-unlocks').then(function(r){ return r.json(); }).then(function(d){
+      var ev = (d && d.events || []).slice(0, 3);
+      if(!ev.length) return;
+      try { sessionStorage.setItem('fxLiveShown', '1'); } catch(e){}
+      ev.forEach(function(x, i){
+        setTimeout(function(){
+          var what = x.kind === 'exclusive' ? 'the VIP Golden Slip' : 'full access';
+          var ago = x.minutes_ago < 60 ? x.minutes_ago + ' min ago' : Math.round(x.minutes_ago / 60) + ' hr ago';
+          var name = String(x.first).replace(/[<>&"]/g, '');
+          FX.toast('<b>' + name + '</b> unlocked ' + what + '<small>' + ago + '</small>');
+        }, 3500 + i * 9000);
+      });
+    }).catch(function(){});
+  };
+})();

@@ -335,7 +335,7 @@ fetch('history.json?_=' + Date.now())
     if(history.length){
       const wins = history.filter(h => h.result === 'win').length;
       const winRate = Math.round((wins / history.length) * 100);
-      document.getElementById('statWinRate').textContent = winRate + '%';
+      if(window.FX) FX.countUp(document.getElementById('statWinRate'), winRate, { suffix: '%' }); else document.getElementById('statWinRate').textContent = winRate + '%';
 
       let streak = 0;
       const firstResult = history[0].result;
@@ -343,8 +343,9 @@ fetch('history.json?_=' + Date.now())
         if(h.result === firstResult) streak++;
         else break;
       }
-      document.getElementById('statStreak').textContent =
-        (firstResult === 'win' ? '🔥 ' : '') + streak;
+      document.getElementById('statStreak').innerHTML =
+        (firstResult === 'win' ? '<span class="fx-flame">🔥</span> ' : '') + '<span id="streakNum">' + streak + '</span>';
+      if(window.FX) FX.countUp(document.getElementById('streakNum'), streak, { duration: 800 });
     } else {
       document.getElementById('statWinRate').textContent = '—';
       document.getElementById('statStreak').textContent = '—';
@@ -436,5 +437,6 @@ if("serviceWorker" in navigator){
 })();
 </script>
 <script src="/effects.js" defer></script>
+<script>window.addEventListener("load",function(){if(window.FX)FX.liveUnlocks("https://money-odds-api.arphaxad98.workers.dev");});</script>
 </body>
 </html>

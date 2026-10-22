@@ -556,6 +556,57 @@ function payheroAuthHeader(env) {
 // Shared finalizers — used by BOTH the webhook (handlePayheroWebhook) and the
 // direct-status fallback (handlePayheroCheck), so a payment gets unlocked the
 // same way no matter which of the two paths notices it succeeded first.
+// Real, recent unlocks for the "just unlocked" toast. First name only (as typed
+// by the customer at checkout), newest first, capped at 20, shown for 24h.
+async function recordRecentUnlock(env, name, kind) {
+  try {
+    const first = String(name || "").trim().split(/\s+/)[0].slice(0, 14);
+    if (!first) return;
+    const raw = await env.UNLOCKS.get("recent-unlocks");
+    const list = raw ? JSON.parse(raw) : [];
+    list.unshift({ first, kind, at: Date.now() });
+    await env.UNLOCKS.put("recent-unlocks", JSON.stringify(list.slice(0, 20)));
+  } catch (e) { /* cosmetic — never block a payment */ }
+}
+
+async function handleRecentUnlocks(env) {
+  const raw = await env.UNLOCKS.get("recent-unlocks");
+  const list = (raw ? JSON.parse(raw) : []).filter((x) => Date.now() - x.at < 24 * 3600 * 1000).slice(0, 8);
+  return json({ ok: true, events: list.map((x) => ({ first: x.first, kind: x.kind, minutes_ago: Math.max(1, Math.round((Date.now() - x.at) / 60000)) })) });
+}
+
+// Agent leaderboard — only for logged-in agents. First names + referral counts.
+async function handleAgentLeaderboard(request, env) {
+  const me = await getAgentFromSession(request, env);
+  if (!me) return json({ error: "unauthorized" }, 401);
+  const rows = [];
+  let cursor;
+  do {
+    const page = await env.UNLOCKS.list({ prefix: "agent:", cursor });
+    for (const k of page.keys) {
+      const raw = await env.UNLOCKS.get(k.name);
+      if (!raw) continue;
+      const a = JSON.parse(raw);
+      let count = 0, c2;
+      do {
+        const p2 = await env.UNLOCKS.list({ prefix: `agent-txn:${a.code}:`, cursor: c2 });
+        count += p2.keys.length;
+        c2 = p2.list_complete ? undefined : p2.cursor;
+      } while (c2);
+      rows.push({ code: a.code, first: String(a.name || "Agent").split(/\s+/)[0], count });
+    }
+    cursor = page.list_complete ? undefined : page.cursor;
+  } while (cursor);
+  rows.sort((a, b) => b.count - a.count);
+  const rank = rows.findIndex((r) => r.code === me.code) + 1;
+  return json({
+    ok: true,
+    total: rows.length,
+    me: { rank, count: (rows.find((r) => r.code === me.code) || {}).count || 0 },
+    top: rows.slice(0, 5).map((r) => ({ first: r.first, count: r.count, you: r.code === me.code })),
+  });
+}
+
 async function finalizeSubscriptionUnlock(env, pending, { phone, transactionCode, source } = {}) {
   const finalPhone = normalizePhone(phone) || pending.phone;
   const token = randomToken();
@@ -570,6 +621,7 @@ async function finalizeSubscriptionUnlock(env, pending, { phone, transactionCode
   });
   await env.UNLOCKS.put(`phone:${finalPhone}`, record, { expirationTtl: SUBSCRIPTION_DAYS * 86400 + 3600 });
   await env.UNLOCKS.put(`token:${token}`, record, { expirationTtl: SUBSCRIPTION_DAYS * 86400 + 3600 });
+  await recordRecentUnlock(env, pending.name, "subscription");
   return { token, expiry };
 }
 
@@ -610,6 +662,7 @@ async function finalizeExclusiveUnlock(env, pending, { phone, transactionCode, s
   });
   await env.UNLOCKS.put(`exclusive-token:${token}`, record, { expirationTtl: 30 * 86400 });
   if (finalPhone) await env.UNLOCKS.put(`exclusive-phone:${finalPhone}`, record, { expirationTtl: 30 * 86400 });
+  await recordRecentUnlock(env, pending.name, "exclusive");
 
   // M.O.A.P agent commission — credited here (not in the webhook) so it
   // fires the same way whether the webhook or the payhero-check poll
@@ -1317,6 +1370,8 @@ export default {
       if (url.pathname === "/restore") return await handleRestore(request, env);
       if (url.pathname === "/unlocked-picks") return await handleUnlockedPicks(request, env);
       if (url.pathname === "/pricing") return await handlePricing(env);
+      if (url.pathname === "/recent-unlocks") return await handleRecentUnlocks(env);
+      if (url.pathname === "/agent-leaderboard") return await handleAgentLeaderboard(request, env);
 
       if (url.pathname === "/exclusive-current") return await handleExclusiveCurrent(request, env);
       if (url.pathname === "/exclusive-history") return await handleExclusiveHistory(request, env);

@@ -128,6 +128,18 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 .footer-links{display:flex;gap:20px;}
 .footer-links a:hover{color:var(--text);}
 .footer-credit{text-align:center;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:11px;letter-spacing:0.6px;color:var(--text-dim);}
+
+.badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;}
+.badge{flex:1 1 90px;text-align:center;padding:12px 8px;border-radius:12px;border:1px solid var(--line);background:var(--bg-raised,#10151D);font-size:12px;color:var(--text-dim);}
+.badge .b-ico{font-size:28px;display:block;margin-bottom:4px;filter:grayscale(1);opacity:.4;}
+.badge.earned{border-color:rgba(245,166,35,.5);color:var(--gold);background:rgba(245,166,35,.08);}
+.badge.earned .b-ico{filter:none;opacity:1;animation:badgePop .6s cubic-bezier(.2,1.5,.4,1) both;}
+@keyframes badgePop{from{transform:scale(0) rotate(-25deg)}to{transform:none}}
+.lb-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;}
+.lb-row:last-child{border-bottom:none;}
+.lb-row.you{color:var(--gold);font-weight:700;}
+.lb-rank{width:28px;font-weight:700;text-align:center;}
+.lb-name{flex:1;}
 </style>
 </head>
 <body>
@@ -271,6 +283,8 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
         <button class="copy-btn" id="dashCopyBtn" onclick="copyDashLink()">Copy</button>
       </div>
 
+      <button class="btn" style="background:#25D366;color:#04210f;margin-top:10px;" onclick="shareWhatsApp()">📲 Share on WhatsApp</button>
+
       <div class="balance-box">
         <div class="bal-label">YOUR BALANCE</div>
         <div class="bal-value" id="dashBalance">Ksh 0</div>
@@ -279,6 +293,18 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 
       <button class="btn" id="withdrawBtn" onclick="requestWithdrawal()">Request withdrawal</button>
       <div class="status-msg" id="withdrawStatus"></div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <h2>Your badges</h2>
+      <div class="sub">Earn them as your referrals grow.</div>
+      <div id="badgeRow" class="badge-row"></div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <h2>🏆 Leaderboard</h2>
+      <div class="sub" id="lbSub">Top agents by referrals.</div>
+      <div id="lbList"></div>
     </div>
 
     <div class="card" style="margin-top:20px;">
@@ -617,6 +643,8 @@ async function loadDashboard(){
       `).join('');
     }
 
+    renderBadges((data.referrals || []).length);
+    loadLeaderboard(token);
     document.getElementById('headTitle').textContent = `Welcome back, ${data.name.split(' ')[0]}`;
     document.getElementById('headSub').textContent = 'Your referrals and balance are below.';
     document.getElementById('commissionStrip').style.display = 'none';
@@ -649,6 +677,35 @@ async function requestWithdrawal(){
   } catch(e){
     setStatus('withdrawStatus', false, 'Request failed: ' + e.message);
   }
+}
+
+function shareWhatsApp(){
+  const link = document.getElementById('dashLinkValue').value;
+  const text = `🔥 Get today's VIP Golden Slip from Money Odds — real stats, not guesswork:\n${link}`;
+  window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank');
+}
+
+function renderBadges(n){
+  const defs = [
+    { min: 1,  ico: '🥉', label: 'First referral' },
+    { min: 5,  ico: '🥈', label: '5 referrals' },
+    { min: 10, ico: '🥇', label: '10 referrals' },
+    { min: 25, ico: '💎', label: '25 referrals' },
+  ];
+  document.getElementById('badgeRow').innerHTML = defs.map(d =>
+    `<div class="badge ${n >= d.min ? 'earned' : ''}"><span class="b-ico">${d.ico}</span>${d.label}</div>`).join('');
+}
+
+async function loadLeaderboard(token){
+  try {
+    const res = await fetch(`${WORKER_BASE}/agent-leaderboard`, { headers: { 'X-Agent-Token': token } });
+    const d = await res.json();
+    if(!d.ok) return;
+    const medals = ['🥇','🥈','🥉'];
+    document.getElementById('lbSub').textContent = d.me.rank ? `You are #${d.me.rank} of ${d.total} agents · ${d.me.count} referral(s)` : 'Top agents by referrals.';
+    document.getElementById('lbList').innerHTML = d.top.map((r, i) =>
+      `<div class="lb-row ${r.you ? 'you' : ''}"><span class="lb-rank">${medals[i] || (i + 1)}</span><span class="lb-name">${r.first.replace(/[<>&"]/g,'')}${r.you ? ' (you)' : ''}</span><span>${r.count}</span></div>`).join('');
+  } catch(e){}
 }
 
 function copyDashLink(){

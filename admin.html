@@ -734,6 +734,7 @@ async function saveGrade(){
     const data = await res.json();
     if(data.ok){
       setStatus("gradeStatus", true, "✓ Saved.");
+      if(overall_result === "win" && window.Celebrate) Celebrate.show({ emoji: "🏆", title: "Winner!", sub: "Slip graded as a win — nice one.", button: "Yes!", duration: 3200 });
       loadHistory();
     } else {
       setStatus("gradeStatus", false, "Error: " + JSON.stringify(data));
@@ -959,5 +960,6 @@ loadAgentActive();
 loadWithdrawals();
 </script>
 
+<script src="/effects.js" defer></script>
 </body>
 </html>
