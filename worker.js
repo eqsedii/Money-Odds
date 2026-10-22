@@ -528,7 +528,10 @@ async function handleAdminSmsPaste(request, env) {
     const record = JSON.stringify({ token, slip_id: slip.slip_id, phone: phoneHint, source: "admin-sms-paste", transactionCode: parsed.transactionCode });
     await env.UNLOCKS.put(`exclusive-token:${token}`, record, { expirationTtl: 30 * 86400 });
     await env.UNLOCKS.put(`exclusive-phone:${phoneHint}`, record, { expirationTtl: 30 * 86400 });
-    return json({ ok: true, unlocked: "exclusive", slip_id: slip.slip_id, phone: phoneHint, transactionCode: parsed.transactionCode, note: "No code needed — the customer can restore access themselves by entering that phone number on the VIP Golden Slip page." });
+    let commission = null;
+    const agentCode = (body.agent_code || "").trim();
+    if (agentCode) commission = await creditAgentCommission(env, agentCode, phoneHint, { key: parsed.transactionCode, transactionCode: parsed.transactionCode, source: "admin-sms-paste" });
+    return json({ ok: true, unlocked: "exclusive", commission, slip_id: slip.slip_id, phone: phoneHint, transactionCode: parsed.transactionCode, note: "No code needed — the customer can restore access themselves by entering that phone number on the VIP Golden Slip page." });
   }
 
   return json({ error: "amount_did_not_match_any_product", amount: parsed.amount, expected: [KES_PRICE, EXCLUSIVE_PRICE] }, 400);
@@ -570,6 +573,30 @@ async function finalizeSubscriptionUnlock(env, pending, { phone, transactionCode
   return { token, expiry };
 }
 
+// Credits one commission to an agent, exactly once per payment key (so the
+// webhook and the poll fallback can both run without double-paying).
+async function creditAgentCommission(env, code, customerPhone, { key, transactionCode, source } = {}) {
+  code = (code || "").trim().toUpperCase();
+  const agentRaw = await env.UNLOCKS.get(`agent:${code}`);
+  if (!agentRaw) return { credited: false, reason: "unknown_agent" };
+  const agent = JSON.parse(agentRaw);
+  if (normalizePhone(agent.phone) === normalizePhone(customerPhone)) return { credited: false, reason: "self_referral" };
+
+  const dedupe = key ? `agent-credit:${key}` : null;
+  if (dedupe && (await env.UNLOCKS.get(dedupe))) return { credited: false, reason: "already_credited" };
+  if (dedupe) await env.UNLOCKS.put(dedupe, code, { expirationTtl: 90 * 86400 });
+
+  const fresh = JSON.parse((await env.UNLOCKS.get(`agent:${code}`)) || agentRaw);
+  fresh.balance = (fresh.balance || 0) + AGENT_COMMISSION_KES;
+  fresh.lastReferralAt = Date.now();
+  await env.UNLOCKS.put(`agent:${code}`, JSON.stringify(fresh));
+  await env.UNLOCKS.put(
+    `agent-txn:${code}:${Date.now()}`,
+    JSON.stringify({ amount: AGENT_COMMISSION_KES, phone: normalizePhone(customerPhone), date: Date.now(), transactionCode: transactionCode || null, source: source || "payment" })
+  );
+  return { credited: true };
+}
+
 async function finalizeExclusiveUnlock(env, pending, { phone, transactionCode, source } = {}) {
   const finalPhone = normalizePhone(phone) || pending.phone;
   const token = randomToken();
@@ -588,19 +615,9 @@ async function finalizeExclusiveUnlock(env, pending, { phone, transactionCode, s
   // fires the same way whether the webhook or the payhero-check poll
   // fallback is the one that finalizes this payment.
   if (pending.ref) {
-    const agentRaw = await env.UNLOCKS.get(`agent:${pending.ref}`);
-    if (agentRaw) {
-      const agent = JSON.parse(agentRaw);
-      // Don't pay an agent commission on their own purchase.
-      if (agent.phone !== finalPhone) {
-        agent.balance = (agent.balance || 0) + AGENT_COMMISSION_KES;
-        await env.UNLOCKS.put(`agent:${pending.ref}`, JSON.stringify(agent));
-        await env.UNLOCKS.put(
-          `agent-txn:${pending.ref}:${Date.now()}`,
-          JSON.stringify({ amount: AGENT_COMMISSION_KES, phone: finalPhone, date: Date.now(), transactionCode: transactionCode || null })
-        );
-      }
-    }
+    try {
+      await creditAgentCommission(env, pending.ref, finalPhone, { key: pending.externalRef || transactionCode, transactionCode });
+    } catch (e) { console.log("agent commission error", String(e)); }
   }
 
   return { token };
@@ -679,8 +696,8 @@ async function handlePayheroInitiate(request, env) {
 
   await env.UNLOCKS.put(
     `payhero-pending:${externalRef}`,
-    JSON.stringify({ status: "pending", phone, name, kind, slip_id: slipId, amount, ref }),
-    { expirationTtl: 600 }
+    JSON.stringify({ status: "pending", phone, name, kind, slip_id: slipId, amount, ref, externalRef }),
+    { expirationTtl: 3600 }
   );
 
   return json({ ok: true, externalReference: externalRef });
@@ -872,58 +889,42 @@ async function handleAgentApply(request, env) {
   let body;
   try { body = await request.json(); } catch (e) { return json({ error: "invalid_json_body" }, 400); }
 
-  // One-time-use invite: generated in admin, shared as agents.html?key=<token>.
-  // Valid only once — burned the moment an application is successfully
-  // submitted with it, so a forwarded link stops working after first use.
-  const inviteToken = (body.inviteKey || "").trim();
-  if (!inviteToken) return json({ error: "missing_invite_key" }, 403);
-  const inviteRaw = await env.UNLOCKS.get(`agent-invite:${inviteToken}`);
-  if (!inviteRaw) return json({ error: "invalid_invite_key" }, 403);
-  const invite = JSON.parse(inviteRaw);
-  if (invite.status !== "unused") return json({ error: "invite_already_used" }, 403);
-
+  // One unified public link (agents.html) — no invite keys. Admin approval is the gate.
   const phone = normalizePhone(body.phone);
-  const name = (body.name || "").trim();
-  const id_number = (body.id_number || "").trim();
-  const county = (body.county || "").trim();
-  if (!phone || !name || !id_number || !county) return json({ error: "missing_required_fields" }, 400);
+  const name = (body.name || "").trim().slice(0, 80);
+  const town = (body.town || body.county || "").trim().slice(0, 80);
+  const whatsapp = normalizePhone(body.whatsapp || "") || null;
+  if (!phone || phone.length < 11 || !name || !town) return json({ error: "missing_required_fields" }, 400);
 
+  // One application per phone — unless the earlier one was rejected/terminated.
   const dupKey = `agent-app-phone:${phone}`;
-  if (await env.UNLOCKS.get(dupKey)) return json({ error: "duplicate_application" }, 409);
+  const prevId = await env.UNLOCKS.get(dupKey);
+  if (prevId) {
+    const prevRaw = await env.UNLOCKS.get(`agent-app:${prevId}`);
+    const prev = prevRaw ? JSON.parse(prevRaw) : null;
+    if (prev && prev.status !== "rejected" && prev.status !== "terminated") {
+      return json({ error: "duplicate_application", status: prev.status }, 409);
+    }
+  }
 
   const applicationId = randomId(12);
-  const record = {
-    applicationId,
-    status: "pending",
-    name,
-    id_number,
-    phone,
-    email: (body.email || "").trim(),
-    county,
-    address: (body.address || "").trim(),
-    next_of_kin_name: (body.next_of_kin_name || "").trim(),
-    next_of_kin_phone: (body.next_of_kin_phone || "").trim(),
-    createdAt: Date.now(),
-  };
+  const record = { applicationId, status: "pending", name, phone, whatsapp, county: town, createdAt: Date.now() };
   await env.UNLOCKS.put(`agent-app:${applicationId}`, JSON.stringify(record));
   await env.UNLOCKS.put(dupKey, applicationId);
-
-  invite.status = "used";
-  invite.usedAt = Date.now();
-  invite.applicationId = applicationId;
-  await env.UNLOCKS.put(`agent-invite:${inviteToken}`, JSON.stringify(invite));
-
   return json({ ok: true, applicationId });
 }
 
 async function handleAgentStatus(request, env) {
   const { searchParams } = new URL(request.url);
-  const id = searchParams.get("id");
-  if (!id) return json({ error: "missing_id" }, 400);
+  let id = searchParams.get("id");
+  const phoneQ = normalizePhone(searchParams.get("phone") || "");
+  if (!id && phoneQ) id = await env.UNLOCKS.get(`agent-app-phone:${phoneQ}`);
+  if (!id) return phoneQ ? json({ status: "not_found" }) : json({ error: "missing_id" }, 400);
 
   const raw = await env.UNLOCKS.get(`agent-app:${id}`);
   if (!raw) return json({ status: "not_found" });
   const app = JSON.parse(raw);
+  if (app.status === "terminated") return json({ status: "terminated", reason: app.reason || null });
 
   if (app.status === "approved") {
     const agentRaw = await env.UNLOCKS.get(`agent:${app.code}`);
@@ -964,6 +965,7 @@ async function handleAgentLogin(request, env) {
   if (!raw) return json({ error: "invalid_credentials" }, 401);
   const agent = JSON.parse(raw);
   if (!(await verifyAgentPassword(agent, password))) return json({ error: "invalid_credentials" }, 401);
+  if (await expireIfInactive(env, agent)) return json({ error: "terminated_inactive" }, 403);
 
   const token = await createAgentSession(env, code);
   return json({ ok: true, token });
@@ -1086,6 +1088,14 @@ async function handleAdminAgentList(request, env) {
       }
       cursor = page.cursor;
     } while (cursor);
+    const live = [];
+    for (const a of out) {
+      if (await expireIfInactive(env, a)) continue;
+      a.daysLeft = await agentDaysLeft(env, a);
+      delete a.passwordHash; delete a.passwordSalt;
+      live.push(a);
+    }
+    out.length = 0; out.push(...live);
   } else {
     let cursor;
     do {
@@ -1100,7 +1110,7 @@ async function handleAdminAgentList(request, env) {
   return json({ ok: true, applications: out });
 }
 
-const AGENT_PORTAL_SITE_BASE = "https://money-odds.pages.dev";
+const AGENT_PORTAL_SITE_BASE = "https://moneyoddspredictions.co.ke";
 function agentLink(code) {
   return `${AGENT_PORTAL_SITE_BASE}/exclusive.html?ref=${code}`;
 }
@@ -1167,23 +1177,94 @@ async function handleAdminAgentWithdrawals(request, env) {
 }
 
 
+// Shared by manual terminate and the 21-day inactivity rule. Deleting the
+// agent record is what disables them: payments carrying this code find no
+// agent to credit, and existing login sessions fail their next lookup.
+async function terminateAgent(env, code, reason) {
+  const raw = await env.UNLOCKS.get(`agent:${code}`);
+  if (!raw) return false;
+  const agent = JSON.parse(raw);
+  await env.UNLOCKS.delete(`agent:${code}`);
+  await env.UNLOCKS.delete(`agent-withdrawal-pending:${code}`);
+  if (agent.applicationId) {
+    const appRaw = await env.UNLOCKS.get(`agent-app:${agent.applicationId}`);
+    if (appRaw) {
+      const app = JSON.parse(appRaw);
+      app.status = "terminated";
+      app.reason = reason || null;
+      app.terminatedAt = Date.now();
+      await env.UNLOCKS.put(`agent-app:${agent.applicationId}`, JSON.stringify(app));
+    }
+  }
+  return true;
+}
+
 async function handleAdminAgentTerminate(request, env) {
   if (!isAdmin(request, env)) return json({ error: "unauthorized" }, 401);
   let body;
   try { body = await request.json(); } catch (e) { return json({ error: "invalid_json_body" }, 400); }
   const code = (body.code || "").trim().toUpperCase();
   if (!code) return json({ error: "missing_code" }, 400);
-
-  const raw = await env.UNLOCKS.get(`agent:${code}`);
-  if (!raw) return json({ error: "not_found" }, 404);
-
-  // Deleting the agent record is what actually disables them: future
-  // payments carrying this code as `ref` simply find no agent to credit
-  // (silently, same as an unknown/typo'd ref), and any existing login
-  // session for this code fails its next lookup and gets logged out.
-  await env.UNLOCKS.delete(`agent:${code}`);
-  await env.UNLOCKS.delete(`agent-withdrawal-pending:${code}`);
+  if (!(await terminateAgent(env, code, "Terminated by admin"))) return json({ error: "not_found" }, 404);
   return json({ ok: true });
+}
+
+// ---- 21-day inactivity rule: an approved agent with no referral within
+// 21 days of approval is terminated automatically. Existing agents get a
+// fresh 21 days counted from the first run of this rule (no surprise purge).
+const AGENT_INACTIVITY_DAYS = 21;
+
+async function agentRuleStart(env) {
+  let v = await env.UNLOCKS.get("agent-expiry-start");
+  if (!v) { v = String(Date.now()); await env.UNLOCKS.put("agent-expiry-start", v); }
+  return parseInt(v, 10);
+}
+
+async function agentHasProgress(env, agent) {
+  if ((agent.balance || 0) > 0 || agent.lastReferralAt) return true;
+  const page = await env.UNLOCKS.list({ prefix: `agent-txn:${agent.code}:`, limit: 1 });
+  return page.keys.length > 0;
+}
+
+async function agentDaysLeft(env, agent) {
+  if (await agentHasProgress(env, agent)) return null;
+  const start = Math.max(agent.createdAt || 0, await agentRuleStart(env));
+  return Math.max(0, Math.ceil((start + AGENT_INACTIVITY_DAYS * 86400000 - Date.now()) / 86400000));
+}
+
+async function expireIfInactive(env, agent) {
+  const left = await agentDaysLeft(env, agent);
+  if (left === 0) {
+    await terminateAgent(env, agent.code, `No referrals within ${AGENT_INACTIVITY_DAYS} days`);
+    return true;
+  }
+  return false;
+}
+
+async function expireInactiveAgents(env) {
+  let cursor, count = 0;
+  do {
+    const page = await env.UNLOCKS.list({ prefix: "agent:", cursor });
+    for (const k of page.keys) {
+      const raw = await env.UNLOCKS.get(k.name);
+      if (raw && (await expireIfInactive(env, JSON.parse(raw)))) count++;
+    }
+    cursor = page.list_complete ? undefined : page.cursor;
+  } while (cursor);
+  return count;
+}
+
+// Admin: manually credit a commission that was missed (e.g. a payment made
+// before the referral code was being passed through).
+async function handleAdminAgentCredit(request, env) {
+  if (!isAdmin(request, env)) return json({ error: "unauthorized" }, 401);
+  let body;
+  try { body = await request.json(); } catch (e) { return json({ error: "invalid_json_body" }, 400); }
+  const code = (body.code || "").trim().toUpperCase();
+  const phone = normalizePhone(body.phone || "");
+  if (!code || !phone) return json({ error: "missing_code_or_phone" }, 400);
+  const r = await creditAgentCommission(env, code, phone, { key: `manual:${code}:${phone}:${randomId(4)}`, source: "admin-manual" });
+  return json({ ok: r.credited, ...r });
 }
 
 async function handleAdminAgentWithdrawalComplete(request, env) {
@@ -1264,6 +1345,7 @@ export default {
       if (url.pathname === "/admin/agent-invite-generate" && request.method === "POST") return await handleAdminAgentInviteGenerate(request, env);
       if (url.pathname === "/admin/agent-invite-list") return await handleAdminAgentInviteList(request, env);
       if (url.pathname === "/admin/agent-invite-delete" && request.method === "POST") return await handleAdminAgentInviteDelete(request, env);
+      if (url.pathname === "/admin/agent-credit" && request.method === "POST") return await handleAdminAgentCredit(request, env);
       if (url.pathname === "/admin/agent-terminate" && request.method === "POST") return await handleAdminAgentTerminate(request, env);
       if (url.pathname === "/admin/agent-list") return await handleAdminAgentList(request, env);
       if (url.pathname === "/admin/agent-approve" && request.method === "POST") return await handleAdminAgentApprove(request, env);
@@ -1275,5 +1357,10 @@ export default {
     } catch (e) {
       return json({ error: "internal_error", detail: String(e) }, 500);
     }
+  },
+
+  // Daily cron (see wrangler.toml): enforce the 21-day agent inactivity rule.
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(expireInactiveAgents(env));
   },
 };

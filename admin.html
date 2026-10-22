@@ -146,6 +146,8 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 
 <div class="card">
 <h2>5. Manual unlock from a pasted M-Pesa message <span>Use this if PayHero is down. Amount in the message decides which product unlocks — Ksh 59 = main subscription, Ksh 99 = current VIP Golden Slip (matches + bookmaker links, both).</span></h2>
+<label>Agent code (optional — only for a VIP Golden Slip bought through an agent's link, so they get their commission)</label>
+<input type="text" id="smsAgent" placeholder="e.g. MODE001" style="text-transform:uppercase;">
 <label>Customer's phone number (required for both products now — lets them self-restore without a code)</label>
 <input type="tel" id="smsPhone" placeholder="0712345678">
 <label>Paste the full M-Pesa confirmation text</label>
@@ -162,16 +164,12 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 </div>
 
 <div class="card">
-<h2>7. Agent invite links <span>Applications only go through a one-time link. Generate one to send to whoever you're inviting.</span></h2>
-<div class="row2" style="display:flex;gap:10px;align-items:flex-end;margin-bottom:14px;">
-  <div style="flex:1;">
-    <label for="inviteLabelInput" style="margin-top:0;">Note (optional — who this is for)</label>
-    <input id="inviteLabelInput" type="text" placeholder="e.g. John's cousin">
-  </div>
-  <button class="btn btn-gold" style="width:auto;white-space:nowrap;" onclick="generateInvite()">Generate link</button>
+<h2>7. Agent sign-up link <span>One link for everyone. Share it with anyone you want as an agent — you approve them in section 8. Agents with no referral within 21 days of approval are closed automatically.</span></h2>
+<div class="bm-row">
+<input type="text" id="agentSignupLink" readonly value="https://moneyoddspredictions.co.ke/agents.html">
+<button class="btn btn-gold" style="width:auto;white-space:nowrap;" onclick="copyAgentLink()">Copy</button>
 </div>
 <div class="status-msg" id="inviteGenStatus"></div>
-<div id="inviteList" class="note">Loading…</div>
 </div>
 
 <div class="card">
@@ -183,6 +181,15 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 <div class="card">
 <h2>9. Active agents <span>Codes issued so far, with running commission balance (Ksh 40 per qualifying Ksh 99 payment).</span></h2>
 <div id="agentActiveList" class="note">Loading…</div>
+<div style="margin-top:18px;border-top:1px solid var(--line);padding-top:14px;">
+<label>Credit a missed referral (adds Ksh 40 to an agent)</label>
+<div class="grid2">
+<div><input id="creditCode" type="text" placeholder="Agent code e.g. MODE001" style="text-transform:uppercase;"></div>
+<div><input id="creditPhone" type="tel" placeholder="Customer phone"></div>
+</div>
+<div class="btn-row"><button class="btn btn-cyan" onclick="creditAgent()">Credit commission</button></div>
+<div class="status-msg" id="creditStatus"></div>
+</div>
 </div>
 
 <div class="card">
@@ -739,17 +746,18 @@ async function saveGrade(){
 async function submitSms(){
   const message = document.getElementById("smsText").value.trim();
   const phone = document.getElementById("smsPhone").value.trim();
+  const agent_code = document.getElementById("smsAgent").value.trim();
   if(!message){ setStatus("smsStatus", false, "Paste the M-Pesa message first."); return; }
 
   try {
     const res = await fetch(`${WORKER_BASE}/admin/sms-paste`, {
       method: "POST",
       headers: adminHeaders(),
-      body: JSON.stringify({ message, phone }),
+      body: JSON.stringify({ message, phone, agent_code }),
     });
     const data = await res.json();
     if(data.ok){
-      setStatus("smsStatus", true, `✓ Unlocked ${data.unlocked}` + (data.token ? ` — token: ${data.token}` : "") + (data.phone ? ` — phone: ${data.phone}` : ""));
+      setStatus("smsStatus", true, `✓ Unlocked ${data.unlocked}` + (data.token ? ` — token: ${data.token}` : "") + (data.phone ? ` — phone: ${data.phone}` : "") + (data.commission ? (data.commission.credited ? " — agent commission credited" : " — commission NOT credited: " + data.commission.reason) : ""));
       document.getElementById("smsText").value = "";
     } else {
       setStatus("smsStatus", false, "Error: " + JSON.stringify(data));
@@ -766,66 +774,10 @@ function agentBadge(status){
   return `<span class="bm-badge-preview" style="background:${color}22;color:${color};">${label}</span>`;
 }
 
-async function generateInvite(){
-  const label = document.getElementById("inviteLabelInput").value.trim();
-  try {
-    const res = await fetch(`${WORKER_BASE}/admin/agent-invite-generate`, {
-      method: "POST",
-      headers: adminHeaders(),
-      body: JSON.stringify({ label }),
-    });
-    const data = await res.json();
-    if(data.ok){
-      setStatus("inviteGenStatus", true, `✓ Link ready: ${data.link}`);
-      document.getElementById("inviteLabelInput").value = "";
-      loadInvites();
-    } else {
-      setStatus("inviteGenStatus", false, "Error: " + JSON.stringify(data));
-    }
-  } catch(e){
-    setStatus("inviteGenStatus", false, "Request failed: " + e.message);
-  }
-}
-
-async function loadInvites(){
-  const el = document.getElementById("inviteList");
-  el.innerHTML = "Loading…";
-  try {
-    const res = await fetch(`${WORKER_BASE}/admin/agent-invite-list`, { headers: adminHeaders() });
-    const data = await res.json();
-    const list = (data.invites || []).slice(0, 20);
-    if(!list.length){ el.innerHTML = `<div class="note">No invite links generated yet.</div>`; return; }
-    el.innerHTML = list.map(inv => `
-      <div class="leg-grade-row">
-        <span>${inv.label || "(no note)"} ${agentBadge(inv.status === "unused" ? "pending" : "approved")}</span>
-        <span style="display:flex;align-items:center;gap:10px;">
-          <span class="note">${new Date(inv.createdAt).toLocaleDateString()}</span>
-          ${inv.status === "unused" ? `<button class="btn btn-danger" style="width:auto;margin-top:0;padding:4px 10px;font-size:12px;" onclick="deleteInvite('${inv.token}')">Remove</button>` : ''}
-        </span>
-      </div>
-    `).join("");
-  } catch(e){
-    el.innerHTML = "Failed to load: " + e.message;
-  }
-}
-
-async function deleteInvite(token){
-  if(!confirm("Remove this unused invite link? It will stop working immediately.")) return;
-  try {
-    const res = await fetch(`${WORKER_BASE}/admin/agent-invite-delete`, {
-      method: "POST",
-      headers: adminHeaders(),
-      body: JSON.stringify({ token }),
-    });
-    const data = await res.json();
-    if(data.ok){
-      loadInvites();
-    } else {
-      setStatus("inviteGenStatus", false, "Error: " + JSON.stringify(data));
-    }
-  } catch(e){
-    setStatus("inviteGenStatus", false, "Request failed: " + e.message);
-  }
+function copyAgentLink(){
+  const input = document.getElementById("agentSignupLink");
+  input.select();
+  navigator.clipboard.writeText(input.value).then(() => setStatus("inviteGenStatus", true, "✓ Link copied — share it with anyone you want as an agent."));
 }
 
 async function loadAgentPending(){
@@ -841,7 +793,7 @@ async function loadAgentPending(){
         <div style="display:flex;justify-content:space-between;align-items:flex-start;">
           <div>
             <div style="font-weight:600;font-size:14px;">${app.name} ${agentBadge('pending')}</div>
-            <div class="note" style="margin-top:4px;">${app.phone} · ${app.county || ''}<br>ID: ${app.id_number || '—'} · ${app.email || 'no email'}<br>Address: ${app.address || '—'}<br>Next of kin: ${app.next_of_kin_name ? app.next_of_kin_name + ' (' + (app.next_of_kin_phone || 'no phone') + ')' : '—'}</div>
+            <div class="note" style="margin-top:4px;">M-Pesa: ${app.phone}<br>WhatsApp: ${app.whatsapp || '—'}<br>Home town: ${app.county || '—'}</div>
           </div>
         </div>
         <div class="btn-row">
@@ -864,7 +816,7 @@ async function approveAgent(applicationId){
     });
     const data = await res.json();
     if(data.ok){
-      setStatus("agentApproveStatus", true, `✓ Approved — code ${data.code} — link: ${data.link}`);
+      setStatus("agentApproveStatus", true, `✓ Approved — code ${data.code}. Tell the agent to open the sign-up link, tap “Approved? Set password” and enter their phone number. Their sharing link: ${data.link}`);
       loadAgentPending();
       loadAgentActive();
     } else {
@@ -905,7 +857,7 @@ async function loadAgentActive(){
     if(!list.length){ el.innerHTML = `<div class="note">No approved agents yet.</div>`; return; }
     el.innerHTML = list.map(a => `
       <div class="leg-grade-row">
-        <span><b>${a.code}</b> &nbsp;${a.name} · ${a.phone}</span>
+        <span><b>${a.code}</b> &nbsp;${a.name} · ${a.phone}${a.passwordSet === false ? '' : ''}<br><span class="note">${a.daysLeft == null ? 'Active ✓' : a.daysLeft + ' day(s) left to get a referral'}</span></span>
         <span style="display:flex;align-items:center;gap:10px;">
           <span style="color:var(--gold);font-weight:700;">Ksh ${a.balance || 0}</span>
           <button class="btn btn-danger" style="width:auto;margin-top:0;padding:4px 10px;font-size:12px;" onclick="terminateAgent('${a.code}', ${a.balance || 0})">Terminate</button>
@@ -915,6 +867,18 @@ async function loadAgentActive(){
   } catch(e){
     el.innerHTML = "Failed to load: " + e.message;
   }
+}
+
+async function creditAgent(){
+  const code = document.getElementById("creditCode").value.trim();
+  const phone = document.getElementById("creditPhone").value.trim();
+  if(!code || !phone){ setStatus("creditStatus", false, "Enter the agent code and the customer's phone."); return; }
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/agent-credit`, { method: "POST", headers: adminHeaders(), body: JSON.stringify({ code, phone }) });
+    const data = await res.json();
+    if(data.ok){ setStatus("creditStatus", true, "✓ Ksh 40 credited to " + code.toUpperCase()); loadAgentActive(); }
+    else setStatus("creditStatus", false, "Not credited: " + (data.reason || data.error || JSON.stringify(data)));
+  } catch(e){ setStatus("creditStatus", false, "Request failed: " + e.message); }
 }
 
 async function terminateAgent(code, balance){
@@ -993,7 +957,6 @@ loadBookmakerList();
 loadAgentPending();
 loadAgentActive();
 loadWithdrawals();
-loadInvites();
 </script>
 
 </body>

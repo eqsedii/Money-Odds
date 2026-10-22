@@ -213,6 +213,23 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <script>
 const WORKER_BASE = "https://money-odds-api.arphaxad98.workers.dev";
 
+// Agent referral: remember ?ref=CODE from the agent's link (30 days) so the
+// commission is credited even if the customer refreshes or pays later.
+const REF_KEY = 'moneyOddsAgentRef';
+(function captureRef(){
+  const r = (new URLSearchParams(location.search).get('ref') || '').trim().toUpperCase();
+  if(r){ try { localStorage.setItem(REF_KEY, JSON.stringify({ code: r, at: Date.now() })); } catch(e){} }
+})();
+function getAgentRef(){
+  const q = (new URLSearchParams(location.search).get('ref') || '').trim().toUpperCase();
+  if(q) return q;
+  try {
+    const s = JSON.parse(localStorage.getItem(REF_KEY) || 'null');
+    if(s && s.code && Date.now() - s.at < 30 * 86400000) return s.code;
+  } catch(e){}
+  return null;
+}
+
 document.getElementById('navToggle').addEventListener('click', function(){
   document.getElementById('navLinks').classList.toggle('open');
 });
@@ -375,7 +392,7 @@ async function submitPayment(){
     const res = await fetch(`${WORKER_BASE}/payhero-initiate`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ phone, name, kind: 'exclusive' }),
+      body: JSON.stringify({ phone, name, kind: 'exclusive', ref: getAgentRef() }),
     });
     const data = await res.json();
     if(!data.ok || !data.externalReference){

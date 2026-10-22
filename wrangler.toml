@@ -5,3 +5,6 @@ compatibility_date = "2026-09-08"
 [[kv_namespaces]]
 binding = "UNLOCKS"
 id = "9f8c99aff007414cb0f4c6788916f0fd"
+
+[triggers]
+crons = ["0 1 * * *"]

@@ -163,47 +163,26 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
   <div id="tabs" class="tab-row">
     <button class="tab-btn active" id="tabApplyBtn" onclick="switchTab('apply')">Apply</button>
     <button class="tab-btn" id="tabLoginBtn" onclick="switchTab('login')">Agent login</button>
+    <button class="tab-btn" id="tabFindBtn" onclick="switchTab('find')">Approved? Set password</button>
   </div>
 
   <!-- STEP: APPLICATION FORM -->
   <div class="step active" id="stepApply">
     <div class="card">
       <h2>Apply to become an agent</h2>
-      <div class="sub">Fill in your details below. A code is generated automatically once your application is approved.</div>
+      <div class="sub">Fill in your details below. Once we approve you, come back to this page to set your password and get your agent link.</div>
 
-      <label for="fName">Full name (as on National ID)</label>
+      <label for="fName">Agent name</label>
       <input id="fName" type="text" autocomplete="name">
-
-      <label for="fId">National ID number</label>
-      <input id="fId" type="text" inputmode="numeric">
 
       <label for="fPhone">Phone number (M-Pesa registered)</label>
       <input id="fPhone" type="tel" inputmode="tel" placeholder="07XXXXXXXX">
 
-      <label for="fEmail">Email address</label>
-      <input id="fEmail" type="email" autocomplete="email">
+      <label for="fWhatsapp">WhatsApp number <span class="optional-tag">(optional)</span></label>
+      <input id="fWhatsapp" type="tel" inputmode="tel" placeholder="07XXXXXXXX">
 
-      <div class="row2">
-        <div>
-          <label for="fCounty">County / Town</label>
-          <input id="fCounty" type="text">
-        </div>
-        <div>
-          <label for="fAddress">Physical address</label>
-          <input id="fAddress" type="text">
-        </div>
-      </div>
-
-      <div class="row2">
-        <div>
-          <label for="fNokName">Next of kin — name <span class="optional-tag">(optional)</span></label>
-          <input id="fNokName" type="text">
-        </div>
-        <div>
-          <label for="fNokPhone">Next of kin — phone <span class="optional-tag">(optional)</span></label>
-          <input id="fNokPhone" type="tel">
-        </div>
-      </div>
+      <label for="fTown">Home town</label>
+      <input id="fTown" type="text">
 
       <div class="terms-box">
         You'll be a non-exclusive, independent referral agent — not an employee. You earn Ksh 40 for every genuine Ksh 99 VIP Golden Slip payment made through your code or link. Self-referral or faking a referral forfeits your balance and ends your agent status.
@@ -236,12 +215,24 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
     </div>
   </div>
 
+  <!-- STEP: FIND APPROVAL BY PHONE (any device) -->
+  <div class="step" id="stepFind">
+    <div class="card">
+      <h2>Approved? Set your password</h2>
+      <div class="sub">Enter the phone number you applied with. If you've been approved you can set your password right here, on any device.</div>
+      <label for="findPhone">Phone number (M-Pesa registered)</label>
+      <input id="findPhone" type="tel" inputmode="tel" placeholder="07XXXXXXXX">
+      <button class="btn" onclick="findByPhone()">Continue</button>
+      <div class="status-msg" id="findStatus"></div>
+    </div>
+  </div>
+
   <!-- STEP: PENDING REVIEW -->
   <div class="step" id="stepPending">
     <div class="card center">
       <div class="pending-icon">⏳</div>
       <h2>Application received</h2>
-      <div class="sub" style="margin-top:8px;">Your application is under review. You'll be able to set your password here as soon as it's approved.</div>
+      <div class="sub" style="margin-top:8px;">Your application is under review. Once it's approved, come back to this page — tap \"Approved? Set password\" and enter your phone number to set your password.</div>
       <button class="btn btn-outline" onclick="checkStatus(true)">Check status</button>
       <div class="status-msg" id="pendingStatus"></div>
       <div id="rejectedArea"></div>
@@ -329,7 +320,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
       <b>5. Payment of Commission</b>Commission accrues to the Agent's balance. Once the balance reaches the minimum payout threshold shown in the dashboard, the Agent may request a withdrawal; the Company pays it out via M-Pesa to the Agent's registered number, manually confirmed by the Company.
       <b>6. Fraud and Misuse</b>Self-referral, use of multiple SIM cards or proxies, or any attempt to fake a referral forfeits the Agent's balance and is grounds for immediate termination.
       <b>7. Marketing Conduct</b>The Agent may promote Money Odds through personal networks and social media, but may not make false or exaggerated claims about outcomes or guaranteed winnings, or use paid advertising bearing the Company's name without written consent.
-      <b>8. Term and Termination</b>Either party may terminate with written notice (including WhatsApp or email). The Company may terminate immediately for breach of Clauses 4, 6, or 7. Commission already earned on qualifying referrals remains payable.
+      <b>8. Term and Termination</b>Either party may terminate with written notice (including WhatsApp or email). The Company may terminate immediately for breach of Clauses 4, 6, or 7. The Company may also close any Agent account that records no qualifying referral within 21 days of approval. Commission already earned on qualifying referrals remains payable.
       <b>9. No Guarantee of Earnings</b>The Company makes no guarantee as to referral volume or income. Participation is voluntary and at the Agent's own initiative and expense.
       <b>10. Confidentiality</b>The Agent shall keep confidential any non-public information about the Company's systems, pricing, or internal processes, including their own login credentials.
       <b>11. Governing Law</b>This Agreement is governed by the laws of the Republic of Kenya.
@@ -342,8 +333,8 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 
 <script>
 const WORKER_BASE = "https://money-odds-api.arphaxad98.workers.dev";
-const SITE_BASE = location.origin;
-const INVITE_KEY = new URLSearchParams(location.search).get('key') || '';
+const SITE_BASE = 'https://moneyoddspredictions.co.ke';
+const DRAFT_KEY = 'moneyOddsAgentDraft';
 const APP_KEY = 'moneyOddsAgentApp';      // { applicationId, phone } — set right after applying
 const SESSION_KEY = 'moneyOddsAgentSession'; // { token, code } — set after password setup or login
 
@@ -366,13 +357,14 @@ function setStatus(id, ok, msg){
 function showStep(name){
   document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
   document.getElementById(name).classList.add('active');
-  document.getElementById('tabs').style.display = (name === 'stepApply' || name === 'stepLogin') ? 'flex' : 'none';
+  document.getElementById('tabs').style.display = (name === 'stepApply' || name === 'stepLogin' || name === 'stepFind') ? 'flex' : 'none';
 }
 
 function switchTab(which){
   document.getElementById('tabApplyBtn').classList.toggle('active', which === 'apply');
   document.getElementById('tabLoginBtn').classList.toggle('active', which === 'login');
-  showStep(which === 'apply' ? 'stepApply' : 'stepLogin');
+  document.getElementById('tabFindBtn').classList.toggle('active', which === 'find');
+  showStep(which === 'apply' ? 'stepApply' : which === 'find' ? 'stepFind' : 'stepLogin');
 }
 
 function normalizePhoneDisplay(p){
@@ -380,19 +372,26 @@ function normalizePhoneDisplay(p){
 }
 
 // ---------------------------------------------------------------- APPLY
+// Form entries survive refresh: saved as you type, cleared once submitted.
+const DRAFT_FIELDS = ['fName','fPhone','fWhatsapp','fTown'];
+function saveDraft(){
+  try { const d = {}; DRAFT_FIELDS.forEach(id => d[id] = document.getElementById(id).value); localStorage.setItem(DRAFT_KEY, JSON.stringify(d)); } catch(e){}
+}
+function restoreDraft(){
+  try { const d = JSON.parse(localStorage.getItem(DRAFT_KEY) || '{}'); DRAFT_FIELDS.forEach(id => { if(d[id]) document.getElementById(id).value = d[id]; }); } catch(e){}
+}
+DRAFT_FIELDS.forEach(id => document.getElementById(id).addEventListener('input', saveDraft));
+restoreDraft();
+
 async function submitApplication(){
   const payload = {
     name: document.getElementById('fName').value.trim(),
-    id_number: document.getElementById('fId').value.trim(),
     phone: normalizePhoneDisplay(document.getElementById('fPhone').value),
-    email: document.getElementById('fEmail').value.trim(),
-    county: document.getElementById('fCounty').value.trim(),
-    address: document.getElementById('fAddress').value.trim(),
-    next_of_kin_name: document.getElementById('fNokName').value.trim(),
-    next_of_kin_phone: document.getElementById('fNokPhone').value.trim(),
+    whatsapp: normalizePhoneDisplay(document.getElementById('fWhatsapp').value),
+    town: document.getElementById('fTown').value.trim(),
   };
-  if(!payload.name || !payload.id_number || !payload.phone || !payload.county){
-    setStatus('applyStatus', false, 'Please fill in your name, ID number, phone and county.');
+  if(!payload.name || !payload.phone || !payload.town){
+    setStatus('applyStatus', false, 'Please fill in your name, M-Pesa phone number and home town.');
     return;
   }
   const btn = document.getElementById('applyBtn');
@@ -403,18 +402,19 @@ async function submitApplication(){
     const res = await fetch(`${WORKER_BASE}/agent-apply`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...payload, inviteKey: INVITE_KEY }),
+      body: JSON.stringify(payload),
     });
     const data = await res.json();
     if(!data.ok){
       setStatus('applyStatus', false, data.error === 'duplicate_application'
-        ? 'An application from this phone number already exists — try the Agent login tab if you were already approved.'
+        ? 'An application from this phone number already exists. If you were approved, use the "Approved? Set password" tab.'
         : 'Something went wrong — please try again.');
       btn.disabled = false;
       btn.textContent = 'Submit application';
       return;
     }
     localStorage.setItem(APP_KEY, JSON.stringify({ applicationId: data.applicationId, phone: payload.phone }));
+    try { localStorage.removeItem(DRAFT_KEY); } catch(e){}
     showStep('stepPending');
   } catch(e){
     setStatus('applyStatus', false, 'Request failed: ' + e.message);
@@ -439,6 +439,10 @@ async function checkStatus(manual){
         document.getElementById('setPwCode').textContent = data.code;
         showStep('stepSetPassword');
       }
+    } else if(data.status === 'terminated'){
+      localStorage.removeItem(APP_KEY);
+      showStep('stepApply');
+      setStatus('applyStatus', false, 'Your agent account was closed' + (data.reason ? ' (' + data.reason + ')' : '') + '. You can apply again below.');
     } else if(data.status === 'rejected'){
       document.getElementById('rejectedArea').innerHTML =
         `<div class="rejected-box">Your application wasn't approved${data.reason ? ': ' + data.reason : '.'} Contact us if you think this is a mistake.</div>`;
@@ -447,6 +451,37 @@ async function checkStatus(manual){
     }
   } catch(e){
     if(manual) setStatus('pendingStatus', false, 'Could not check status: ' + e.message);
+  }
+}
+
+// ------------------------------------------------- FIND APPROVAL BY PHONE
+async function findByPhone(){
+  const phone = normalizePhoneDisplay(document.getElementById('findPhone').value);
+  if(phone.length < 9){ setStatus('findStatus', false, 'Enter the phone number you applied with.'); return; }
+  try {
+    const res = await fetch(`${WORKER_BASE}/agent-status?phone=${encodeURIComponent(phone)}`);
+    const data = await res.json();
+    if(data.status === 'approved'){
+      localStorage.setItem(APP_KEY, JSON.stringify({ phone: phone.startsWith('0') ? '254' + phone.slice(1) : phone }));
+      if(data.passwordSet){
+        document.getElementById('lCode').value = data.code;
+        switchTab('login');
+        setStatus('loginStatus', true, 'Your password is already set — log in with your code and password.');
+      } else {
+        document.getElementById('setPwCode').textContent = data.code;
+        showStep('stepSetPassword');
+      }
+    } else if(data.status === 'pending'){
+      setStatus('findStatus', true, 'Still under review — check back soon.');
+    } else if(data.status === 'rejected'){
+      setStatus('findStatus', false, "That application wasn't approved." + (data.reason ? ' ' + data.reason : ''));
+    } else if(data.status === 'terminated'){
+      setStatus('findStatus', false, 'That agent account was closed. You can apply again on the Apply tab.');
+    } else {
+      setStatus('findStatus', false, 'No application found for that number. Check it or apply first.');
+    }
+  } catch(e){
+    setStatus('findStatus', false, 'Request failed: ' + e.message);
   }
 }
 
@@ -501,7 +536,7 @@ async function loginWithCredentials(code, pw, statusElId){
     });
     const data = await res.json();
     if(!data.ok){
-      const msg = data.error === 'invalid_credentials' ? 'Incorrect code or password.' : 'Login failed.';
+      const msg = data.error === 'invalid_credentials' ? 'Incorrect code or password.' : data.error === 'terminated_inactive' ? 'This agent account was closed after 21 days with no referrals. You can apply again.' : 'Login failed.';
       if(statusElId) setStatus(statusElId, false, msg); else setStatus('setPwStatus', false, msg);
       return;
     }
@@ -615,18 +650,13 @@ function copyDashLink(){
 
 // ------------------------------------------------------------------ INIT
 (function init(){
-  if(!INVITE_KEY){
-    document.getElementById('tabApplyBtn').style.display = 'none';
-  }
   if(localStorage.getItem(SESSION_KEY)){
     loadDashboard();
   } else if(localStorage.getItem(APP_KEY)){
     showStep('stepPending');
     checkStatus(false);
-  } else if(INVITE_KEY){
-    switchTab('apply');
   } else {
-    switchTab('login');
+    switchTab('apply');
   }
 })();
 </script>
