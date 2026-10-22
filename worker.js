@@ -575,38 +575,6 @@ async function handleRecentUnlocks(env) {
   return json({ ok: true, events: list.map((x) => ({ first: x.first, kind: x.kind, minutes_ago: Math.max(1, Math.round((Date.now() - x.at) / 60000)) })) });
 }
 
-// Agent leaderboard — only for logged-in agents. First names + referral counts.
-async function handleAgentLeaderboard(request, env) {
-  const me = await getAgentFromSession(request, env);
-  if (!me) return json({ error: "unauthorized" }, 401);
-  const rows = [];
-  let cursor;
-  do {
-    const page = await env.UNLOCKS.list({ prefix: "agent:", cursor });
-    for (const k of page.keys) {
-      const raw = await env.UNLOCKS.get(k.name);
-      if (!raw) continue;
-      const a = JSON.parse(raw);
-      let count = 0, c2;
-      do {
-        const p2 = await env.UNLOCKS.list({ prefix: `agent-txn:${a.code}:`, cursor: c2 });
-        count += p2.keys.length;
-        c2 = p2.list_complete ? undefined : p2.cursor;
-      } while (c2);
-      rows.push({ code: a.code, first: String(a.name || "Agent").split(/\s+/)[0], count });
-    }
-    cursor = page.list_complete ? undefined : page.cursor;
-  } while (cursor);
-  rows.sort((a, b) => b.count - a.count);
-  const rank = rows.findIndex((r) => r.code === me.code) + 1;
-  return json({
-    ok: true,
-    total: rows.length,
-    me: { rank, count: (rows.find((r) => r.code === me.code) || {}).count || 0 },
-    top: rows.slice(0, 5).map((r) => ({ first: r.first, count: r.count, you: r.code === me.code })),
-  });
-}
-
 async function finalizeSubscriptionUnlock(env, pending, { phone, transactionCode, source } = {}) {
   const finalPhone = normalizePhone(phone) || pending.phone;
   const token = randomToken();
@@ -1371,7 +1339,6 @@ export default {
       if (url.pathname === "/unlocked-picks") return await handleUnlockedPicks(request, env);
       if (url.pathname === "/pricing") return await handlePricing(env);
       if (url.pathname === "/recent-unlocks") return await handleRecentUnlocks(env);
-      if (url.pathname === "/agent-leaderboard") return await handleAgentLeaderboard(request, env);
 
       if (url.pathname === "/exclusive-current") return await handleExclusiveCurrent(request, env);
       if (url.pathname === "/exclusive-history") return await handleExclusiveHistory(request, env);
