@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T19:03:19.444337Z",
+  "generated_at": "2026-10-23T23:55:09.615056Z",
   "predictions": [
     {
       "id": 558563,
@@ -13,21 +13,6 @@
       "league": "Serie A",
       "comp_code": "SA",
       "kickoff": "2026-10-25T11:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558856,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Sparta Rotterdam vs AFC Ajax",
-      "home_team": "Sparta Rotterdam",
-      "away_team": "AFC Ajax",
-      "home_team_id": 6806,
-      "away_team_id": 678,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-10-25T15:45:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -47,17 +32,17 @@
       "locked": true
     },
     {
-      "id": 565835,
+      "id": 558856,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "TSG 1899 Hoffenheim vs Bayer 04 Leverkusen",
-      "home_team": "TSG 1899 Hoffenheim",
-      "away_team": "Bayer 04 Leverkusen",
-      "home_team_id": 2,
-      "away_team_id": 3,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-10-25T14:30:00Z",
+      "match": "Sparta Rotterdam vs AFC Ajax",
+      "home_team": "Sparta Rotterdam",
+      "away_team": "AFC Ajax",
+      "home_team_id": 6806,
+      "away_team_id": 678,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-10-25T15:45:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -107,6 +92,35 @@
       "locked": true
     },
     {
+      "id": 565835,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "TSG 1899 Hoffenheim vs Bayer 04 Leverkusen",
+      "home_team": "TSG 1899 Hoffenheim",
+      "away_team": "Bayer 04 Leverkusen",
+      "home_team_id": 2,
+      "away_team_id": 3,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-10-25T14:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718017",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Philadelphia 76ers vs Chicago Bulls",
+      "home_team": "Philadelphia 76ers",
+      "away_team": "Chicago Bulls",
+      "home_team_id": 23,
+      "away_team_id": 5,
+      "league": "NBA",
+      "kickoff": "2026-11-02",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 560613,
       "sport": "Football",
       "icon": "\u26bd",
@@ -148,6 +162,21 @@
       "league": "Serie A",
       "comp_code": "SA",
       "kickoff": "2026-10-31T17:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 558560,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Cagliari Calcio vs Bologna FC 1909",
+      "home_team": "Cagliari Calcio",
+      "away_team": "Bologna FC 1909",
+      "home_team_id": 104,
+      "away_team_id": 103,
+      "league": "Serie A",
+      "comp_code": "SA",
+      "kickoff": "2026-10-24T13:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -212,21 +241,6 @@
       "locked": true
     },
     {
-      "id": 558560,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Cagliari Calcio vs Bologna FC 1909",
-      "home_team": "Cagliari Calcio",
-      "away_team": "Bologna FC 1909",
-      "home_team_id": 104,
-      "away_team_id": 103,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-10-24T13:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 564723,
       "sport": "Football",
       "icon": "\u26bd",
@@ -238,6 +252,21 @@
       "league": "Primera Division",
       "comp_code": "PD",
       "kickoff": "2026-10-25T20:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 558564,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "SSC Napoli vs AS Roma",
+      "home_team": "SSC Napoli",
+      "away_team": "AS Roma",
+      "home_team_id": 113,
+      "away_team_id": 100,
+      "league": "Serie A",
+      "comp_code": "SA",
+      "kickoff": "2026-10-24T16:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -270,36 +299,6 @@
       "kickoff": "2026-10-30T20:15:00Z",
       "has_pick": true,
       "locked": true
-    },
-    {
-      "id": 564735,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Rayo Vallecano de Madrid vs RC Celta de Vigo",
-      "home_team": "Rayo Vallecano de Madrid",
-      "away_team": "RC Celta de Vigo",
-      "home_team_id": 87,
-      "away_team_id": 558,
-      "league": "Primera Division",
-      "comp_code": "PD",
-      "kickoff": "2026-10-31T15:15:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 564732,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Barcelona vs Deportivo Alav\u00e9s",
-      "home_team": "FC Barcelona",
-      "away_team": "Deportivo Alav\u00e9s",
-      "home_team_id": 81,
-      "away_team_id": 263,
-      "league": "Primera Division",
-      "comp_code": "PD",
-      "kickoff": "2026-10-31T20:00:00Z",
-      "has_pick": true,
-      "locked": true
     }
   ],
   "multi_bets": [
@@ -314,10 +313,10 @@
           "meta": "Serie A"
         },
         {
-          "id": 558856,
+          "id": 565840,
           "icon": "\u26bd",
-          "match": "Sparta Rotterdam vs AFC Ajax",
-          "meta": "Eredivisie"
+          "match": "FC Schalke 04 vs RB Leipzig",
+          "meta": "Bundesliga"
         }
       ]
     },
@@ -326,21 +325,21 @@
       "locked": true,
       "legs": [
         {
-          "id": 565840,
+          "id": 558856,
           "icon": "\u26bd",
-          "match": "FC Schalke 04 vs RB Leipzig",
-          "meta": "Bundesliga"
-        },
-        {
-          "id": 565835,
-          "icon": "\u26bd",
-          "match": "TSG 1899 Hoffenheim vs Bayer 04 Leverkusen",
-          "meta": "Bundesliga"
+          "match": "Sparta Rotterdam vs AFC Ajax",
+          "meta": "Eredivisie"
         },
         {
           "id": 565846,
           "icon": "\u26bd",
           "match": "SV 07 Elversberg vs 1. FSV Mainz 05",
+          "meta": "Bundesliga"
+        },
+        {
+          "id": 565838,
+          "icon": "\u26bd",
+          "match": "FC Augsburg vs 1. FC Union Berlin",
           "meta": "Bundesliga"
         }
       ]
