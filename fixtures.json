@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T02:43:32.391971Z",
+  "generated_at": "2026-10-24T07:59:09.063143Z",
   "fixtures": [
     {
       "id": "bb-21717946",
@@ -12,7 +12,7 @@
       "away_team_id": 16,
       "league": "NBA",
       "kickoff": "2026-10-24",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -54,7 +54,7 @@
       "away_team_id": 11,
       "league": "NBA",
       "kickoff": "2026-10-24",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -82,7 +82,7 @@
       "away_team_id": 27,
       "league": "NBA",
       "kickoff": "2026-10-24",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -754,7 +754,7 @@
       "away_team_id": 14,
       "league": "NBA",
       "kickoff": "2026-10-25",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -810,7 +810,7 @@
       "away_team_id": 13,
       "league": "NBA",
       "kickoff": "2026-10-25",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -824,7 +824,7 @@
       "away_team_id": 9,
       "league": "NBA",
       "kickoff": "2026-10-25",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -838,7 +838,7 @@
       "away_team_id": 15,
       "league": "NBA",
       "kickoff": "2026-10-25",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -1374,7 +1374,7 @@
       "away_team_id": 7,
       "league": "NBA",
       "kickoff": "2026-10-26",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -1416,7 +1416,7 @@
       "away_team_id": 1,
       "league": "NBA",
       "kickoff": "2026-10-26",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -1430,7 +1430,7 @@
       "away_team_id": 15,
       "league": "NBA",
       "kickoff": "2026-10-26",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -1547,7 +1547,7 @@
       "away_team_id": 9,
       "league": "NBA",
       "kickoff": "2026-10-27",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -1561,7 +1561,7 @@
       "away_team_id": 26,
       "league": "NBA",
       "kickoff": "2026-10-27",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -1575,7 +1575,7 @@
       "away_team_id": 25,
       "league": "NBA",
       "kickoff": "2026-10-27",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -1634,7 +1634,7 @@
       "away_team_id": 16,
       "league": "NBA",
       "kickoff": "2026-10-28",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -1662,7 +1662,7 @@
       "away_team_id": 4,
       "league": "NBA",
       "kickoff": "2026-10-28",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -1718,7 +1718,7 @@
       "away_team_id": 11,
       "league": "NBA",
       "kickoff": "2026-10-28",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -1732,7 +1732,7 @@
       "away_team_id": 10,
       "league": "NBA",
       "kickoff": "2026-10-28",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -1760,7 +1760,7 @@
       "away_team_id": 27,
       "league": "NBA",
       "kickoff": "2026-10-28",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -1788,7 +1788,7 @@
       "away_team_id": 14,
       "league": "NBA",
       "kickoff": "2026-10-28",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -1936,7 +1936,7 @@
       "away_team_id": 26,
       "league": "NBA",
       "kickoff": "2026-10-29",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -1950,7 +1950,7 @@
       "away_team_id": 15,
       "league": "NBA",
       "kickoff": "2026-10-29",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -2124,7 +2124,7 @@
       "away_team_id": 12,
       "league": "NBA",
       "kickoff": "2026-10-30",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -2138,7 +2138,7 @@
       "away_team_id": 11,
       "league": "NBA",
       "kickoff": "2026-10-30",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -2152,7 +2152,7 @@
       "away_team_id": 13,
       "league": "NBA",
       "kickoff": "2026-10-30",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -2166,7 +2166,7 @@
       "away_team_id": 14,
       "league": "NBA",
       "kickoff": "2026-10-30",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -2314,7 +2314,7 @@
       "away_team_id": 25,
       "league": "NBA",
       "kickoff": "2026-10-31",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -2342,7 +2342,7 @@
       "away_team_id": 1,
       "league": "NBA",
       "kickoff": "2026-10-31",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -2356,7 +2356,7 @@
       "away_team_id": 26,
       "league": "NBA",
       "kickoff": "2026-10-31",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -2384,7 +2384,7 @@
       "away_team_id": 18,
       "league": "NBA",
       "kickoff": "2026-10-31",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -2398,7 +2398,7 @@
       "away_team_id": 21,
       "league": "NBA",
       "kickoff": "2026-10-31",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -3100,7 +3100,7 @@
       "away_team_id": 13,
       "league": "NBA",
       "kickoff": "2026-11-01",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -3114,7 +3114,7 @@
       "away_team_id": 28,
       "league": "NBA",
       "kickoff": "2026-11-01",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -3487,7 +3487,7 @@
       "away_team_id": 9,
       "league": "NBA",
       "kickoff": "2026-11-02",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -3557,7 +3557,7 @@
       "away_team_id": 26,
       "league": "NBA",
       "kickoff": "2026-11-02",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -3571,7 +3571,7 @@
       "away_team_id": 19,
       "league": "NBA",
       "kickoff": "2026-11-02",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -3599,7 +3599,7 @@
       "away_team_id": 2,
       "league": "NBA",
       "kickoff": "2026-11-02",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -3613,7 +3613,7 @@
       "away_team_id": 29,
       "league": "NBA",
       "kickoff": "2026-11-02",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -3655,7 +3655,7 @@
       "away_team_id": 28,
       "league": "NBA",
       "kickoff": "2026-11-02",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -3669,7 +3669,7 @@
       "away_team_id": 16,
       "league": "NBA",
       "kickoff": "2026-11-02",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -4073,7 +4073,7 @@
       "away_team_id": 23,
       "league": "NBA",
       "kickoff": "2026-11-04",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -4143,7 +4143,7 @@
       "away_team_id": 12,
       "league": "NBA",
       "kickoff": "2026-11-04",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -4157,7 +4157,7 @@
       "away_team_id": 29,
       "league": "NBA",
       "kickoff": "2026-11-04",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -4185,7 +4185,7 @@
       "away_team_id": 18,
       "league": "NBA",
       "kickoff": "2026-11-04",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -4227,7 +4227,7 @@
       "away_team_id": 7,
       "league": "NBA",
       "kickoff": "2026-11-04",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -4241,7 +4241,7 @@
       "away_team_id": 14,
       "league": "NBA",
       "kickoff": "2026-11-04",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -4255,7 +4255,7 @@
       "away_team_id": 16,
       "league": "NBA",
       "kickoff": "2026-11-04",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -4508,7 +4508,7 @@
       "away_team_id": 16,
       "league": "NBA",
       "kickoff": "2026-11-05",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -4609,7 +4609,7 @@
       "away_team_id": 29,
       "league": "NBA",
       "kickoff": "2026-11-06",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -4623,7 +4623,7 @@
       "away_team_id": 21,
       "league": "NBA",
       "kickoff": "2026-11-06",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -4651,7 +4651,7 @@
       "away_team_id": 18,
       "league": "NBA",
       "kickoff": "2026-11-06",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -4665,7 +4665,7 @@
       "away_team_id": 25,
       "league": "NBA",
       "kickoff": "2026-11-06",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -4679,7 +4679,7 @@
       "away_team_id": 27,
       "league": "NBA",
       "kickoff": "2026-11-06",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -4899,7 +4899,7 @@
       "away_team_id": 22,
       "league": "NBA",
       "kickoff": "2026-11-07",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {
@@ -4927,7 +4927,7 @@
       "away_team_id": 27,
       "league": "NBA",
       "kickoff": "2026-11-07",
-      "has_pick": false,
+      "has_pick": true,
       "locked": true
     },
     {

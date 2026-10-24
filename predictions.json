@@ -1,6 +1,20 @@
 {
-  "generated_at": "2026-10-24T02:43:32.405555Z",
+  "generated_at": "2026-10-24T07:59:09.086922Z",
   "predictions": [
+    {
+      "id": "bb-21717975",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Atlanta Hawks vs Miami Heat",
+      "home_team": "Atlanta Hawks",
+      "away_team": "Miami Heat",
+      "home_team_id": 1,
+      "away_team_id": 16,
+      "league": "NBA",
+      "kickoff": "2026-10-28",
+      "has_pick": true,
+      "locked": true
+    },
     {
       "id": 558563,
       "sport": "Football",
@@ -45,6 +59,48 @@
       "locked": true
     },
     {
+      "id": "bb-21717982",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Minnesota Timberwolves vs Golden State Warriors",
+      "home_team": "Minnesota Timberwolves",
+      "away_team": "Golden State Warriors",
+      "home_team_id": 18,
+      "away_team_id": 10,
+      "league": "NBA",
+      "kickoff": "2026-10-28",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718026",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Los Angeles Lakers vs Miami Heat",
+      "home_team": "Los Angeles Lakers",
+      "away_team": "Miami Heat",
+      "home_team_id": 14,
+      "away_team_id": 16,
+      "league": "NBA",
+      "kickoff": "2026-11-02",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21717977",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Detroit Pistons vs Charlotte Hornets",
+      "home_team": "Detroit Pistons",
+      "away_team": "Charlotte Hornets",
+      "home_team_id": 9,
+      "away_team_id": 4,
+      "league": "NBA",
+      "kickoff": "2026-10-28",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": "bb-21718020",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
@@ -55,6 +111,20 @@
       "away_team_id": 17,
       "league": "NBA",
       "kickoff": "2026-11-02",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718058",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Portland Trail Blazers vs San Antonio Spurs",
+      "home_team": "Portland Trail Blazers",
+      "away_team": "San Antonio Spurs",
+      "home_team_id": 25,
+      "away_team_id": 27,
+      "league": "NBA",
+      "kickoff": "2026-11-07",
       "has_pick": true,
       "locked": true
     },
@@ -74,6 +144,20 @@
       "locked": true
     },
     {
+      "id": "bb-21718040",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "LA Clippers vs Miami Heat",
+      "home_team": "LA Clippers",
+      "away_team": "Miami Heat",
+      "home_team_id": 13,
+      "away_team_id": 16,
+      "league": "NBA",
+      "kickoff": "2026-11-04",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 558856,
       "sport": "Football",
       "icon": "\u26bd",
@@ -85,6 +169,20 @@
       "league": "Eredivisie",
       "comp_code": "DED",
       "kickoff": "2026-10-25T15:45:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718004",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Memphis Grizzlies vs Sacramento Kings",
+      "home_team": "Memphis Grizzlies",
+      "away_team": "Sacramento Kings",
+      "home_team_id": 15,
+      "away_team_id": 26,
+      "league": "NBA",
+      "kickoff": "2026-10-31",
       "has_pick": true,
       "locked": true
     },
@@ -190,109 +288,6 @@
       "kickoff": "2026-10-25T14:30:00Z",
       "has_pick": true,
       "locked": true
-    },
-    {
-      "id": "bb-21718014",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Indiana Pacers vs Atlanta Hawks",
-      "home_team": "Indiana Pacers",
-      "away_team": "Atlanta Hawks",
-      "home_team_id": 12,
-      "away_team_id": 1,
-      "league": "NBA",
-      "kickoff": "2026-11-02",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718017",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Philadelphia 76ers vs Chicago Bulls",
-      "home_team": "Philadelphia 76ers",
-      "away_team": "Chicago Bulls",
-      "home_team_id": 23,
-      "away_team_id": 5,
-      "league": "NBA",
-      "kickoff": "2026-11-02",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 560613,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Crystal Palace FC vs Newcastle United FC",
-      "home_team": "Crystal Palace FC",
-      "away_team": "Newcastle United FC",
-      "home_team_id": 354,
-      "away_team_id": 67,
-      "league": "Premier League",
-      "comp_code": "PL",
-      "kickoff": "2026-10-25T14:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 559651,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Stade Rennais FC 1901 vs RC Strasbourg Alsace",
-      "home_team": "Stade Rennais FC 1901",
-      "away_team": "RC Strasbourg Alsace",
-      "home_team_id": 529,
-      "away_team_id": 576,
-      "league": "Ligue 1",
-      "comp_code": "FL1",
-      "kickoff": "2026-10-25T16:15:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558542,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Udinese Calcio vs AS Roma",
-      "home_team": "Udinese Calcio",
-      "away_team": "AS Roma",
-      "home_team_id": 115,
-      "away_team_id": 100,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-10-31T17:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 560641,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Nottingham Forest FC vs Manchester City FC",
-      "home_team": "Nottingham Forest FC",
-      "away_team": "Manchester City FC",
-      "home_team_id": 351,
-      "away_team_id": 65,
-      "league": "Premier League",
-      "comp_code": "PL",
-      "kickoff": "2026-11-07T17:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558560,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Cagliari Calcio vs Bologna FC 1909",
-      "home_team": "Cagliari Calcio",
-      "away_team": "Bologna FC 1909",
-      "home_team_id": 104,
-      "away_team_id": 103,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-10-24T13:00:00Z",
-      "has_pick": true,
-      "locked": true
     }
   ],
   "multi_bets": [
@@ -301,16 +296,16 @@
       "locked": true,
       "legs": [
         {
+          "id": "bb-21717975",
+          "icon": "\ud83c\udfc0",
+          "match": "Atlanta Hawks vs Miami Heat",
+          "meta": "NBA"
+        },
+        {
           "id": 558563,
           "icon": "\u26bd",
           "match": "FC Internazionale Milano vs ACF Fiorentina",
           "meta": "Serie A"
-        },
-        {
-          "id": "bb-21717979",
-          "icon": "\ud83c\udfc0",
-          "match": "Toronto Raptors vs Orlando Magic",
-          "meta": "NBA"
         }
       ]
     },
@@ -319,22 +314,22 @@
       "locked": true,
       "legs": [
         {
-          "id": "bb-21718020",
+          "id": "bb-21717979",
           "icon": "\ud83c\udfc0",
-          "match": "Minnesota Timberwolves vs Milwaukee Bucks",
+          "match": "Toronto Raptors vs Orlando Magic",
           "meta": "NBA"
         },
         {
-          "id": 565840,
-          "icon": "\u26bd",
-          "match": "FC Schalke 04 vs RB Leipzig",
-          "meta": "Bundesliga"
+          "id": "bb-21717995",
+          "icon": "\ud83c\udfc0",
+          "match": "Toronto Raptors vs Orlando Magic",
+          "meta": "NBA"
         },
         {
-          "id": 558856,
-          "icon": "\u26bd",
-          "match": "Sparta Rotterdam vs AFC Ajax",
-          "meta": "Eredivisie"
+          "id": "bb-21717982",
+          "icon": "\ud83c\udfc0",
+          "match": "Minnesota Timberwolves vs Golden State Warriors",
+          "meta": "NBA"
         }
       ]
     }
