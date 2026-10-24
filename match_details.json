@@ -81,6 +81,13 @@
       "away_wins": 0,
       "matches": [
         {
+          "date": "2026-10-24",
+          "home": "Aston Villa FC",
+          "away": "Manchester City FC",
+          "score": "2-1",
+          "competition": "Premier League"
+        },
+        {
           "date": "2026-05-24",
           "home": "Manchester City FC",
           "away": "Aston Villa FC",
@@ -106,13 +113,6 @@
           "home": "Aston Villa FC",
           "away": "Manchester City FC",
           "score": "2-1",
-          "competition": "Premier League"
-        },
-        {
-          "date": "2024-04-03",
-          "home": "Manchester City FC",
-          "away": "Aston Villa FC",
-          "score": "4-1",
           "competition": "Premier League"
         }
       ]
@@ -196,9 +196,16 @@
     "h2h": {
       "number_of_matches": 5,
       "home_wins": 0,
-      "draws": 0,
+      "draws": 1,
       "away_wins": 0,
       "matches": [
+        {
+          "date": "2026-10-24",
+          "home": "Sheffield United FC",
+          "away": "Derby County FC",
+          "score": "1-1",
+          "competition": "Championship"
+        },
         {
           "date": "2026-05-02",
           "home": "Derby County FC",
@@ -225,13 +232,6 @@
           "home": "Sheffield United FC",
           "away": "Derby County FC",
           "score": "1-0",
-          "competition": "Championship"
-        },
-        {
-          "date": "2022-01-15",
-          "home": "Derby County FC",
-          "away": "Sheffield United FC",
-          "score": "2-0",
           "competition": "Championship"
         }
       ]
@@ -443,6 +443,125 @@
           "away": "Millwall FC",
           "score": "0-1",
           "competition": "Championship"
+        }
+      ]
+    }
+  },
+  "564718": {
+    "home_recent": [
+      {
+        "date": "2026-10-19",
+        "opponent": "Getafe CF",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-09-19",
+        "opponent": "CA Osasuna",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-09-15",
+        "opponent": "RCD Espanyol de Barcelona",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-09-12",
+        "opponent": "Real Madrid CF",
+        "venue": "A",
+        "score": "1-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-09-05",
+        "opponent": "Real Racing Club de Santander",
+        "venue": "H",
+        "score": "3-2",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-10-17",
+        "opponent": "Villarreal CF",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "RC Celta de Vigo",
+        "venue": "H",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-09-18",
+        "opponent": "RCD Espanyol de Barcelona",
+        "venue": "A",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-09-15",
+        "opponent": "Real Madrid CF",
+        "venue": "H",
+        "score": "2-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-09-12",
+        "opponent": "Athletic Club",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      }
+    ],
+    "h2h": {
+      "number_of_matches": 5,
+      "home_wins": 0,
+      "draws": 0,
+      "away_wins": 0,
+      "matches": [
+        {
+          "date": "2026-10-24",
+          "home": "Rayo Vallecano de Madrid",
+          "away": "Elche CF",
+          "score": "0-3",
+          "competition": "Primera Division"
+        },
+        {
+          "date": "2026-04-03",
+          "home": "Rayo Vallecano de Madrid",
+          "away": "Elche CF",
+          "score": "1-0",
+          "competition": "Primera Division"
+        },
+        {
+          "date": "2025-12-21",
+          "home": "Elche CF",
+          "away": "Rayo Vallecano de Madrid",
+          "score": "4-0",
+          "competition": "Primera Division"
+        },
+        {
+          "date": "2023-04-29",
+          "home": "Elche CF",
+          "away": "Rayo Vallecano de Madrid",
+          "score": "4-0",
+          "competition": "Primera Division"
+        },
+        {
+          "date": "2022-10-03",
+          "home": "Rayo Vallecano de Madrid",
+          "away": "Elche CF",
+          "score": "2-1",
+          "competition": "Primera Division"
         }
       ]
     }
@@ -1584,6 +1703,13 @@
       "away_wins": 0,
       "matches": [
         {
+          "date": "2026-10-24",
+          "home": "Queens Park Rangers FC",
+          "away": "Swansea City AFC",
+          "score": "5-0",
+          "competition": "Championship"
+        },
+        {
           "date": "2026-04-21",
           "home": "Queens Park Rangers FC",
           "away": "Swansea City AFC",
@@ -1609,13 +1735,6 @@
           "home": "Swansea City AFC",
           "away": "Queens Park Rangers FC",
           "score": "3-0",
-          "competition": "Championship"
-        },
-        {
-          "date": "2024-04-01",
-          "home": "Swansea City AFC",
-          "away": "Queens Park Rangers FC",
-          "score": "0-1",
           "competition": "Championship"
         }
       ]
@@ -1939,7 +2058,15 @@
       "home_wins": 0,
       "draws": 1,
       "away_wins": 0,
-      "matches": []
+      "matches": [
+        {
+          "date": "2026-10-24",
+          "home": "Lincoln City FC",
+          "away": "Burnley FC",
+          "score": "4-1",
+          "competition": "Championship"
+        }
+      ]
     }
   },
   "561900": {
@@ -2418,9 +2545,16 @@
     "h2h": {
       "number_of_matches": 5,
       "home_wins": 0,
-      "draws": 2,
+      "draws": 3,
       "away_wins": 0,
       "matches": [
+        {
+          "date": "2026-10-24",
+          "home": "FC Utrecht",
+          "away": "PEC Zwolle",
+          "score": "1-1",
+          "competition": "Eredivisie"
+        },
         {
           "date": "2026-02-22",
           "home": "FC Utrecht",
@@ -2447,13 +2581,6 @@
           "home": "FC Utrecht",
           "away": "PEC Zwolle",
           "score": "1-0",
-          "competition": "Eredivisie"
-        },
-        {
-          "date": "2024-04-03",
-          "home": "FC Utrecht",
-          "away": "PEC Zwolle",
-          "score": "5-1",
           "competition": "Eredivisie"
         }
       ]
@@ -2541,6 +2668,13 @@
       "away_wins": 0,
       "matches": [
         {
+          "date": "2026-10-24",
+          "home": "CF Estrela da Amadora",
+          "away": "Casa Pia AC",
+          "score": "0-2",
+          "competition": "Primeira Liga"
+        },
+        {
           "date": "2026-03-20",
           "home": "CF Estrela da Amadora",
           "away": "Casa Pia AC",
@@ -2566,13 +2700,6 @@
           "home": "CF Estrela da Amadora",
           "away": "Casa Pia AC",
           "score": "0-1",
-          "competition": "Primeira Liga"
-        },
-        {
-          "date": "2024-03-08",
-          "home": "CF Estrela da Amadora",
-          "away": "Casa Pia AC",
-          "score": "3-1",
           "competition": "Primeira Liga"
         }
       ]
@@ -2812,125 +2939,6 @@
           "away": "Tottenham Hotspur FC",
           "score": "2-0",
           "competition": "Premier League"
-        }
-      ]
-    }
-  },
-  "564722": {
-    "home_recent": [
-      {
-        "date": "2026-10-17",
-        "opponent": "Athletic Club",
-        "venue": "H",
-        "score": "0-0",
-        "result": "D"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "Real Racing Club de Santander",
-        "venue": "A",
-        "score": "2-2",
-        "result": "D"
-      },
-      {
-        "date": "2026-09-20",
-        "opponent": "Real Sociedad de F\u00fatbol",
-        "venue": "H",
-        "score": "2-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-09-15",
-        "opponent": "Deportivo Alav\u00e9s",
-        "venue": "A",
-        "score": "1-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-09-11",
-        "opponent": "Sevilla FC",
-        "venue": "A",
-        "score": "0-1",
-        "result": "L"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-10-17",
-        "opponent": "Elche CF",
-        "venue": "H",
-        "score": "0-0",
-        "result": "D"
-      },
-      {
-        "date": "2026-10-10",
-        "opponent": "Real Madrid CF",
-        "venue": "A",
-        "score": "0-1",
-        "result": "L"
-      },
-      {
-        "date": "2026-09-20",
-        "opponent": "Levante UD",
-        "venue": "H",
-        "score": "3-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-09-17",
-        "opponent": "M\u00e1laga CF",
-        "venue": "A",
-        "score": "3-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-09-14",
-        "opponent": "Real Betis Balompi\u00e9",
-        "venue": "H",
-        "score": "1-2",
-        "result": "L"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 5,
-      "home_wins": 0,
-      "draws": 2,
-      "away_wins": 0,
-      "matches": [
-        {
-          "date": "2026-02-22",
-          "home": "Villarreal CF",
-          "away": "Valencia CF",
-          "score": "2-1",
-          "competition": "Primera Division"
-        },
-        {
-          "date": "2025-10-25",
-          "home": "Valencia CF",
-          "away": "Villarreal CF",
-          "score": "0-2",
-          "competition": "Primera Division"
-        },
-        {
-          "date": "2025-02-15",
-          "home": "Villarreal CF",
-          "away": "Valencia CF",
-          "score": "1-1",
-          "competition": "Primera Division"
-        },
-        {
-          "date": "2024-08-31",
-          "home": "Valencia CF",
-          "away": "Villarreal CF",
-          "score": "1-1",
-          "competition": "Primera Division"
-        },
-        {
-          "date": "2024-03-17",
-          "home": "Villarreal CF",
-          "away": "Valencia CF",
-          "score": "1-0",
-          "competition": "Primera Division"
         }
       ]
     }
