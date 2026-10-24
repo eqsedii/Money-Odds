@@ -447,125 +447,6 @@
       ]
     }
   },
-  "564718": {
-    "home_recent": [
-      {
-        "date": "2026-10-19",
-        "opponent": "Getafe CF",
-        "venue": "A",
-        "score": "1-1",
-        "result": "D"
-      },
-      {
-        "date": "2026-09-19",
-        "opponent": "CA Osasuna",
-        "venue": "A",
-        "score": "1-1",
-        "result": "D"
-      },
-      {
-        "date": "2026-09-15",
-        "opponent": "RCD Espanyol de Barcelona",
-        "venue": "H",
-        "score": "2-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-09-12",
-        "opponent": "Real Madrid CF",
-        "venue": "A",
-        "score": "1-4",
-        "result": "L"
-      },
-      {
-        "date": "2026-09-05",
-        "opponent": "Real Racing Club de Santander",
-        "venue": "H",
-        "score": "3-2",
-        "result": "W"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-10-17",
-        "opponent": "Villarreal CF",
-        "venue": "A",
-        "score": "0-0",
-        "result": "D"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "RC Celta de Vigo",
-        "venue": "H",
-        "score": "0-0",
-        "result": "D"
-      },
-      {
-        "date": "2026-09-18",
-        "opponent": "RCD Espanyol de Barcelona",
-        "venue": "A",
-        "score": "3-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-09-15",
-        "opponent": "Real Madrid CF",
-        "venue": "H",
-        "score": "2-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-09-12",
-        "opponent": "Athletic Club",
-        "venue": "A",
-        "score": "1-1",
-        "result": "D"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 5,
-      "home_wins": 0,
-      "draws": 0,
-      "away_wins": 0,
-      "matches": [
-        {
-          "date": "2026-04-03",
-          "home": "Rayo Vallecano de Madrid",
-          "away": "Elche CF",
-          "score": "1-0",
-          "competition": "Primera Division"
-        },
-        {
-          "date": "2025-12-21",
-          "home": "Elche CF",
-          "away": "Rayo Vallecano de Madrid",
-          "score": "4-0",
-          "competition": "Primera Division"
-        },
-        {
-          "date": "2023-04-29",
-          "home": "Elche CF",
-          "away": "Rayo Vallecano de Madrid",
-          "score": "4-0",
-          "competition": "Primera Division"
-        },
-        {
-          "date": "2022-10-03",
-          "home": "Rayo Vallecano de Madrid",
-          "away": "Elche CF",
-          "score": "2-1",
-          "competition": "Primera Division"
-        },
-        {
-          "date": "2022-02-18",
-          "home": "Elche CF",
-          "away": "Rayo Vallecano de Madrid",
-          "score": "2-1",
-          "competition": "Primera Division"
-        }
-      ]
-    }
-  },
   "558560": {
     "home_recent": [
       {
@@ -4402,7 +4283,35 @@
         "result": "L"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 5,
+      "home_wins": 0,
+      "draws": 1,
+      "away_wins": 0,
+      "matches": [
+        {
+          "date": "2026-04-26",
+          "home": "SC Corinthians Paulista",
+          "away": "CR Vasco da Gama",
+          "score": "1-0",
+          "competition": "Campeonato Brasileiro S\u00e9rie A"
+        },
+        {
+          "date": "2025-08-24",
+          "home": "CR Vasco da Gama",
+          "away": "SC Corinthians Paulista",
+          "score": "2-3",
+          "competition": "Campeonato Brasileiro S\u00e9rie A"
+        },
+        {
+          "date": "2025-04-05",
+          "home": "SC Corinthians Paulista",
+          "away": "CR Vasco da Gama",
+          "score": "3-0",
+          "competition": "Campeonato Brasileiro S\u00e9rie A"
+        }
+      ]
+    }
   },
   "555050": {
     "home_recent": [

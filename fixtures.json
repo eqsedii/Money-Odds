@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-24T07:59:09.063143Z",
+  "generated_at": "2026-10-24T13:15:08.876941Z",
   "fixtures": [
     {
       "id": "bb-21717946",
@@ -170,21 +170,6 @@
       "league": "Championship",
       "comp_code": "ELC",
       "kickoff": "2026-10-24T11:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 564718,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Rayo Vallecano de Madrid vs Elche CF",
-      "home_team": "Rayo Vallecano de Madrid",
-      "away_team": "Elche CF",
-      "home_team_id": 87,
-      "away_team_id": 285,
-      "league": "Primera Division",
-      "comp_code": "PD",
-      "kickoff": "2026-10-24T12:00:00Z",
       "has_pick": true,
       "locked": true
     },
