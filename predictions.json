@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T23:55:09.615056Z",
+  "generated_at": "2026-10-24T02:43:32.405555Z",
   "predictions": [
     {
       "id": 558563,
@@ -13,6 +13,48 @@
       "league": "Serie A",
       "comp_code": "SA",
       "kickoff": "2026-10-25T11:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21717979",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Toronto Raptors vs Orlando Magic",
+      "home_team": "Toronto Raptors",
+      "away_team": "Orlando Magic",
+      "home_team_id": 28,
+      "away_team_id": 22,
+      "league": "NBA",
+      "kickoff": "2026-10-28",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21717995",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Toronto Raptors vs Orlando Magic",
+      "home_team": "Toronto Raptors",
+      "away_team": "Orlando Magic",
+      "home_team_id": 28,
+      "away_team_id": 22,
+      "league": "NBA",
+      "kickoff": "2026-10-30",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718020",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Minnesota Timberwolves vs Milwaukee Bucks",
+      "home_team": "Minnesota Timberwolves",
+      "away_team": "Milwaukee Bucks",
+      "home_team_id": 18,
+      "away_team_id": 17,
+      "league": "NBA",
+      "kickoff": "2026-11-02",
       "has_pick": true,
       "locked": true
     },
@@ -47,6 +89,21 @@
       "locked": true
     },
     {
+      "id": 565848,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "RB Leipzig vs FC Augsburg",
+      "home_team": "RB Leipzig",
+      "away_team": "FC Augsburg",
+      "home_team_id": 721,
+      "away_team_id": 16,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-11-07T14:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 565846,
       "sport": "Football",
       "icon": "\u26bd",
@@ -58,6 +115,34 @@
       "league": "Bundesliga",
       "comp_code": "BL1",
       "kickoff": "2026-10-30T19:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718043",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Atlanta Hawks vs Washington Wizards",
+      "home_team": "Atlanta Hawks",
+      "away_team": "Washington Wizards",
+      "home_team_id": 1,
+      "away_team_id": 30,
+      "league": "NBA",
+      "kickoff": "2026-11-06",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718048",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Milwaukee Bucks vs Toronto Raptors",
+      "home_team": "Milwaukee Bucks",
+      "away_team": "Toronto Raptors",
+      "home_team_id": 17,
+      "away_team_id": 28,
+      "league": "NBA",
+      "kickoff": "2026-11-06",
       "has_pick": true,
       "locked": true
     },
@@ -103,6 +188,20 @@
       "league": "Bundesliga",
       "comp_code": "BL1",
       "kickoff": "2026-10-25T14:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718014",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Indiana Pacers vs Atlanta Hawks",
+      "home_team": "Indiana Pacers",
+      "away_team": "Atlanta Hawks",
+      "home_team_id": 12,
+      "away_team_id": 1,
+      "league": "NBA",
+      "kickoff": "2026-11-02",
       "has_pick": true,
       "locked": true
     },
@@ -166,6 +265,21 @@
       "locked": true
     },
     {
+      "id": 560641,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Nottingham Forest FC vs Manchester City FC",
+      "home_team": "Nottingham Forest FC",
+      "away_team": "Manchester City FC",
+      "home_team_id": 351,
+      "away_team_id": 65,
+      "league": "Premier League",
+      "comp_code": "PL",
+      "kickoff": "2026-11-07T17:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 558560,
       "sport": "Football",
       "icon": "\u26bd",
@@ -177,126 +291,6 @@
       "league": "Serie A",
       "comp_code": "SA",
       "kickoff": "2026-10-24T13:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558565,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "SS Lazio vs Parma Calcio 1913",
-      "home_team": "SS Lazio",
-      "away_team": "Parma Calcio 1913",
-      "home_team_id": 110,
-      "away_team_id": 112,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-10-24T18:45:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558853,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "PSV vs Willem II Tilburg",
-      "home_team": "PSV",
-      "away_team": "Willem II Tilburg",
-      "home_team_id": 674,
-      "away_team_id": 672,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-10-31T17:45:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 567338,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Porto vs GD Estoril Praia",
-      "home_team": "FC Porto",
-      "away_team": "GD Estoril Praia",
-      "home_team_id": 503,
-      "away_team_id": 582,
-      "league": "Primeira Liga",
-      "comp_code": "PPL",
-      "kickoff": "2026-10-31T20:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558846,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Groningen vs Sparta Rotterdam",
-      "home_team": "FC Groningen",
-      "away_team": "Sparta Rotterdam",
-      "home_team_id": 677,
-      "away_team_id": 6806,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-11-01T15:45:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 564723,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Barcelona vs Real Madrid CF",
-      "home_team": "FC Barcelona",
-      "away_team": "Real Madrid CF",
-      "home_team_id": 81,
-      "away_team_id": 86,
-      "league": "Primera Division",
-      "comp_code": "PD",
-      "kickoff": "2026-10-25T20:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558564,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "SSC Napoli vs AS Roma",
-      "home_team": "SSC Napoli",
-      "away_team": "AS Roma",
-      "home_team_id": 113,
-      "away_team_id": 100,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-10-24T16:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 560612,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Liverpool FC vs Brighton & Hove Albion FC",
-      "home_team": "Liverpool FC",
-      "away_team": "Brighton & Hove Albion FC",
-      "home_team_id": 64,
-      "away_team_id": 397,
-      "league": "Premier League",
-      "comp_code": "PL",
-      "kickoff": "2026-10-25T14:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 567344,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Casa Pia AC vs Sporting Clube de Portugal",
-      "home_team": "Casa Pia AC",
-      "away_team": "Sporting Clube de Portugal",
-      "home_team_id": 6618,
-      "away_team_id": 498,
-      "league": "Primeira Liga",
-      "comp_code": "PPL",
-      "kickoff": "2026-10-30T20:15:00Z",
       "has_pick": true,
       "locked": true
     }
@@ -313,10 +307,10 @@
           "meta": "Serie A"
         },
         {
-          "id": 565840,
-          "icon": "\u26bd",
-          "match": "FC Schalke 04 vs RB Leipzig",
-          "meta": "Bundesliga"
+          "id": "bb-21717979",
+          "icon": "\ud83c\udfc0",
+          "match": "Toronto Raptors vs Orlando Magic",
+          "meta": "NBA"
         }
       ]
     },
@@ -325,22 +319,22 @@
       "locked": true,
       "legs": [
         {
+          "id": "bb-21718020",
+          "icon": "\ud83c\udfc0",
+          "match": "Minnesota Timberwolves vs Milwaukee Bucks",
+          "meta": "NBA"
+        },
+        {
+          "id": 565840,
+          "icon": "\u26bd",
+          "match": "FC Schalke 04 vs RB Leipzig",
+          "meta": "Bundesliga"
+        },
+        {
           "id": 558856,
           "icon": "\u26bd",
           "match": "Sparta Rotterdam vs AFC Ajax",
           "meta": "Eredivisie"
-        },
-        {
-          "id": 565846,
-          "icon": "\u26bd",
-          "match": "SV 07 Elversberg vs 1. FSV Mainz 05",
-          "meta": "Bundesliga"
-        },
-        {
-          "id": 565838,
-          "icon": "\u26bd",
-          "match": "FC Augsburg vs 1. FC Union Berlin",
-          "meta": "Bundesliga"
         }
       ]
     }

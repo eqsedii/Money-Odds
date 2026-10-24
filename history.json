@@ -1,5 +1,5 @@
 {
-  "total_analyzed_since_start": 734,
+  "total_analyzed_since_start": 777,
   "history": [
     {
       "date": "2026-10-18",
@@ -550,6 +550,26 @@
       "pick": "Under 2.5 Goals",
       "result": "loss",
       "final_score": "5-0"
+    },
+    {
+      "date": "2026-10-09",
+      "id": 561894,
+      "sport": "Football",
+      "match": "Bolton Wanderers FC vs Middlesbrough FC",
+      "league": "Championship",
+      "pick": "BTTS - Yes",
+      "result": "win",
+      "final_score": "1-5"
+    },
+    {
+      "date": "2026-10-09",
+      "id": 555052,
+      "sport": "Football",
+      "match": "Cruzeiro EC vs Clube do Remo",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Cruzeiro EC Win",
+      "result": "win",
+      "final_score": "1-0"
     },
     {
       "date": "2026-10-08",
