@@ -1,6 +1,36 @@
 {
-  "total_analyzed_since_start": 777,
+  "total_analyzed_since_start": 818,
   "history": [
+    {
+      "date": "2026-10-24",
+      "id": "bb-21717946",
+      "sport": "Basketball",
+      "match": "Charlotte Hornets vs Miami Heat",
+      "league": "NBA",
+      "pick": "Charlotte Hornets Win",
+      "result": "win",
+      "final_score": "115-110"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21717951",
+      "sport": "Basketball",
+      "match": "Dallas Mavericks vs San Antonio Spurs",
+      "league": "NBA",
+      "pick": "Dallas Mavericks Win",
+      "result": "loss",
+      "final_score": "106-122"
+    },
+    {
+      "date": "2026-10-23",
+      "id": "bb-21717948",
+      "sport": "Basketball",
+      "match": "Philadelphia 76ers vs Milwaukee Bucks",
+      "league": "NBA",
+      "pick": "Philadelphia 76ers Win",
+      "result": "win",
+      "final_score": "127-116"
+    },
     {
       "date": "2026-10-18",
       "id": 561826,
@@ -550,6 +580,16 @@
       "pick": "Blackburn Rovers FC Win",
       "result": "win",
       "final_score": "2-0"
+    },
+    {
+      "date": "2026-10-10",
+      "id": 559652,
+      "sport": "Football",
+      "match": "Racing Club de Lens vs Paris FC",
+      "league": "Ligue 1",
+      "pick": "Under 2.5 Goals",
+      "result": "loss",
+      "final_score": "2-1"
     },
     {
       "date": "2026-10-09",
