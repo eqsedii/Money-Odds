@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T20:37:31.458434Z",
+  "generated_at": "2026-10-25T23:10:23.885053Z",
   "fixtures": [
     {
       "id": "bb-21717955",
@@ -96,21 +96,6 @@
       "away_team_id": 15,
       "league": "NBA",
       "kickoff": "2026-10-25",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 567332,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Sporting Clube de Portugal vs Acad\u00e9mico de Viseu FC",
-      "home_team": "Sporting Clube de Portugal",
-      "away_team": "Acad\u00e9mico de Viseu FC",
-      "home_team_id": 498,
-      "away_team_id": 5527,
-      "league": "Primeira Liga",
-      "comp_code": "PPL",
-      "kickoff": "2026-10-25T20:30:00Z",
       "has_pick": true,
       "locked": true
     },
