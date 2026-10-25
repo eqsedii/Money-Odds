@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T02:30:49.798036Z",
+  "generated_at": "2026-10-25T08:10:29.966750Z",
   "predictions": [
     {
       "id": 558563,
@@ -13,20 +13,6 @@
       "league": "Serie A",
       "comp_code": "SA",
       "kickoff": "2026-10-25T11:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21717975",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Atlanta Hawks vs Miami Heat",
-      "home_team": "Atlanta Hawks",
-      "away_team": "Miami Heat",
-      "home_team_id": 1,
-      "away_team_id": 16,
-      "league": "NBA",
-      "kickoff": "2026-10-28",
       "has_pick": true,
       "locked": true
     },
@@ -73,21 +59,6 @@
       "locked": true
     },
     {
-      "id": 565854,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "SC Freiburg vs 1. FC Union Berlin",
-      "home_team": "SC Freiburg",
-      "away_team": "1. FC Union Berlin",
-      "home_team_id": 17,
-      "away_team_id": 28,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-11-08T16:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": "bb-21718020",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
@@ -98,20 +69,6 @@
       "away_team_id": 17,
       "league": "NBA",
       "kickoff": "2026-11-02",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718058",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Portland Trail Blazers vs San Antonio Spurs",
-      "home_team": "Portland Trail Blazers",
-      "away_team": "San Antonio Spurs",
-      "home_team_id": 25,
-      "away_team_id": 27,
-      "league": "NBA",
-      "kickoff": "2026-11-07",
       "has_pick": true,
       "locked": true
     },
@@ -130,17 +87,16 @@
       "locked": true
     },
     {
-      "id": 565840,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Schalke 04 vs RB Leipzig",
-      "home_team": "FC Schalke 04",
-      "away_team": "RB Leipzig",
-      "home_team_id": 6,
-      "away_team_id": 721,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-10-31T14:30:00Z",
+      "id": "bb-21717975",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Atlanta Hawks vs Miami Heat",
+      "home_team": "Atlanta Hawks",
+      "away_team": "Miami Heat",
+      "home_team_id": 1,
+      "away_team_id": 16,
+      "league": "NBA",
+      "kickoff": "2026-10-28",
       "has_pick": true,
       "locked": true
     },
@@ -159,45 +115,16 @@
       "locked": true
     },
     {
-      "id": 558856,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Sparta Rotterdam vs AFC Ajax",
-      "home_team": "Sparta Rotterdam",
-      "away_team": "AFC Ajax",
-      "home_team_id": 6806,
-      "away_team_id": 678,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-10-25T15:45:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718004",
+      "id": "bb-21718037",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
-      "match": "Memphis Grizzlies vs Sacramento Kings",
-      "home_team": "Memphis Grizzlies",
-      "away_team": "Sacramento Kings",
-      "home_team_id": 15,
-      "away_team_id": 26,
+      "match": "Phoenix Suns vs Portland Trail Blazers",
+      "home_team": "Phoenix Suns",
+      "away_team": "Portland Trail Blazers",
+      "home_team_id": 24,
+      "away_team_id": 25,
       "league": "NBA",
-      "kickoff": "2026-10-31",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718048",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Milwaukee Bucks vs Toronto Raptors",
-      "home_team": "Milwaukee Bucks",
-      "away_team": "Toronto Raptors",
-      "home_team_id": 17,
-      "away_team_id": 28,
-      "league": "NBA",
-      "kickoff": "2026-11-06",
+      "kickoff": "2026-11-04",
       "has_pick": true,
       "locked": true
     },
@@ -217,6 +144,93 @@
       "locked": true
     },
     {
+      "id": 565835,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "TSG 1899 Hoffenheim vs Bayer 04 Leverkusen",
+      "home_team": "TSG 1899 Hoffenheim",
+      "away_team": "Bayer 04 Leverkusen",
+      "home_team_id": 2,
+      "away_team_id": 3,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-10-25T14:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 558856,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Sparta Rotterdam vs AFC Ajax",
+      "home_team": "Sparta Rotterdam",
+      "away_team": "AFC Ajax",
+      "home_team_id": 6806,
+      "away_team_id": 678,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-10-25T15:45:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21717967",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Oklahoma City Thunder vs Phoenix Suns",
+      "home_team": "Oklahoma City Thunder",
+      "away_team": "Phoenix Suns",
+      "home_team_id": 21,
+      "away_team_id": 24,
+      "league": "NBA",
+      "kickoff": "2026-10-26",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718004",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Memphis Grizzlies vs Sacramento Kings",
+      "home_team": "Memphis Grizzlies",
+      "away_team": "Sacramento Kings",
+      "home_team_id": 15,
+      "away_team_id": 26,
+      "league": "NBA",
+      "kickoff": "2026-10-31",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 565840,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "FC Schalke 04 vs RB Leipzig",
+      "home_team": "FC Schalke 04",
+      "away_team": "RB Leipzig",
+      "home_team_id": 6,
+      "away_team_id": 721,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-10-31T14:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718048",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Milwaukee Bucks vs Toronto Raptors",
+      "home_team": "Milwaukee Bucks",
+      "away_team": "Toronto Raptors",
+      "home_team_id": 17,
+      "away_team_id": 28,
+      "league": "NBA",
+      "kickoff": "2026-11-06",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 565846,
       "sport": "Football",
       "icon": "\u26bd",
@@ -228,34 +242,6 @@
       "league": "Bundesliga",
       "comp_code": "BL1",
       "kickoff": "2026-10-30T19:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718017",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Philadelphia 76ers vs Chicago Bulls",
-      "home_team": "Philadelphia 76ers",
-      "away_team": "Chicago Bulls",
-      "home_team_id": 23,
-      "away_team_id": 5,
-      "league": "NBA",
-      "kickoff": "2026-11-02",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718043",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Atlanta Hawks vs Washington Wizards",
-      "home_team": "Atlanta Hawks",
-      "away_team": "Washington Wizards",
-      "home_team_id": 1,
-      "away_team_id": 30,
-      "league": "NBA",
-      "kickoff": "2026-11-06",
       "has_pick": true,
       "locked": true
     },
@@ -275,17 +261,30 @@
       "locked": true
     },
     {
-      "id": 565835,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "TSG 1899 Hoffenheim vs Bayer 04 Leverkusen",
-      "home_team": "TSG 1899 Hoffenheim",
-      "away_team": "Bayer 04 Leverkusen",
-      "home_team_id": 2,
-      "away_team_id": 3,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-10-25T14:30:00Z",
+      "id": "bb-21717977",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Detroit Pistons vs Charlotte Hornets",
+      "home_team": "Detroit Pistons",
+      "away_team": "Charlotte Hornets",
+      "home_team_id": 9,
+      "away_team_id": 4,
+      "league": "NBA",
+      "kickoff": "2026-10-28",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718001",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Utah Jazz vs Portland Trail Blazers",
+      "home_team": "Utah Jazz",
+      "away_team": "Portland Trail Blazers",
+      "home_team_id": 29,
+      "away_team_id": 25,
+      "league": "NBA",
+      "kickoff": "2026-10-31",
       "has_pick": true,
       "locked": true
     }
@@ -302,9 +301,9 @@
           "meta": "Serie A"
         },
         {
-          "id": "bb-21717975",
+          "id": "bb-21717979",
           "icon": "\ud83c\udfc0",
-          "match": "Atlanta Hawks vs Miami Heat",
+          "match": "Toronto Raptors vs Orlando Magic",
           "meta": "NBA"
         }
       ]
@@ -314,21 +313,21 @@
       "locked": true,
       "legs": [
         {
-          "id": "bb-21717979",
-          "icon": "\ud83c\udfc0",
-          "match": "Toronto Raptors vs Orlando Magic",
-          "meta": "NBA"
-        },
-        {
-          "id": "bb-21717995",
-          "icon": "\ud83c\udfc0",
-          "match": "Toronto Raptors vs Orlando Magic",
-          "meta": "NBA"
-        },
-        {
           "id": "bb-21717982",
           "icon": "\ud83c\udfc0",
           "match": "Minnesota Timberwolves vs Golden State Warriors",
+          "meta": "NBA"
+        },
+        {
+          "id": "bb-21718020",
+          "icon": "\ud83c\udfc0",
+          "match": "Minnesota Timberwolves vs Milwaukee Bucks",
+          "meta": "NBA"
+        },
+        {
+          "id": "bb-21718061",
+          "icon": "\ud83c\udfc0",
+          "match": "Minnesota Timberwolves vs Utah Jazz",
           "meta": "NBA"
         }
       ]
