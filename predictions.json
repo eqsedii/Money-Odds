@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T18:13:44.632254Z",
+  "generated_at": "2026-10-25T20:37:31.472784Z",
   "predictions": [
     {
       "id": "bb-21717979",
@@ -143,21 +143,6 @@
       "locked": true
     },
     {
-      "id": 565846,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "SV 07 Elversberg vs 1. FSV Mainz 05",
-      "home_team": "SV 07 Elversberg",
-      "away_team": "1. FSV Mainz 05",
-      "home_team_id": 719,
-      "away_team_id": 15,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-10-30T19:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": "bb-21718004",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
@@ -197,6 +182,21 @@
       "away_team_id": 28,
       "league": "NBA",
       "kickoff": "2026-11-06",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 565846,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "SV 07 Elversberg vs 1. FSV Mainz 05",
+      "home_team": "SV 07 Elversberg",
+      "away_team": "1. FSV Mainz 05",
+      "home_team_id": 719,
+      "away_team_id": 15,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-10-30T19:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -257,21 +257,6 @@
       "locked": true
     },
     {
-      "id": 565854,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "SC Freiburg vs 1. FC Union Berlin",
-      "home_team": "SC Freiburg",
-      "away_team": "1. FC Union Berlin",
-      "home_team_id": 17,
-      "away_team_id": 28,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-11-08T16:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": "bb-21718039",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
@@ -282,6 +267,21 @@
       "away_team_id": 14,
       "league": "NBA",
       "kickoff": "2026-11-04",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 564747,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Villarreal CF vs Getafe CF",
+      "home_team": "Villarreal CF",
+      "away_team": "Getafe CF",
+      "home_team_id": 94,
+      "away_team_id": 82,
+      "league": "Primera Division",
+      "comp_code": "PD",
+      "kickoff": "2026-11-08T17:30:00Z",
       "has_pick": true,
       "locked": true
     }
