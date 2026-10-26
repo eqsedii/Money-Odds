@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T02:30:56.792912Z",
+  "generated_at": "2026-10-26T08:31:22.894340Z",
   "predictions": [
     {
       "id": "bb-21717982",
@@ -87,20 +87,6 @@
       "locked": true
     },
     {
-      "id": "bb-21718004",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Memphis Grizzlies vs Sacramento Kings",
-      "home_team": "Memphis Grizzlies",
-      "away_team": "Sacramento Kings",
-      "home_team_id": 15,
-      "away_team_id": 26,
-      "league": "NBA",
-      "kickoff": "2026-10-31",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 565840,
       "sport": "Football",
       "icon": "\u26bd",
@@ -169,6 +155,20 @@
       "league": "Bundesliga",
       "comp_code": "BL1",
       "kickoff": "2026-10-30T19:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718004",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Memphis Grizzlies vs Sacramento Kings",
+      "home_team": "Memphis Grizzlies",
+      "away_team": "Sacramento Kings",
+      "home_team_id": 15,
+      "away_team_id": 26,
+      "league": "NBA",
+      "kickoff": "2026-10-31",
       "has_pick": true,
       "locked": true
     },
