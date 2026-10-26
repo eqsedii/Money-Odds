@@ -1,6 +1,16 @@
 {
-  "total_analyzed_since_start": 818,
+  "total_analyzed_since_start": 826,
   "history": [
+    {
+      "date": "2026-10-25",
+      "id": "bb-21717956",
+      "sport": "Basketball",
+      "match": "Brooklyn Nets vs Indiana Pacers",
+      "league": "NBA",
+      "pick": "Brooklyn Nets Win",
+      "result": "loss",
+      "final_score": "109-136"
+    },
     {
       "date": "2026-10-24",
       "id": "bb-21717946",
@@ -40,6 +50,56 @@
       "pick": "Washington Wizards Win",
       "result": "win",
       "final_score": "120-124"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21717955",
+      "sport": "Basketball",
+      "match": "Utah Jazz vs Los Angeles Lakers",
+      "league": "NBA",
+      "pick": "Los Angeles Lakers Win",
+      "result": "win",
+      "final_score": "123-132"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21717957",
+      "sport": "Basketball",
+      "match": "New York Knicks vs Orlando Magic",
+      "league": "NBA",
+      "pick": "New York Knicks Win",
+      "result": "loss",
+      "final_score": "102-111"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21717958",
+      "sport": "Basketball",
+      "match": "Minnesota Timberwolves vs Toronto Raptors",
+      "league": "NBA",
+      "pick": "Over 222.7 Points",
+      "result": "loss",
+      "final_score": "117-94"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21717959",
+      "sport": "Basketball",
+      "match": "Oklahoma City Thunder vs LA Clippers",
+      "league": "NBA",
+      "pick": "Oklahoma City Thunder Win",
+      "result": "win",
+      "final_score": "108-101"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21717960",
+      "sport": "Basketball",
+      "match": "Philadelphia 76ers vs Detroit Pistons",
+      "league": "NBA",
+      "pick": "Over 226.0 Points",
+      "result": "loss",
+      "final_score": "93-106"
     },
     {
       "date": "2026-10-23",
