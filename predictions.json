@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T15:52:29.637423Z",
+  "generated_at": "2026-10-26T22:19:59.722563Z",
   "predictions": [
     {
       "id": "bb-21717982",
@@ -173,6 +173,21 @@
       "locked": true
     },
     {
+      "id": 558853,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "PSV vs Willem II Tilburg",
+      "home_team": "PSV",
+      "away_team": "Willem II Tilburg",
+      "home_team_id": 674,
+      "away_team_id": 672,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-10-31T17:45:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": "bb-21717977",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
@@ -271,21 +286,6 @@
       "league": "Primeira Liga",
       "comp_code": "PPL",
       "kickoff": "2026-10-31T20:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558846,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Groningen vs Sparta Rotterdam",
-      "home_team": "FC Groningen",
-      "away_team": "Sparta Rotterdam",
-      "home_team_id": 677,
-      "away_team_id": 6806,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-11-01T15:45:00Z",
       "has_pick": true,
       "locked": true
     }
