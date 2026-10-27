@@ -1,354 +1,4 @@
 {
-  "558556": {
-    "home_recent": [
-      {
-        "date": "2026-10-24",
-        "opponent": "Como 1907",
-        "venue": "A",
-        "score": "0-2",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-16",
-        "opponent": "Frosinone Calcio",
-        "venue": "A",
-        "score": "2-4",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "AC Milan",
-        "venue": "H",
-        "score": "1-1",
-        "result": "D"
-      },
-      {
-        "date": "2026-09-18",
-        "opponent": "AC Monza",
-        "venue": "A",
-        "score": "1-2",
-        "result": "L"
-      },
-      {
-        "date": "2026-09-13",
-        "opponent": "Juventus FC",
-        "venue": "H",
-        "score": "3-2",
-        "result": "W"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-10-24",
-        "opponent": "Parma Calcio 1913",
-        "venue": "H",
-        "score": "2-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-18",
-        "opponent": "Juventus FC",
-        "venue": "A",
-        "score": "3-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "AC Monza",
-        "venue": "H",
-        "score": "3-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-09-19",
-        "opponent": "Venezia FC",
-        "venue": "A",
-        "score": "2-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-09-12",
-        "opponent": "AC Milan",
-        "venue": "H",
-        "score": "2-2",
-        "result": "D"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 5,
-      "home_wins": 0,
-      "draws": 1,
-      "away_wins": 0,
-      "matches": [
-        {
-          "date": "2026-03-09",
-          "home": "SS Lazio",
-          "away": "US Sassuolo Calcio",
-          "score": "2-1",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2025-09-14",
-          "home": "US Sassuolo Calcio",
-          "away": "SS Lazio",
-          "score": "1-0",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2024-05-26",
-          "home": "SS Lazio",
-          "away": "US Sassuolo Calcio",
-          "score": "1-1",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2023-10-21",
-          "home": "US Sassuolo Calcio",
-          "away": "SS Lazio",
-          "score": "0-2",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2023-05-03",
-          "home": "SS Lazio",
-          "away": "US Sassuolo Calcio",
-          "score": "2-0",
-          "competition": "Serie A"
-        }
-      ]
-    }
-  },
-  "558555": {
-    "home_recent": [
-      {
-        "date": "2026-10-24",
-        "opponent": "SSC Napoli",
-        "venue": "A",
-        "score": "3-3",
-        "result": "D"
-      },
-      {
-        "date": "2026-10-17",
-        "opponent": "Genoa CFC",
-        "venue": "H",
-        "score": "2-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "Como 1907",
-        "venue": "A",
-        "score": "0-0",
-        "result": "D"
-      },
-      {
-        "date": "2026-09-19",
-        "opponent": "FC Internazionale Milano",
-        "venue": "H",
-        "score": "2-2",
-        "result": "D"
-      },
-      {
-        "date": "2026-09-14",
-        "opponent": "Torino FC",
-        "venue": "A",
-        "score": "2-0",
-        "result": "W"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-10-24",
-        "opponent": "Bologna FC 1909",
-        "venue": "H",
-        "score": "0-2",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-19",
-        "opponent": "AC Monza",
-        "venue": "A",
-        "score": "0-4",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "Juventus FC",
-        "venue": "H",
-        "score": "1-1",
-        "result": "D"
-      },
-      {
-        "date": "2026-09-19",
-        "opponent": "Udinese Calcio",
-        "venue": "A",
-        "score": "1-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-09-12",
-        "opponent": "Atalanta BC",
-        "venue": "A",
-        "score": "2-1",
-        "result": "W"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 5,
-      "home_wins": 0,
-      "draws": 1,
-      "away_wins": 0,
-      "matches": [
-        {
-          "date": "2026-02-09",
-          "home": "AS Roma",
-          "away": "Cagliari Calcio",
-          "score": "2-0",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2025-12-07",
-          "home": "Cagliari Calcio",
-          "away": "AS Roma",
-          "score": "1-0",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2025-03-16",
-          "home": "AS Roma",
-          "away": "Cagliari Calcio",
-          "score": "1-0",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2024-08-18",
-          "home": "Cagliari Calcio",
-          "away": "AS Roma",
-          "score": "0-0",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2024-02-05",
-          "home": "AS Roma",
-          "away": "Cagliari Calcio",
-          "score": "4-0",
-          "competition": "Serie A"
-        }
-      ]
-    }
-  },
-  "558557": {
-    "home_recent": [
-      {
-        "date": "2026-10-23",
-        "opponent": "AC Monza",
-        "venue": "H",
-        "score": "3-2",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-19",
-        "opponent": "Parma Calcio 1913",
-        "venue": "A",
-        "score": "3-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-12",
-        "opponent": "Udinese Calcio",
-        "venue": "H",
-        "score": "2-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-09-19",
-        "opponent": "Bologna FC 1909",
-        "venue": "A",
-        "score": "1-1",
-        "result": "D"
-      },
-      {
-        "date": "2026-09-14",
-        "opponent": "AS Roma",
-        "venue": "H",
-        "score": "0-2",
-        "result": "L"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-10-24",
-        "opponent": "US Sassuolo Calcio",
-        "venue": "H",
-        "score": "2-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-18",
-        "opponent": "ACF Fiorentina",
-        "venue": "A",
-        "score": "3-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "AS Roma",
-        "venue": "H",
-        "score": "0-0",
-        "result": "D"
-      },
-      {
-        "date": "2026-09-20",
-        "opponent": "Frosinone Calcio",
-        "venue": "A",
-        "score": "0-2",
-        "result": "L"
-      },
-      {
-        "date": "2026-09-14",
-        "opponent": "Parma Calcio 1913",
-        "venue": "H",
-        "score": "2-1",
-        "result": "W"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 5,
-      "home_wins": 0,
-      "draws": 0,
-      "away_wins": 0,
-      "matches": [
-        {
-          "date": "2026-01-24",
-          "home": "Como 1907",
-          "away": "Torino FC",
-          "score": "6-0",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2025-11-24",
-          "home": "Torino FC",
-          "away": "Como 1907",
-          "score": "1-5",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2025-04-13",
-          "home": "Como 1907",
-          "away": "Torino FC",
-          "score": "1-0",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2024-10-25",
-          "home": "Torino FC",
-          "away": "Como 1907",
-          "score": "1-0",
-          "competition": "Serie A"
-        }
-      ]
-    }
-  },
   "558549": {
     "home_recent": [
       {
@@ -4531,7 +4181,42 @@
         "result": "W"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 5,
+      "home_wins": 0,
+      "draws": 1,
+      "away_wins": 0,
+      "matches": [
+        {
+          "date": "2026-03-03",
+          "home": "Ipswich Town FC",
+          "away": "Hull City AFC",
+          "score": "1-0",
+          "competition": "Championship"
+        },
+        {
+          "date": "2025-11-25",
+          "home": "Hull City AFC",
+          "away": "Ipswich Town FC",
+          "score": "0-2",
+          "competition": "Championship"
+        },
+        {
+          "date": "2024-04-27",
+          "home": "Hull City AFC",
+          "away": "Ipswich Town FC",
+          "score": "3-3",
+          "competition": "Championship"
+        },
+        {
+          "date": "2023-10-03",
+          "home": "Ipswich Town FC",
+          "away": "Hull City AFC",
+          "score": "3-0",
+          "competition": "Championship"
+        }
+      ]
+    }
   },
   "560630": {
     "home_recent": [
@@ -4608,7 +4293,49 @@
         "result": "W"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 5,
+      "home_wins": 0,
+      "draws": 0,
+      "away_wins": 0,
+      "matches": [
+        {
+          "date": "2026-01-25",
+          "home": "Brentford FC",
+          "away": "Nottingham Forest FC",
+          "score": "0-2",
+          "competition": "Premier League"
+        },
+        {
+          "date": "2025-08-17",
+          "home": "Nottingham Forest FC",
+          "away": "Brentford FC",
+          "score": "3-1",
+          "competition": "Premier League"
+        },
+        {
+          "date": "2025-05-01",
+          "home": "Nottingham Forest FC",
+          "away": "Brentford FC",
+          "score": "0-2",
+          "competition": "Premier League"
+        },
+        {
+          "date": "2024-12-21",
+          "home": "Brentford FC",
+          "away": "Nottingham Forest FC",
+          "score": "0-2",
+          "competition": "Premier League"
+        },
+        {
+          "date": "2024-01-20",
+          "home": "Brentford FC",
+          "away": "Nottingham Forest FC",
+          "score": "3-2",
+          "competition": "Premier League"
+        }
+      ]
+    }
   },
   "561905": {
     "home_recent": [
@@ -4685,7 +4412,13 @@
         "result": "W"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 5,
+      "home_wins": 0,
+      "draws": 0,
+      "away_wins": 0,
+      "matches": []
+    }
   },
   "561906": {
     "home_recent": [
@@ -7000,6 +6733,13 @@
   "558546": {
     "home_recent": [
       {
+        "date": "2026-10-27",
+        "opponent": "US Sassuolo Calcio",
+        "venue": "A",
+        "score": "6-2",
+        "result": "W"
+      },
+      {
         "date": "2026-10-24",
         "opponent": "Parma Calcio 1913",
         "venue": "H",
@@ -7026,13 +6766,6 @@
         "venue": "A",
         "score": "2-0",
         "result": "W"
-      },
-      {
-        "date": "2026-09-12",
-        "opponent": "AC Milan",
-        "venue": "H",
-        "score": "2-2",
-        "result": "D"
       }
     ],
     "away_recent": [
@@ -8386,6 +8119,13 @@
   "558541": {
     "home_recent": [
       {
+        "date": "2026-10-27",
+        "opponent": "SS Lazio",
+        "venue": "H",
+        "score": "2-6",
+        "result": "L"
+      },
+      {
         "date": "2026-10-24",
         "opponent": "Como 1907",
         "venue": "A",
@@ -8412,13 +8152,6 @@
         "venue": "A",
         "score": "1-2",
         "result": "L"
-      },
-      {
-        "date": "2026-09-13",
-        "opponent": "Juventus FC",
-        "venue": "H",
-        "score": "3-2",
-        "result": "W"
       }
     ],
     "away_recent": [
@@ -14541,6 +14274,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-10-27",
+        "opponent": "SS Lazio",
+        "venue": "H",
+        "score": "2-6",
+        "result": "L"
+      },
+      {
         "date": "2026-10-24",
         "opponent": "Como 1907",
         "venue": "A",
@@ -14567,13 +14307,6 @@
         "venue": "A",
         "score": "1-2",
         "result": "L"
-      },
-      {
-        "date": "2026-09-13",
-        "opponent": "Juventus FC",
-        "venue": "H",
-        "score": "3-2",
-        "result": "W"
       }
     ],
     "h2h": null
@@ -15003,6 +14736,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-10-27",
+        "opponent": "US Sassuolo Calcio",
+        "venue": "A",
+        "score": "6-2",
+        "result": "W"
+      },
+      {
         "date": "2026-10-24",
         "opponent": "Parma Calcio 1913",
         "venue": "H",
@@ -15029,13 +14769,6 @@
         "venue": "A",
         "score": "2-0",
         "result": "W"
-      },
-      {
-        "date": "2026-09-12",
-        "opponent": "AC Milan",
-        "venue": "H",
-        "score": "2-2",
-        "result": "D"
       }
     ],
     "h2h": null
