@@ -1,347 +1,4 @@
 {
-  "558549": {
-    "home_recent": [
-      {
-        "date": "2026-10-25",
-        "opponent": "Udinese Calcio",
-        "venue": "A",
-        "score": "2-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-18",
-        "opponent": "Atalanta BC",
-        "venue": "H",
-        "score": "3-2",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "US Sassuolo Calcio",
-        "venue": "A",
-        "score": "1-1",
-        "result": "D"
-      },
-      {
-        "date": "2026-09-20",
-        "opponent": "US Lecce",
-        "venue": "H",
-        "score": "3-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-09-12",
-        "opponent": "SS Lazio",
-        "venue": "A",
-        "score": "2-2",
-        "result": "D"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-10-24",
-        "opponent": "Cagliari Calcio",
-        "venue": "A",
-        "score": "2-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-17",
-        "opponent": "FC Internazionale Milano",
-        "venue": "H",
-        "score": "1-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "US Lecce",
-        "venue": "A",
-        "score": "2-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-09-19",
-        "opponent": "Torino FC",
-        "venue": "H",
-        "score": "1-1",
-        "result": "D"
-      },
-      {
-        "date": "2026-09-13",
-        "opponent": "SSC Napoli",
-        "venue": "A",
-        "score": "0-1",
-        "result": "L"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 5,
-      "home_wins": 0,
-      "draws": 0,
-      "away_wins": 0,
-      "matches": [
-        {
-          "date": "2026-02-03",
-          "home": "Bologna FC 1909",
-          "away": "AC Milan",
-          "score": "0-3",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2025-09-14",
-          "home": "AC Milan",
-          "away": "Bologna FC 1909",
-          "score": "1-0",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2025-05-09",
-          "home": "AC Milan",
-          "away": "Bologna FC 1909",
-          "score": "3-1",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2025-02-27",
-          "home": "Bologna FC 1909",
-          "away": "AC Milan",
-          "score": "2-1",
-          "competition": "Serie A"
-        }
-      ]
-    }
-  },
-  "558550": {
-    "home_recent": [
-      {
-        "date": "2026-10-25",
-        "opponent": "Genoa CFC",
-        "venue": "A",
-        "score": "0-1",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-17",
-        "opponent": "SSC Napoli",
-        "venue": "H",
-        "score": "1-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-12",
-        "opponent": "Atalanta BC",
-        "venue": "A",
-        "score": "1-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-09-19",
-        "opponent": "SS Lazio",
-        "venue": "H",
-        "score": "0-2",
-        "result": "L"
-      },
-      {
-        "date": "2026-09-11",
-        "opponent": "ACF Fiorentina",
-        "venue": "H",
-        "score": "2-4",
-        "result": "L"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-10-25",
-        "opponent": "ACF Fiorentina",
-        "venue": "H",
-        "score": "2-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-17",
-        "opponent": "Bologna FC 1909",
-        "venue": "A",
-        "score": "3-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-10",
-        "opponent": "Parma Calcio 1913",
-        "venue": "H",
-        "score": "3-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-09-19",
-        "opponent": "AS Roma",
-        "venue": "A",
-        "score": "2-2",
-        "result": "D"
-      },
-      {
-        "date": "2026-09-14",
-        "opponent": "Udinese Calcio",
-        "venue": "H",
-        "score": "5-3",
-        "result": "W"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 5,
-      "home_wins": 0,
-      "draws": 0,
-      "away_wins": 0,
-      "matches": [
-        {
-          "date": "2025-01-12",
-          "home": "Venezia FC",
-          "away": "FC Internazionale Milano",
-          "score": "0-1",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2024-11-03",
-          "home": "FC Internazionale Milano",
-          "away": "Venezia FC",
-          "score": "1-0",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2022-01-22",
-          "home": "FC Internazionale Milano",
-          "away": "Venezia FC",
-          "score": "2-1",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2021-11-27",
-          "home": "Venezia FC",
-          "away": "FC Internazionale Milano",
-          "score": "0-2",
-          "competition": "Serie A"
-        }
-      ]
-    }
-  },
-  "558553": {
-    "home_recent": [
-      {
-        "date": "2026-10-24",
-        "opponent": "SS Lazio",
-        "venue": "A",
-        "score": "1-2",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-19",
-        "opponent": "Torino FC",
-        "venue": "H",
-        "score": "0-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-10",
-        "opponent": "FC Internazionale Milano",
-        "venue": "A",
-        "score": "0-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-09-20",
-        "opponent": "Genoa CFC",
-        "venue": "H",
-        "score": "2-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-09-14",
-        "opponent": "Como 1907",
-        "venue": "A",
-        "score": "1-2",
-        "result": "L"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-10-25",
-        "opponent": "AC Milan",
-        "venue": "H",
-        "score": "0-2",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-18",
-        "opponent": "US Lecce",
-        "venue": "H",
-        "score": "0-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-12",
-        "opponent": "Torino FC",
-        "venue": "A",
-        "score": "1-2",
-        "result": "L"
-      },
-      {
-        "date": "2026-09-19",
-        "opponent": "Cagliari Calcio",
-        "venue": "H",
-        "score": "0-1",
-        "result": "L"
-      },
-      {
-        "date": "2026-09-14",
-        "opponent": "FC Internazionale Milano",
-        "venue": "A",
-        "score": "3-5",
-        "result": "L"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 5,
-      "home_wins": 0,
-      "draws": 1,
-      "away_wins": 0,
-      "matches": [
-        {
-          "date": "2026-04-18",
-          "home": "Udinese Calcio",
-          "away": "Parma Calcio 1913",
-          "score": "0-1",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2025-11-29",
-          "home": "Parma Calcio 1913",
-          "away": "Udinese Calcio",
-          "score": "0-2",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2025-03-01",
-          "home": "Udinese Calcio",
-          "away": "Parma Calcio 1913",
-          "score": "1-0",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2024-09-16",
-          "home": "Parma Calcio 1913",
-          "away": "Udinese Calcio",
-          "score": "2-3",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2021-02-21",
-          "home": "Parma Calcio 1913",
-          "away": "Udinese Calcio",
-          "score": "2-2",
-          "competition": "Serie A"
-        }
-      ]
-    }
-  },
   "558552": {
     "home_recent": [
       {
@@ -4495,7 +4152,28 @@
         "result": "L"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 5,
+      "home_wins": 0,
+      "draws": 1,
+      "away_wins": 0,
+      "matches": [
+        {
+          "date": "2021-05-19",
+          "home": "West Bromwich Albion FC",
+          "away": "West Ham United FC",
+          "score": "1-3",
+          "competition": "Premier League"
+        },
+        {
+          "date": "2021-01-19",
+          "home": "West Ham United FC",
+          "away": "West Bromwich Albion FC",
+          "score": "2-1",
+          "competition": "Premier League"
+        }
+      ]
+    }
   },
   "561907": {
     "home_recent": [
@@ -4572,7 +4250,49 @@
         "result": "D"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 5,
+      "home_wins": 0,
+      "draws": 0,
+      "away_wins": 0,
+      "matches": [
+        {
+          "date": "2026-01-20",
+          "home": "Swansea City AFC",
+          "away": "Blackburn Rovers FC",
+          "score": "3-1",
+          "competition": "Championship"
+        },
+        {
+          "date": "2025-09-30",
+          "home": "Blackburn Rovers FC",
+          "away": "Swansea City AFC",
+          "score": "1-2",
+          "competition": "Championship"
+        },
+        {
+          "date": "2025-02-22",
+          "home": "Swansea City AFC",
+          "away": "Blackburn Rovers FC",
+          "score": "3-0",
+          "competition": "Championship"
+        },
+        {
+          "date": "2024-10-19",
+          "home": "Blackburn Rovers FC",
+          "away": "Swansea City AFC",
+          "score": "1-0",
+          "competition": "Championship"
+        },
+        {
+          "date": "2024-03-02",
+          "home": "Swansea City AFC",
+          "away": "Blackburn Rovers FC",
+          "score": "2-1",
+          "competition": "Championship"
+        }
+      ]
+    }
   },
   "561909": {
     "home_recent": [
@@ -4649,7 +4369,13 @@
         "result": "W"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 5,
+      "home_wins": 0,
+      "draws": 1,
+      "away_wins": 0,
+      "matches": []
+    }
   },
   "561911": {
     "home_recent": [
