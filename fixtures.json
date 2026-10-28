@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T17:52:55.382324Z",
+  "generated_at": "2026-10-28T22:15:08.765234Z",
   "fixtures": [
     {
       "id": "bb-21717975",
@@ -166,36 +166,6 @@
       "away_team_id": 14,
       "league": "NBA",
       "kickoff": "2026-10-28",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558552,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Genoa CFC vs Juventus FC",
-      "home_team": "Genoa CFC",
-      "away_team": "Juventus FC",
-      "home_team_id": 107,
-      "away_team_id": 109,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-10-28T19:45:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558554,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "AC Monza vs SSC Napoli",
-      "home_team": "AC Monza",
-      "away_team": "SSC Napoli",
-      "home_team_id": 5911,
-      "away_team_id": 113,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-10-28T19:45:00Z",
       "has_pick": true,
       "locked": true
     },
