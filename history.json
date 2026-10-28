@@ -1,5 +1,5 @@
 {
-  "total_analyzed_since_start": 832,
+  "total_analyzed_since_start": 842,
   "history": [
     {
       "date": "2026-10-25",
@@ -40,6 +40,16 @@
       "pick": "Denver Nuggets Win",
       "result": "loss",
       "final_score": "114-134"
+    },
+    {
+      "date": "2026-10-25",
+      "id": "bb-21717971",
+      "sport": "Basketball",
+      "match": "Boston Celtics vs Brooklyn Nets",
+      "league": "NBA",
+      "pick": "Boston Celtics Win",
+      "result": "win",
+      "final_score": "125-124"
     },
     {
       "date": "2026-10-24",
@@ -200,6 +210,26 @@
       "pick": "Memphis Grizzlies Win",
       "result": "win",
       "final_score": "105-110"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21717972",
+      "sport": "Basketball",
+      "match": "New York Knicks vs Detroit Pistons",
+      "league": "NBA",
+      "pick": "Detroit Pistons Win",
+      "result": "loss",
+      "final_score": "111-97"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21717973",
+      "sport": "Basketball",
+      "match": "San Antonio Spurs vs Sacramento Kings",
+      "league": "NBA",
+      "pick": "San Antonio Spurs Win",
+      "result": "win",
+      "final_score": "130-103"
     },
     {
       "date": "2026-10-23",
