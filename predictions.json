@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T18:10:30.214423Z",
+  "generated_at": "2026-10-29T22:28:00.614657Z",
   "predictions": [
     {
       "id": 565848,
@@ -251,21 +251,6 @@
       "locked": true
     },
     {
-      "id": 558541,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "US Sassuolo Calcio vs ACF Fiorentina",
-      "home_team": "US Sassuolo Calcio",
-      "away_team": "ACF Fiorentina",
-      "home_team_id": 471,
-      "away_team_id": 99,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-11-02T17:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 558531,
       "sport": "Football",
       "icon": "\u26bd",
@@ -291,6 +276,21 @@
       "away_team_id": 29,
       "league": "NBA",
       "kickoff": "2026-11-08",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 560638,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Brighton & Hove Albion FC vs Brentford FC",
+      "home_team": "Brighton & Hove Albion FC",
+      "away_team": "Brentford FC",
+      "home_team_id": 397,
+      "away_team_id": 402,
+      "league": "Premier League",
+      "comp_code": "PL",
+      "kickoff": "2026-11-08T14:00:00Z",
       "has_pick": true,
       "locked": true
     }
