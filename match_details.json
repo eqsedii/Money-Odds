@@ -17115,6 +17115,13 @@
   "bb-21717997": {
     "home_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "Oklahoma City Thunder",
+        "venue": "H",
+        "score": "120-96",
+        "result": "W"
+      },
+      {
         "date": "2026-10-26",
         "opponent": "Miami Heat",
         "venue": "A",
@@ -17233,6 +17240,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "Los Angeles Lakers",
+        "venue": "H",
+        "score": "87-103",
+        "result": "L"
+      },
+      {
         "date": "2026-10-25",
         "opponent": "Oklahoma City Thunder",
         "venue": "A",
@@ -17295,6 +17309,13 @@
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "LA Clippers",
+        "venue": "A",
+        "score": "103-87",
+        "result": "W"
+      },
       {
         "date": "2026-10-27",
         "opponent": "Portland Trail Blazers",
@@ -17395,6 +17416,13 @@
   },
   "bb-21718001": {
     "home_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "San Antonio Spurs",
+        "venue": "H",
+        "score": "111-117",
+        "result": "L"
+      },
       {
         "date": "2026-10-26",
         "opponent": "Memphis Grizzlies",
@@ -17743,6 +17771,13 @@
   "bb-21718006": {
     "home_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "Utah Jazz",
+        "venue": "A",
+        "score": "117-111",
+        "result": "W"
+      },
+      {
         "date": "2026-10-27",
         "opponent": "Sacramento Kings",
         "venue": "H",
@@ -17849,6 +17884,13 @@
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "Dallas Mavericks",
+        "venue": "A",
+        "score": "96-120",
+        "result": "L"
+      },
       {
         "date": "2026-10-26",
         "opponent": "Phoenix Suns",
@@ -18064,6 +18106,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "Los Angeles Lakers",
+        "venue": "H",
+        "score": "87-103",
+        "result": "L"
+      },
+      {
         "date": "2026-10-25",
         "opponent": "Oklahoma City Thunder",
         "venue": "A",
@@ -18089,6 +18138,13 @@
   },
   "bb-21718011": {
     "home_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "LA Clippers",
+        "venue": "A",
+        "score": "103-87",
+        "result": "W"
+      },
       {
         "date": "2026-10-27",
         "opponent": "Portland Trail Blazers",
@@ -18182,6 +18238,13 @@
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "Dallas Mavericks",
+        "venue": "A",
+        "score": "96-120",
+        "result": "L"
+      },
       {
         "date": "2026-10-26",
         "opponent": "Phoenix Suns",
@@ -18598,6 +18661,13 @@
   "bb-21718018": {
     "home_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "Oklahoma City Thunder",
+        "venue": "H",
+        "score": "120-96",
+        "result": "W"
+      },
+      {
         "date": "2026-10-26",
         "opponent": "Miami Heat",
         "venue": "A",
@@ -18871,6 +18941,13 @@
   "bb-21718022": {
     "home_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "Utah Jazz",
+        "venue": "A",
+        "score": "117-111",
+        "result": "W"
+      },
+      {
         "date": "2026-10-27",
         "opponent": "Sacramento Kings",
         "venue": "H",
@@ -18901,6 +18978,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "San Antonio Spurs",
+        "venue": "H",
+        "score": "111-117",
+        "result": "L"
+      },
+      {
         "date": "2026-10-26",
         "opponent": "Memphis Grizzlies",
         "venue": "H",
@@ -18929,7 +19013,18 @@
         "result": "L"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 1,
+      "matches": [
+        {
+          "date": "2026-10-28",
+          "home": "Utah Jazz",
+          "away": "San Antonio Spurs",
+          "score": "111-117",
+          "competition": "NBA"
+        }
+      ]
+    }
   },
   "bb-21718023": {
     "home_recent": [
@@ -19064,6 +19159,13 @@
   "bb-21718025": {
     "home_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "Los Angeles Lakers",
+        "venue": "H",
+        "score": "87-103",
+        "result": "L"
+      },
+      {
         "date": "2026-10-25",
         "opponent": "Oklahoma City Thunder",
         "venue": "A",
@@ -19119,6 +19221,13 @@
   },
   "bb-21718026": {
     "home_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "LA Clippers",
+        "venue": "A",
+        "score": "103-87",
+        "result": "W"
+      },
       {
         "date": "2026-10-27",
         "opponent": "Portland Trail Blazers",
@@ -19694,6 +19803,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "San Antonio Spurs",
+        "venue": "H",
+        "score": "111-117",
+        "result": "L"
+      },
+      {
         "date": "2026-10-26",
         "opponent": "Memphis Grizzlies",
         "venue": "H",
@@ -19737,6 +19853,13 @@
   },
   "bb-21718034": {
     "home_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "Dallas Mavericks",
+        "venue": "A",
+        "score": "96-120",
+        "result": "L"
+      },
       {
         "date": "2026-10-26",
         "opponent": "Phoenix Suns",
@@ -20001,6 +20124,13 @@
   "bb-21718038": {
     "home_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "Utah Jazz",
+        "venue": "A",
+        "score": "117-111",
+        "result": "W"
+      },
+      {
         "date": "2026-10-27",
         "opponent": "Sacramento Kings",
         "venue": "H",
@@ -20030,6 +20160,13 @@
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "Oklahoma City Thunder",
+        "venue": "H",
+        "score": "120-96",
+        "result": "W"
+      },
       {
         "date": "2026-10-26",
         "opponent": "Miami Heat",
@@ -20105,6 +20242,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "LA Clippers",
+        "venue": "A",
+        "score": "103-87",
+        "result": "W"
+      },
+      {
         "date": "2026-10-27",
         "opponent": "Portland Trail Blazers",
         "venue": "H",
@@ -20137,6 +20281,13 @@
   },
   "bb-21718040": {
     "home_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "Los Angeles Lakers",
+        "venue": "H",
+        "score": "87-103",
+        "result": "L"
+      },
       {
         "date": "2026-10-25",
         "opponent": "Oklahoma City Thunder",
@@ -20562,6 +20713,13 @@
   "bb-21718046": {
     "home_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "Oklahoma City Thunder",
+        "venue": "H",
+        "score": "120-96",
+        "result": "W"
+      },
+      {
         "date": "2026-10-26",
         "opponent": "Miami Heat",
         "venue": "A",
@@ -20591,6 +20749,13 @@
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "San Antonio Spurs",
+        "venue": "H",
+        "score": "111-117",
+        "result": "L"
+      },
       {
         "date": "2026-10-26",
         "opponent": "Memphis Grizzlies",
@@ -20654,6 +20819,13 @@
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "Dallas Mavericks",
+        "venue": "A",
+        "score": "96-120",
+        "result": "L"
+      },
       {
         "date": "2026-10-26",
         "opponent": "Phoenix Suns",
@@ -20828,6 +21000,13 @@
   "bb-21718050": {
     "home_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "LA Clippers",
+        "venue": "A",
+        "score": "103-87",
+        "result": "W"
+      },
+      {
         "date": "2026-10-27",
         "opponent": "Portland Trail Blazers",
         "venue": "H",
@@ -20924,6 +21103,13 @@
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "Utah Jazz",
+        "venue": "A",
+        "score": "117-111",
+        "result": "W"
+      },
       {
         "date": "2026-10-27",
         "opponent": "Sacramento Kings",
@@ -21179,6 +21365,13 @@
   "bb-21718055": {
     "home_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "Dallas Mavericks",
+        "venue": "A",
+        "score": "96-120",
+        "result": "L"
+      },
+      {
         "date": "2026-10-26",
         "opponent": "Phoenix Suns",
         "venue": "H",
@@ -21405,6 +21598,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "Utah Jazz",
+        "venue": "A",
+        "score": "117-111",
+        "result": "W"
+      },
+      {
         "date": "2026-10-27",
         "opponent": "Sacramento Kings",
         "venue": "H",
@@ -21552,6 +21752,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "LA Clippers",
+        "venue": "A",
+        "score": "103-87",
+        "result": "W"
+      },
+      {
         "date": "2026-10-27",
         "opponent": "Portland Trail Blazers",
         "venue": "H",
@@ -21622,6 +21829,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "San Antonio Spurs",
+        "venue": "H",
+        "score": "111-117",
+        "result": "L"
+      },
+      {
         "date": "2026-10-26",
         "opponent": "Memphis Grizzlies",
         "venue": "H",
@@ -21654,6 +21868,13 @@
   },
   "bb-21718062": {
     "home_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "Oklahoma City Thunder",
+        "venue": "H",
+        "score": "120-96",
+        "result": "W"
+      },
       {
         "date": "2026-10-26",
         "opponent": "Miami Heat",
@@ -21787,6 +22008,13 @@
   },
   "bb-21718064": {
     "home_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "Los Angeles Lakers",
+        "venue": "H",
+        "score": "87-103",
+        "result": "L"
+      },
       {
         "date": "2026-10-25",
         "opponent": "Oklahoma City Thunder",
@@ -21950,6 +22178,13 @@
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "LA Clippers",
+        "venue": "A",
+        "score": "103-87",
+        "result": "W"
+      },
       {
         "date": "2026-10-27",
         "opponent": "Portland Trail Blazers",
@@ -22194,6 +22429,13 @@
   "bb-21718070": {
     "home_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "Oklahoma City Thunder",
+        "venue": "H",
+        "score": "120-96",
+        "result": "W"
+      },
+      {
         "date": "2026-10-26",
         "opponent": "Miami Heat",
         "venue": "A",
@@ -22367,6 +22609,13 @@
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "Utah Jazz",
+        "venue": "A",
+        "score": "117-111",
+        "result": "W"
+      },
       {
         "date": "2026-10-27",
         "opponent": "Sacramento Kings",
@@ -22641,6 +22890,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "Los Angeles Lakers",
+        "venue": "H",
+        "score": "87-103",
+        "result": "L"
+      },
+      {
         "date": "2026-10-25",
         "opponent": "Oklahoma City Thunder",
         "venue": "A",
@@ -22666,6 +22922,13 @@
   },
   "bb-21718078": {
     "home_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "San Antonio Spurs",
+        "venue": "H",
+        "score": "111-117",
+        "result": "L"
+      },
       {
         "date": "2026-10-26",
         "opponent": "Memphis Grizzlies",
@@ -22822,6 +23085,13 @@
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "Dallas Mavericks",
+        "venue": "A",
+        "score": "96-120",
+        "result": "L"
+      },
       {
         "date": "2026-10-26",
         "opponent": "Phoenix Suns",
@@ -23103,6 +23373,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "Utah Jazz",
+        "venue": "A",
+        "score": "117-111",
+        "result": "W"
+      },
+      {
         "date": "2026-10-27",
         "opponent": "Sacramento Kings",
         "venue": "H",
@@ -23236,6 +23513,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-10-28",
+        "opponent": "LA Clippers",
+        "venue": "A",
+        "score": "103-87",
+        "result": "W"
+      },
+      {
         "date": "2026-10-27",
         "opponent": "Portland Trail Blazers",
         "venue": "H",
@@ -23331,6 +23615,13 @@
   },
   "bb-21718088": {
     "home_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "San Antonio Spurs",
+        "venue": "H",
+        "score": "111-117",
+        "result": "L"
+      },
       {
         "date": "2026-10-26",
         "opponent": "Memphis Grizzlies",
@@ -23494,6 +23785,13 @@
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "Dallas Mavericks",
+        "venue": "A",
+        "score": "96-120",
+        "result": "L"
+      },
       {
         "date": "2026-10-26",
         "opponent": "Phoenix Suns",
@@ -23711,6 +24009,13 @@
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-10-28",
+        "opponent": "Oklahoma City Thunder",
+        "venue": "H",
+        "score": "120-96",
+        "result": "W"
+      },
       {
         "date": "2026-10-26",
         "opponent": "Miami Heat",

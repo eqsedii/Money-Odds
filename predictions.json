@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T03:41:39.838352Z",
+  "generated_at": "2026-10-29T12:12:29.728087Z",
   "predictions": [
     {
       "id": 565848,
@@ -237,6 +237,20 @@
       "locked": true
     },
     {
+      "id": "bb-21718018",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Dallas Mavericks vs Sacramento Kings",
+      "home_team": "Dallas Mavericks",
+      "away_team": "Sacramento Kings",
+      "home_team_id": 7,
+      "away_team_id": 26,
+      "league": "NBA",
+      "kickoff": "2026-11-02",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 558541,
       "sport": "Football",
       "icon": "\u26bd",
@@ -277,21 +291,6 @@
       "away_team_id": 29,
       "league": "NBA",
       "kickoff": "2026-11-08",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 560638,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Brighton & Hove Albion FC vs Brentford FC",
-      "home_team": "Brighton & Hove Albion FC",
-      "away_team": "Brentford FC",
-      "home_team_id": 397,
-      "away_team_id": 402,
-      "league": "Premier League",
-      "comp_code": "PL",
-      "kickoff": "2026-11-08T14:00:00Z",
       "has_pick": true,
       "locked": true
     }
