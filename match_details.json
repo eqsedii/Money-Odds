@@ -1,102 +1,4 @@
 {
-  "558558": {
-    "home_recent": [
-      {
-        "date": "2026-10-25",
-        "opponent": "Atalanta BC",
-        "venue": "A",
-        "score": "4-4",
-        "result": "D"
-      },
-      {
-        "date": "2026-10-16",
-        "opponent": "US Sassuolo Calcio",
-        "venue": "H",
-        "score": "4-2",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-10",
-        "opponent": "SSC Napoli",
-        "venue": "A",
-        "score": "0-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-09-20",
-        "opponent": "Como 1907",
-        "venue": "H",
-        "score": "2-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-09-12",
-        "opponent": "Genoa CFC",
-        "venue": "A",
-        "score": "1-1",
-        "result": "D"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-10-25",
-        "opponent": "Juventus FC",
-        "venue": "H",
-        "score": "0-2",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-18",
-        "opponent": "Udinese Calcio",
-        "venue": "A",
-        "score": "3-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "Bologna FC 1909",
-        "venue": "H",
-        "score": "1-2",
-        "result": "L"
-      },
-      {
-        "date": "2026-09-20",
-        "opponent": "AC Milan",
-        "venue": "A",
-        "score": "0-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-09-13",
-        "opponent": "AC Monza",
-        "venue": "H",
-        "score": "3-2",
-        "result": "W"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 5,
-      "home_wins": 0,
-      "draws": 2,
-      "away_wins": 0,
-      "matches": [
-        {
-          "date": "2024-03-03",
-          "home": "Frosinone Calcio",
-          "away": "US Lecce",
-          "score": "1-1",
-          "competition": "Serie A"
-        },
-        {
-          "date": "2023-12-16",
-          "home": "US Lecce",
-          "away": "Frosinone Calcio",
-          "score": "2-1",
-          "competition": "Serie A"
-        }
-      ]
-    }
-  },
   "558551": {
     "home_recent": [
       {
@@ -4473,7 +4375,49 @@
         "result": "D"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 5,
+      "home_wins": 0,
+      "draws": 0,
+      "away_wins": 0,
+      "matches": [
+        {
+          "date": "2026-02-02",
+          "home": "Udinese Calcio",
+          "away": "AS Roma",
+          "score": "1-0",
+          "competition": "Serie A"
+        },
+        {
+          "date": "2025-11-09",
+          "home": "AS Roma",
+          "away": "Udinese Calcio",
+          "score": "2-0",
+          "competition": "Serie A"
+        },
+        {
+          "date": "2025-01-26",
+          "home": "Udinese Calcio",
+          "away": "AS Roma",
+          "score": "1-2",
+          "competition": "Serie A"
+        },
+        {
+          "date": "2024-09-22",
+          "home": "AS Roma",
+          "away": "Udinese Calcio",
+          "score": "3-0",
+          "competition": "Serie A"
+        },
+        {
+          "date": "2024-04-25",
+          "home": "Udinese Calcio",
+          "away": "AS Roma",
+          "score": "1-2",
+          "competition": "Serie A"
+        }
+      ]
+    }
   },
   "560627": {
     "home_recent": [

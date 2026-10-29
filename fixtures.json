@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T12:12:29.705212Z",
+  "generated_at": "2026-10-29T18:10:30.191394Z",
   "fixtures": [
     {
       "id": "bb-21717987",
@@ -40,21 +40,6 @@
       "away_team_id": 15,
       "league": "NBA",
       "kickoff": "2026-10-29",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558558,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Frosinone Calcio vs US Lecce",
-      "home_team": "Frosinone Calcio",
-      "away_team": "US Lecce",
-      "home_team_id": 470,
-      "away_team_id": 5890,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-10-29T17:30:00Z",
       "has_pick": true,
       "locked": true
     },
