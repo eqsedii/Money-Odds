@@ -1,5 +1,5 @@
 {
-  "total_analyzed_since_start": 846,
+  "total_analyzed_since_start": 855,
   "history": [
     {
       "date": "2026-10-25",
@@ -70,6 +70,16 @@
       "pick": "New Orleans Pelicans Win",
       "result": "loss",
       "final_score": "91-104"
+    },
+    {
+      "date": "2026-10-25",
+      "id": "bb-21717987",
+      "sport": "Basketball",
+      "match": "Atlanta Hawks vs Cleveland Cavaliers",
+      "league": "NBA",
+      "pick": "Atlanta Hawks Win",
+      "result": "win",
+      "final_score": "114-111"
     },
     {
       "date": "2026-10-24",
@@ -362,6 +372,16 @@
       "final_score": "87-103"
     },
     {
+      "date": "2026-10-24",
+      "id": "bb-21717988",
+      "sport": "Basketball",
+      "match": "New Orleans Pelicans vs Sacramento Kings",
+      "league": "NBA",
+      "pick": "New Orleans Pelicans Win",
+      "result": "win",
+      "final_score": "132-120"
+    },
+    {
       "date": "2026-10-23",
       "id": "bb-21717948",
       "sport": "Basketball",
@@ -542,6 +562,16 @@
       "final_score": "2-5"
     },
     {
+      "date": "2026-10-16",
+      "id": 555066,
+      "sport": "Football",
+      "match": "Gr\u00eamio FBPA vs CA Paranaense",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "BTTS - Yes",
+      "result": "loss",
+      "final_score": "2-0"
+    },
+    {
       "date": "2026-10-15",
       "id": 565821,
       "sport": "Football",
@@ -640,6 +670,26 @@
       "pick": "Under 2.5 Goals",
       "result": "loss",
       "final_score": "2-2"
+    },
+    {
+      "date": "2026-10-15",
+      "id": 555060,
+      "sport": "Football",
+      "match": "CA Mineiro vs Cruzeiro EC",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Over 2.5 Goals",
+      "result": "loss",
+      "final_score": "0-1"
+    },
+    {
+      "date": "2026-10-15",
+      "id": 555069,
+      "sport": "Football",
+      "match": "CR Vasco da Gama vs CR Flamengo",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Under 2.5 Goals",
+      "result": "loss",
+      "final_score": "1-4"
     },
     {
       "date": "2026-10-14",
