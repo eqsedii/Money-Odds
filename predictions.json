@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-30T03:43:25.411150Z",
+  "generated_at": "2026-10-30T12:06:14.654274Z",
   "predictions": [
     {
       "id": 565848,
@@ -27,6 +27,20 @@
       "away_team_id": 22,
       "league": "NBA",
       "kickoff": "2026-10-30",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718004",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Memphis Grizzlies vs Sacramento Kings",
+      "home_team": "Memphis Grizzlies",
+      "away_team": "Sacramento Kings",
+      "home_team_id": 15,
+      "away_team_id": 26,
+      "league": "NBA",
+      "kickoff": "2026-10-31",
       "has_pick": true,
       "locked": true
     },
@@ -61,34 +75,6 @@
       "locked": true
     },
     {
-      "id": "bb-21718004",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Memphis Grizzlies vs Sacramento Kings",
-      "home_team": "Memphis Grizzlies",
-      "away_team": "Sacramento Kings",
-      "home_team_id": 15,
-      "away_team_id": 26,
-      "league": "NBA",
-      "kickoff": "2026-10-31",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718102",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Sacramento Kings vs Portland Trail Blazers",
-      "home_team": "Sacramento Kings",
-      "away_team": "Portland Trail Blazers",
-      "home_team_id": 26,
-      "away_team_id": 25,
-      "league": "NBA",
-      "kickoff": "2026-11-13",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": "bb-21717992",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
@@ -99,20 +85,6 @@
       "away_team_id": 5,
       "league": "NBA",
       "kickoff": "2026-10-30",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718037",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Phoenix Suns vs Portland Trail Blazers",
-      "home_team": "Phoenix Suns",
-      "away_team": "Portland Trail Blazers",
-      "home_team_id": 24,
-      "away_team_id": 25,
-      "league": "NBA",
-      "kickoff": "2026-11-04",
       "has_pick": true,
       "locked": true
     },
@@ -292,6 +264,36 @@
       "kickoff": "2026-11-08",
       "has_pick": true,
       "locked": true
+    },
+    {
+      "id": 560638,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Brighton & Hove Albion FC vs Brentford FC",
+      "home_team": "Brighton & Hove Albion FC",
+      "away_team": "Brentford FC",
+      "home_team_id": 397,
+      "away_team_id": 402,
+      "league": "Premier League",
+      "comp_code": "PL",
+      "kickoff": "2026-11-08T14:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 558538,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "AC Monza vs Atalanta BC",
+      "home_team": "AC Monza",
+      "away_team": "Atalanta BC",
+      "home_team_id": 5911,
+      "away_team_id": 102,
+      "league": "Serie A",
+      "comp_code": "SA",
+      "kickoff": "2026-11-08T14:00:00Z",
+      "has_pick": true,
+      "locked": true
     }
   ],
   "multi_bets": [
@@ -318,6 +320,12 @@
       "locked": true,
       "legs": [
         {
+          "id": "bb-21718004",
+          "icon": "\ud83c\udfc0",
+          "match": "Memphis Grizzlies vs Sacramento Kings",
+          "meta": "NBA"
+        },
+        {
           "id": 565840,
           "icon": "\u26bd",
           "match": "FC Schalke 04 vs RB Leipzig",
@@ -328,12 +336,6 @@
           "icon": "\u26bd",
           "match": "SV 07 Elversberg vs 1. FSV Mainz 05",
           "meta": "Bundesliga"
-        },
-        {
-          "id": "bb-21718004",
-          "icon": "\ud83c\udfc0",
-          "match": "Memphis Grizzlies vs Sacramento Kings",
-          "meta": "NBA"
         }
       ]
     }
