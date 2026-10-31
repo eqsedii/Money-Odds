@@ -1,5 +1,5 @@
 {
-  "total_analyzed_since_start": 855,
+  "total_analyzed_since_start": 861,
   "history": [
     {
       "date": "2026-10-25",
@@ -80,6 +80,16 @@
       "pick": "Atlanta Hawks Win",
       "result": "win",
       "final_score": "114-111"
+    },
+    {
+      "date": "2026-10-25",
+      "id": "bb-21717993",
+      "sport": "Basketball",
+      "match": "Brooklyn Nets vs Detroit Pistons",
+      "league": "NBA",
+      "pick": "Detroit Pistons Win",
+      "result": "win",
+      "final_score": "94-110"
     },
     {
       "date": "2026-10-24",
@@ -392,6 +402,76 @@
       "final_score": "103-124"
     },
     {
+      "date": "2026-10-24",
+      "id": "bb-21717990",
+      "sport": "Basketball",
+      "match": "Washington Wizards vs Charlotte Hornets",
+      "league": "NBA",
+      "pick": "Washington Wizards Win",
+      "result": "win",
+      "final_score": "95-79"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21717992",
+      "sport": "Basketball",
+      "match": "Boston Celtics vs Chicago Bulls",
+      "league": "NBA",
+      "pick": "Boston Celtics Win",
+      "result": "win",
+      "final_score": "125-111"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21717994",
+      "sport": "Basketball",
+      "match": "Philadelphia 76ers vs New York Knicks",
+      "league": "NBA",
+      "pick": "Philadelphia 76ers Win",
+      "result": "win",
+      "final_score": "98-93"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21717995",
+      "sport": "Basketball",
+      "match": "Toronto Raptors vs Orlando Magic",
+      "league": "NBA",
+      "pick": "Toronto Raptors Win",
+      "result": "loss",
+      "final_score": "114-121"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21717996",
+      "sport": "Basketball",
+      "match": "Miami Heat vs Indiana Pacers",
+      "league": "NBA",
+      "pick": "Indiana Pacers Win",
+      "result": "loss",
+      "final_score": "145-125"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21717997",
+      "sport": "Basketball",
+      "match": "Dallas Mavericks vs Houston Rockets",
+      "league": "NBA",
+      "pick": "Houston Rockets Win",
+      "result": "loss",
+      "final_score": "116-111"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21717998",
+      "sport": "Basketball",
+      "match": "Minnesota Timberwolves vs LA Clippers",
+      "league": "NBA",
+      "pick": "Minnesota Timberwolves Win",
+      "result": "win",
+      "final_score": "127-101"
+    },
+    {
       "date": "2026-10-23",
       "id": "bb-21717948",
       "sport": "Basketball",
@@ -620,6 +700,36 @@
       "pick": "BTTS - Yes",
       "result": "loss",
       "final_score": "0-1"
+    },
+    {
+      "date": "2026-10-16",
+      "id": 559639,
+      "sport": "Football",
+      "match": "Lille OSC vs Racing Club de Lens",
+      "league": "Ligue 1",
+      "pick": "Lille OSC Win",
+      "result": "win",
+      "final_score": "1-0"
+    },
+    {
+      "date": "2026-10-16",
+      "id": 567344,
+      "sport": "Football",
+      "match": "Casa Pia AC vs Sporting Clube de Portugal",
+      "league": "Primeira Liga",
+      "pick": "Sporting Clube de Portugal Win",
+      "result": "win",
+      "final_score": "0-2"
+    },
+    {
+      "date": "2026-10-16",
+      "id": 555063,
+      "sport": "Football",
+      "match": "SC Corinthians Paulista vs Mirassol FC",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "2-0"
     },
     {
       "date": "2026-10-15",
