@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-31T11:39:49.838653Z",
+  "generated_at": "2026-10-31T16:45:08.726752Z",
   "predictions": [
     {
       "id": 565848,
@@ -41,21 +41,6 @@
       "away_team_id": 26,
       "league": "NBA",
       "kickoff": "2026-10-31",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 565840,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Schalke 04 vs RB Leipzig",
-      "home_team": "FC Schalke 04",
-      "away_team": "RB Leipzig",
-      "home_team_id": 6,
-      "away_team_id": 721,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-10-31T14:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -147,21 +132,6 @@
       "locked": true
     },
     {
-      "id": 564735,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Rayo Vallecano de Madrid vs RC Celta de Vigo",
-      "home_team": "Rayo Vallecano de Madrid",
-      "away_team": "RC Celta de Vigo",
-      "home_team_id": 87,
-      "away_team_id": 558,
-      "league": "Primera Division",
-      "comp_code": "PD",
-      "kickoff": "2026-10-31T15:15:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 558853,
       "sport": "Football",
       "icon": "\u26bd",
@@ -236,6 +206,21 @@
       "locked": true
     },
     {
+      "id": 565854,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "SC Freiburg vs 1. FC Union Berlin",
+      "home_team": "SC Freiburg",
+      "away_team": "1. FC Union Berlin",
+      "home_team_id": 17,
+      "away_team_id": 28,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-11-08T16:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 559645,
       "sport": "Football",
       "icon": "\u26bd",
@@ -279,17 +264,31 @@
       "locked": true
     },
     {
-      "id": 565854,
+      "id": "bb-21718100",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Houston Rockets vs Utah Jazz",
+      "home_team": "Houston Rockets",
+      "away_team": "Utah Jazz",
+      "home_team_id": 11,
+      "away_team_id": 29,
+      "league": "NBA",
+      "kickoff": "2026-11-13",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 558542,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "SC Freiburg vs 1. FC Union Berlin",
-      "home_team": "SC Freiburg",
-      "away_team": "1. FC Union Berlin",
-      "home_team_id": 17,
-      "away_team_id": 28,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-11-08T16:30:00Z",
+      "match": "Udinese Calcio vs AS Roma",
+      "home_team": "Udinese Calcio",
+      "away_team": "AS Roma",
+      "home_team_id": 115,
+      "away_team_id": 100,
+      "league": "Serie A",
+      "comp_code": "SA",
+      "kickoff": "2026-10-31T17:00:00Z",
       "has_pick": true,
       "locked": true
     }
@@ -324,16 +323,16 @@
           "meta": "NBA"
         },
         {
-          "id": 565840,
-          "icon": "\u26bd",
-          "match": "FC Schalke 04 vs RB Leipzig",
-          "meta": "Bundesliga"
-        },
-        {
           "id": "bb-21718020",
           "icon": "\ud83c\udfc0",
           "match": "Minnesota Timberwolves vs Milwaukee Bucks",
           "meta": "NBA"
+        },
+        {
+          "id": 564747,
+          "icon": "\u26bd",
+          "match": "Villarreal CF vs Getafe CF",
+          "meta": "Primera Division"
         }
       ]
     }
