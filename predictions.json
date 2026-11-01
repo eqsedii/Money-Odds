@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-11-01T00:06:40.146380Z",
+  "generated_at": "2026-11-01T03:25:35.881283Z",
   "predictions": [
+    {
+      "id": 565848,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "RB Leipzig vs FC Augsburg",
+      "home_team": "RB Leipzig",
+      "away_team": "FC Augsburg",
+      "home_team_id": 721,
+      "away_team_id": 16,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-11-07T14:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
     {
       "id": "bb-21718108",
       "sport": "Basketball",
@@ -16,31 +31,16 @@
       "locked": true
     },
     {
-      "id": "bb-21718004",
+      "id": "bb-21718107",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
-      "match": "Memphis Grizzlies vs Sacramento Kings",
+      "match": "Memphis Grizzlies vs Brooklyn Nets",
       "home_team": "Memphis Grizzlies",
-      "away_team": "Sacramento Kings",
+      "away_team": "Brooklyn Nets",
       "home_team_id": 15,
-      "away_team_id": 26,
+      "away_team_id": 3,
       "league": "NBA",
-      "kickoff": "2026-10-31",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 565848,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "RB Leipzig vs FC Augsburg",
-      "home_team": "RB Leipzig",
-      "away_team": "FC Augsburg",
-      "home_team_id": 721,
-      "away_team_id": 16,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-11-07T14:30:00Z",
+      "kickoff": "2026-11-14",
       "has_pick": true,
       "locked": true
     },
@@ -59,20 +59,6 @@
       "locked": true
     },
     {
-      "id": "bb-21718061",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Minnesota Timberwolves vs Utah Jazz",
-      "home_team": "Minnesota Timberwolves",
-      "away_team": "Utah Jazz",
-      "home_team_id": 18,
-      "away_team_id": 29,
-      "league": "NBA",
-      "kickoff": "2026-11-08",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 564747,
       "sport": "Football",
       "icon": "\u26bd",
@@ -84,6 +70,20 @@
       "league": "Primera Division",
       "comp_code": "PD",
       "kickoff": "2026-11-08T17:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718029",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Boston Celtics vs Milwaukee Bucks",
+      "home_team": "Boston Celtics",
+      "away_team": "Milwaukee Bucks",
+      "home_team_id": 2,
+      "away_team_id": 17,
+      "league": "NBA",
+      "kickoff": "2026-11-04",
       "has_pick": true,
       "locked": true
     },
@@ -118,16 +118,16 @@
       "locked": true
     },
     {
-      "id": "bb-21718107",
+      "id": "bb-21718100",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
-      "match": "Memphis Grizzlies vs Brooklyn Nets",
-      "home_team": "Memphis Grizzlies",
-      "away_team": "Brooklyn Nets",
-      "home_team_id": 15,
-      "away_team_id": 3,
+      "match": "Houston Rockets vs Utah Jazz",
+      "home_team": "Houston Rockets",
+      "away_team": "Utah Jazz",
+      "home_team_id": 11,
+      "away_team_id": 29,
       "league": "NBA",
-      "kickoff": "2026-11-14",
+      "kickoff": "2026-11-13",
       "has_pick": true,
       "locked": true
     },
@@ -147,30 +147,44 @@
       "locked": true
     },
     {
-      "id": "bb-21718100",
+      "id": "bb-21718018",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
-      "match": "Houston Rockets vs Utah Jazz",
-      "home_team": "Houston Rockets",
-      "away_team": "Utah Jazz",
-      "home_team_id": 11,
-      "away_team_id": 29,
+      "match": "Dallas Mavericks vs Sacramento Kings",
+      "home_team": "Dallas Mavericks",
+      "away_team": "Sacramento Kings",
+      "home_team_id": 7,
+      "away_team_id": 26,
       "league": "NBA",
-      "kickoff": "2026-11-13",
+      "kickoff": "2026-11-02",
       "has_pick": true,
       "locked": true
     },
     {
-      "id": "bb-21718029",
+      "id": "bb-21718061",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
-      "match": "Boston Celtics vs Milwaukee Bucks",
-      "home_team": "Boston Celtics",
-      "away_team": "Milwaukee Bucks",
-      "home_team_id": 2,
-      "away_team_id": 17,
+      "match": "Minnesota Timberwolves vs Utah Jazz",
+      "home_team": "Minnesota Timberwolves",
+      "away_team": "Utah Jazz",
+      "home_team_id": 18,
+      "away_team_id": 29,
       "league": "NBA",
-      "kickoff": "2026-11-04",
+      "kickoff": "2026-11-08",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718102",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Sacramento Kings vs Portland Trail Blazers",
+      "home_team": "Sacramento Kings",
+      "away_team": "Portland Trail Blazers",
+      "home_team_id": 26,
+      "away_team_id": 25,
+      "league": "NBA",
+      "kickoff": "2026-11-13",
       "has_pick": true,
       "locked": true
     },
@@ -219,20 +233,6 @@
       "locked": true
     },
     {
-      "id": "bb-21718018",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Dallas Mavericks vs Sacramento Kings",
-      "home_team": "Dallas Mavericks",
-      "away_team": "Sacramento Kings",
-      "home_team_id": 7,
-      "away_team_id": 26,
-      "league": "NBA",
-      "kickoff": "2026-11-02",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 558538,
       "sport": "Football",
       "icon": "\u26bd",
@@ -248,16 +248,16 @@
       "locked": true
     },
     {
-      "id": "bb-21718102",
+      "id": "bb-21718032",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
-      "match": "Sacramento Kings vs Portland Trail Blazers",
-      "home_team": "Sacramento Kings",
-      "away_team": "Portland Trail Blazers",
-      "home_team_id": 26,
-      "away_team_id": 25,
+      "match": "Memphis Grizzlies vs Indiana Pacers",
+      "home_team": "Memphis Grizzlies",
+      "away_team": "Indiana Pacers",
+      "home_team_id": 15,
+      "away_team_id": 12,
       "league": "NBA",
-      "kickoff": "2026-11-13",
+      "kickoff": "2026-11-04",
       "has_pick": true,
       "locked": true
     },
@@ -297,15 +297,15 @@
       "locked": true,
       "legs": [
         {
+          "id": 565848,
+          "icon": "\u26bd",
+          "match": "RB Leipzig vs FC Augsburg",
+          "meta": "Bundesliga"
+        },
+        {
           "id": "bb-21718108",
           "icon": "\ud83c\udfc0",
           "match": "Minnesota Timberwolves vs Chicago Bulls",
-          "meta": "NBA"
-        },
-        {
-          "id": "bb-21718004",
-          "icon": "\ud83c\udfc0",
-          "match": "Memphis Grizzlies vs Sacramento Kings",
           "meta": "NBA"
         }
       ]
@@ -315,10 +315,10 @@
       "locked": true,
       "legs": [
         {
-          "id": 565848,
-          "icon": "\u26bd",
-          "match": "RB Leipzig vs FC Augsburg",
-          "meta": "Bundesliga"
+          "id": "bb-21718107",
+          "icon": "\ud83c\udfc0",
+          "match": "Memphis Grizzlies vs Brooklyn Nets",
+          "meta": "NBA"
         },
         {
           "id": "bb-21718020",
@@ -327,10 +327,10 @@
           "meta": "NBA"
         },
         {
-          "id": "bb-21718061",
-          "icon": "\ud83c\udfc0",
-          "match": "Minnesota Timberwolves vs Utah Jazz",
-          "meta": "NBA"
+          "id": 564747,
+          "icon": "\u26bd",
+          "match": "Villarreal CF vs Getafe CF",
+          "meta": "Primera Division"
         }
       ]
     }
