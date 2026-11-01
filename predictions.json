@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-01T12:32:27.984630Z",
+  "generated_at": "2026-11-01T19:31:56.440251Z",
   "predictions": [
     {
       "id": 565848,
@@ -55,21 +55,6 @@
       "away_team_id": 17,
       "league": "NBA",
       "kickoff": "2026-11-02",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 564747,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Villarreal CF vs Getafe CF",
-      "home_team": "Villarreal CF",
-      "away_team": "Getafe CF",
-      "home_team_id": 94,
-      "away_team_id": 82,
-      "league": "Primera Division",
-      "comp_code": "PD",
-      "kickoff": "2026-11-08T17:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -132,21 +117,6 @@
       "locked": true
     },
     {
-      "id": 558846,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Groningen vs Sparta Rotterdam",
-      "home_team": "FC Groningen",
-      "away_team": "Sparta Rotterdam",
-      "home_team_id": 677,
-      "away_team_id": 6806,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-11-01T15:45:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": "bb-21718018",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
@@ -185,6 +155,21 @@
       "away_team_id": 25,
       "league": "NBA",
       "kickoff": "2026-11-13",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 558538,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "AC Monza vs Atalanta BC",
+      "home_team": "AC Monza",
+      "away_team": "Atalanta BC",
+      "home_team_id": 5911,
+      "away_team_id": 102,
+      "league": "Serie A",
+      "comp_code": "SA",
+      "kickoff": "2026-11-08T14:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -233,21 +218,6 @@
       "locked": true
     },
     {
-      "id": 558538,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "AC Monza vs Atalanta BC",
-      "home_team": "AC Monza",
-      "away_team": "Atalanta BC",
-      "home_team_id": 5911,
-      "away_team_id": 102,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-11-08T14:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": "bb-21718032",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
@@ -289,6 +259,35 @@
       "kickoff": "2026-11-02",
       "has_pick": true,
       "locked": true
+    },
+    {
+      "id": 558541,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "US Sassuolo Calcio vs ACF Fiorentina",
+      "home_team": "US Sassuolo Calcio",
+      "away_team": "ACF Fiorentina",
+      "home_team_id": 471,
+      "away_team_id": 99,
+      "league": "Serie A",
+      "comp_code": "SA",
+      "kickoff": "2026-11-02T17:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718051",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Sacramento Kings vs San Antonio Spurs",
+      "home_team": "Sacramento Kings",
+      "away_team": "San Antonio Spurs",
+      "home_team_id": 26,
+      "away_team_id": 27,
+      "league": "NBA",
+      "kickoff": "2026-11-06",
+      "has_pick": true,
+      "locked": true
     }
   ],
   "multi_bets": [
@@ -327,10 +326,10 @@
           "meta": "NBA"
         },
         {
-          "id": 564747,
-          "icon": "\u26bd",
-          "match": "Villarreal CF vs Getafe CF",
-          "meta": "Primera Division"
+          "id": "bb-21718029",
+          "icon": "\ud83c\udfc0",
+          "match": "Boston Celtics vs Milwaukee Bucks",
+          "meta": "NBA"
         }
       ]
     }
