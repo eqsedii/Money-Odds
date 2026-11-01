@@ -492,6 +492,16 @@
       "final_score": "112-95"
     },
     {
+      "date": "2026-10-24",
+      "id": "bb-21718001",
+      "sport": "Basketball",
+      "match": "Utah Jazz vs Portland Trail Blazers",
+      "league": "NBA",
+      "pick": "Portland Trail Blazers Win",
+      "result": "win",
+      "final_score": "90-112"
+    },
+    {
       "date": "2026-10-23",
       "id": "bb-21717948",
       "sport": "Basketball",
@@ -862,6 +872,66 @@
       "final_score": "7-0"
     },
     {
+      "date": "2026-10-17",
+      "id": 558548,
+      "sport": "Football",
+      "match": "AC Milan vs FC Internazionale Milano",
+      "league": "Serie A",
+      "pick": "AC Milan Win",
+      "result": "win",
+      "final_score": "3-1"
+    },
+    {
+      "date": "2026-10-17",
+      "id": 559643,
+      "sport": "Football",
+      "match": "ES Troyes AC vs Le Mans FC",
+      "league": "Ligue 1",
+      "pick": "Le Mans FC Win",
+      "result": "loss",
+      "final_score": "2-0"
+    },
+    {
+      "date": "2026-10-17",
+      "id": 560628,
+      "sport": "Football",
+      "match": "Aston Villa FC vs Fulham FC",
+      "league": "Premier League",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "1-1"
+    },
+    {
+      "date": "2026-10-17",
+      "id": 558850,
+      "sport": "Football",
+      "match": "SC Cambuur-Leeuwarden vs Go Ahead Eagles",
+      "league": "Eredivisie",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "4-0"
+    },
+    {
+      "date": "2026-10-17",
+      "id": 558851,
+      "sport": "Football",
+      "match": "AFC Ajax vs AZ",
+      "league": "Eredivisie",
+      "pick": "Over 2.5 Goals",
+      "result": "loss",
+      "final_score": "1-0"
+    },
+    {
+      "date": "2026-10-17",
+      "id": 567338,
+      "sport": "Football",
+      "match": "FC Porto vs GD Estoril Praia",
+      "league": "Primeira Liga",
+      "pick": "FC Porto Win",
+      "result": "win",
+      "final_score": "4-0"
+    },
+    {
       "date": "2026-10-16",
       "id": 565824,
       "sport": "Football",
@@ -1200,6 +1270,16 @@
       "pick": "Under 2.5 Goals",
       "result": "loss",
       "final_score": "1-4"
+    },
+    {
+      "date": "2026-10-15",
+      "id": 555064,
+      "sport": "Football",
+      "match": "Coritiba FBC vs EC Vit\u00f3ria",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "BTTS - Yes",
+      "result": "loss",
+      "final_score": "2-0"
     },
     {
       "date": "2026-10-14",
@@ -4920,83 +5000,6 @@
       "pick": "Over 2.5 Goals",
       "result": "win",
       "final_score": "4-1"
-    },
-    {
-      "date": "2026-09-07",
-      "id": 561833,
-      "sport": "Football",
-      "match": "Southampton FC vs Bristol City FC",
-      "league": "Championship",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "4-1"
-    },
-    {
-      "date": "2026-09-07",
-      "id": 564672,
-      "sport": "Football",
-      "match": "RC Celta de Vigo vs M\u00e1laga CF",
-      "league": "Primera Division",
-      "pick": "BTTS - No",
-      "result": "loss",
-      "final_score": "1-1"
-    },
-    {
-      "date": "2026-09-07",
-      "id": 561844,
-      "sport": "Football",
-      "match": "Sheffield United FC vs Wolverhampton Wanderers FC",
-      "league": "Championship",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "0-1"
-    },
-    {
-      "date": "2026-09-07",
-      "id": 564686,
-      "sport": "Football",
-      "match": "Real Betis Balompi\u00e9 vs Getafe CF",
-      "league": "Primera Division",
-      "pick": "BTTS - No",
-      "result": "win",
-      "final_score": "1-0"
-    },
-    {
-      "date": "2026-09-07",
-      "id": 564683,
-      "sport": "Football",
-      "match": "M\u00e1laga CF vs Villarreal CF",
-      "league": "Primera Division",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "1-3"
-    },
-    {
-      "date": "2026-09-06",
-      "sport": "Football",
-      "match": "SC Corinthians Paulista vs Chapecoense AF",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "1-2"
-    },
-    {
-      "date": "2026-09-06",
-      "sport": "Football",
-      "match": "GD Estoril Praia vs FC Arouca",
-      "league": "Primeira Liga",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "0-0"
-    },
-    {
-      "date": "2026-09-06",
-      "sport": "Football",
-      "match": "EC Vit\u00f3ria vs Gr\u00eamio FBPA",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "BTTS - No",
-      "result": "win",
-      "final_score": "1-0"
     }
   ]
 }
