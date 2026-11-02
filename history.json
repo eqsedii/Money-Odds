@@ -112,6 +112,16 @@
       "final_score": "111-136"
     },
     {
+      "date": "2026-10-25",
+      "id": "bb-21718009",
+      "sport": "Basketball",
+      "match": "Indiana Pacers vs Brooklyn Nets",
+      "league": "NBA",
+      "pick": "Over 233.3 Points",
+      "result": "loss",
+      "final_score": "90-98"
+    },
+    {
       "date": "2026-10-24",
       "id": "bb-21717946",
       "sport": "Basketball",
@@ -572,6 +582,26 @@
       "final_score": "97-108"
     },
     {
+      "date": "2026-10-24",
+      "id": "bb-21718010",
+      "sport": "Basketball",
+      "match": "Golden State Warriors vs LA Clippers",
+      "league": "NBA",
+      "pick": "LA Clippers Win",
+      "result": "loss",
+      "final_score": "124-112"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21718011",
+      "sport": "Basketball",
+      "match": "Los Angeles Lakers vs Toronto Raptors",
+      "league": "NBA",
+      "pick": "Toronto Raptors Win",
+      "result": "loss",
+      "final_score": "131-125"
+    },
+    {
       "date": "2026-10-23",
       "id": "bb-21717948",
       "sport": "Basketball",
@@ -790,6 +820,36 @@
       "pick": "Athletic Club Win",
       "result": "win",
       "final_score": "2-1"
+    },
+    {
+      "date": "2026-10-18",
+      "id": 567340,
+      "sport": "Football",
+      "match": "CS Mar\u00edtimo vs CD Santa Clara",
+      "league": "Primeira Liga",
+      "pick": "BTTS - No",
+      "result": "win",
+      "final_score": "0-2"
+    },
+    {
+      "date": "2026-10-18",
+      "id": 567345,
+      "sport": "Football",
+      "match": "Acad\u00e9mico de Viseu FC vs Rio Ave FC",
+      "league": "Primeira Liga",
+      "pick": "Acad\u00e9mico de Viseu FC Win",
+      "result": "win",
+      "final_score": "2-1"
+    },
+    {
+      "date": "2026-10-18",
+      "id": 567339,
+      "sport": "Football",
+      "match": "Sporting Clube de Braga vs FC Famalic\u00e3o",
+      "league": "Primeira Liga",
+      "pick": "Under 2.5 Goals",
+      "result": "loss",
+      "final_score": "3-0"
     },
     {
       "date": "2026-10-17",
@@ -4940,66 +5000,6 @@
       "pick": "Over 2.5 Goals",
       "result": "loss",
       "final_score": "1-1"
-    },
-    {
-      "date": "2026-09-09",
-      "id": 558892,
-      "sport": "Football",
-      "match": "SC Cambuur-Leeuwarden vs NEC",
-      "league": "Eredivisie",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "3-0"
-    },
-    {
-      "date": "2026-09-09",
-      "id": 558894,
-      "sport": "Football",
-      "match": "SBV Excelsior vs FC Utrecht",
-      "league": "Eredivisie",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "1-2"
-    },
-    {
-      "date": "2026-09-09",
-      "id": 558895,
-      "sport": "Football",
-      "match": "SC Heerenveen vs Telstar 1963",
-      "league": "Eredivisie",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "0-0"
-    },
-    {
-      "date": "2026-09-09",
-      "id": 558891,
-      "sport": "Football",
-      "match": "PEC Zwolle vs Feyenoord Rotterdam",
-      "league": "Eredivisie",
-      "pick": "Feyenoord Rotterdam Win",
-      "result": "win",
-      "final_score": "0-7"
-    },
-    {
-      "date": "2026-09-09",
-      "id": 564668,
-      "sport": "Football",
-      "match": "Getafe CF vs RC Deportivo La Coru\u00f1a",
-      "league": "Primera Division",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "1-1"
-    },
-    {
-      "date": "2026-09-09",
-      "id": 567310,
-      "sport": "Football",
-      "match": "FC Arouca vs CD Santa Clara",
-      "league": "Primeira Liga",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "1-2"
     }
   ]
 }
