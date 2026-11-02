@@ -1,5 +1,5 @@
 {
-  "total_analyzed_since_start": 871,
+  "total_analyzed_since_start": 879,
   "history": [
     {
       "date": "2026-10-25",
@@ -562,6 +562,16 @@
       "final_score": "119-98"
     },
     {
+      "date": "2026-10-24",
+      "id": "bb-21718008",
+      "sport": "Basketball",
+      "match": "Orlando Magic vs Boston Celtics",
+      "league": "NBA",
+      "pick": "Boston Celtics Win",
+      "result": "win",
+      "final_score": "97-108"
+    },
+    {
       "date": "2026-10-23",
       "id": "bb-21717948",
       "sport": "Basketball",
@@ -730,6 +740,56 @@
       "pick": "Under 2.5 Goals",
       "result": "win",
       "final_score": "0-1"
+    },
+    {
+      "date": "2026-10-18",
+      "id": 559647,
+      "sport": "Football",
+      "match": "RC Strasbourg Alsace vs AJ Auxerre",
+      "league": "Ligue 1",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "5-1"
+    },
+    {
+      "date": "2026-10-18",
+      "id": 559642,
+      "sport": "Football",
+      "match": "Paris FC vs AS Monaco FC",
+      "league": "Ligue 1",
+      "pick": "Under 2.5 Goals",
+      "result": "loss",
+      "final_score": "3-1"
+    },
+    {
+      "date": "2026-10-18",
+      "id": 558547,
+      "sport": "Football",
+      "match": "Juventus FC vs SSC Napoli",
+      "league": "Serie A",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "2-0"
+    },
+    {
+      "date": "2026-10-18",
+      "id": 559645,
+      "sport": "Football",
+      "match": "Olympique de Marseille vs Toulouse FC",
+      "league": "Ligue 1",
+      "pick": "Over 2.5 Goals",
+      "result": "loss",
+      "final_score": "2-0"
+    },
+    {
+      "date": "2026-10-18",
+      "id": 564729,
+      "sport": "Football",
+      "match": "Athletic Club vs Real Sociedad de F\u00fatbol",
+      "league": "Primera Division",
+      "pick": "Athletic Club Win",
+      "result": "win",
+      "final_score": "2-1"
     },
     {
       "date": "2026-10-17",
@@ -1150,6 +1210,16 @@
       "pick": "FC Barcelona Win",
       "result": "win",
       "final_score": "6-1"
+    },
+    {
+      "date": "2026-10-17",
+      "id": 559640,
+      "sport": "Football",
+      "match": "Olympique Lyonnais vs Angers SCO",
+      "league": "Ligue 1",
+      "pick": "Olympique Lyonnais Win",
+      "result": "win",
+      "final_score": "2-0"
     },
     {
       "date": "2026-10-16",
@@ -4930,76 +5000,6 @@
       "pick": "Under 2.5 Goals",
       "result": "loss",
       "final_score": "1-2"
-    },
-    {
-      "date": "2026-09-09",
-      "id": 558893,
-      "sport": "Football",
-      "match": "PSV vs Sparta Rotterdam",
-      "league": "Eredivisie",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "4-1"
-    },
-    {
-      "date": "2026-09-09",
-      "id": 564674,
-      "sport": "Football",
-      "match": "Real Sociedad de F\u00fatbol vs Club Atl\u00e9tico de Madrid",
-      "league": "Primera Division",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "0-3"
-    },
-    {
-      "date": "2026-09-09",
-      "id": 567305,
-      "sport": "Football",
-      "match": "FC Famalic\u00e3o vs Sporting Clube de Portugal",
-      "league": "Primeira Liga",
-      "pick": "Sporting Clube de Portugal Win",
-      "result": "loss",
-      "final_score": "1-1"
-    },
-    {
-      "date": "2026-09-09",
-      "id": 567302,
-      "sport": "Football",
-      "match": "Moreirense FC vs CS Mar\u00edtimo",
-      "league": "Primeira Liga",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "3-1"
-    },
-    {
-      "date": "2026-09-09",
-      "id": 564681,
-      "sport": "Football",
-      "match": "Elche CF vs Real Madrid CF",
-      "league": "Primera Division",
-      "pick": "Real Madrid CF Win",
-      "result": "win",
-      "final_score": "2-3"
-    },
-    {
-      "date": "2026-09-09",
-      "id": 564679,
-      "sport": "Football",
-      "match": "RC Deportivo La Coru\u00f1a vs Sevilla FC",
-      "league": "Primera Division",
-      "pick": "BTTS - Yes",
-      "result": "loss",
-      "final_score": "0-1"
-    },
-    {
-      "date": "2026-09-09",
-      "id": 564684,
-      "sport": "Football",
-      "match": "Club Atl\u00e9tico de Madrid vs CA Osasuna",
-      "league": "Primera Division",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "4-0"
     }
   ]
 }
