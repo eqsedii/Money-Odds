@@ -152,6 +152,16 @@
       "final_score": "110-118"
     },
     {
+      "date": "2026-10-25",
+      "id": "bb-21718024",
+      "sport": "Basketball",
+      "match": "Golden State Warriors vs Phoenix Suns",
+      "league": "NBA",
+      "pick": "Golden State Warriors Win",
+      "result": "win",
+      "final_score": "116-113"
+    },
+    {
       "date": "2026-10-24",
       "id": "bb-21717946",
       "sport": "Basketball",
@@ -710,6 +720,26 @@
       "pick": "San Antonio Spurs Win",
       "result": "win",
       "final_score": "119-97"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21718025",
+      "sport": "Basketball",
+      "match": "LA Clippers vs Toronto Raptors",
+      "league": "NBA",
+      "pick": "Toronto Raptors Win",
+      "result": "win",
+      "final_score": "118-125"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21718026",
+      "sport": "Basketball",
+      "match": "Los Angeles Lakers vs Miami Heat",
+      "league": "NBA",
+      "pick": "Los Angeles Lakers Win",
+      "result": "win",
+      "final_score": "138-117"
     },
     {
       "date": "2026-10-23",
@@ -4970,36 +5000,6 @@
       "pick": "BTTS - No",
       "result": "loss",
       "final_score": "5-3"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 558592,
-      "sport": "Football",
-      "match": "Frosinone Calcio vs Como 1907",
-      "league": "Serie A",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "2-0"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 555014,
-      "sport": "Football",
-      "match": "Gr\u00eamio FBPA vs SE Palmeiras",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "SE Palmeiras Win",
-      "result": "loss",
-      "final_score": "0-0"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 564688,
-      "sport": "Football",
-      "match": "Club Atl\u00e9tico de Madrid vs Real Madrid CF",
-      "league": "Primera Division",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "2-1"
     }
   ]
 }
