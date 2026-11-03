@@ -1,5 +1,5 @@
 {
-  "total_analyzed_since_start": 879,
+  "total_analyzed_since_start": 884,
   "history": [
     {
       "date": "2026-10-25",
@@ -120,6 +120,36 @@
       "pick": "Over 233.3 Points",
       "result": "loss",
       "final_score": "90-98"
+    },
+    {
+      "date": "2026-10-25",
+      "id": "bb-21718012",
+      "sport": "Basketball",
+      "match": "Cleveland Cavaliers vs Oklahoma City Thunder",
+      "league": "NBA",
+      "pick": "Oklahoma City Thunder Win",
+      "result": "win",
+      "final_score": "112-117"
+    },
+    {
+      "date": "2026-10-25",
+      "id": "bb-21718015",
+      "sport": "Basketball",
+      "match": "New York Knicks vs Brooklyn Nets",
+      "league": "NBA",
+      "pick": "New York Knicks Win",
+      "result": "win",
+      "final_score": "103-90"
+    },
+    {
+      "date": "2026-10-25",
+      "id": "bb-21718023",
+      "sport": "Basketball",
+      "match": "Denver Nuggets vs Portland Trail Blazers",
+      "league": "NBA",
+      "pick": "Portland Trail Blazers Win",
+      "result": "win",
+      "final_score": "110-118"
     },
     {
       "date": "2026-10-24",
@@ -602,6 +632,86 @@
       "final_score": "131-125"
     },
     {
+      "date": "2026-10-24",
+      "id": "bb-21718013",
+      "sport": "Basketball",
+      "match": "Charlotte Hornets vs Detroit Pistons",
+      "league": "NBA",
+      "pick": "Detroit Pistons Win",
+      "result": "win",
+      "final_score": "91-124"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21718014",
+      "sport": "Basketball",
+      "match": "Indiana Pacers vs Atlanta Hawks",
+      "league": "NBA",
+      "pick": "Atlanta Hawks Win",
+      "result": "win",
+      "final_score": "104-108"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21718016",
+      "sport": "Basketball",
+      "match": "Orlando Magic vs Washington Wizards",
+      "league": "NBA",
+      "pick": "Washington Wizards Win",
+      "result": "win",
+      "final_score": "94-103"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21718018",
+      "sport": "Basketball",
+      "match": "Dallas Mavericks vs Sacramento Kings",
+      "league": "NBA",
+      "pick": "Dallas Mavericks Win",
+      "result": "loss",
+      "final_score": "100-115"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21718019",
+      "sport": "Basketball",
+      "match": "Memphis Grizzlies vs New Orleans Pelicans",
+      "league": "NBA",
+      "pick": "Memphis Grizzlies Win",
+      "result": "loss",
+      "final_score": "134-135"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21718020",
+      "sport": "Basketball",
+      "match": "Minnesota Timberwolves vs Milwaukee Bucks",
+      "league": "NBA",
+      "pick": "Minnesota Timberwolves Win",
+      "result": "win",
+      "final_score": "112-100"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21718021",
+      "sport": "Basketball",
+      "match": "Houston Rockets vs Boston Celtics",
+      "league": "NBA",
+      "pick": "Houston Rockets Win",
+      "result": "win",
+      "final_score": "109-93"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21718022",
+      "sport": "Basketball",
+      "match": "San Antonio Spurs vs Utah Jazz",
+      "league": "NBA",
+      "pick": "San Antonio Spurs Win",
+      "result": "win",
+      "final_score": "119-97"
+    },
+    {
       "date": "2026-10-23",
       "id": "bb-21717948",
       "sport": "Basketball",
@@ -612,6 +722,16 @@
       "final_score": "127-116"
     },
     {
+      "date": "2026-10-23",
+      "id": "bb-21718017",
+      "sport": "Basketball",
+      "match": "Philadelphia 76ers vs Chicago Bulls",
+      "league": "NBA",
+      "pick": "Philadelphia 76ers Win",
+      "result": "win",
+      "final_score": "126-107"
+    },
+    {
       "date": "2026-10-19",
       "id": 558541,
       "sport": "Football",
@@ -620,6 +740,66 @@
       "pick": "Over 2.5 Goals",
       "result": "win",
       "final_score": "2-4"
+    },
+    {
+      "date": "2026-10-19",
+      "id": 558545,
+      "sport": "Football",
+      "match": "Atalanta BC vs Parma Calcio 1913",
+      "league": "Serie A",
+      "pick": "Atalanta BC Win",
+      "result": "loss",
+      "final_score": "0-3"
+    },
+    {
+      "date": "2026-10-19",
+      "id": 560622,
+      "sport": "Football",
+      "match": "Newcastle United FC vs Everton FC",
+      "league": "Premier League",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "0-1"
+    },
+    {
+      "date": "2026-10-19",
+      "id": 564731,
+      "sport": "Football",
+      "match": "RC Deportivo La Coru\u00f1a vs CA Osasuna",
+      "league": "Primera Division",
+      "pick": "RC Deportivo La Coru\u00f1a Win",
+      "result": "win",
+      "final_score": "2-1"
+    },
+    {
+      "date": "2026-10-19",
+      "id": 567342,
+      "sport": "Football",
+      "match": "Sport Lisboa e Benfica vs FC Alverca",
+      "league": "Primeira Liga",
+      "pick": "Over 2.5 Goals",
+      "result": "loss",
+      "final_score": "1-0"
+    },
+    {
+      "date": "2026-10-19",
+      "id": 567346,
+      "sport": "Football",
+      "match": "Gil Vicente FC vs Vit\u00f3ria SC",
+      "league": "Primeira Liga",
+      "pick": "BTTS - No",
+      "result": "win",
+      "final_score": "0-0"
+    },
+    {
+      "date": "2026-10-19",
+      "id": 555072,
+      "sport": "Football",
+      "match": "RB Bragantino vs Santos FC",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "BTTS - Yes",
+      "result": "win",
+      "final_score": "2-1"
     },
     {
       "date": "2026-10-18",
@@ -1290,6 +1470,16 @@
       "pick": "Olympique Lyonnais Win",
       "result": "win",
       "final_score": "2-0"
+    },
+    {
+      "date": "2026-10-17",
+      "id": 559641,
+      "sport": "Football",
+      "match": "FC Lorient vs Stade Brestois 29",
+      "league": "Ligue 1",
+      "pick": "BTTS - Yes",
+      "result": "loss",
+      "final_score": "0-2"
     },
     {
       "date": "2026-10-16",
@@ -4810,196 +5000,6 @@
       "pick": "Under 2.5 Goals",
       "result": "loss",
       "final_score": "2-1"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 567315,
-      "sport": "Football",
-      "match": "Vit\u00f3ria SC vs Moreirense FC",
-      "league": "Primeira Liga",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "1-1"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 567317,
-      "sport": "Football",
-      "match": "CF Estrela da Amadora vs Acad\u00e9mico de Viseu FC",
-      "league": "Primeira Liga",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "0-2"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 558883,
-      "sport": "Football",
-      "match": "NEC vs Go Ahead Eagles",
-      "league": "Eredivisie",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "1-1"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 559678,
-      "sport": "Football",
-      "match": "OGC Nice vs Lille OSC",
-      "league": "Ligue 1",
-      "pick": "BTTS - No",
-      "result": "loss",
-      "final_score": "2-1"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 560583,
-      "sport": "Football",
-      "match": "Fulham FC vs Manchester United FC",
-      "league": "Premier League",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "1-1"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 564695,
-      "sport": "Football",
-      "match": "RC Deportivo La Coru\u00f1a vs Real Betis Balompi\u00e9",
-      "league": "Primera Division",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "1-1"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 567314,
-      "sport": "Football",
-      "match": "CD Santa Clara vs Sporting Clube de Braga",
-      "league": "Primeira Liga",
-      "pick": "CD Santa Clara Win",
-      "result": "loss",
-      "final_score": "0-0"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 567319,
-      "sport": "Football",
-      "match": "GD Estoril Praia vs Casa Pia AC",
-      "league": "Primeira Liga",
-      "pick": "BTTS - No",
-      "result": "loss",
-      "final_score": "1-2"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 559675,
-      "sport": "Football",
-      "match": "Olympique de Marseille vs Paris Saint-Germain FC",
-      "league": "Ligue 1",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "1-2"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 564689,
-      "sport": "Football",
-      "match": "Valencia CF vs Real Sociedad de F\u00fatbol",
-      "league": "Primera Division",
-      "pick": "BTTS - No",
-      "result": "loss",
-      "final_score": "2-3"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 555012,
-      "sport": "Football",
-      "match": "SC Corinthians Paulista vs Fluminense FC",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "1-3"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 555019,
-      "sport": "Football",
-      "match": "EC Vit\u00f3ria vs Cruzeiro EC",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "1-3"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 567316,
-      "sport": "Football",
-      "match": "FC Porto vs Sport Lisboa e Benfica",
-      "league": "Primeira Liga",
-      "pick": "BTTS - No",
-      "result": "loss",
-      "final_score": "3-1"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 555013,
-      "sport": "Football",
-      "match": "CR Flamengo vs RB Bragantino",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "BTTS - No",
-      "result": "loss",
-      "final_score": "2-1"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 555010,
-      "sport": "Football",
-      "match": "CA Paranaense vs EC Bahia",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "CA Paranaense Win",
-      "result": "win",
-      "final_score": "2-1"
-    },
-    {
-      "date": "2026-09-09",
-      "id": 567276,
-      "sport": "Football",
-      "match": "CF Estrela da Amadora vs Sporting Clube de Braga",
-      "league": "Primeira Liga",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "2-1"
-    },
-    {
-      "date": "2026-09-09",
-      "id": 558898,
-      "sport": "Football",
-      "match": "FC Twente '65 vs ADO Den Haag",
-      "league": "Eredivisie",
-      "pick": "FC Twente '65 Win",
-      "result": "win",
-      "final_score": "2-0"
-    },
-    {
-      "date": "2026-09-09",
-      "id": 567306,
-      "sport": "Football",
-      "match": "CD Nacional vs FC Alverca",
-      "league": "Primeira Liga",
-      "pick": "CD Nacional Win",
-      "result": "loss",
-      "final_score": "1-3"
-    },
-    {
-      "date": "2026-09-09",
-      "id": 564676,
-      "sport": "Football",
-      "match": "Athletic Club vs Elche CF",
-      "league": "Primera Division",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "1-1"
     }
   ]
 }
