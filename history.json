@@ -1,5 +1,5 @@
 {
-  "total_analyzed_since_start": 884,
+  "total_analyzed_since_start": 900,
   "history": [
     {
       "date": "2026-10-25",
@@ -760,6 +760,106 @@
       "pick": "Philadelphia 76ers Win",
       "result": "win",
       "final_score": "126-107"
+    },
+    {
+      "date": "2026-10-20",
+      "id": 561920,
+      "sport": "Football",
+      "match": "Queens Park Rangers FC vs Burnley FC",
+      "league": "Championship",
+      "pick": "Over 2.5 Goals",
+      "result": "loss",
+      "final_score": "1-1"
+    },
+    {
+      "date": "2026-10-20",
+      "id": 561921,
+      "sport": "Football",
+      "match": "Derby County FC vs Norwich City FC",
+      "league": "Championship",
+      "pick": "BTTS - Yes",
+      "result": "loss",
+      "final_score": "0-4"
+    },
+    {
+      "date": "2026-10-20",
+      "id": 561922,
+      "sport": "Football",
+      "match": "Blackburn Rovers FC vs Stoke City FC",
+      "league": "Championship",
+      "pick": "BTTS - Yes",
+      "result": "win",
+      "final_score": "1-2"
+    },
+    {
+      "date": "2026-10-20",
+      "id": 561924,
+      "sport": "Football",
+      "match": "Watford FC vs Lincoln City FC",
+      "league": "Championship",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "1-0"
+    },
+    {
+      "date": "2026-10-20",
+      "id": 561928,
+      "sport": "Football",
+      "match": "Charlton Athletic FC vs Bolton Wanderers FC",
+      "league": "Championship",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "0-1"
+    },
+    {
+      "date": "2026-10-20",
+      "id": 561918,
+      "sport": "Football",
+      "match": "Portsmouth FC vs Swansea City AFC",
+      "league": "Championship",
+      "pick": "Swansea City AFC Win",
+      "result": "loss",
+      "final_score": "3-1"
+    },
+    {
+      "date": "2026-10-20",
+      "id": 561919,
+      "sport": "Football",
+      "match": "Preston North End FC vs Sheffield United FC",
+      "league": "Championship",
+      "pick": "Sheffield United FC Win",
+      "result": "win",
+      "final_score": "2-3"
+    },
+    {
+      "date": "2026-10-20",
+      "id": 561923,
+      "sport": "Football",
+      "match": "West Bromwich Albion FC vs Southampton FC",
+      "league": "Championship",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "1-1"
+    },
+    {
+      "date": "2026-10-20",
+      "id": 561917,
+      "sport": "Football",
+      "match": "Birmingham City FC vs Millwall FC",
+      "league": "Championship",
+      "pick": "Birmingham City FC Win",
+      "result": "win",
+      "final_score": "3-0"
+    },
+    {
+      "date": "2026-10-20",
+      "id": 555073,
+      "sport": "Football",
+      "match": "Chapecoense AF vs Mirassol FC",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Mirassol FC Win",
+      "result": "win",
+      "final_score": "1-2"
     },
     {
       "date": "2026-10-19",
@@ -4900,106 +5000,6 @@
       "pick": "BTTS - Yes",
       "result": "win",
       "final_score": "1-2"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 555018,
-      "sport": "Football",
-      "match": "CR Vasco da Gama vs Coritiba FBC",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "BTTS - Yes",
-      "result": "loss",
-      "final_score": "5-0"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 555017,
-      "sport": "Football",
-      "match": "S\u00e3o Paulo FC vs SC Internacional",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "S\u00e3o Paulo FC Win",
-      "result": "win",
-      "final_score": "1-0"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 558885,
-      "sport": "Football",
-      "match": "Feyenoord Rotterdam vs FC Utrecht",
-      "league": "Eredivisie",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "5-0"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 558591,
-      "sport": "Football",
-      "match": "ACF Fiorentina vs SSC Napoli",
-      "league": "Serie A",
-      "pick": "SSC Napoli Win",
-      "result": "loss",
-      "final_score": "1-1"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 561851,
-      "sport": "Football",
-      "match": "Wolverhampton Wanderers FC vs West Bromwich Albion FC",
-      "league": "Championship",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "1-0"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 564697,
-      "sport": "Football",
-      "match": "Getafe CF vs M\u00e1laga CF",
-      "league": "Primera Division",
-      "pick": "BTTS - No",
-      "result": "win",
-      "final_score": "1-0"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 558882,
-      "sport": "Football",
-      "match": "FC Twente '65 vs PSV",
-      "league": "Eredivisie",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "3-2"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 558884,
-      "sport": "Football",
-      "match": "AZ vs Telstar 1963",
-      "league": "Eredivisie",
-      "pick": "AZ Win",
-      "result": "win",
-      "final_score": "2-0"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 561850,
-      "sport": "Football",
-      "match": "Norwich City FC vs Bolton Wanderers FC",
-      "league": "Championship",
-      "pick": "Norwich City FC Win",
-      "result": "loss",
-      "final_score": "3-4"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 560590,
-      "sport": "Football",
-      "match": "Manchester City FC vs Sunderland AFC",
-      "league": "Premier League",
-      "pick": "BTTS - No",
-      "result": "loss",
-      "final_score": "5-3"
     }
   ]
 }

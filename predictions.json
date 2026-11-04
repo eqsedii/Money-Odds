@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T20:57:31.494215Z",
+  "generated_at": "2026-11-04T01:13:27.054357Z",
   "predictions": [
     {
       "id": 565848,
@@ -161,6 +161,20 @@
       "locked": true
     },
     {
+      "id": "bb-21718141",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Los Angeles Lakers vs Utah Jazz",
+      "home_team": "Los Angeles Lakers",
+      "away_team": "Utah Jazz",
+      "home_team_id": 14,
+      "away_team_id": 29,
+      "league": "NBA",
+      "kickoff": "2026-11-18",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 565851,
       "sport": "Football",
       "icon": "\u26bd",
@@ -273,20 +287,6 @@
       "away_team_id": 27,
       "league": "NBA",
       "kickoff": "2026-11-11",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718102",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Sacramento Kings vs Portland Trail Blazers",
-      "home_team": "Sacramento Kings",
-      "away_team": "Portland Trail Blazers",
-      "home_team_id": 26,
-      "away_team_id": 25,
-      "league": "NBA",
-      "kickoff": "2026-11-13",
       "has_pick": true,
       "locked": true
     }
