@@ -1,114 +1,4 @@
 {
-  "575386": {
-    "home_recent": [
-      {
-        "date": "2026-10-20",
-        "opponent": "Manchester City FC",
-        "venue": "A",
-        "score": "1-5",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-14",
-        "opponent": "FK Shakhtar Donetsk",
-        "venue": "A",
-        "score": "1-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-09-08",
-        "opponent": "LASK Linz",
-        "venue": "H",
-        "score": "1-0",
-        "result": "W"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-10-21",
-        "opponent": "RB Leipzig",
-        "venue": "H",
-        "score": "4-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-14",
-        "opponent": "AS Roma",
-        "venue": "A",
-        "score": "4-3",
-        "result": "W"
-      },
-      {
-        "date": "2026-09-08",
-        "opponent": "FC Internazionale Milano",
-        "venue": "H",
-        "score": "2-1",
-        "result": "W"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 2,
-      "home_wins": 0,
-      "draws": 2,
-      "away_wins": 0,
-      "matches": []
-    }
-  },
-  "575387": {
-    "home_recent": [
-      {
-        "date": "2026-10-20",
-        "opponent": "SK Slavia Praha",
-        "venue": "H",
-        "score": "2-2",
-        "result": "D"
-      },
-      {
-        "date": "2026-10-14",
-        "opponent": "Aston Villa FC",
-        "venue": "A",
-        "score": "0-6",
-        "result": "L"
-      },
-      {
-        "date": "2026-09-10",
-        "opponent": "AS Roma",
-        "venue": "H",
-        "score": "1-1",
-        "result": "D"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-10-20",
-        "opponent": "Villarreal CF",
-        "venue": "H",
-        "score": "4-3",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-14",
-        "opponent": "LASK Linz",
-        "venue": "A",
-        "score": "6-3",
-        "result": "W"
-      },
-      {
-        "date": "2026-09-09",
-        "opponent": "Club Atl\u00e9tico de Madrid",
-        "venue": "H",
-        "score": "2-1",
-        "result": "W"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": null,
-      "home_wins": null,
-      "draws": null,
-      "away_wins": null,
-      "matches": []
-    }
-  },
   "561925": {
     "home_recent": [
       {
@@ -3832,7 +3722,13 @@
         "result": "L"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 2,
+      "home_wins": 0,
+      "draws": 0,
+      "away_wins": 0,
+      "matches": []
+    }
   },
   "561930": {
     "home_recent": [
@@ -3909,7 +3805,42 @@
         "result": "D"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 5,
+      "home_wins": 0,
+      "draws": 1,
+      "away_wins": 0,
+      "matches": [
+        {
+          "date": "2025-03-04",
+          "home": "Cardiff City FC",
+          "away": "Burnley FC",
+          "score": "1-2",
+          "competition": "Championship"
+        },
+        {
+          "date": "2024-08-17",
+          "home": "Burnley FC",
+          "away": "Cardiff City FC",
+          "score": "5-0",
+          "competition": "Championship"
+        },
+        {
+          "date": "2023-05-08",
+          "home": "Burnley FC",
+          "away": "Cardiff City FC",
+          "score": "3-0",
+          "competition": "Championship"
+        },
+        {
+          "date": "2022-10-01",
+          "home": "Cardiff City FC",
+          "away": "Burnley FC",
+          "score": "1-1",
+          "competition": "Championship"
+        }
+      ]
+    }
   },
   "561931": {
     "home_recent": [

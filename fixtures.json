@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T10:23:57.213934Z",
+  "generated_at": "2026-11-04T19:18:29.192232Z",
   "fixtures": [
     {
       "id": "bb-21718027",
@@ -195,36 +195,6 @@
       "league": "NBA",
       "kickoff": "2026-11-04",
       "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 575386,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "PAE AEK vs Real Madrid CF",
-      "home_team": "PAE AEK",
-      "away_team": "Real Madrid CF",
-      "home_team_id": 1899,
-      "away_team_id": 86,
-      "league": "UEFA Champions League",
-      "comp_code": "CL",
-      "kickoff": "2026-11-04T17:45:00Z",
-      "has_pick": false,
-      "locked": true
-    },
-    {
-      "id": 575387,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Fenerbah\u00e7e SK vs Liverpool FC",
-      "home_team": "Fenerbah\u00e7e SK",
-      "away_team": "Liverpool FC",
-      "home_team_id": 613,
-      "away_team_id": 64,
-      "league": "UEFA Champions League",
-      "comp_code": "CL",
-      "kickoff": "2026-11-04T17:45:00Z",
-      "has_pick": false,
       "locked": true
     },
     {
