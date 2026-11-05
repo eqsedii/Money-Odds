@@ -1,6 +1,20 @@
 {
-  "generated_at": "2026-11-05T01:25:11.005771Z",
+  "generated_at": "2026-11-05T10:17:24.283516Z",
   "predictions": [
+    {
+      "id": "bb-21718108",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Minnesota Timberwolves vs Chicago Bulls",
+      "home_team": "Minnesota Timberwolves",
+      "away_team": "Chicago Bulls",
+      "home_team_id": 18,
+      "away_team_id": 5,
+      "league": "NBA",
+      "kickoff": "2026-11-14",
+      "has_pick": true,
+      "locked": true
+    },
     {
       "id": 565848,
       "sport": "Football",
@@ -17,20 +31,6 @@
       "locked": true
     },
     {
-      "id": "bb-21718108",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Minnesota Timberwolves vs Chicago Bulls",
-      "home_team": "Minnesota Timberwolves",
-      "away_team": "Chicago Bulls",
-      "home_team_id": 18,
-      "away_team_id": 5,
-      "league": "NBA",
-      "kickoff": "2026-11-14",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 558531,
       "sport": "Football",
       "icon": "\u26bd",
@@ -42,20 +42,6 @@
       "league": "Serie A",
       "comp_code": "SA",
       "kickoff": "2026-11-07T19:45:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718100",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Houston Rockets vs Utah Jazz",
-      "home_team": "Houston Rockets",
-      "away_team": "Utah Jazz",
-      "home_team_id": 11,
-      "away_team_id": 29,
-      "league": "NBA",
-      "kickoff": "2026-11-13",
       "has_pick": true,
       "locked": true
     },
@@ -89,16 +75,16 @@
       "locked": true
     },
     {
-      "id": "bb-21718107",
+      "id": "bb-21718100",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
-      "match": "Memphis Grizzlies vs Brooklyn Nets",
-      "home_team": "Memphis Grizzlies",
-      "away_team": "Brooklyn Nets",
-      "home_team_id": 15,
-      "away_team_id": 3,
+      "match": "Houston Rockets vs Utah Jazz",
+      "home_team": "Houston Rockets",
+      "away_team": "Utah Jazz",
+      "home_team_id": 11,
+      "away_team_id": 29,
       "league": "NBA",
-      "kickoff": "2026-11-14",
+      "kickoff": "2026-11-13",
       "has_pick": true,
       "locked": true
     },
@@ -147,6 +133,20 @@
       "locked": true
     },
     {
+      "id": "bb-21718129",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Los Angeles Lakers vs Charlotte Hornets",
+      "home_team": "Los Angeles Lakers",
+      "away_team": "Charlotte Hornets",
+      "home_team_id": 14,
+      "away_team_id": 4,
+      "league": "NBA",
+      "kickoff": "2026-11-17",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": "bb-21718141",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
@@ -172,20 +172,6 @@
       "league": "Bundesliga",
       "comp_code": "BL1",
       "kickoff": "2026-11-07T14:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718129",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Los Angeles Lakers vs Charlotte Hornets",
-      "home_team": "Los Angeles Lakers",
-      "away_team": "Charlotte Hornets",
-      "home_team_id": 14,
-      "away_team_id": 4,
-      "league": "NBA",
-      "kickoff": "2026-11-17",
       "has_pick": true,
       "locked": true
     },
@@ -235,6 +221,20 @@
       "locked": true
     },
     {
+      "id": "bb-21718074",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "New York Knicks vs Milwaukee Bucks",
+      "home_team": "New York Knicks",
+      "away_team": "Milwaukee Bucks",
+      "home_team_id": 20,
+      "away_team_id": 17,
+      "league": "NBA",
+      "kickoff": "2026-11-10",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": "bb-21718084",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
@@ -249,6 +249,20 @@
       "locked": true
     },
     {
+      "id": "bb-21718107",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Memphis Grizzlies vs Brooklyn Nets",
+      "home_team": "Memphis Grizzlies",
+      "away_team": "Brooklyn Nets",
+      "home_team_id": 15,
+      "away_team_id": 3,
+      "league": "NBA",
+      "kickoff": "2026-11-14",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": "bb-21718102",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
@@ -259,20 +273,6 @@
       "away_team_id": 25,
       "league": "NBA",
       "kickoff": "2026-11-13",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718146",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "San Antonio Spurs vs LA Clippers",
-      "home_team": "San Antonio Spurs",
-      "away_team": "LA Clippers",
-      "home_team_id": 27,
-      "away_team_id": 13,
-      "league": "NBA",
-      "kickoff": "2026-11-19",
       "has_pick": true,
       "locked": true
     },
@@ -298,16 +298,16 @@
       "locked": true,
       "legs": [
         {
-          "id": 565848,
-          "icon": "\u26bd",
-          "match": "RB Leipzig vs FC Augsburg",
-          "meta": "Bundesliga"
-        },
-        {
           "id": "bb-21718108",
           "icon": "\ud83c\udfc0",
           "match": "Minnesota Timberwolves vs Chicago Bulls",
           "meta": "NBA"
+        },
+        {
+          "id": 565848,
+          "icon": "\u26bd",
+          "match": "RB Leipzig vs FC Augsburg",
+          "meta": "Bundesliga"
         }
       ]
     },
@@ -322,16 +322,16 @@
           "meta": "Serie A"
         },
         {
-          "id": "bb-21718100",
-          "icon": "\ud83c\udfc0",
-          "match": "Houston Rockets vs Utah Jazz",
-          "meta": "NBA"
-        },
-        {
           "id": 560641,
           "icon": "\u26bd",
           "match": "Nottingham Forest FC vs Manchester City FC",
           "meta": "Premier League"
+        },
+        {
+          "id": "bb-21718061",
+          "icon": "\ud83c\udfc0",
+          "match": "Minnesota Timberwolves vs Utah Jazz",
+          "meta": "NBA"
         }
       ]
     }
