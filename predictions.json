@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T19:18:29.209062Z",
+  "generated_at": "2026-11-05T01:25:11.005771Z",
   "predictions": [
     {
       "id": 565848,
@@ -147,20 +147,6 @@
       "locked": true
     },
     {
-      "id": "bb-21718029",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Boston Celtics vs Milwaukee Bucks",
-      "home_team": "Boston Celtics",
-      "away_team": "Milwaukee Bucks",
-      "home_team_id": 2,
-      "away_team_id": 17,
-      "league": "NBA",
-      "kickoff": "2026-11-04",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": "bb-21718141",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
@@ -200,34 +186,6 @@
       "away_team_id": 4,
       "league": "NBA",
       "kickoff": "2026-11-17",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718031",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "New York Knicks vs Chicago Bulls",
-      "home_team": "New York Knicks",
-      "away_team": "Chicago Bulls",
-      "home_team_id": 20,
-      "away_team_id": 5,
-      "league": "NBA",
-      "kickoff": "2026-11-04",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718032",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Memphis Grizzlies vs Indiana Pacers",
-      "home_team": "Memphis Grizzlies",
-      "away_team": "Indiana Pacers",
-      "home_team_id": 15,
-      "away_team_id": 12,
-      "league": "NBA",
-      "kickoff": "2026-11-04",
       "has_pick": true,
       "locked": true
     },
@@ -287,6 +245,49 @@
       "away_team_id": 27,
       "league": "NBA",
       "kickoff": "2026-11-11",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718102",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Sacramento Kings vs Portland Trail Blazers",
+      "home_team": "Sacramento Kings",
+      "away_team": "Portland Trail Blazers",
+      "home_team_id": 26,
+      "away_team_id": 25,
+      "league": "NBA",
+      "kickoff": "2026-11-13",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718146",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "San Antonio Spurs vs LA Clippers",
+      "home_team": "San Antonio Spurs",
+      "away_team": "LA Clippers",
+      "home_team_id": 27,
+      "away_team_id": 13,
+      "league": "NBA",
+      "kickoff": "2026-11-19",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 564739,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "CA Osasuna vs Athletic Club",
+      "home_team": "CA Osasuna",
+      "away_team": "Athletic Club",
+      "home_team_id": 79,
+      "away_team_id": 77,
+      "league": "Primera Division",
+      "comp_code": "PD",
+      "kickoff": "2026-11-07T17:30:00Z",
       "has_pick": true,
       "locked": true
     }
