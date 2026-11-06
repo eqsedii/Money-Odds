@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T19:28:57.740511Z",
+  "generated_at": "2026-11-06T01:32:06.019732Z",
   "predictions": [
     {
       "id": "bb-21718108",
@@ -89,6 +89,20 @@
       "locked": true
     },
     {
+      "id": "bb-21718155",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Los Angeles Lakers vs Sacramento Kings",
+      "home_team": "Los Angeles Lakers",
+      "away_team": "Sacramento Kings",
+      "home_team_id": 14,
+      "away_team_id": 26,
+      "league": "NBA",
+      "kickoff": "2026-11-20",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 558538,
       "sport": "Football",
       "icon": "\u26bd",
@@ -157,6 +171,21 @@
       "away_team_id": 29,
       "league": "NBA",
       "kickoff": "2026-11-18",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 565859,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "FC Bayern M\u00fcnchen vs 1. FC K\u00f6ln",
+      "home_team": "FC Bayern M\u00fcnchen",
+      "away_team": "1. FC K\u00f6ln",
+      "home_team_id": 5,
+      "away_team_id": 1,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-11-20T19:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -259,35 +288,6 @@
       "away_team_id": 3,
       "league": "NBA",
       "kickoff": "2026-11-14",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718102",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Sacramento Kings vs Portland Trail Blazers",
-      "home_team": "Sacramento Kings",
-      "away_team": "Portland Trail Blazers",
-      "home_team_id": 26,
-      "away_team_id": 25,
-      "league": "NBA",
-      "kickoff": "2026-11-13",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 564739,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "CA Osasuna vs Athletic Club",
-      "home_team": "CA Osasuna",
-      "away_team": "Athletic Club",
-      "home_team_id": 79,
-      "away_team_id": 77,
-      "league": "Primera Division",
-      "comp_code": "PD",
-      "kickoff": "2026-11-07T17:30:00Z",
       "has_pick": true,
       "locked": true
     }

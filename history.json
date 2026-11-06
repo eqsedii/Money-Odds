@@ -1,5 +1,5 @@
 {
-  "total_analyzed_since_start": 908,
+  "total_analyzed_since_start": 921,
   "history": [
     {
       "date": "2026-10-25",
@@ -920,6 +920,16 @@
       "pick": "S\u00e3o Paulo FC Win",
       "result": "loss",
       "final_score": "0-0"
+    },
+    {
+      "date": "2026-10-22",
+      "id": 555077,
+      "sport": "Football",
+      "match": "SE Palmeiras vs Clube do Remo",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "SE Palmeiras Win",
+      "result": "win",
+      "final_score": "6-1"
     },
     {
       "date": "2026-10-21",
@@ -4990,16 +5000,6 @@
       "pick": "Over 2.5 Goals",
       "result": "win",
       "final_score": "1-2"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 555008,
-      "sport": "Football",
-      "match": "SE Palmeiras vs S\u00e3o Paulo FC",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "BTTS - No",
-      "result": "win",
-      "final_score": "2-0"
     }
   ]
 }
