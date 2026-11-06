@@ -202,6 +202,16 @@
       "final_score": "119-132"
     },
     {
+      "date": "2026-10-25",
+      "id": "bb-21718041",
+      "sport": "Basketball",
+      "match": "Phoenix Suns vs Orlando Magic",
+      "league": "NBA",
+      "pick": "Over 232.6 Points",
+      "result": "loss",
+      "final_score": "117-104"
+    },
+    {
       "date": "2026-10-24",
       "id": "bb-21717946",
       "sport": "Basketball",
@@ -882,6 +892,16 @@
       "final_score": "116-117"
     },
     {
+      "date": "2026-10-24",
+      "id": "bb-21718042",
+      "sport": "Basketball",
+      "match": "Golden State Warriors vs Miami Heat",
+      "league": "NBA",
+      "pick": "Golden State Warriors Win",
+      "result": "win",
+      "final_score": "120-100"
+    },
+    {
       "date": "2026-10-23",
       "id": "bb-21717948",
       "sport": "Basketball",
@@ -900,6 +920,16 @@
       "pick": "Philadelphia 76ers Win",
       "result": "win",
       "final_score": "126-107"
+    },
+    {
+      "date": "2026-10-23",
+      "id": 555074,
+      "sport": "Football",
+      "match": "Cruzeiro EC vs EC Bahia",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "3-2"
     },
     {
       "date": "2026-10-22",
@@ -4970,36 +5000,6 @@
       "pick": "Middlesbrough FC Win",
       "result": "win",
       "final_score": "4-3"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 555000,
-      "sport": "Football",
-      "match": "CA Mineiro vs Fluminense FC",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "BTTS - Yes",
-      "result": "win",
-      "final_score": "3-1"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 555006,
-      "sport": "Football",
-      "match": "Gr\u00eamio FBPA vs CR Vasco da Gama",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "Gr\u00eamio FBPA Win",
-      "result": "loss",
-      "final_score": "1-2"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 555003,
-      "sport": "Football",
-      "match": "Chapecoense AF vs SC Internacional",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "1-2"
     }
   ]
 }
