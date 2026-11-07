@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T00:45:50.654889Z",
+  "generated_at": "2026-11-07T09:39:53.235901Z",
   "predictions": [
     {
       "id": 565861,
@@ -17,20 +17,6 @@
       "locked": true
     },
     {
-      "id": "bb-21718108",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Minnesota Timberwolves vs Chicago Bulls",
-      "home_team": "Minnesota Timberwolves",
-      "away_team": "Chicago Bulls",
-      "home_team_id": 18,
-      "away_team_id": 5,
-      "league": "NBA",
-      "kickoff": "2026-11-14",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 565848,
       "sport": "Football",
       "icon": "\u26bd",
@@ -42,6 +28,20 @@
       "league": "Bundesliga",
       "comp_code": "BL1",
       "kickoff": "2026-11-07T14:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718108",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Minnesota Timberwolves vs Chicago Bulls",
+      "home_team": "Minnesota Timberwolves",
+      "away_team": "Chicago Bulls",
+      "home_team_id": 18,
+      "away_team_id": 5,
+      "league": "NBA",
+      "kickoff": "2026-11-14",
       "has_pick": true,
       "locked": true
     },
@@ -72,6 +72,20 @@
       "league": "Premier League",
       "comp_code": "PL",
       "kickoff": "2026-11-07T17:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718119",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Cleveland Cavaliers vs Chicago Bulls",
+      "home_team": "Cleveland Cavaliers",
+      "away_team": "Chicago Bulls",
+      "home_team_id": 6,
+      "away_team_id": 5,
+      "league": "NBA",
+      "kickoff": "2026-11-16",
       "has_pick": true,
       "locked": true
     },
@@ -119,6 +133,20 @@
       "locked": true
     },
     {
+      "id": "bb-21718129",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Los Angeles Lakers vs Charlotte Hornets",
+      "home_team": "Los Angeles Lakers",
+      "away_team": "Charlotte Hornets",
+      "home_team_id": 14,
+      "away_team_id": 4,
+      "league": "NBA",
+      "kickoff": "2026-11-17",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": "bb-21718155",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
@@ -148,20 +176,6 @@
       "locked": true
     },
     {
-      "id": "bb-21718119",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Cleveland Cavaliers vs Chicago Bulls",
-      "home_team": "Cleveland Cavaliers",
-      "away_team": "Chicago Bulls",
-      "home_team_id": 6,
-      "away_team_id": 5,
-      "league": "NBA",
-      "kickoff": "2026-11-16",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 561951,
       "sport": "Football",
       "icon": "\u26bd",
@@ -177,16 +191,16 @@
       "locked": true
     },
     {
-      "id": "bb-21718129",
+      "id": "bb-21718118",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
-      "match": "Los Angeles Lakers vs Charlotte Hornets",
-      "home_team": "Los Angeles Lakers",
-      "away_team": "Charlotte Hornets",
-      "home_team_id": 14,
-      "away_team_id": 4,
+      "match": "Boston Celtics vs Orlando Magic",
+      "home_team": "Boston Celtics",
+      "away_team": "Orlando Magic",
+      "home_team_id": 2,
+      "away_team_id": 22,
       "league": "NBA",
-      "kickoff": "2026-11-17",
+      "kickoff": "2026-11-16",
       "has_pick": true,
       "locked": true
     },
@@ -250,16 +264,16 @@
       "locked": true
     },
     {
-      "id": "bb-21718156",
+      "id": "bb-21718084",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
-      "match": "Philadelphia 76ers vs Milwaukee Bucks",
-      "home_team": "Philadelphia 76ers",
-      "away_team": "Milwaukee Bucks",
-      "home_team_id": 23,
-      "away_team_id": 17,
+      "match": "Chicago Bulls vs San Antonio Spurs",
+      "home_team": "Chicago Bulls",
+      "away_team": "San Antonio Spurs",
+      "home_team_id": 5,
+      "away_team_id": 27,
       "league": "NBA",
-      "kickoff": "2026-11-21",
+      "kickoff": "2026-11-11",
       "has_pick": true,
       "locked": true
     },
@@ -277,21 +291,6 @@
       "kickoff": "2026-11-08T16:15:00Z",
       "has_pick": true,
       "locked": true
-    },
-    {
-      "id": 567355,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "CF Estrela da Amadora vs Sport Lisboa e Benfica",
-      "home_team": "CF Estrela da Amadora",
-      "away_team": "Sport Lisboa e Benfica",
-      "home_team_id": 9136,
-      "away_team_id": 1903,
-      "league": "Primeira Liga",
-      "comp_code": "PPL",
-      "kickoff": "2026-11-08T20:30:00Z",
-      "has_pick": true,
-      "locked": true
     }
   ],
   "multi_bets": [
@@ -306,10 +305,10 @@
           "meta": "Bundesliga"
         },
         {
-          "id": "bb-21718108",
-          "icon": "\ud83c\udfc0",
-          "match": "Minnesota Timberwolves vs Chicago Bulls",
-          "meta": "NBA"
+          "id": 565848,
+          "icon": "\u26bd",
+          "match": "RB Leipzig vs FC Augsburg",
+          "meta": "Bundesliga"
         }
       ]
     },
@@ -318,10 +317,10 @@
       "locked": true,
       "legs": [
         {
-          "id": 565848,
-          "icon": "\u26bd",
-          "match": "RB Leipzig vs FC Augsburg",
-          "meta": "Bundesliga"
+          "id": "bb-21718108",
+          "icon": "\ud83c\udfc0",
+          "match": "Minnesota Timberwolves vs Chicago Bulls",
+          "meta": "NBA"
         },
         {
           "id": 558531,

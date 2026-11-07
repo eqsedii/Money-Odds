@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T00:45:50.635428Z",
+  "generated_at": "2026-11-07T09:39:53.217530Z",
   "fixtures": [
     {
       "id": "bb-21718052",
@@ -2803,21 +2803,6 @@
       "locked": true
     },
     {
-      "id": 561941,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Sheffield United FC vs Watford FC",
-      "home_team": "Sheffield United FC",
-      "away_team": "Watford FC",
-      "home_team_id": 356,
-      "away_team_id": 346,
-      "league": "Championship",
-      "comp_code": "ELC",
-      "kickoff": "2026-11-21T12:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 561944,
       "sport": "Football",
       "icon": "\u26bd",
@@ -2826,6 +2811,21 @@
       "away_team": "Derby County FC",
       "home_team_id": 340,
       "away_team_id": 342,
+      "league": "Championship",
+      "comp_code": "ELC",
+      "kickoff": "2026-11-21T12:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 561948,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Norwich City FC vs Cardiff City FC",
+      "home_team": "Norwich City FC",
+      "away_team": "Cardiff City FC",
+      "home_team_id": 68,
+      "away_team_id": 715,
       "league": "Championship",
       "comp_code": "ELC",
       "kickoff": "2026-11-21T12:30:00Z",
@@ -3043,6 +3043,21 @@
       "locked": true
     },
     {
+      "id": 561941,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Sheffield United FC vs Watford FC",
+      "home_team": "Sheffield United FC",
+      "away_team": "Watford FC",
+      "home_team_id": 356,
+      "away_team_id": 346,
+      "league": "Championship",
+      "comp_code": "ELC",
+      "kickoff": "2026-11-21T15:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 561942,
       "sport": "Football",
       "icon": "\u26bd",
@@ -3096,21 +3111,6 @@
       "away_team": "Birmingham City FC",
       "home_team_id": 70,
       "away_team_id": 332,
-      "league": "Championship",
-      "comp_code": "ELC",
-      "kickoff": "2026-11-21T15:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 561948,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Norwich City FC vs Cardiff City FC",
-      "home_team": "Norwich City FC",
-      "away_team": "Cardiff City FC",
-      "home_team_id": 68,
-      "away_team_id": 715,
       "league": "Championship",
       "comp_code": "ELC",
       "kickoff": "2026-11-21T15:00:00Z",
