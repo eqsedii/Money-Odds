@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-11-06T18:55:38.027675Z",
+  "generated_at": "2026-11-07T00:45:50.654889Z",
   "predictions": [
+    {
+      "id": 565861,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "FC Schalke 04 vs VfB Stuttgart",
+      "home_team": "FC Schalke 04",
+      "away_team": "VfB Stuttgart",
+      "home_team_id": 6,
+      "away_team_id": 10,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-11-21T17:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
     {
       "id": "bb-21718108",
       "sport": "Basketball",
@@ -75,6 +90,21 @@
       "locked": true
     },
     {
+      "id": 565854,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "SC Freiburg vs 1. FC Union Berlin",
+      "home_team": "SC Freiburg",
+      "away_team": "1. FC Union Berlin",
+      "home_team_id": 17,
+      "away_team_id": 28,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-11-08T16:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": "bb-21718100",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
@@ -118,21 +148,6 @@
       "locked": true
     },
     {
-      "id": 565854,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "SC Freiburg vs 1. FC Union Berlin",
-      "home_team": "SC Freiburg",
-      "away_team": "1. FC Union Berlin",
-      "home_team_id": 17,
-      "away_team_id": 28,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-11-08T16:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": "bb-21718119",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
@@ -143,6 +158,21 @@
       "away_team_id": 5,
       "league": "NBA",
       "kickoff": "2026-11-16",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 561951,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "West Ham United FC vs Preston North End FC",
+      "home_team": "West Ham United FC",
+      "away_team": "Preston North End FC",
+      "home_team_id": 563,
+      "away_team_id": 1081,
+      "league": "Championship",
+      "comp_code": "ELC",
+      "kickoff": "2026-11-21T15:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -190,6 +220,21 @@
       "locked": true
     },
     {
+      "id": 561944,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Southampton FC vs Derby County FC",
+      "home_team": "Southampton FC",
+      "away_team": "Derby County FC",
+      "home_team_id": 340,
+      "away_team_id": 342,
+      "league": "Championship",
+      "comp_code": "ELC",
+      "kickoff": "2026-11-21T12:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 565851,
       "sport": "Football",
       "icon": "\u26bd",
@@ -205,17 +250,16 @@
       "locked": true
     },
     {
-      "id": 560638,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Brighton & Hove Albion FC vs Brentford FC",
-      "home_team": "Brighton & Hove Albion FC",
-      "away_team": "Brentford FC",
-      "home_team_id": 397,
-      "away_team_id": 402,
-      "league": "Premier League",
-      "comp_code": "PL",
-      "kickoff": "2026-11-08T14:00:00Z",
+      "id": "bb-21718156",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Philadelphia 76ers vs Milwaukee Bucks",
+      "home_team": "Philadelphia 76ers",
+      "away_team": "Milwaukee Bucks",
+      "home_team_id": 23,
+      "away_team_id": 17,
+      "league": "NBA",
+      "kickoff": "2026-11-21",
       "has_pick": true,
       "locked": true
     },
@@ -248,48 +292,6 @@
       "kickoff": "2026-11-08T20:30:00Z",
       "has_pick": true,
       "locked": true
-    },
-    {
-      "id": "bb-21718074",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "New York Knicks vs Milwaukee Bucks",
-      "home_team": "New York Knicks",
-      "away_team": "Milwaukee Bucks",
-      "home_team_id": 20,
-      "away_team_id": 17,
-      "league": "NBA",
-      "kickoff": "2026-11-10",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718084",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Chicago Bulls vs San Antonio Spurs",
-      "home_team": "Chicago Bulls",
-      "away_team": "San Antonio Spurs",
-      "home_team_id": 5,
-      "away_team_id": 27,
-      "league": "NBA",
-      "kickoff": "2026-11-11",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718107",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Memphis Grizzlies vs Brooklyn Nets",
-      "home_team": "Memphis Grizzlies",
-      "away_team": "Brooklyn Nets",
-      "home_team_id": 15,
-      "away_team_id": 3,
-      "league": "NBA",
-      "kickoff": "2026-11-14",
-      "has_pick": true,
-      "locked": true
     }
   ],
   "multi_bets": [
@@ -298,16 +300,16 @@
       "locked": true,
       "legs": [
         {
+          "id": 565861,
+          "icon": "\u26bd",
+          "match": "FC Schalke 04 vs VfB Stuttgart",
+          "meta": "Bundesliga"
+        },
+        {
           "id": "bb-21718108",
           "icon": "\ud83c\udfc0",
           "match": "Minnesota Timberwolves vs Chicago Bulls",
           "meta": "NBA"
-        },
-        {
-          "id": 565848,
-          "icon": "\u26bd",
-          "match": "RB Leipzig vs FC Augsburg",
-          "meta": "Bundesliga"
         }
       ]
     },
@@ -315,6 +317,12 @@
       "title": "3-Leg Accumulator",
       "locked": true,
       "legs": [
+        {
+          "id": 565848,
+          "icon": "\u26bd",
+          "match": "RB Leipzig vs FC Augsburg",
+          "meta": "Bundesliga"
+        },
         {
           "id": 558531,
           "icon": "\u26bd",
@@ -326,12 +334,6 @@
           "icon": "\u26bd",
           "match": "Nottingham Forest FC vs Manchester City FC",
           "meta": "Premier League"
-        },
-        {
-          "id": "bb-21718061",
-          "icon": "\ud83c\udfc0",
-          "match": "Minnesota Timberwolves vs Utah Jazz",
-          "meta": "NBA"
         }
       ]
     }

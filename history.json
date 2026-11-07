@@ -1,5 +1,5 @@
 {
-  "total_analyzed_since_start": 921,
+  "total_analyzed_since_start": 971,
   "history": [
     {
       "date": "2026-10-25",
@@ -930,6 +930,76 @@
       "pick": "Over 2.5 Goals",
       "result": "win",
       "final_score": "3-2"
+    },
+    {
+      "date": "2026-10-23",
+      "id": 565852,
+      "sport": "Football",
+      "match": "Hamburger SV vs Borussia M\u00f6nchengladbach",
+      "league": "Bundesliga",
+      "pick": "BTTS - Yes",
+      "result": "win",
+      "final_score": "3-1"
+    },
+    {
+      "date": "2026-10-23",
+      "id": 558537,
+      "sport": "Football",
+      "match": "Venezia FC vs Udinese Calcio",
+      "league": "Serie A",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "2-1"
+    },
+    {
+      "date": "2026-10-23",
+      "id": 559638,
+      "sport": "Football",
+      "match": "Toulouse FC vs RC Strasbourg Alsace",
+      "league": "Ligue 1",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "3-1"
+    },
+    {
+      "date": "2026-10-23",
+      "id": 560634,
+      "sport": "Football",
+      "match": "Everton FC vs Coventry City FC",
+      "league": "Premier League",
+      "pick": "Under 2.5 Goals",
+      "result": "loss",
+      "final_score": "3-1"
+    },
+    {
+      "date": "2026-10-23",
+      "id": 564740,
+      "sport": "Football",
+      "match": "Sevilla FC vs Deportivo Alav\u00e9s",
+      "league": "Primera Division",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "0-0"
+    },
+    {
+      "date": "2026-10-23",
+      "id": 561932,
+      "sport": "Football",
+      "match": "Derby County FC vs Bolton Wanderers FC",
+      "league": "Championship",
+      "pick": "Bolton Wanderers FC Win",
+      "result": "loss",
+      "final_score": "3-1"
+    },
+    {
+      "date": "2026-10-23",
+      "id": 567353,
+      "sport": "Football",
+      "match": "FC Famalic\u00e3o vs FC Arouca",
+      "league": "Primeira Liga",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "1-0"
     },
     {
       "date": "2026-10-22",
@@ -4930,76 +5000,6 @@
       "pick": "BTTS - No",
       "result": "loss",
       "final_score": "1-2"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 561837,
-      "sport": "Football",
-      "match": "Bolton Wanderers FC vs Cardiff City FC",
-      "league": "Championship",
-      "pick": "BTTS - Yes",
-      "result": "loss",
-      "final_score": "1-0"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 561839,
-      "sport": "Football",
-      "match": "West Bromwich Albion FC vs Queens Park Rangers FC",
-      "league": "Championship",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "1-1"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 561834,
-      "sport": "Football",
-      "match": "Preston North End FC vs Lincoln City FC",
-      "league": "Championship",
-      "pick": "Lincoln City FC Win",
-      "result": "win",
-      "final_score": "0-1"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 561836,
-      "sport": "Football",
-      "match": "Blackburn Rovers FC vs Millwall FC",
-      "league": "Championship",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "3-1"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 561838,
-      "sport": "Football",
-      "match": "Charlton Athletic FC vs Portsmouth FC",
-      "league": "Championship",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "0-0"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 561840,
-      "sport": "Football",
-      "match": "Watford FC vs Stoke City FC",
-      "league": "Championship",
-      "pick": "Watford FC Win",
-      "result": "loss",
-      "final_score": "1-2"
-    },
-    {
-      "date": "2026-09-10",
-      "id": 561843,
-      "sport": "Football",
-      "match": "Middlesbrough FC vs Norwich City FC",
-      "league": "Championship",
-      "pick": "Middlesbrough FC Win",
-      "result": "win",
-      "final_score": "4-3"
     }
   ]
 }
