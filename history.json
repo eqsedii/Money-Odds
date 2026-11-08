@@ -1,5 +1,5 @@
 {
-  "total_analyzed_since_start": 971,
+  "total_analyzed_since_start": 1003,
   "history": [
     {
       "date": "2026-10-25",
@@ -220,6 +220,36 @@
       "pick": "Philadelphia 76ers Win",
       "result": "loss",
       "final_score": "119-95"
+    },
+    {
+      "date": "2026-10-25",
+      "id": "bb-21718052",
+      "sport": "Basketball",
+      "match": "Indiana Pacers vs Denver Nuggets",
+      "league": "NBA",
+      "pick": "Over 232.5 Points",
+      "result": "loss",
+      "final_score": "102-114"
+    },
+    {
+      "date": "2026-10-25",
+      "id": "bb-21718053",
+      "sport": "Basketball",
+      "match": "Atlanta Hawks vs Brooklyn Nets",
+      "league": "NBA",
+      "pick": "Atlanta Hawks Win",
+      "result": "win",
+      "final_score": "124-121"
+    },
+    {
+      "date": "2026-10-25",
+      "id": "bb-21718054",
+      "sport": "Basketball",
+      "match": "Cleveland Cavaliers vs New York Knicks",
+      "league": "NBA",
+      "pick": "Cleveland Cavaliers Win",
+      "result": "loss",
+      "final_score": "97-109"
     },
     {
       "date": "2026-10-24",
@@ -1290,6 +1320,66 @@
       "pick": "Under 2.5 Goals",
       "result": "win",
       "final_score": "1-1"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21718055",
+      "sport": "Basketball",
+      "match": "Oklahoma City Thunder vs Washington Wizards",
+      "league": "NBA",
+      "pick": "Oklahoma City Thunder Win",
+      "result": "win",
+      "final_score": "114-75"
+    },
+    {
+      "date": "2026-10-24",
+      "id": 558531,
+      "sport": "Football",
+      "match": "AS Roma vs US Sassuolo Calcio",
+      "league": "Serie A",
+      "pick": "AS Roma Win",
+      "result": "win",
+      "final_score": "3-0"
+    },
+    {
+      "date": "2026-10-24",
+      "id": 559635,
+      "sport": "Football",
+      "match": "Paris Saint-Germain FC vs ES Troyes AC",
+      "league": "Ligue 1",
+      "pick": "Paris Saint-Germain FC Win",
+      "result": "win",
+      "final_score": "1-0"
+    },
+    {
+      "date": "2026-10-24",
+      "id": 564741,
+      "sport": "Football",
+      "match": "Valencia CF vs Real Madrid CF",
+      "league": "Primera Division",
+      "pick": "Real Madrid CF Win",
+      "result": "win",
+      "final_score": "0-3"
+    },
+    {
+      "date": "2026-10-24",
+      "id": 558843,
+      "sport": "Football",
+      "match": "SBV Excelsior vs Go Ahead Eagles",
+      "league": "Eredivisie",
+      "pick": "Over 2.5 Goals",
+      "result": "loss",
+      "final_score": "0-1"
+    },
+    {
+      "date": "2026-10-24",
+      "id": 567350,
+      "sport": "Football",
+      "match": "Sporting Clube de Portugal vs Moreirense FC",
+      "league": "Primeira Liga",
+      "pick": "Sporting Clube de Portugal Win",
+      "result": "win",
+      "final_score": "1-0"
     },
     {
       "date": "2026-10-23",
@@ -4910,96 +5000,6 @@
       "pick": "1. FC K\u00f6ln Win",
       "result": "win",
       "final_score": "2-1"
-    },
-    {
-      "date": "2026-09-27",
-      "id": 564707,
-      "sport": "Football",
-      "match": "Real Sociedad de F\u00fatbol vs RC Deportivo La Coru\u00f1a",
-      "league": "Primera Division",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "3-2"
-    },
-    {
-      "date": "2026-09-27",
-      "id": 567328,
-      "sport": "Football",
-      "match": "Rio Ave FC vs CD Nacional",
-      "league": "Primeira Liga",
-      "pick": "BTTS - Yes",
-      "result": "win",
-      "final_score": "3-2"
-    },
-    {
-      "date": "2026-09-27",
-      "id": 558873,
-      "sport": "Football",
-      "match": "SBV Excelsior vs FC Groningen",
-      "league": "Eredivisie",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "1-5"
-    },
-    {
-      "date": "2026-09-27",
-      "id": 559667,
-      "sport": "Football",
-      "match": "Stade Rennais FC 1901 vs AJ Auxerre",
-      "league": "Ligue 1",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "4-1"
-    },
-    {
-      "date": "2026-09-27",
-      "id": 558584,
-      "sport": "Football",
-      "match": "Cagliari Calcio vs Juventus FC",
-      "league": "Serie A",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "1-1"
-    },
-    {
-      "date": "2026-09-27",
-      "id": 559671,
-      "sport": "Football",
-      "match": "ES Troyes AC vs Olympique de Marseille",
-      "league": "Ligue 1",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "0-2"
-    },
-    {
-      "date": "2026-09-27",
-      "id": 564705,
-      "sport": "Football",
-      "match": "Real Racing Club de Santander vs Valencia CF",
-      "league": "Primera Division",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "2-2"
-    },
-    {
-      "date": "2026-09-27",
-      "id": 555030,
-      "sport": "Football",
-      "match": "CA Mineiro vs Santos FC",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "BTTS - Yes",
-      "result": "win",
-      "final_score": "2-1"
-    },
-    {
-      "date": "2026-09-27",
-      "id": 555035,
-      "sport": "Football",
-      "match": "CR Flamengo vs Fluminense FC",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "CR Flamengo Win",
-      "result": "win",
-      "final_score": "1-0"
     }
   ]
 }
