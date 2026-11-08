@@ -252,6 +252,16 @@
       "final_score": "97-109"
     },
     {
+      "date": "2026-10-25",
+      "id": "bb-21718057",
+      "sport": "Basketball",
+      "match": "Phoenix Suns vs Houston Rockets",
+      "league": "NBA",
+      "pick": "Houston Rockets Win",
+      "result": "loss",
+      "final_score": "102-99"
+    },
+    {
       "date": "2026-10-24",
       "id": "bb-21717946",
       "sport": "Basketball",
@@ -1380,6 +1390,26 @@
       "pick": "Sporting Clube de Portugal Win",
       "result": "win",
       "final_score": "1-0"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21718056",
+      "sport": "Basketball",
+      "match": "Golden State Warriors vs Orlando Magic",
+      "league": "NBA",
+      "pick": "Golden State Warriors Win",
+      "result": "win",
+      "final_score": "126-119"
+    },
+    {
+      "date": "2026-10-24",
+      "id": "bb-21718058",
+      "sport": "Basketball",
+      "match": "Portland Trail Blazers vs San Antonio Spurs",
+      "league": "NBA",
+      "pick": "Portland Trail Blazers Win",
+      "result": "loss",
+      "final_score": "103-125"
     },
     {
       "date": "2026-10-23",
@@ -4970,36 +5000,6 @@
       "pick": "Under 2.5 Goals",
       "result": "loss",
       "final_score": "1-2"
-    },
-    {
-      "date": "2026-09-27",
-      "id": 558583,
-      "sport": "Football",
-      "match": "SS Lazio vs AC Monza",
-      "league": "Serie A",
-      "pick": "SS Lazio Win",
-      "result": "win",
-      "final_score": "3-1"
-    },
-    {
-      "date": "2026-09-27",
-      "id": 559670,
-      "sport": "Football",
-      "match": "OGC Nice vs RC Strasbourg Alsace",
-      "league": "Ligue 1",
-      "pick": "BTTS - Yes",
-      "result": "win",
-      "final_score": "2-1"
-    },
-    {
-      "date": "2026-09-27",
-      "id": 565814,
-      "sport": "Football",
-      "match": "1. FC K\u00f6ln vs Borussia M\u00f6nchengladbach",
-      "league": "Bundesliga",
-      "pick": "1. FC K\u00f6ln Win",
-      "result": "win",
-      "final_score": "2-1"
     }
   ]
 }
