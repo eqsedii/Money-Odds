@@ -1,5 +1,5 @@
 {
-  "total_analyzed_since_start": 1003,
+  "total_analyzed_since_start": 1018,
   "history": [
     {
       "date": "2026-10-25",
@@ -430,6 +430,176 @@
       "pick": "Over 2.5 Goals",
       "result": "loss",
       "final_score": "2-0"
+    },
+    {
+      "date": "2026-10-25",
+      "id": "bb-21718059",
+      "sport": "Basketball",
+      "match": "Chicago Bulls vs Philadelphia 76ers",
+      "league": "NBA",
+      "pick": "Philadelphia 76ers Win",
+      "result": "win",
+      "final_score": "121-127"
+    },
+    {
+      "date": "2026-10-25",
+      "id": 558840,
+      "sport": "Football",
+      "match": "SC Heerenveen vs Feyenoord Rotterdam",
+      "league": "Eredivisie",
+      "pick": "Feyenoord Rotterdam Win",
+      "result": "loss",
+      "final_score": "5-3"
+    },
+    {
+      "date": "2026-10-25",
+      "id": 564738,
+      "sport": "Football",
+      "match": "Elche CF vs Real Betis Balompi\u00e9",
+      "league": "Primera Division",
+      "pick": "Over 2.5 Goals",
+      "result": "loss",
+      "final_score": "0-2"
+    },
+    {
+      "date": "2026-10-25",
+      "id": 558839,
+      "sport": "Football",
+      "match": "FC Twente '65 vs AFC Ajax",
+      "league": "Eredivisie",
+      "pick": "AFC Ajax Win",
+      "result": "loss",
+      "final_score": "2-2"
+    },
+    {
+      "date": "2026-10-25",
+      "id": 564743,
+      "sport": "Football",
+      "match": "Real Sociedad de F\u00fatbol vs Rayo Vallecano de Madrid",
+      "league": "Primera Division",
+      "pick": "Over 2.5 Goals",
+      "result": "loss",
+      "final_score": "1-0"
+    },
+    {
+      "date": "2026-10-25",
+      "id": 558837,
+      "sport": "Football",
+      "match": "AZ vs FC Groningen",
+      "league": "Eredivisie",
+      "pick": "BTTS - Yes",
+      "result": "win",
+      "final_score": "4-3"
+    },
+    {
+      "date": "2026-10-25",
+      "id": 558842,
+      "sport": "Football",
+      "match": "SC Cambuur-Leeuwarden vs PSV",
+      "league": "Eredivisie",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "2-5"
+    },
+    {
+      "date": "2026-10-25",
+      "id": 564742,
+      "sport": "Football",
+      "match": "RC Celta de Vigo vs Levante UD",
+      "league": "Primera Division",
+      "pick": "BTTS - No",
+      "result": "win",
+      "final_score": "0-0"
+    },
+    {
+      "date": "2026-10-25",
+      "id": 564747,
+      "sport": "Football",
+      "match": "Villarreal CF vs Getafe CF",
+      "league": "Primera Division",
+      "pick": "BTTS - No",
+      "result": "win",
+      "final_score": "2-0"
+    },
+    {
+      "date": "2026-10-25",
+      "id": 567349,
+      "sport": "Football",
+      "match": "Vit\u00f3ria SC vs FC Porto",
+      "league": "Primeira Liga",
+      "pick": "Under 2.5 Goals",
+      "result": "loss",
+      "final_score": "1-2"
+    },
+    {
+      "date": "2026-10-25",
+      "id": 565856,
+      "sport": "Football",
+      "match": "TSG 1899 Hoffenheim vs FC Schalke 04",
+      "league": "Bundesliga",
+      "pick": "Under 2.5 Goals",
+      "result": "loss",
+      "final_score": "2-1"
+    },
+    {
+      "date": "2026-10-25",
+      "id": 558838,
+      "sport": "Football",
+      "match": "FC Utrecht vs NEC",
+      "league": "Eredivisie",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "2-3"
+    },
+    {
+      "date": "2026-10-25",
+      "id": 558529,
+      "sport": "Football",
+      "match": "ACF Fiorentina vs Juventus FC",
+      "league": "Serie A",
+      "pick": "Juventus FC Win",
+      "result": "loss",
+      "final_score": "2-2"
+    },
+    {
+      "date": "2026-10-25",
+      "id": 559630,
+      "sport": "Football",
+      "match": "Racing Club de Lens vs Olympique de Marseille",
+      "league": "Ligue 1",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "1-2"
+    },
+    {
+      "date": "2026-10-25",
+      "id": 564746,
+      "sport": "Football",
+      "match": "Club Atl\u00e9tico de Madrid vs FC Barcelona",
+      "league": "Primera Division",
+      "pick": "BTTS - Yes",
+      "result": "win",
+      "final_score": "1-2"
+    },
+    {
+      "date": "2026-10-25",
+      "id": 567354,
+      "sport": "Football",
+      "match": "Rio Ave FC vs Sporting Clube de Braga",
+      "league": "Primeira Liga",
+      "pick": "BTTS - Yes",
+      "result": "loss",
+      "final_score": "0-1"
+    },
+    {
+      "date": "2026-10-25",
+      "id": 567355,
+      "sport": "Football",
+      "match": "CF Estrela da Amadora vs Sport Lisboa e Benfica",
+      "league": "Primeira Liga",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "2-3"
     },
     {
       "date": "2026-10-24",
@@ -4830,176 +5000,6 @@
       "pick": "Over 2.5 Goals",
       "result": "win",
       "final_score": "3-2"
-    },
-    {
-      "date": "2026-10-03",
-      "id": 560611,
-      "sport": "Football",
-      "match": "Brentford FC vs Liverpool FC",
-      "league": "Premier League",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "1-2"
-    },
-    {
-      "date": "2026-10-03",
-      "id": 564708,
-      "sport": "Football",
-      "match": "Villarreal CF vs Elche CF",
-      "league": "Primera Division",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "0-0"
-    },
-    {
-      "date": "2026-10-03",
-      "id": 558871,
-      "sport": "Football",
-      "match": "ADO Den Haag vs PSV",
-      "league": "Eredivisie",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "2-1"
-    },
-    {
-      "date": "2026-10-03",
-      "id": 559662,
-      "sport": "Football",
-      "match": "RC Strasbourg Alsace vs Paris Saint-Germain FC",
-      "league": "Ligue 1",
-      "pick": "BTTS - Yes",
-      "result": "win",
-      "final_score": "1-3"
-    },
-    {
-      "date": "2026-10-03",
-      "id": 558572,
-      "sport": "Football",
-      "match": "AS Roma vs Genoa CFC",
-      "league": "Serie A",
-      "pick": "AS Roma Win",
-      "result": "win",
-      "final_score": "2-0"
-    },
-    {
-      "date": "2026-10-03",
-      "id": 559659,
-      "sport": "Football",
-      "match": "ES Troyes AC vs Racing Club de Lens",
-      "league": "Ligue 1",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "1-3"
-    },
-    {
-      "date": "2026-10-03",
-      "id": 559660,
-      "sport": "Football",
-      "match": "Lille OSC vs Stade Brestois 29",
-      "league": "Ligue 1",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "1-1"
-    },
-    {
-      "date": "2026-10-03",
-      "id": 564711,
-      "sport": "Football",
-      "match": "Valencia CF vs Athletic Club",
-      "league": "Primera Division",
-      "pick": "BTTS - No",
-      "result": "win",
-      "final_score": "0-0"
-    },
-    {
-      "date": "2026-10-03",
-      "id": 558868,
-      "sport": "Football",
-      "match": "Sparta Rotterdam vs Willem II Tilburg",
-      "league": "Eredivisie",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "3-2"
-    },
-    {
-      "date": "2026-10-02",
-      "id": 567321,
-      "sport": "Football",
-      "match": "Casa Pia AC vs CD Santa Clara",
-      "league": "Primeira Liga",
-      "pick": "CD Santa Clara Win",
-      "result": "win",
-      "final_score": "0-1"
-    },
-    {
-      "date": "2026-10-02",
-      "id": 567322,
-      "sport": "Football",
-      "match": "Acad\u00e9mico de Viseu FC vs GD Estoril Praia",
-      "league": "Primeira Liga",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "2-1"
-    },
-    {
-      "date": "2026-10-02",
-      "id": 565816,
-      "sport": "Football",
-      "match": "SC Freiburg vs FC Schalke 04",
-      "league": "Bundesliga",
-      "pick": "SC Freiburg Win",
-      "result": "win",
-      "final_score": "2-1"
-    },
-    {
-      "date": "2026-10-02",
-      "id": 561871,
-      "sport": "Football",
-      "match": "Millwall FC vs Swansea City AFC",
-      "league": "Championship",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "0-1"
-    },
-    {
-      "date": "2026-10-01",
-      "id": 555021,
-      "sport": "Football",
-      "match": "Botafogo FR vs CR Vasco da Gama",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "BTTS - Yes",
-      "result": "win",
-      "final_score": "2-2"
-    },
-    {
-      "date": "2026-10-01",
-      "id": 559674,
-      "sport": "Football",
-      "match": "Lille OSC vs Le Havre AC",
-      "league": "Ligue 1",
-      "pick": "Lille OSC Win",
-      "result": "win",
-      "final_score": "1-0"
-    },
-    {
-      "date": "2026-10-01",
-      "id": 558876,
-      "sport": "Football",
-      "match": "FC Utrecht vs Willem II Tilburg",
-      "league": "Eredivisie",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "3-1"
-    },
-    {
-      "date": "2026-10-01",
-      "id": 560598,
-      "sport": "Football",
-      "match": "Liverpool FC vs Manchester City FC",
-      "league": "Premier League",
-      "pick": "Manchester City FC Win",
-      "result": "win",
-      "final_score": "0-3"
     }
   ]
 }
