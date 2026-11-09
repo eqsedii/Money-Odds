@@ -602,6 +602,66 @@
       "final_score": "2-3"
     },
     {
+      "date": "2026-10-25",
+      "id": "bb-21718060",
+      "sport": "Basketball",
+      "match": "Detroit Pistons vs Los Angeles Lakers",
+      "league": "NBA",
+      "pick": "Over 238.1 Points",
+      "result": "loss",
+      "final_score": "116-121"
+    },
+    {
+      "date": "2026-10-25",
+      "id": "bb-21718061",
+      "sport": "Basketball",
+      "match": "Minnesota Timberwolves vs Utah Jazz",
+      "league": "NBA",
+      "pick": "Minnesota Timberwolves Win",
+      "result": "win",
+      "final_score": "115-100"
+    },
+    {
+      "date": "2026-10-25",
+      "id": "bb-21718062",
+      "sport": "Basketball",
+      "match": "Dallas Mavericks vs Brooklyn Nets",
+      "league": "NBA",
+      "pick": "Dallas Mavericks Win",
+      "result": "win",
+      "final_score": "130-93"
+    },
+    {
+      "date": "2026-10-25",
+      "id": "bb-21718063",
+      "sport": "Basketball",
+      "match": "Milwaukee Bucks vs Boston Celtics",
+      "league": "NBA",
+      "pick": "Over 236.3 Points",
+      "result": "loss",
+      "final_score": "97-117"
+    },
+    {
+      "date": "2026-10-25",
+      "id": "bb-21718064",
+      "sport": "Basketball",
+      "match": "LA Clippers vs New Orleans Pelicans",
+      "league": "NBA",
+      "pick": "LA Clippers Win",
+      "result": "win",
+      "final_score": "139-123"
+    },
+    {
+      "date": "2026-10-25",
+      "id": "bb-21718065",
+      "sport": "Basketball",
+      "match": "Sacramento Kings vs Miami Heat",
+      "league": "NBA",
+      "pick": "Over 234.4 Points",
+      "result": "loss",
+      "final_score": "108-114"
+    },
+    {
       "date": "2026-10-24",
       "id": "bb-21717946",
       "sport": "Basketball",
@@ -4940,66 +5000,6 @@
       "pick": "Under 2.5 Goals",
       "result": "loss",
       "final_score": "0-3"
-    },
-    {
-      "date": "2026-10-04",
-      "id": 559665,
-      "sport": "Football",
-      "match": "Olympique Lyonnais vs OGC Nice",
-      "league": "Ligue 1",
-      "pick": "BTTS - No",
-      "result": "loss",
-      "final_score": "2-1"
-    },
-    {
-      "date": "2026-10-04",
-      "id": 564709,
-      "sport": "Football",
-      "match": "Real Madrid CF vs Sevilla FC",
-      "league": "Primera Division",
-      "pick": "Real Madrid CF Win",
-      "result": "win",
-      "final_score": "4-1"
-    },
-    {
-      "date": "2026-10-04",
-      "id": 555045,
-      "sport": "Football",
-      "match": "Fluminense FC vs Santos FC",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "BTTS - Yes",
-      "result": "win",
-      "final_score": "1-2"
-    },
-    {
-      "date": "2026-10-04",
-      "id": 555046,
-      "sport": "Football",
-      "match": "Gr\u00eamio FBPA vs Cruzeiro EC",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "BTTS - Yes",
-      "result": "win",
-      "final_score": "2-4"
-    },
-    {
-      "date": "2026-10-04",
-      "id": 555048,
-      "sport": "Football",
-      "match": "Clube do Remo vs RB Bragantino",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "1-1"
-    },
-    {
-      "date": "2026-10-03",
-      "id": 560610,
-      "sport": "Football",
-      "match": "Manchester City FC vs Ipswich Town FC",
-      "league": "Premier League",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "3-2"
     }
   ]
 }
