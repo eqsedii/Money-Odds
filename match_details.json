@@ -10204,6 +10204,13 @@
   "bb-21718087": {
     "home_recent": [
       {
+        "date": "2026-11-09",
+        "opponent": "Golden State Warriors",
+        "venue": "A",
+        "score": "87-138",
+        "result": "L"
+      },
+      {
         "date": "2026-11-08",
         "opponent": "LA Clippers",
         "venue": "A",
@@ -10229,13 +10236,6 @@
         "opponent": "Memphis Grizzlies",
         "venue": "A",
         "score": "135-134",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-31",
-        "opponent": "Atlanta Hawks",
-        "venue": "H",
-        "score": "121-99",
         "result": "W"
       }
     ],
@@ -10395,6 +10395,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-09",
+        "opponent": "New Orleans Pelicans",
+        "venue": "H",
+        "score": "138-87",
+        "result": "W"
+      },
+      {
         "date": "2026-11-07",
         "opponent": "Orlando Magic",
         "venue": "H",
@@ -10420,13 +10427,6 @@
         "opponent": "LA Clippers",
         "venue": "H",
         "score": "124-112",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-30",
-        "opponent": "Los Angeles Lakers",
-        "venue": "H",
-        "score": "112-95",
         "result": "W"
       }
     ],
@@ -11139,6 +11139,13 @@
   "bb-21718099": {
     "home_recent": [
       {
+        "date": "2026-11-09",
+        "opponent": "Golden State Warriors",
+        "venue": "A",
+        "score": "87-138",
+        "result": "L"
+      },
+      {
         "date": "2026-11-08",
         "opponent": "LA Clippers",
         "venue": "A",
@@ -11164,13 +11171,6 @@
         "opponent": "Memphis Grizzlies",
         "venue": "A",
         "score": "135-134",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-31",
-        "opponent": "Atlanta Hawks",
-        "venue": "H",
-        "score": "121-99",
         "result": "W"
       }
     ],
@@ -11341,6 +11341,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-09",
+        "opponent": "New Orleans Pelicans",
+        "venue": "H",
+        "score": "138-87",
+        "result": "W"
+      },
+      {
         "date": "2026-11-07",
         "opponent": "Orlando Magic",
         "venue": "H",
@@ -11366,13 +11373,6 @@
         "opponent": "LA Clippers",
         "venue": "H",
         "score": "124-112",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-30",
-        "opponent": "Los Angeles Lakers",
-        "venue": "H",
-        "score": "112-95",
         "result": "W"
       }
     ],
@@ -11557,6 +11557,13 @@
   "bb-21718104": {
     "home_recent": [
       {
+        "date": "2026-11-09",
+        "opponent": "Golden State Warriors",
+        "venue": "A",
+        "score": "87-138",
+        "result": "L"
+      },
+      {
         "date": "2026-11-08",
         "opponent": "LA Clippers",
         "venue": "A",
@@ -11582,13 +11589,6 @@
         "opponent": "Memphis Grizzlies",
         "venue": "A",
         "score": "135-134",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-31",
-        "opponent": "Atlanta Hawks",
-        "venue": "H",
-        "score": "121-99",
         "result": "W"
       }
     ],
@@ -13166,6 +13166,13 @@
   "bb-21718124": {
     "home_recent": [
       {
+        "date": "2026-11-09",
+        "opponent": "Golden State Warriors",
+        "venue": "A",
+        "score": "87-138",
+        "result": "L"
+      },
+      {
         "date": "2026-11-08",
         "opponent": "LA Clippers",
         "venue": "A",
@@ -13192,16 +13199,16 @@
         "venue": "A",
         "score": "135-134",
         "result": "W"
-      },
-      {
-        "date": "2026-10-31",
-        "opponent": "Atlanta Hawks",
-        "venue": "H",
-        "score": "121-99",
-        "result": "W"
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-11-09",
+        "opponent": "New Orleans Pelicans",
+        "venue": "H",
+        "score": "138-87",
+        "result": "W"
+      },
       {
         "date": "2026-11-07",
         "opponent": "Orlando Magic",
@@ -13229,16 +13236,20 @@
         "venue": "H",
         "score": "124-112",
         "result": "W"
-      },
-      {
-        "date": "2026-10-30",
-        "opponent": "Los Angeles Lakers",
-        "venue": "H",
-        "score": "112-95",
-        "result": "W"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 1,
+      "matches": [
+        {
+          "date": "2026-11-09",
+          "home": "Golden State Warriors",
+          "away": "New Orleans Pelicans",
+          "score": "138-87",
+          "competition": "NBA"
+        }
+      ]
+    }
   },
   "bb-21718125": {
     "home_recent": [
@@ -14189,6 +14200,13 @@
   "bb-21718137": {
     "home_recent": [
       {
+        "date": "2026-11-09",
+        "opponent": "Golden State Warriors",
+        "venue": "A",
+        "score": "87-138",
+        "result": "L"
+      },
+      {
         "date": "2026-11-08",
         "opponent": "LA Clippers",
         "venue": "A",
@@ -14214,13 +14232,6 @@
         "opponent": "Memphis Grizzlies",
         "venue": "A",
         "score": "135-134",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-31",
-        "opponent": "Atlanta Hawks",
-        "venue": "H",
-        "score": "121-99",
         "result": "W"
       }
     ],
@@ -14457,6 +14468,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-09",
+        "opponent": "New Orleans Pelicans",
+        "venue": "H",
+        "score": "138-87",
+        "result": "W"
+      },
+      {
         "date": "2026-11-07",
         "opponent": "Orlando Magic",
         "venue": "H",
@@ -14482,13 +14500,6 @@
         "opponent": "LA Clippers",
         "venue": "H",
         "score": "124-112",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-30",
-        "opponent": "Los Angeles Lakers",
-        "venue": "H",
-        "score": "112-95",
         "result": "W"
       }
     ],
@@ -14699,6 +14710,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-09",
+        "opponent": "New Orleans Pelicans",
+        "venue": "H",
+        "score": "138-87",
+        "result": "W"
+      },
+      {
         "date": "2026-11-07",
         "opponent": "Orlando Magic",
         "venue": "H",
@@ -14724,13 +14742,6 @@
         "opponent": "LA Clippers",
         "venue": "H",
         "score": "124-112",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-30",
-        "opponent": "Los Angeles Lakers",
-        "venue": "H",
-        "score": "112-95",
         "result": "W"
       }
     ],
@@ -15425,6 +15436,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-09",
+        "opponent": "Golden State Warriors",
+        "venue": "A",
+        "score": "87-138",
+        "result": "L"
+      },
+      {
         "date": "2026-11-08",
         "opponent": "LA Clippers",
         "venue": "A",
@@ -15450,13 +15468,6 @@
         "opponent": "Memphis Grizzlies",
         "venue": "A",
         "score": "135-134",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-31",
-        "opponent": "Atlanta Hawks",
-        "venue": "H",
-        "score": "121-99",
         "result": "W"
       }
     ],
@@ -16074,6 +16085,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-09",
+        "opponent": "Golden State Warriors",
+        "venue": "A",
+        "score": "87-138",
+        "result": "L"
+      },
+      {
         "date": "2026-11-08",
         "opponent": "LA Clippers",
         "venue": "A",
@@ -16099,13 +16117,6 @@
         "opponent": "Memphis Grizzlies",
         "venue": "A",
         "score": "135-134",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-31",
-        "opponent": "Atlanta Hawks",
-        "venue": "H",
-        "score": "121-99",
         "result": "W"
       }
     ],
@@ -16675,6 +16686,13 @@
   "bb-21718170": {
     "home_recent": [
       {
+        "date": "2026-11-09",
+        "opponent": "New Orleans Pelicans",
+        "venue": "H",
+        "score": "138-87",
+        "result": "W"
+      },
+      {
         "date": "2026-11-07",
         "opponent": "Orlando Magic",
         "venue": "H",
@@ -16700,13 +16718,6 @@
         "opponent": "LA Clippers",
         "venue": "H",
         "score": "124-112",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-30",
-        "opponent": "Los Angeles Lakers",
-        "venue": "H",
-        "score": "112-95",
         "result": "W"
       }
     ],
@@ -17225,6 +17236,13 @@
   "bb-21718177": {
     "home_recent": [
       {
+        "date": "2026-11-09",
+        "opponent": "Golden State Warriors",
+        "venue": "A",
+        "score": "87-138",
+        "result": "L"
+      },
+      {
         "date": "2026-11-08",
         "opponent": "LA Clippers",
         "venue": "A",
@@ -17250,13 +17268,6 @@
         "opponent": "Memphis Grizzlies",
         "venue": "A",
         "score": "135-134",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-31",
-        "opponent": "Atlanta Hawks",
-        "venue": "H",
-        "score": "121-99",
         "result": "W"
       }
     ],
