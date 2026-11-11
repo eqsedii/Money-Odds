@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T03:58:26.086735Z",
+  "generated_at": "2026-11-11T13:26:06.138553Z",
   "predictions": [
     {
       "id": 575403,
@@ -106,20 +106,6 @@
       "locked": true
     },
     {
-      "id": "bb-21718191",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Golden State Warriors vs Sacramento Kings",
-      "home_team": "Golden State Warriors",
-      "away_team": "Sacramento Kings",
-      "home_team_id": 10,
-      "away_team_id": 26,
-      "league": "NBA",
-      "kickoff": "2026-11-25",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 575410,
       "sport": "Football",
       "icon": "\u26bd",
@@ -135,20 +121,6 @@
       "locked": true
     },
     {
-      "id": "bb-21718155",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Los Angeles Lakers vs Sacramento Kings",
-      "home_team": "Los Angeles Lakers",
-      "away_team": "Sacramento Kings",
-      "home_team_id": 14,
-      "away_team_id": 26,
-      "league": "NBA",
-      "kickoff": "2026-11-20",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 558828,
       "sport": "Football",
       "icon": "\u26bd",
@@ -160,6 +132,20 @@
       "league": "Eredivisie",
       "comp_code": "DED",
       "kickoff": "2026-11-22T11:15:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718191",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Golden State Warriors vs Sacramento Kings",
+      "home_team": "Golden State Warriors",
+      "away_team": "Sacramento Kings",
+      "home_team_id": 10,
+      "away_team_id": 26,
+      "league": "NBA",
+      "kickoff": "2026-11-25",
       "has_pick": true,
       "locked": true
     },
@@ -193,16 +179,16 @@
       "locked": true
     },
     {
-      "id": "bb-21718118",
+      "id": "bb-21718155",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
-      "match": "Boston Celtics vs Orlando Magic",
-      "home_team": "Boston Celtics",
-      "away_team": "Orlando Magic",
-      "home_team_id": 2,
-      "away_team_id": 22,
+      "match": "Los Angeles Lakers vs Sacramento Kings",
+      "home_team": "Los Angeles Lakers",
+      "away_team": "Sacramento Kings",
+      "home_team_id": 14,
+      "away_team_id": 26,
       "league": "NBA",
-      "kickoff": "2026-11-16",
+      "kickoff": "2026-11-20",
       "has_pick": true,
       "locked": true
     },
@@ -231,6 +217,20 @@
       "away_team_id": 27,
       "league": "NBA",
       "kickoff": "2026-11-11",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718118",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Boston Celtics vs Orlando Magic",
+      "home_team": "Boston Celtics",
+      "away_team": "Orlando Magic",
+      "home_team_id": 2,
+      "away_team_id": 22,
+      "league": "NBA",
+      "kickoff": "2026-11-16",
       "has_pick": true,
       "locked": true
     },

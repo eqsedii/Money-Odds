@@ -22,6 +22,46 @@
       "final_score": "101-123"
     },
     {
+      "date": "2026-10-27",
+      "id": "bb-21718076",
+      "sport": "Basketball",
+      "match": "Phoenix Suns vs LA Clippers",
+      "league": "NBA",
+      "pick": "LA Clippers Win",
+      "result": "loss",
+      "final_score": "133-110"
+    },
+    {
+      "date": "2026-10-27",
+      "id": "bb-21718078",
+      "sport": "Basketball",
+      "match": "Utah Jazz vs Miami Heat",
+      "league": "NBA",
+      "pick": "Utah Jazz Win",
+      "result": "loss",
+      "final_score": "109-115"
+    },
+    {
+      "date": "2026-10-27",
+      "id": "bb-21718079",
+      "sport": "Basketball",
+      "match": "Sacramento Kings vs Orlando Magic",
+      "league": "NBA",
+      "pick": "Over 230.9 Points",
+      "result": "loss",
+      "final_score": "100-107"
+    },
+    {
+      "date": "2026-10-27",
+      "id": "bb-21718080",
+      "sport": "Basketball",
+      "match": "Portland Trail Blazers vs Oklahoma City Thunder",
+      "league": "NBA",
+      "pick": "Portland Trail Blazers Win",
+      "result": "win",
+      "final_score": "123-103"
+    },
+    {
       "date": "2026-10-26",
       "id": "bb-21718066",
       "sport": "Basketball",
@@ -4960,46 +5000,6 @@
       "pick": "Under 2.5 Goals",
       "result": "loss",
       "final_score": "2-2"
-    },
-    {
-      "date": "2026-10-04",
-      "id": 555049,
-      "sport": "Football",
-      "match": "S\u00e3o Paulo FC vs CR Vasco da Gama",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "S\u00e3o Paulo FC Win",
-      "result": "win",
-      "final_score": "1-0"
-    },
-    {
-      "date": "2026-10-04",
-      "id": 558867,
-      "sport": "Football",
-      "match": "PEC Zwolle vs Go Ahead Eagles",
-      "league": "Eredivisie",
-      "pick": "Go Ahead Eagles Win",
-      "result": "loss",
-      "final_score": "4-1"
-    },
-    {
-      "date": "2026-10-04",
-      "id": 558574,
-      "sport": "Football",
-      "match": "Udinese Calcio vs US Lecce",
-      "league": "Serie A",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "0-3"
-    },
-    {
-      "date": "2026-10-04",
-      "id": 565827,
-      "sport": "Football",
-      "match": "Bayer 04 Leverkusen vs SC Freiburg",
-      "league": "Bundesliga",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "2-1"
     }
   ]
 }
