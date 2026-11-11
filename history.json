@@ -1,6 +1,26 @@
 {
-  "total_analyzed_since_start": 1040,
+  "total_analyzed_since_start": 1063,
   "history": [
+    {
+      "date": "2026-10-27",
+      "id": "bb-21718074",
+      "sport": "Basketball",
+      "match": "New York Knicks vs Milwaukee Bucks",
+      "league": "NBA",
+      "pick": "Over 225.6 Points",
+      "result": "loss",
+      "final_score": "117-85"
+    },
+    {
+      "date": "2026-10-27",
+      "id": "bb-21718075",
+      "sport": "Basketball",
+      "match": "Philadelphia 76ers vs Boston Celtics",
+      "league": "NBA",
+      "pick": "Over 222.5 Points",
+      "result": "win",
+      "final_score": "101-123"
+    },
     {
       "date": "2026-10-26",
       "id": "bb-21718066",
@@ -4980,26 +5000,6 @@
       "pick": "Under 2.5 Goals",
       "result": "loss",
       "final_score": "2-1"
-    },
-    {
-      "date": "2026-10-04",
-      "id": 564712,
-      "sport": "Football",
-      "match": "RC Celta de Vigo vs Deportivo Alav\u00e9s",
-      "league": "Primera Division",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "2-1"
-    },
-    {
-      "date": "2026-10-04",
-      "id": 558864,
-      "sport": "Football",
-      "match": "FC Groningen vs AFC Ajax",
-      "league": "Eredivisie",
-      "pick": "AFC Ajax Win",
-      "result": "win",
-      "final_score": "2-5"
     }
   ]
 }

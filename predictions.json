@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T21:21:24.737940Z",
+  "generated_at": "2026-11-11T03:58:26.086735Z",
   "predictions": [
     {
       "id": 575403,
@@ -13,6 +13,21 @@
       "league": "UEFA Champions League",
       "comp_code": "CL",
       "kickoff": "2026-11-24T20:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 575409,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Club Brugge KV vs Liverpool FC",
+      "home_team": "Club Brugge KV",
+      "away_team": "Liverpool FC",
+      "home_team_id": 851,
+      "away_team_id": 64,
+      "league": "UEFA Champions League",
+      "comp_code": "CL",
+      "kickoff": "2026-11-25T20:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -42,6 +57,21 @@
       "away_team_id": 5,
       "league": "NBA",
       "kickoff": "2026-11-14",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 575408,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Paris Saint-Germain FC vs AS Roma",
+      "home_team": "Paris Saint-Germain FC",
+      "away_team": "AS Roma",
+      "home_team_id": 524,
+      "away_team_id": 100,
+      "league": "UEFA Champions League",
+      "comp_code": "CL",
+      "kickoff": "2026-11-25T20:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -76,6 +106,35 @@
       "locked": true
     },
     {
+      "id": "bb-21718191",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Golden State Warriors vs Sacramento Kings",
+      "home_team": "Golden State Warriors",
+      "away_team": "Sacramento Kings",
+      "home_team_id": 10,
+      "away_team_id": 26,
+      "league": "NBA",
+      "kickoff": "2026-11-25",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 575410,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Lille OSC vs FC Bayern M\u00fcnchen",
+      "home_team": "Lille OSC",
+      "away_team": "FC Bayern M\u00fcnchen",
+      "home_team_id": 521,
+      "away_team_id": 5,
+      "league": "UEFA Champions League",
+      "comp_code": "CL",
+      "kickoff": "2026-11-25T20:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": "bb-21718155",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
@@ -101,6 +160,21 @@
       "league": "Eredivisie",
       "comp_code": "DED",
       "kickoff": "2026-11-22T11:15:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 575405,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "SK Slavia Praha vs Villarreal CF",
+      "home_team": "SK Slavia Praha",
+      "away_team": "Villarreal CF",
+      "home_team_id": 930,
+      "away_team_id": 94,
+      "league": "UEFA Champions League",
+      "comp_code": "CL",
+      "kickoff": "2026-11-25T17:45:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -143,20 +217,6 @@
       "away_team_id": 3,
       "league": "NBA",
       "kickoff": "2026-11-23",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718074",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "New York Knicks vs Milwaukee Bucks",
-      "home_team": "New York Knicks",
-      "away_team": "Milwaukee Bucks",
-      "home_team_id": 20,
-      "away_team_id": 17,
-      "league": "NBA",
-      "kickoff": "2026-11-10",
       "has_pick": true,
       "locked": true
     },
@@ -230,65 +290,6 @@
       "kickoff": "2026-11-23",
       "has_pick": true,
       "locked": true
-    },
-    {
-      "id": 555102,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Chapecoense AF vs SE Palmeiras",
-      "home_team": "Chapecoense AF",
-      "away_team": "SE Palmeiras",
-      "home_team_id": 1772,
-      "away_team_id": 1769,
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "comp_code": "BSA",
-      "kickoff": "2026-11-24T21:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718119",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Cleveland Cavaliers vs Chicago Bulls",
-      "home_team": "Cleveland Cavaliers",
-      "away_team": "Chicago Bulls",
-      "home_team_id": 6,
-      "away_team_id": 5,
-      "league": "NBA",
-      "kickoff": "2026-11-16",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 561944,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Southampton FC vs Derby County FC",
-      "home_team": "Southampton FC",
-      "away_team": "Derby County FC",
-      "home_team_id": 340,
-      "away_team_id": 342,
-      "league": "Championship",
-      "comp_code": "ELC",
-      "kickoff": "2026-11-21T12:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 558834,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Groningen vs SC Heerenveen",
-      "home_team": "FC Groningen",
-      "away_team": "SC Heerenveen",
-      "home_team_id": 677,
-      "away_team_id": 673,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-11-21T20:00:00Z",
-      "has_pick": true,
-      "locked": true
     }
   ],
   "multi_bets": [
@@ -303,9 +304,9 @@
           "meta": "UEFA Champions League"
         },
         {
-          "id": 575398,
+          "id": 575409,
           "icon": "\u26bd",
-          "match": "Manchester City FC vs SSC Napoli",
+          "match": "Club Brugge KV vs Liverpool FC",
           "meta": "UEFA Champions League"
         }
       ]
@@ -315,22 +316,22 @@
       "locked": true,
       "legs": [
         {
+          "id": 575398,
+          "icon": "\u26bd",
+          "match": "Manchester City FC vs SSC Napoli",
+          "meta": "UEFA Champions League"
+        },
+        {
           "id": "bb-21718108",
           "icon": "\ud83c\udfc0",
           "match": "Minnesota Timberwolves vs Chicago Bulls",
           "meta": "NBA"
         },
         {
-          "id": 565861,
+          "id": 575408,
           "icon": "\u26bd",
-          "match": "FC Schalke 04 vs VfB Stuttgart",
-          "meta": "Bundesliga"
-        },
-        {
-          "id": 564754,
-          "icon": "\u26bd",
-          "match": "Real Madrid CF vs RC Celta de Vigo",
-          "meta": "Primera Division"
+          "match": "Paris Saint-Germain FC vs AS Roma",
+          "meta": "UEFA Champions League"
         }
       ]
     }
