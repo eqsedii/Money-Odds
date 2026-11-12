@@ -1,6 +1,86 @@
 {
-  "total_analyzed_since_start": 1063,
+  "total_analyzed_since_start": 1064,
   "history": [
+    {
+      "date": "2026-10-28",
+      "id": "bb-21718081",
+      "sport": "Basketball",
+      "match": "Indiana Pacers vs Washington Wizards",
+      "league": "NBA",
+      "pick": "Indiana Pacers Win",
+      "result": "win",
+      "final_score": "114-101"
+    },
+    {
+      "date": "2026-10-28",
+      "id": "bb-21718082",
+      "sport": "Basketball",
+      "match": "New York Knicks vs Cleveland Cavaliers",
+      "league": "NBA",
+      "pick": "Over 225.5 Points",
+      "result": "loss",
+      "final_score": "107-115"
+    },
+    {
+      "date": "2026-10-28",
+      "id": "bb-21718083",
+      "sport": "Basketball",
+      "match": "Toronto Raptors vs Boston Celtics",
+      "league": "NBA",
+      "pick": "Toronto Raptors Win",
+      "result": "loss",
+      "final_score": "93-98"
+    },
+    {
+      "date": "2026-10-28",
+      "id": "bb-21718084",
+      "sport": "Basketball",
+      "match": "Chicago Bulls vs San Antonio Spurs",
+      "league": "NBA",
+      "pick": "San Antonio Spurs Win",
+      "result": "win",
+      "final_score": "119-124"
+    },
+    {
+      "date": "2026-10-28",
+      "id": "bb-21718085",
+      "sport": "Basketball",
+      "match": "Memphis Grizzlies vs Denver Nuggets",
+      "league": "NBA",
+      "pick": "Memphis Grizzlies Win",
+      "result": "loss",
+      "final_score": "118-123"
+    },
+    {
+      "date": "2026-10-28",
+      "id": "bb-21718086",
+      "sport": "Basketball",
+      "match": "Milwaukee Bucks vs Los Angeles Lakers",
+      "league": "NBA",
+      "pick": "Los Angeles Lakers Win",
+      "result": "win",
+      "final_score": "112-123"
+    },
+    {
+      "date": "2026-10-28",
+      "id": "bb-21718087",
+      "sport": "Basketball",
+      "match": "New Orleans Pelicans vs Brooklyn Nets",
+      "league": "NBA",
+      "pick": "New Orleans Pelicans Win",
+      "result": "loss",
+      "final_score": "111-145"
+    },
+    {
+      "date": "2026-10-28",
+      "id": "bb-21718088",
+      "sport": "Basketball",
+      "match": "Utah Jazz vs Orlando Magic",
+      "league": "NBA",
+      "pick": "Over 231.2 Points",
+      "result": "loss",
+      "final_score": "108-123"
+    },
     {
       "date": "2026-10-27",
       "id": "bb-21718074",
@@ -4920,86 +5000,6 @@
       "pick": "Under 2.5 Goals",
       "result": "loss",
       "final_score": "3-1"
-    },
-    {
-      "date": "2026-10-05",
-      "id": 564717,
-      "sport": "Football",
-      "match": "Getafe CF vs Rayo Vallecano de Madrid",
-      "league": "Primera Division",
-      "pick": "BTTS - No",
-      "result": "loss",
-      "final_score": "1-1"
-    },
-    {
-      "date": "2026-10-05",
-      "id": 567271,
-      "sport": "Football",
-      "match": "Sporting Clube de Braga vs Gil Vicente FC",
-      "league": "Primeira Liga",
-      "pick": "BTTS - No",
-      "result": "loss",
-      "final_score": "1-2"
-    },
-    {
-      "date": "2026-10-05",
-      "id": 555044,
-      "sport": "Football",
-      "match": "SC Corinthians Paulista vs EC Vit\u00f3ria",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "1-1"
-    },
-    {
-      "date": "2026-10-04",
-      "id": 555023,
-      "sport": "Football",
-      "match": "Cruzeiro EC vs S\u00e3o Paulo FC",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "Cruzeiro EC Win",
-      "result": "win",
-      "final_score": "2-0"
-    },
-    {
-      "date": "2026-10-04",
-      "id": 555024,
-      "sport": "Football",
-      "match": "Fluminense FC vs Coritiba FBC",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "4-0"
-    },
-    {
-      "date": "2026-10-04",
-      "id": 555026,
-      "sport": "Football",
-      "match": "SE Palmeiras vs EC Bahia",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "SE Palmeiras Win",
-      "result": "win",
-      "final_score": "1-0"
-    },
-    {
-      "date": "2026-10-04",
-      "id": 561872,
-      "sport": "Football",
-      "match": "Cardiff City FC vs Watford FC",
-      "league": "Championship",
-      "pick": "BTTS - No",
-      "result": "loss",
-      "final_score": "5-1"
-    },
-    {
-      "date": "2026-10-04",
-      "id": 561873,
-      "sport": "Football",
-      "match": "Burnley FC vs Charlton Athletic FC",
-      "league": "Championship",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "2-2"
     }
   ]
 }

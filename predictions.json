@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T21:54:46.691816Z",
+  "generated_at": "2026-11-12T05:07:11.384529Z",
   "predictions": [
     {
       "id": 575403,
@@ -47,20 +47,6 @@
       "locked": true
     },
     {
-      "id": "bb-21718108",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Minnesota Timberwolves vs Chicago Bulls",
-      "home_team": "Minnesota Timberwolves",
-      "away_team": "Chicago Bulls",
-      "home_team_id": 18,
-      "away_team_id": 5,
-      "league": "NBA",
-      "kickoff": "2026-11-14",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 575408,
       "sport": "Football",
       "icon": "\u26bd",
@@ -72,6 +58,20 @@
       "league": "UEFA Champions League",
       "comp_code": "CL",
       "kickoff": "2026-11-25T20:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718108",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Minnesota Timberwolves vs Chicago Bulls",
+      "home_team": "Minnesota Timberwolves",
+      "away_team": "Chicago Bulls",
+      "home_team_id": 18,
+      "away_team_id": 5,
+      "league": "NBA",
+      "kickoff": "2026-11-14",
       "has_pick": true,
       "locked": true
     },
@@ -193,48 +193,6 @@
       "locked": true
     },
     {
-      "id": "bb-21718175",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Minnesota Timberwolves vs Brooklyn Nets",
-      "home_team": "Minnesota Timberwolves",
-      "away_team": "Brooklyn Nets",
-      "home_team_id": 18,
-      "away_team_id": 3,
-      "league": "NBA",
-      "kickoff": "2026-11-23",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718084",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Chicago Bulls vs San Antonio Spurs",
-      "home_team": "Chicago Bulls",
-      "away_team": "San Antonio Spurs",
-      "home_team_id": 5,
-      "away_team_id": 27,
-      "league": "NBA",
-      "kickoff": "2026-11-11",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718118",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Boston Celtics vs Orlando Magic",
-      "home_team": "Boston Celtics",
-      "away_team": "Orlando Magic",
-      "home_team_id": 2,
-      "away_team_id": 22,
-      "league": "NBA",
-      "kickoff": "2026-11-16",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": "bb-21718129",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
@@ -278,6 +236,20 @@
       "locked": true
     },
     {
+      "id": "bb-21718160",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "San Antonio Spurs vs New Orleans Pelicans",
+      "home_team": "San Antonio Spurs",
+      "away_team": "New Orleans Pelicans",
+      "home_team_id": 27,
+      "away_team_id": 19,
+      "league": "NBA",
+      "kickoff": "2026-11-21",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": "bb-21718179",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
@@ -288,6 +260,35 @@
       "away_team_id": 29,
       "league": "NBA",
       "kickoff": "2026-11-23",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 555102,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Chapecoense AF vs SE Palmeiras",
+      "home_team": "Chapecoense AF",
+      "away_team": "SE Palmeiras",
+      "home_team_id": 1772,
+      "away_team_id": 1769,
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "comp_code": "BSA",
+      "kickoff": "2026-11-24T21:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718119",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Cleveland Cavaliers vs Chicago Bulls",
+      "home_team": "Cleveland Cavaliers",
+      "away_team": "Chicago Bulls",
+      "home_team_id": 6,
+      "away_team_id": 5,
+      "league": "NBA",
+      "kickoff": "2026-11-16",
       "has_pick": true,
       "locked": true
     }
@@ -322,16 +323,16 @@
           "meta": "UEFA Champions League"
         },
         {
-          "id": "bb-21718108",
-          "icon": "\ud83c\udfc0",
-          "match": "Minnesota Timberwolves vs Chicago Bulls",
-          "meta": "NBA"
-        },
-        {
           "id": 575408,
           "icon": "\u26bd",
           "match": "Paris Saint-Germain FC vs AS Roma",
           "meta": "UEFA Champions League"
+        },
+        {
+          "id": "bb-21718108",
+          "icon": "\ud83c\udfc0",
+          "match": "Minnesota Timberwolves vs Chicago Bulls",
+          "meta": "NBA"
         }
       ]
     }
