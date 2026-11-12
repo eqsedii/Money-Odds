@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T05:07:11.384529Z",
+  "generated_at": "2026-11-12T14:28:58.334020Z",
   "predictions": [
     {
       "id": 575403,
@@ -136,20 +136,6 @@
       "locked": true
     },
     {
-      "id": "bb-21718191",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Golden State Warriors vs Sacramento Kings",
-      "home_team": "Golden State Warriors",
-      "away_team": "Sacramento Kings",
-      "home_team_id": 10,
-      "away_team_id": 26,
-      "league": "NBA",
-      "kickoff": "2026-11-25",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 575405,
       "sport": "Football",
       "icon": "\u26bd",
@@ -189,6 +175,20 @@
       "away_team_id": 26,
       "league": "NBA",
       "kickoff": "2026-11-20",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718191",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Golden State Warriors vs Sacramento Kings",
+      "home_team": "Golden State Warriors",
+      "away_team": "Sacramento Kings",
+      "home_team_id": 10,
+      "away_team_id": 26,
+      "league": "NBA",
+      "kickoff": "2026-11-25",
       "has_pick": true,
       "locked": true
     },
