@@ -32,6 +32,16 @@
       "final_score": "133-94"
     },
     {
+      "date": "2026-10-29",
+      "id": "bb-21718094",
+      "sport": "Basketball",
+      "match": "Phoenix Suns vs Charlotte Hornets",
+      "league": "NBA",
+      "pick": "Over 222.3 Points",
+      "result": "loss",
+      "final_score": "101-96"
+    },
+    {
       "date": "2026-10-28",
       "id": "bb-21718081",
       "sport": "Basketball",
@@ -4990,16 +5000,6 @@
       "pick": "Over 2.5 Goals",
       "result": "win",
       "final_score": "4-0"
-    },
-    {
-      "date": "2026-10-05",
-      "id": 561876,
-      "sport": "Football",
-      "match": "Stoke City FC vs Middlesbrough FC",
-      "league": "Championship",
-      "pick": "Stoke City FC Win",
-      "result": "loss",
-      "final_score": "2-3"
     }
   ]
 }
