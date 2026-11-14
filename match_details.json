@@ -1651,8 +1651,80 @@
     }
   },
   "561944": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Preston North End FC",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "West Bromwich Albion FC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Queens Park Rangers FC",
+        "venue": "H",
+        "score": "4-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "West Ham United FC",
+        "venue": "A",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Bolton Wanderers FC",
+        "venue": "H",
+        "score": "0-0",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-06",
+        "opponent": "Bolton Wanderers FC",
+        "venue": "H",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Norwich City FC",
+        "venue": "H",
+        "score": "0-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Millwall FC",
+        "venue": "A",
+        "score": "1-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Sheffield United FC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Stoke City FC",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      }
+    ],
     "h2h": {
       "number_of_matches": 5,
       "home_wins": 0,
@@ -1677,8 +1749,80 @@
     }
   },
   "561948": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Bristol City FC",
+        "venue": "A",
+        "score": "5-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Derby County FC",
+        "venue": "A",
+        "score": "4-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Watford FC",
+        "venue": "H",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Charlton Athletic FC",
+        "venue": "A",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Portsmouth FC",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Burnley FC",
+        "venue": "H",
+        "score": "5-4",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "West Ham United FC",
+        "venue": "H",
+        "score": "3-3",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Wolverhampton Wanderers FC",
+        "venue": "A",
+        "score": "0-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Birmingham City FC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Middlesbrough FC",
+        "venue": "A",
+        "score": "2-2",
+        "result": "D"
+      }
+    ],
     "h2h": {
       "number_of_matches": 5,
       "home_wins": 0,
@@ -1717,8 +1861,80 @@
     }
   },
   "561950": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "West Bromwich Albion FC",
+        "venue": "A",
+        "score": "0-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Birmingham City FC",
+        "venue": "A",
+        "score": "0-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Derby County FC",
+        "venue": "H",
+        "score": "4-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Portsmouth FC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Lincoln City FC",
+        "venue": "H",
+        "score": "2-2",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Lincoln City FC",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Burnley FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Southampton FC",
+        "venue": "A",
+        "score": "1-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Swansea City AFC",
+        "venue": "H",
+        "score": "5-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Birmingham City FC",
+        "venue": "A",
+        "score": "0-3",
+        "result": "L"
+      }
+    ],
     "h2h": {
       "number_of_matches": 5,
       "home_wins": 0,
@@ -3098,8 +3314,80 @@
     }
   },
   "561941": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Charlton Athletic FC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Preston North End FC",
+        "venue": "A",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-30",
+        "opponent": "Wrexham AFC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Derby County FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Bristol City FC",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Middlesbrough FC",
+        "venue": "H",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Lincoln City FC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Norwich City FC",
+        "venue": "A",
+        "score": "2-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Wolverhampton Wanderers FC",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Charlton Athletic FC",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      }
+    ],
     "h2h": {
       "number_of_matches": 5,
       "home_wins": 0,
@@ -3145,8 +3433,80 @@
     }
   },
   "561942": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Birmingham City FC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Portsmouth FC",
+        "venue": "A",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Blackburn Rovers FC",
+        "venue": "H",
+        "score": "4-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Queens Park Rangers FC",
+        "venue": "A",
+        "score": "0-5",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "West Ham United FC",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Millwall FC",
+        "venue": "H",
+        "score": "3-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Southampton FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "West Ham United FC",
+        "venue": "A",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Preston North End FC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Blackburn Rovers FC",
+        "venue": "H",
+        "score": "3-2",
+        "result": "W"
+      }
+    ],
     "h2h": {
       "number_of_matches": 5,
       "home_wins": 0,
@@ -3185,8 +3545,80 @@
     }
   },
   "561943": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Watford FC",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Wrexham AFC",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Charlton Athletic FC",
+        "venue": "H",
+        "score": "3-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-23",
+        "opponent": "Bolton Wanderers FC",
+        "venue": "A",
+        "score": "5-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Cardiff City FC",
+        "venue": "H",
+        "score": "2-2",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Norwich City FC",
+        "venue": "H",
+        "score": "0-5",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Wolverhampton Wanderers FC",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Bolton Wanderers FC",
+        "venue": "A",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Stoke City FC",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Sheffield United FC",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      }
+    ],
     "h2h": {
       "number_of_matches": 5,
       "home_wins": 0,
@@ -3232,8 +3664,80 @@
     }
   },
   "561945": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-06",
+        "opponent": "Derby County FC",
+        "venue": "A",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Charlton Athletic FC",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Bristol City FC",
+        "venue": "H",
+        "score": "2-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-23",
+        "opponent": "Middlesbrough FC",
+        "venue": "H",
+        "score": "1-5",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Southampton FC",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Stoke City FC",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Swansea City AFC",
+        "venue": "H",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Burnley FC",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Millwall FC",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-20",
+        "opponent": "Wolverhampton Wanderers FC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      }
+    ],
     "h2h": {
       "number_of_matches": 5,
       "home_wins": 0,
@@ -3243,8 +3747,80 @@
     }
   },
   "561946": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Portsmouth FC",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Blackburn Rovers FC",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Preston North End FC",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Bristol City FC",
+        "venue": "H",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Derby County FC",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Swansea City AFC",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Millwall FC",
+        "venue": "H",
+        "score": "3-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Lincoln City FC",
+        "venue": "A",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Cardiff City FC",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Queens Park Rangers FC",
+        "venue": "H",
+        "score": "3-0",
+        "result": "W"
+      }
+    ],
     "h2h": {
       "number_of_matches": 5,
       "home_wins": 0,
@@ -3290,8 +3866,80 @@
     }
   },
   "561949": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Queens Park Rangers FC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Watford FC",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Birmingham City FC",
+        "venue": "H",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Burnley FC",
+        "venue": "H",
+        "score": "4-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Millwall FC",
+        "venue": "A",
+        "score": "2-2",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Wolverhampton Wanderers FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Middlesbrough FC",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-30",
+        "opponent": "Sheffield United FC",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Blackburn Rovers FC",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Preston North End FC",
+        "venue": "H",
+        "score": "4-1",
+        "result": "W"
+      }
+    ],
     "h2h": {
       "number_of_matches": 5,
       "home_wins": 0,
@@ -3301,8 +3949,80 @@
     }
   },
   "561951": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Blackburn Rovers FC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Cardiff City FC",
+        "venue": "A",
+        "score": "3-3",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "West Bromwich Albion FC",
+        "venue": "H",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Southampton FC",
+        "venue": "H",
+        "score": "2-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Swansea City AFC",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Southampton FC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Sheffield United FC",
+        "venue": "H",
+        "score": "2-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Stoke City FC",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "West Bromwich Albion FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Wrexham AFC",
+        "venue": "A",
+        "score": "1-4",
+        "result": "L"
+      }
+    ],
     "h2h": {
       "number_of_matches": 5,
       "home_wins": 0,
@@ -3312,8 +4032,80 @@
     }
   },
   "561952": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Wrexham AFC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Bristol City FC",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Cardiff City FC",
+        "venue": "H",
+        "score": "3-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Watford FC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-20",
+        "opponent": "Portsmouth FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Sheffield United FC",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Bolton Wanderers FC",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Middlesbrough FC",
+        "venue": "A",
+        "score": "0-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Norwich City FC",
+        "venue": "H",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Watford FC",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      }
+    ],
     "h2h": {
       "number_of_matches": 5,
       "home_wins": 0,
@@ -5059,8 +5851,80 @@
     "h2h": null
   },
   "561947": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Cardiff City FC",
+        "venue": "A",
+        "score": "4-5",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Queens Park Rangers FC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Portsmouth FC",
+        "venue": "H",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Lincoln City FC",
+        "venue": "A",
+        "score": "1-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-16",
+        "opponent": "Wolverhampton Wanderers FC",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "West Ham United FC",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Stoke City FC",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Swansea City AFC",
+        "venue": "A",
+        "score": "0-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Wrexham AFC",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "West Bromwich Albion FC",
+        "venue": "A",
+        "score": "2-3",
+        "result": "L"
+      }
+    ],
     "h2h": null
   },
   "564749": {
@@ -7269,43 +8133,619 @@
     "h2h": null
   },
   "561953": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Burnley FC",
+        "venue": "H",
+        "score": "5-4",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "West Ham United FC",
+        "venue": "H",
+        "score": "3-3",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Wolverhampton Wanderers FC",
+        "venue": "A",
+        "score": "0-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Birmingham City FC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Middlesbrough FC",
+        "venue": "A",
+        "score": "2-2",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Southampton FC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Sheffield United FC",
+        "venue": "H",
+        "score": "2-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Stoke City FC",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "West Bromwich Albion FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Wrexham AFC",
+        "venue": "A",
+        "score": "1-4",
+        "result": "L"
+      }
+    ],
     "h2h": null
   },
   "561954": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Watford FC",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Wrexham AFC",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Charlton Athletic FC",
+        "venue": "H",
+        "score": "3-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-23",
+        "opponent": "Bolton Wanderers FC",
+        "venue": "A",
+        "score": "5-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Cardiff City FC",
+        "venue": "H",
+        "score": "2-2",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Birmingham City FC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Portsmouth FC",
+        "venue": "A",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Blackburn Rovers FC",
+        "venue": "H",
+        "score": "4-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Queens Park Rangers FC",
+        "venue": "A",
+        "score": "0-5",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "West Ham United FC",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      }
+    ],
     "h2h": null
   },
   "561955": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Stoke City FC",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Swansea City AFC",
+        "venue": "H",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Burnley FC",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Millwall FC",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-20",
+        "opponent": "Wolverhampton Wanderers FC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Blackburn Rovers FC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Cardiff City FC",
+        "venue": "A",
+        "score": "3-3",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "West Bromwich Albion FC",
+        "venue": "H",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Southampton FC",
+        "venue": "H",
+        "score": "2-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Swansea City AFC",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      }
+    ],
     "h2h": null
   },
   "561956": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Charlton Athletic FC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Preston North End FC",
+        "venue": "A",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-30",
+        "opponent": "Wrexham AFC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Derby County FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Bristol City FC",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Preston North End FC",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "West Bromwich Albion FC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Queens Park Rangers FC",
+        "venue": "H",
+        "score": "4-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "West Ham United FC",
+        "venue": "A",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Bolton Wanderers FC",
+        "venue": "H",
+        "score": "0-0",
+        "result": "D"
+      }
+    ],
     "h2h": null
   },
   "561958": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Sheffield United FC",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Bolton Wanderers FC",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Middlesbrough FC",
+        "venue": "A",
+        "score": "0-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Norwich City FC",
+        "venue": "H",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Watford FC",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Queens Park Rangers FC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Watford FC",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Birmingham City FC",
+        "venue": "H",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Burnley FC",
+        "venue": "H",
+        "score": "4-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Millwall FC",
+        "venue": "A",
+        "score": "2-2",
+        "result": "D"
+      }
+    ],
     "h2h": null
   },
   "561959": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Norwich City FC",
+        "venue": "H",
+        "score": "0-5",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Wolverhampton Wanderers FC",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Bolton Wanderers FC",
+        "venue": "A",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Stoke City FC",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Sheffield United FC",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Wolverhampton Wanderers FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Middlesbrough FC",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-30",
+        "opponent": "Sheffield United FC",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Blackburn Rovers FC",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Preston North End FC",
+        "venue": "H",
+        "score": "4-1",
+        "result": "W"
+      }
+    ],
     "h2h": null
   },
   "561960": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Bristol City FC",
+        "venue": "A",
+        "score": "5-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Derby County FC",
+        "venue": "A",
+        "score": "4-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Watford FC",
+        "venue": "H",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Charlton Athletic FC",
+        "venue": "A",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Portsmouth FC",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Lincoln City FC",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Burnley FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Southampton FC",
+        "venue": "A",
+        "score": "1-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Swansea City AFC",
+        "venue": "H",
+        "score": "5-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Birmingham City FC",
+        "venue": "A",
+        "score": "0-3",
+        "result": "L"
+      }
+    ],
     "h2h": null
   },
   "561957": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Wrexham AFC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Bristol City FC",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Cardiff City FC",
+        "venue": "H",
+        "score": "3-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Watford FC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-20",
+        "opponent": "Portsmouth FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-06",
+        "opponent": "Bolton Wanderers FC",
+        "venue": "H",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Norwich City FC",
+        "venue": "H",
+        "score": "0-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Millwall FC",
+        "venue": "A",
+        "score": "1-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Sheffield United FC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Stoke City FC",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      }
+    ],
     "h2h": null
   },
   "575397": {
@@ -7953,23 +9393,311 @@
     "h2h": null
   },
   "561961": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Middlesbrough FC",
+        "venue": "H",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Lincoln City FC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Norwich City FC",
+        "venue": "A",
+        "score": "2-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Wolverhampton Wanderers FC",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Charlton Athletic FC",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "West Ham United FC",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Stoke City FC",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Swansea City AFC",
+        "venue": "A",
+        "score": "0-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Wrexham AFC",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "West Bromwich Albion FC",
+        "venue": "A",
+        "score": "2-3",
+        "result": "L"
+      }
+    ],
     "h2h": null
   },
   "561963": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-06",
+        "opponent": "Derby County FC",
+        "venue": "A",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Charlton Athletic FC",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Bristol City FC",
+        "venue": "H",
+        "score": "2-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-23",
+        "opponent": "Middlesbrough FC",
+        "venue": "H",
+        "score": "1-5",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Southampton FC",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Millwall FC",
+        "venue": "H",
+        "score": "3-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Southampton FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "West Ham United FC",
+        "venue": "A",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Preston North End FC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Blackburn Rovers FC",
+        "venue": "H",
+        "score": "3-2",
+        "result": "W"
+      }
+    ],
     "h2h": null
   },
   "561964": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Cardiff City FC",
+        "venue": "A",
+        "score": "4-5",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Queens Park Rangers FC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Portsmouth FC",
+        "venue": "H",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Lincoln City FC",
+        "venue": "A",
+        "score": "1-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-16",
+        "opponent": "Wolverhampton Wanderers FC",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Swansea City AFC",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Millwall FC",
+        "venue": "H",
+        "score": "3-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Lincoln City FC",
+        "venue": "A",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Cardiff City FC",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Queens Park Rangers FC",
+        "venue": "H",
+        "score": "3-0",
+        "result": "W"
+      }
+    ],
     "h2h": null
   },
   "561962": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Portsmouth FC",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Blackburn Rovers FC",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Preston North End FC",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Bristol City FC",
+        "venue": "H",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Derby County FC",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "West Bromwich Albion FC",
+        "venue": "A",
+        "score": "0-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Birmingham City FC",
+        "venue": "A",
+        "score": "0-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Derby County FC",
+        "venue": "H",
+        "score": "4-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Portsmouth FC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Lincoln City FC",
+        "venue": "H",
+        "score": "2-2",
+        "result": "D"
+      }
+    ],
     "h2h": null
   },
   "575406": {
@@ -9030,8 +10758,80 @@
     "h2h": null
   },
   "561968": {
-    "home_recent": [],
-    "away_recent": [],
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Preston North End FC",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "West Bromwich Albion FC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Queens Park Rangers FC",
+        "venue": "H",
+        "score": "4-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "West Ham United FC",
+        "venue": "A",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Bolton Wanderers FC",
+        "venue": "H",
+        "score": "0-0",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Watford FC",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Wrexham AFC",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Charlton Athletic FC",
+        "venue": "H",
+        "score": "3-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-23",
+        "opponent": "Bolton Wanderers FC",
+        "venue": "A",
+        "score": "5-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Cardiff City FC",
+        "venue": "H",
+        "score": "2-2",
+        "result": "D"
+      }
+    ],
     "h2h": null
   },
   "567361": {
@@ -9188,734 +10988,2864 @@
     ],
     "h2h": null
   },
-  "bb-21718095": {
+  "561969": {
     "home_recent": [
       {
-        "date": "2026-11-11",
-        "opponent": "Washington Wizards",
-        "venue": "H",
-        "score": "114-101",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-09",
-        "opponent": "Dallas Mavericks",
-        "venue": "A",
-        "score": "122-125",
-        "result": "L"
-      },
-      {
         "date": "2026-11-07",
-        "opponent": "Denver Nuggets",
+        "opponent": "West Ham United FC",
         "venue": "H",
-        "score": "102-114",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Memphis Grizzlies",
-        "venue": "A",
-        "score": "107-103",
+        "score": "2-1",
         "result": "W"
       },
       {
-        "date": "2026-11-02",
-        "opponent": "Atlanta Hawks",
+        "date": "2026-11-03",
+        "opponent": "Stoke City FC",
         "venue": "H",
-        "score": "104-108",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Swansea City AFC",
+        "venue": "A",
+        "score": "0-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Wrexham AFC",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "West Bromwich Albion FC",
+        "venue": "A",
+        "score": "2-3",
         "result": "L"
       }
     ],
     "away_recent": [
       {
-        "date": "2026-11-11",
-        "opponent": "Cleveland Cavaliers",
-        "venue": "H",
-        "score": "107-115",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-10",
-        "opponent": "Milwaukee Bucks",
-        "venue": "H",
-        "score": "117-85",
-        "result": "W"
-      },
-      {
         "date": "2026-11-07",
-        "opponent": "Cleveland Cavaliers",
-        "venue": "A",
-        "score": "109-97",
+        "opponent": "Sheffield United FC",
+        "venue": "H",
+        "score": "2-1",
         "result": "W"
       },
       {
-        "date": "2026-11-04",
-        "opponent": "Chicago Bulls",
+        "date": "2026-11-03",
+        "opponent": "Bolton Wanderers FC",
         "venue": "H",
-        "score": "135-105",
-        "result": "W"
+        "score": "0-1",
+        "result": "L"
       },
       {
-        "date": "2026-11-02",
-        "opponent": "Brooklyn Nets",
+        "date": "2026-10-31",
+        "opponent": "Middlesbrough FC",
+        "venue": "A",
+        "score": "0-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Norwich City FC",
         "venue": "H",
-        "score": "103-90",
-        "result": "W"
-      }
-    ],
-    "h2h": null
-  },
-  "bb-21718096": {
-    "home_recent": [
+        "score": "1-3",
+        "result": "L"
+      },
       {
-        "date": "2026-11-11",
-        "opponent": "Utah Jazz",
+        "date": "2026-10-17",
+        "opponent": "Watford FC",
         "venue": "A",
-        "score": "123-108",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-10",
-        "opponent": "Sacramento Kings",
-        "venue": "A",
-        "score": "107-100",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-07",
-        "opponent": "Golden State Warriors",
-        "venue": "A",
-        "score": "119-126",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-05",
-        "opponent": "Phoenix Suns",
-        "venue": "A",
-        "score": "104-117",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Washington Wizards",
-        "venue": "H",
-        "score": "94-103",
-        "result": "L"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-11-11",
-        "opponent": "Los Angeles Lakers",
-        "venue": "H",
-        "score": "112-123",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-10",
-        "opponent": "New York Knicks",
-        "venue": "A",
-        "score": "85-117",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-08",
-        "opponent": "Boston Celtics",
-        "venue": "H",
-        "score": "97-117",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-06",
-        "opponent": "Toronto Raptors",
-        "venue": "H",
-        "score": "107-121",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Boston Celtics",
-        "venue": "A",
-        "score": "102-109",
+        "score": "0-2",
         "result": "L"
       }
     ],
     "h2h": null
   },
-  "bb-21718097": {
+  "561972": {
     "home_recent": [
       {
-        "date": "2026-11-10",
-        "opponent": "Utah Jazz",
+        "date": "2026-11-07",
+        "opponent": "Queens Park Rangers FC",
         "venue": "A",
-        "score": "115-109",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-08",
-        "opponent": "Sacramento Kings",
-        "venue": "A",
-        "score": "114-108",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-05",
-        "opponent": "Golden State Warriors",
-        "venue": "A",
-        "score": "100-120",
+        "score": "1-2",
         "result": "L"
       },
       {
-        "date": "2026-11-04",
-        "opponent": "LA Clippers",
+        "date": "2026-11-03",
+        "opponent": "Watford FC",
         "venue": "A",
-        "score": "117-116",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Birmingham City FC",
+        "venue": "H",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Burnley FC",
+        "venue": "H",
+        "score": "4-1",
         "result": "W"
       },
       {
-        "date": "2026-11-02",
-        "opponent": "Los Angeles Lakers",
+        "date": "2026-10-17",
+        "opponent": "Millwall FC",
         "venue": "A",
-        "score": "117-138",
+        "score": "2-2",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Wrexham AFC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Bristol City FC",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Cardiff City FC",
+        "venue": "H",
+        "score": "3-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Watford FC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-20",
+        "opponent": "Portsmouth FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      }
+    ],
+    "h2h": null
+  },
+  "561973": {
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Southampton FC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Sheffield United FC",
+        "venue": "H",
+        "score": "2-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Stoke City FC",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "West Bromwich Albion FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Wrexham AFC",
+        "venue": "A",
+        "score": "1-4",
         "result": "L"
       }
     ],
     "away_recent": [
       {
-        "date": "2026-11-11",
-        "opponent": "New York Knicks",
-        "venue": "A",
-        "score": "115-107",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-09",
-        "opponent": "Charlotte Hornets",
-        "venue": "A",
-        "score": "112-124",
-        "result": "L"
-      },
-      {
         "date": "2026-11-07",
-        "opponent": "New York Knicks",
-        "venue": "H",
-        "score": "97-109",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-06",
-        "opponent": "Philadelphia 76ers",
-        "venue": "H",
-        "score": "119-95",
+        "opponent": "Bristol City FC",
+        "venue": "A",
+        "score": "5-0",
         "result": "W"
       },
       {
-        "date": "2026-11-04",
-        "opponent": "Oklahoma City Thunder",
+        "date": "2026-11-03",
+        "opponent": "Derby County FC",
         "venue": "A",
-        "score": "116-124",
+        "score": "4-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Watford FC",
+        "venue": "H",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Charlton Athletic FC",
+        "venue": "A",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Portsmouth FC",
+        "venue": "H",
+        "score": "0-1",
         "result": "L"
       }
     ],
     "h2h": null
   },
-  "bb-21718098": {
+  "564760": {
     "home_recent": [
       {
-        "date": "2026-11-11",
-        "opponent": "San Antonio Spurs",
-        "venue": "H",
-        "score": "119-124",
-        "result": "L"
-      },
-      {
         "date": "2026-11-08",
-        "opponent": "Philadelphia 76ers",
+        "opponent": "Elche CF",
+        "venue": "A",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "M\u00e1laga CF",
         "venue": "H",
-        "score": "121-127",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "RC Celta de Vigo",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "FC Barcelona",
+        "venue": "H",
+        "score": "2-5",
         "result": "L"
       },
       {
-        "date": "2026-11-04",
-        "opponent": "New York Knicks",
-        "venue": "A",
-        "score": "105-135",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Philadelphia 76ers",
-        "venue": "A",
-        "score": "107-126",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-30",
-        "opponent": "Boston Celtics",
-        "venue": "A",
-        "score": "111-125",
-        "result": "L"
+        "date": "2026-10-11",
+        "opponent": "CA Osasuna",
+        "venue": "H",
+        "score": "5-2",
+        "result": "W"
       }
     ],
     "away_recent": [
       {
-        "date": "2026-11-09",
-        "opponent": "Los Angeles Lakers",
-        "venue": "H",
-        "score": "114-124",
+        "date": "2026-11-08",
+        "opponent": "Real Sociedad de F\u00fatbol",
+        "venue": "A",
+        "score": "0-1",
         "result": "L"
       },
       {
-        "date": "2026-11-07",
-        "opponent": "Brooklyn Nets",
+        "date": "2026-10-31",
+        "opponent": "RC Celta de Vigo",
         "venue": "H",
-        "score": "124-121",
+        "score": "3-0",
         "result": "W"
       },
       {
-        "date": "2026-11-06",
-        "opponent": "Washington Wizards",
+        "date": "2026-10-24",
+        "opponent": "Elche CF",
         "venue": "H",
-        "score": "139-132",
-        "result": "W"
+        "score": "0-3",
+        "result": "L"
       },
       {
-        "date": "2026-11-04",
-        "opponent": "Washington Wizards",
+        "date": "2026-10-19",
+        "opponent": "Getafe CF",
         "venue": "A",
-        "score": "120-105",
-        "result": "W"
+        "score": "1-1",
+        "result": "D"
       },
       {
-        "date": "2026-11-02",
-        "opponent": "Indiana Pacers",
+        "date": "2026-09-19",
+        "opponent": "CA Osasuna",
         "venue": "A",
-        "score": "108-104",
-        "result": "W"
+        "score": "1-1",
+        "result": "D"
       }
     ],
     "h2h": null
   },
-  "bb-21718099": {
+  "558513": {
     "home_recent": [
-      {
-        "date": "2026-11-11",
-        "opponent": "Brooklyn Nets",
-        "venue": "H",
-        "score": "111-145",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-09",
-        "opponent": "Golden State Warriors",
-        "venue": "A",
-        "score": "87-138",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-08",
-        "opponent": "LA Clippers",
-        "venue": "A",
-        "score": "123-139",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-06",
-        "opponent": "Minnesota Timberwolves",
-        "venue": "H",
-        "score": "109-115",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Utah Jazz",
-        "venue": "H",
-        "score": "120-113",
-        "result": "W"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-11-11",
-        "opponent": "Denver Nuggets",
-        "venue": "H",
-        "score": "118-123",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-09",
-        "opponent": "Toronto Raptors",
-        "venue": "A",
-        "score": "118-102",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-06",
-        "opponent": "Oklahoma City Thunder",
-        "venue": "H",
-        "score": "97-128",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Indiana Pacers",
-        "venue": "H",
-        "score": "103-107",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "New Orleans Pelicans",
-        "venue": "H",
-        "score": "134-135",
-        "result": "L"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 1,
-      "matches": [
-        {
-          "date": "2026-11-02",
-          "home": "Memphis Grizzlies",
-          "away": "New Orleans Pelicans",
-          "score": "134-135",
-          "competition": "NBA"
-        }
-      ]
-    }
-  },
-  "bb-21718100": {
-    "home_recent": [
-      {
-        "date": "2026-11-11",
-        "opponent": "Golden State Warriors",
-        "venue": "H",
-        "score": "115-108",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-09",
-        "opponent": "Denver Nuggets",
-        "venue": "H",
-        "score": "110-100",
-        "result": "W"
-      },
       {
         "date": "2026-11-07",
-        "opponent": "Phoenix Suns",
+        "opponent": "Cagliari Calcio",
         "venue": "A",
-        "score": "99-102",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Minnesota Timberwolves",
-        "venue": "H",
-        "score": "107-117",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Boston Celtics",
-        "venue": "H",
-        "score": "109-93",
-        "result": "W"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-11-11",
-        "opponent": "Orlando Magic",
-        "venue": "H",
-        "score": "108-123",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-10",
-        "opponent": "Miami Heat",
-        "venue": "H",
-        "score": "109-115",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-08",
-        "opponent": "Minnesota Timberwolves",
-        "venue": "A",
-        "score": "100-115",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-06",
-        "opponent": "Dallas Mavericks",
-        "venue": "A",
-        "score": "100-112",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "New Orleans Pelicans",
-        "venue": "A",
-        "score": "113-120",
-        "result": "L"
-      }
-    ],
-    "h2h": null
-  },
-  "bb-21718101": {
-    "home_recent": [
-      {
-        "date": "2026-11-11",
-        "opponent": "Chicago Bulls",
-        "venue": "A",
-        "score": "124-119",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-09",
-        "opponent": "Phoenix Suns",
-        "venue": "A",
-        "score": "122-96",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-07",
-        "opponent": "Portland Trail Blazers",
-        "venue": "A",
-        "score": "125-103",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-06",
-        "opponent": "Sacramento Kings",
-        "venue": "A",
-        "score": "124-109",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Dallas Mavericks",
-        "venue": "H",
-        "score": "112-111",
-        "result": "W"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-11-11",
-        "opponent": "Houston Rockets",
-        "venue": "A",
-        "score": "108-115",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-09",
-        "opponent": "New Orleans Pelicans",
-        "venue": "H",
-        "score": "138-87",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-07",
-        "opponent": "Orlando Magic",
-        "venue": "H",
-        "score": "126-119",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-05",
-        "opponent": "Miami Heat",
-        "venue": "H",
-        "score": "120-100",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Phoenix Suns",
-        "venue": "H",
-        "score": "116-113",
-        "result": "W"
-      }
-    ],
-    "h2h": null
-  },
-  "bb-21718102": {
-    "home_recent": [
-      {
-        "date": "2026-11-10",
-        "opponent": "Orlando Magic",
-        "venue": "H",
-        "score": "100-107",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-08",
-        "opponent": "Miami Heat",
-        "venue": "H",
-        "score": "108-114",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-06",
-        "opponent": "San Antonio Spurs",
-        "venue": "H",
-        "score": "109-124",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Los Angeles Lakers",
-        "venue": "H",
-        "score": "103-116",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Dallas Mavericks",
-        "venue": "A",
-        "score": "115-100",
-        "result": "W"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-11-11",
-        "opponent": "Oklahoma City Thunder",
-        "venue": "H",
-        "score": "118-108",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-10",
-        "opponent": "Oklahoma City Thunder",
-        "venue": "H",
-        "score": "123-103",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-07",
-        "opponent": "San Antonio Spurs",
-        "venue": "H",
-        "score": "103-125",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-06",
-        "opponent": "Los Angeles Lakers",
-        "venue": "A",
-        "score": "118-124",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Phoenix Suns",
-        "venue": "A",
-        "score": "132-119",
-        "result": "W"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 1,
-      "matches": [
-        {
-          "date": "2026-10-23",
-          "home": "Sacramento Kings",
-          "away": "Portland Trail Blazers",
-          "score": "120-128",
-          "competition": "NBA"
-        }
-      ]
-    }
-  },
-  "bb-21718103": {
-    "home_recent": [
-      {
-        "date": "2026-11-10",
-        "opponent": "Phoenix Suns",
-        "venue": "A",
-        "score": "110-133",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-08",
-        "opponent": "New Orleans Pelicans",
-        "venue": "H",
-        "score": "139-123",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Miami Heat",
-        "venue": "H",
-        "score": "116-117",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Toronto Raptors",
-        "venue": "H",
-        "score": "118-125",
+        "score": "0-1",
         "result": "L"
       },
       {
         "date": "2026-11-01",
-        "opponent": "Golden State Warriors",
+        "opponent": "Torino FC",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-29",
+        "opponent": "US Lecce",
+        "venue": "H",
+        "score": "5-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "Atalanta BC",
         "venue": "A",
-        "score": "112-124",
+        "score": "4-4",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-16",
+        "opponent": "US Sassuolo Calcio",
+        "venue": "H",
+        "score": "4-2",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Bologna FC 1909",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-02",
+        "opponent": "Atalanta BC",
+        "venue": "A",
+        "score": "3-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-28",
+        "opponent": "Udinese Calcio",
+        "venue": "H",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "SS Lazio",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-19",
+        "opponent": "Torino FC",
+        "venue": "H",
+        "score": "0-3",
+        "result": "L"
+      }
+    ],
+    "h2h": null
+  },
+  "565866": {
+    "home_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "Bayer 04 Leverkusen",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-01",
+        "opponent": "1. FC Union Berlin",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "FC Schalke 04",
+        "venue": "H",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-16",
+        "opponent": "Eintracht Frankfurt",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "Borussia M\u00f6nchengladbach",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Borussia Dortmund",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-30",
+        "opponent": "1. FSV Mainz 05",
+        "venue": "H",
+        "score": "4-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "RB Leipzig",
+        "venue": "A",
+        "score": "0-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "FC Augsburg",
+        "venue": "H",
+        "score": "4-3",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "1. FC Union Berlin",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      }
+    ],
+    "h2h": null
+  },
+  "565867": {
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "FC Bayern M\u00fcnchen",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-30",
+        "opponent": "SV 07 Elversberg",
+        "venue": "A",
+        "score": "1-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "SV Werder Bremen",
+        "venue": "H",
+        "score": "2-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "FC Schalke 04",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "Bayer 04 Leverkusen",
+        "venue": "H",
+        "score": "3-4",
         "result": "L"
       }
     ],
     "away_recent": [
       {
-        "date": "2026-11-11",
-        "opponent": "Portland Trail Blazers",
+        "date": "2026-11-08",
+        "opponent": "SC Freiburg",
         "venue": "A",
-        "score": "108-118",
+        "score": "0-2",
         "result": "L"
       },
       {
-        "date": "2026-11-10",
-        "opponent": "Portland Trail Blazers",
-        "venue": "A",
-        "score": "103-123",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-07",
-        "opponent": "Washington Wizards",
+        "date": "2026-11-01",
+        "opponent": "1. FC K\u00f6ln",
         "venue": "H",
-        "score": "114-75",
-        "result": "W"
+        "score": "1-1",
+        "result": "D"
       },
       {
-        "date": "2026-11-06",
-        "opponent": "Memphis Grizzlies",
+        "date": "2026-10-24",
+        "opponent": "FC Augsburg",
         "venue": "A",
-        "score": "128-97",
-        "result": "W"
+        "score": "1-1",
+        "result": "D"
       },
       {
-        "date": "2026-11-04",
-        "opponent": "Cleveland Cavaliers",
+        "date": "2026-10-17",
+        "opponent": "Borussia Dortmund",
         "venue": "H",
-        "score": "124-116",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "SV 07 Elversberg",
+        "venue": "H",
+        "score": "1-0",
         "result": "W"
       }
     ],
-    "h2h": {
-      "number_of_matches": 1,
-      "matches": [
-        {
-          "date": "2026-10-25",
-          "home": "Oklahoma City Thunder",
-          "away": "LA Clippers",
-          "score": "108-101",
-          "competition": "NBA"
-        }
-      ]
-    }
+    "h2h": null
+  },
+  "565868": {
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Eintracht Frankfurt",
+        "venue": "H",
+        "score": "2-2",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Borussia M\u00f6nchengladbach",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Hamburger SV",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "SV Werder Bremen",
+        "venue": "A",
+        "score": "2-2",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "VfB Stuttgart",
+        "venue": "H",
+        "score": "0-2",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "TSG 1899 Hoffenheim",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "RB Leipzig",
+        "venue": "H",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "1. FC K\u00f6ln",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "1. FSV Mainz 05",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "SC Freiburg",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      }
+    ],
+    "h2h": null
+  },
+  "565874": {
+    "home_recent": [
+      {
+        "date": "2026-11-06",
+        "opponent": "Borussia M\u00f6nchengladbach",
+        "venue": "H",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-01",
+        "opponent": "Eintracht Frankfurt",
+        "venue": "A",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "SC Paderborn 07",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "VfB Stuttgart",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "TSG 1899 Hoffenheim",
+        "venue": "A",
+        "score": "3-2",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "1. FSV Mainz 05",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Borussia Dortmund",
+        "venue": "H",
+        "score": "2-2",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "SC Freiburg",
+        "venue": "A",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "RB Leipzig",
+        "venue": "H",
+        "score": "6-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "FC Augsburg",
+        "venue": "A",
+        "score": "2-2",
+        "result": "D"
+      }
+    ],
+    "h2h": null
+  },
+  "560652": {
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Tottenham Hotspur FC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "AFC Bournemouth",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "Sunderland AFC",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-18",
+        "opponent": "Manchester United FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "Arsenal FC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-06",
+        "opponent": "Everton FC",
+        "venue": "A",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Sunderland AFC",
+        "venue": "H",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Fulham FC",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-19",
+        "opponent": "Tottenham Hotspur FC",
+        "venue": "A",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-12",
+        "opponent": "Newcastle United FC",
+        "venue": "H",
+        "score": "4-1",
+        "result": "W"
+      }
+    ],
+    "h2h": null
+  },
+  "560655": {
+    "home_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "Aston Villa FC",
+        "venue": "H",
+        "score": "4-4",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Chelsea FC",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "AFC Bournemouth",
+        "venue": "H",
+        "score": "0-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-18",
+        "opponent": "Leeds United FC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "Tottenham Hotspur FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "Brighton & Hove Albion FC",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Nottingham Forest FC",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "Hull City AFC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Liverpool FC",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "Aston Villa FC",
+        "venue": "A",
+        "score": "2-2",
+        "result": "D"
+      }
+    ],
+    "h2h": null
+  },
+  "561965": {
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Wolverhampton Wanderers FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Middlesbrough FC",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-30",
+        "opponent": "Sheffield United FC",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Blackburn Rovers FC",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Preston North End FC",
+        "venue": "H",
+        "score": "4-1",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Stoke City FC",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Swansea City AFC",
+        "venue": "H",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Burnley FC",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Millwall FC",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-20",
+        "opponent": "Wolverhampton Wanderers FC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      }
+    ],
+    "h2h": null
+  },
+  "561966": {
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Lincoln City FC",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Burnley FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Southampton FC",
+        "venue": "A",
+        "score": "1-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Swansea City AFC",
+        "venue": "H",
+        "score": "5-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Birmingham City FC",
+        "venue": "A",
+        "score": "0-3",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Charlton Athletic FC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Preston North End FC",
+        "venue": "A",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-30",
+        "opponent": "Wrexham AFC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Derby County FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Bristol City FC",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      }
+    ],
+    "h2h": null
+  },
+  "561967": {
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "West Bromwich Albion FC",
+        "venue": "A",
+        "score": "0-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Birmingham City FC",
+        "venue": "A",
+        "score": "0-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Derby County FC",
+        "venue": "H",
+        "score": "4-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Portsmouth FC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Lincoln City FC",
+        "venue": "H",
+        "score": "2-2",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Cardiff City FC",
+        "venue": "A",
+        "score": "4-5",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Queens Park Rangers FC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Portsmouth FC",
+        "venue": "H",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Lincoln City FC",
+        "venue": "A",
+        "score": "1-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-16",
+        "opponent": "Wolverhampton Wanderers FC",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      }
+    ],
+    "h2h": null
+  },
+  "561970": {
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Swansea City AFC",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Millwall FC",
+        "venue": "H",
+        "score": "3-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Lincoln City FC",
+        "venue": "A",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Cardiff City FC",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Queens Park Rangers FC",
+        "venue": "H",
+        "score": "3-0",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-06",
+        "opponent": "Derby County FC",
+        "venue": "A",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Charlton Athletic FC",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Bristol City FC",
+        "venue": "H",
+        "score": "2-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-23",
+        "opponent": "Middlesbrough FC",
+        "venue": "H",
+        "score": "1-5",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Southampton FC",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      }
+    ],
+    "h2h": null
+  },
+  "561971": {
+    "home_recent": [
+      {
+        "date": "2026-11-06",
+        "opponent": "Bolton Wanderers FC",
+        "venue": "H",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Norwich City FC",
+        "venue": "H",
+        "score": "0-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Millwall FC",
+        "venue": "A",
+        "score": "1-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Sheffield United FC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Stoke City FC",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Middlesbrough FC",
+        "venue": "H",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Lincoln City FC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Norwich City FC",
+        "venue": "A",
+        "score": "2-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Wolverhampton Wanderers FC",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Charlton Athletic FC",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      }
+    ],
+    "h2h": null
+  },
+  "561974": {
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Blackburn Rovers FC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Cardiff City FC",
+        "venue": "A",
+        "score": "3-3",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "West Bromwich Albion FC",
+        "venue": "H",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Southampton FC",
+        "venue": "H",
+        "score": "2-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Swansea City AFC",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Portsmouth FC",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Blackburn Rovers FC",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Preston North End FC",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Bristol City FC",
+        "venue": "H",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Derby County FC",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      }
+    ],
+    "h2h": null
+  },
+  "561975": {
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Millwall FC",
+        "venue": "H",
+        "score": "3-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Southampton FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "West Ham United FC",
+        "venue": "A",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Preston North End FC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Blackburn Rovers FC",
+        "venue": "H",
+        "score": "3-2",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Norwich City FC",
+        "venue": "H",
+        "score": "0-5",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Wolverhampton Wanderers FC",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Bolton Wanderers FC",
+        "venue": "A",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Stoke City FC",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Sheffield United FC",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      }
+    ],
+    "h2h": null
+  },
+  "564767": {
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Real Racing Club de Santander",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Real Betis Balompi\u00e9",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-23",
+        "opponent": "Deportivo Alav\u00e9s",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-18",
+        "opponent": "Real Sociedad de F\u00fatbol",
+        "venue": "H",
+        "score": "2-5",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-09",
+        "opponent": "RCD Espanyol de Barcelona",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "CA Osasuna",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-11-01",
+        "opponent": "Real Sociedad de F\u00fatbol",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "Getafe CF",
+        "venue": "H",
+        "score": "4-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-21",
+        "opponent": "Levante UD",
+        "venue": "A",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Valencia CF",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      }
+    ],
+    "h2h": null
+  },
+  "558825": {
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Go Ahead Eagles",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-01",
+        "opponent": "FC Twente '65",
+        "venue": "H",
+        "score": "0-9",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "Fortuna Sittard",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-16",
+        "opponent": "SC Heerenveen",
+        "venue": "A",
+        "score": "0-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "FC Groningen",
+        "venue": "H",
+        "score": "1-5",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Fortuna Sittard",
+        "venue": "A",
+        "score": "2-2",
+        "result": "D"
+      },
+      {
+        "date": "2026-11-01",
+        "opponent": "FC Utrecht",
+        "venue": "H",
+        "score": "4-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-23",
+        "opponent": "Go Ahead Eagles",
+        "venue": "A",
+        "score": "2-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Feyenoord Rotterdam",
+        "venue": "H",
+        "score": "3-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "ADO Den Haag",
+        "venue": "H",
+        "score": "2-2",
+        "result": "D"
+      }
+    ],
+    "h2h": null
+  },
+  "567357": {
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Sporting Clube de Portugal",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "CF Estrela da Amadora",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "GD Estoril Praia",
+        "venue": "A",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-09",
+        "opponent": "Gil Vicente FC",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-09-20",
+        "opponent": "Vit\u00f3ria SC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "Gil Vicente FC",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-01",
+        "opponent": "CS Mar\u00edtimo",
+        "venue": "A",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-26",
+        "opponent": "Sport Lisboa e Benfica",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "Casa Pia AC",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-09-20",
+        "opponent": "Sporting Clube de Braga",
+        "venue": "H",
+        "score": "0-0",
+        "result": "D"
+      }
+    ],
+    "h2h": null
+  },
+  "567362": {
+    "home_recent": [
+      {
+        "date": "2026-11-06",
+        "opponent": "FC Famalic\u00e3o",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-01",
+        "opponent": "CD Nacional",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "FC Alverca",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "CF Estrela da Amadora",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-09-19",
+        "opponent": "Sporting Clube de Portugal",
+        "venue": "A",
+        "score": "2-2",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "Sporting Clube de Braga",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-01",
+        "opponent": "Acad\u00e9mico de Viseu FC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "FC Famalic\u00e3o",
+        "venue": "H",
+        "score": "0-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "CD Nacional",
+        "venue": "H",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-09-19",
+        "opponent": "FC Alverca",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      }
+    ],
+    "h2h": null
+  },
+  "559612": {
+    "home_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "OGC Nice",
+        "venue": "H",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-01",
+        "opponent": "Olympique Lyonnais",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "FC Lorient",
+        "venue": "H",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-18",
+        "opponent": "Olympique de Marseille",
+        "venue": "H",
+        "score": "2-5",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "Stade Brestois 29",
+        "venue": "A",
+        "score": "1-5",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "Olympique de Marseille",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-30",
+        "opponent": "Lille OSC",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Paris FC",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "ES Troyes AC",
+        "venue": "A",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-09",
+        "opponent": "Olympique Lyonnais",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      }
+    ],
+    "h2h": null
+  },
+  "558514": {
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "US Lecce",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-11-01",
+        "opponent": "Frosinone Calcio",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-27",
+        "opponent": "Como 1907",
+        "venue": "H",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-23",
+        "opponent": "AC Monza",
+        "venue": "H",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-19",
+        "opponent": "Parma Calcio 1913",
+        "venue": "A",
+        "score": "3-0",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "SSC Napoli",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-11-01",
+        "opponent": "Cagliari Calcio",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-27",
+        "opponent": "US Sassuolo Calcio",
+        "venue": "A",
+        "score": "6-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Parma Calcio 1913",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-18",
+        "opponent": "Juventus FC",
+        "venue": "A",
+        "score": "3-0",
+        "result": "W"
+      }
+    ],
+    "h2h": null
+  },
+  "560653": {
+    "home_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "AFC Bournemouth",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Hull City AFC",
+        "venue": "A",
+        "score": "2-2",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-23",
+        "opponent": "Nottingham Forest FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Manchester City FC",
+        "venue": "A",
+        "score": "2-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "Fulham FC",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "Manchester United FC",
+        "venue": "A",
+        "score": "4-4",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Fulham FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Manchester City FC",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Newcastle United FC",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "Brentford FC",
+        "venue": "H",
+        "score": "2-2",
+        "result": "D"
+      }
+    ],
+    "h2h": null
+  },
+  "564759": {
+    "home_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "Real Betis Balompi\u00e9",
+        "venue": "H",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-01",
+        "opponent": "Valencia CF",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Rayo Vallecano de Madrid",
+        "venue": "A",
+        "score": "3-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Villarreal CF",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "RC Celta de Vigo",
+        "venue": "H",
+        "score": "0-0",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "FC Barcelona",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Levante UD",
+        "venue": "A",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "RC Deportivo La Coru\u00f1a",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "RCD Espanyol de Barcelona",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "Deportivo Alav\u00e9s",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W"
+      }
+    ],
+    "h2h": null
+  },
+  "565870": {
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "SV Werder Bremen",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Bayer 04 Leverkusen",
+        "venue": "A",
+        "score": "4-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-23",
+        "opponent": "Borussia M\u00f6nchengladbach",
+        "venue": "H",
+        "score": "2-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Hamburger SV",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "SC Paderborn 07",
+        "venue": "A",
+        "score": "2-0",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "SC Paderborn 07",
+        "venue": "A",
+        "score": "2-2",
+        "result": "D"
+      },
+      {
+        "date": "2026-11-01",
+        "opponent": "Hamburger SV",
+        "venue": "H",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Borussia Dortmund",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-16",
+        "opponent": "1. FC K\u00f6ln",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "RB Leipzig",
+        "venue": "A",
+        "score": "0-6",
+        "result": "L"
+      }
+    ],
+    "h2h": null
+  },
+  "558826": {
+    "home_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "SC Cambuur-Leeuwarden",
+        "venue": "A",
+        "score": "5-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Willem II Tilburg",
+        "venue": "H",
+        "score": "7-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "Feyenoord Rotterdam",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "ADO Den Haag",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-09",
+        "opponent": "SC Heerenveen",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "SBV Excelsior",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "SC Cambuur-Leeuwarden",
+        "venue": "A",
+        "score": "0-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-23",
+        "opponent": "Telstar 1963",
+        "venue": "H",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-18",
+        "opponent": "PEC Zwolle",
+        "venue": "A",
+        "score": "1-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "Sparta Rotterdam",
+        "venue": "H",
+        "score": "3-3",
+        "result": "D"
+      }
+    ],
+    "h2h": null
+  },
+  "567364": {
+    "home_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "CD Nacional",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-01",
+        "opponent": "Rio Ave FC",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "Sporting Clube de Portugal",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "GD Estoril Praia",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-09-20",
+        "opponent": "CF Estrela da Amadora",
+        "venue": "A",
+        "score": "2-0",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Casa Pia AC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-11-02",
+        "opponent": "Sport Lisboa e Benfica",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "FC Arouca",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-12",
+        "opponent": "FC Famalic\u00e3o",
+        "venue": "A",
+        "score": "4-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-09-19",
+        "opponent": "Rio Ave FC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      }
+    ],
+    "h2h": null
+  },
+  "558518": {
+    "home_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "Como 1907",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "AC Milan",
+        "venue": "A",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-28",
+        "opponent": "Venezia FC",
+        "venue": "A",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "ACF Fiorentina",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Bologna FC 1909",
+        "venue": "A",
+        "score": "3-1",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "AC Milan",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-01",
+        "opponent": "US Lecce",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-28",
+        "opponent": "Juventus FC",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "Venezia FC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "AS Roma",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      }
+    ],
+    "h2h": null
+  },
+  "559617": {
+    "home_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "AS Monaco FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "ES Troyes AC",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "AJ Auxerre",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-16",
+        "opponent": "Toulouse FC",
+        "venue": "H",
+        "score": "0-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "Paris Saint-Germain FC",
+        "venue": "A",
+        "score": "1-3",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "Stade Rennais FC 1901",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-30",
+        "opponent": "Racing Club de Lens",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "AS Monaco FC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Stade Brestois 29",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "Le Havre AC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      }
+    ],
+    "h2h": null
+  },
+  "559620": {
+    "home_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "Angers SCO",
+        "venue": "A",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-30",
+        "opponent": "Stade Rennais FC 1901",
+        "venue": "H",
+        "score": "5-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-23",
+        "opponent": "Stade Brestois 29",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-18",
+        "opponent": "Olympique Lyonnais",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "RC Strasbourg Alsace",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Paris Saint-Germain FC",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Le Mans FC",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "Toulouse FC",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Racing Club de Lens",
+        "venue": "H",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "Olympique de Marseille",
+        "venue": "H",
+        "score": "0-2",
+        "result": "L"
+      }
+    ],
+    "h2h": null
+  },
+  "559613": {
+    "home_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "FC Lorient",
+        "venue": "H",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-30",
+        "opponent": "Paris Saint-Germain FC",
+        "venue": "H",
+        "score": "1-5",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "Olympique de Marseille",
+        "venue": "A",
+        "score": "3-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-18",
+        "opponent": "AJ Auxerre",
+        "venue": "H",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "Lille OSC",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-06",
+        "opponent": "Toulouse FC",
+        "venue": "A",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-01",
+        "opponent": "AJ Auxerre",
+        "venue": "H",
+        "score": "5-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "Stade Rennais FC 1901",
+        "venue": "A",
+        "score": "0-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Paris Saint-Germain FC",
+        "venue": "H",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "OGC Nice",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      }
+    ],
+    "h2h": null
+  },
+  "559614": {
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "ES Troyes AC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-30",
+        "opponent": "Le Havre AC",
+        "venue": "A",
+        "score": "5-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-26",
+        "opponent": "Olympique Lyonnais",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "RC Strasbourg Alsace",
+        "venue": "A",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "Le Mans FC",
+        "venue": "H",
+        "score": "3-1",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "Le Havre AC",
+        "venue": "A",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-02",
+        "opponent": "Stade Brestois 29",
+        "venue": "H",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "Angers SCO",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-18",
+        "opponent": "AS Monaco FC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "Paris FC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      }
+    ],
+    "h2h": null
+  },
+  "564762": {
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Valencia CF",
+        "venue": "A",
+        "score": "3-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-01",
+        "opponent": "Real Racing Club de Santander",
+        "venue": "A",
+        "score": "3-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "FC Barcelona",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-18",
+        "opponent": "Sevilla FC",
+        "venue": "H",
+        "score": "4-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "Villarreal CF",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-06",
+        "opponent": "Sevilla FC",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "FC Barcelona",
+        "venue": "A",
+        "score": "1-6",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-23",
+        "opponent": "M\u00e1laga CF",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-18",
+        "opponent": "RC Celta de Vigo",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "Club Atl\u00e9tico de Madrid",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      }
+    ],
+    "h2h": null
+  },
+  "558819": {
+    "home_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "PSV",
+        "venue": "H",
+        "score": "2-5",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Go Ahead Eagles",
+        "venue": "H",
+        "score": "4-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Willem II Tilburg",
+        "venue": "A",
+        "score": "6-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-18",
+        "opponent": "AZ",
+        "venue": "H",
+        "score": "2-2",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "PEC Zwolle",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "ADO Den Haag",
+        "venue": "A",
+        "score": "1-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-01",
+        "opponent": "FC Groningen",
+        "venue": "A",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "AFC Ajax",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Willem II Tilburg",
+        "venue": "H",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "Go Ahead Eagles",
+        "venue": "A",
+        "score": "3-3",
+        "result": "D"
+      }
+    ],
+    "h2h": null
+  },
+  "567356": {
+    "home_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "FC Porto",
+        "venue": "H",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-02",
+        "opponent": "Gil Vicente FC",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-23",
+        "opponent": "CS Mar\u00edtimo",
+        "venue": "H",
+        "score": "5-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "Sport Lisboa e Benfica",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-09-20",
+        "opponent": "Moreirense FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-08",
+        "opponent": "Sport Lisboa e Benfica",
+        "venue": "H",
+        "score": "2-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Moreirense FC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Casa Pia AC",
+        "venue": "H",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "FC Arouca",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-09-20",
+        "opponent": "Acad\u00e9mico de Viseu FC",
+        "venue": "H",
+        "score": "0-2",
+        "result": "L"
+      }
+    ],
+    "h2h": null
   },
   "bb-21718104": {
     "home_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "Memphis Grizzlies",
+        "venue": "H",
+        "score": "111-142",
+        "result": "L"
+      },
       {
         "date": "2026-11-11",
         "opponent": "Brooklyn Nets",
@@ -9943,13 +13873,6 @@
         "venue": "H",
         "score": "109-115",
         "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Utah Jazz",
-        "venue": "H",
-        "score": "120-113",
-        "result": "W"
       }
     ],
     "away_recent": [
@@ -10012,6 +13935,13 @@
   "bb-21718105": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Miami Heat",
+        "venue": "A",
+        "score": "121-133",
+        "result": "L"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "New York Knicks",
         "venue": "A",
@@ -10038,13 +13968,6 @@
         "venue": "H",
         "score": "119-95",
         "result": "W"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Oklahoma City Thunder",
-        "venue": "A",
-        "score": "116-124",
-        "result": "L"
       }
     ],
     "away_recent": [
@@ -10089,6 +14012,13 @@
   "bb-21718106": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Cleveland Cavaliers",
+        "venue": "H",
+        "score": "133-121",
+        "result": "W"
+      },
+      {
         "date": "2026-11-10",
         "opponent": "Utah Jazz",
         "venue": "A",
@@ -10115,13 +14045,6 @@
         "venue": "A",
         "score": "117-116",
         "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Los Angeles Lakers",
-        "venue": "A",
-        "score": "117-138",
-        "result": "L"
       }
     ],
     "away_recent": [
@@ -10177,6 +14100,13 @@
   "bb-21718107": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "New Orleans Pelicans",
+        "venue": "A",
+        "score": "142-111",
+        "result": "W"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Denver Nuggets",
         "venue": "H",
@@ -10202,13 +14132,6 @@
         "opponent": "Indiana Pacers",
         "venue": "H",
         "score": "103-107",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "New Orleans Pelicans",
-        "venue": "H",
-        "score": "134-135",
         "result": "L"
       }
     ],
@@ -10291,6 +14214,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Atlanta Hawks",
+        "venue": "H",
+        "score": "125-117",
+        "result": "W"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "San Antonio Spurs",
         "venue": "H",
@@ -10316,13 +14246,6 @@
         "opponent": "Philadelphia 76ers",
         "venue": "A",
         "score": "107-126",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-30",
-        "opponent": "Boston Celtics",
-        "venue": "A",
-        "score": "111-125",
         "result": "L"
       }
     ],
@@ -10368,6 +14291,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "New York Knicks",
+        "venue": "H",
+        "score": "106-104",
+        "result": "W"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Washington Wizards",
         "venue": "H",
@@ -10394,13 +14324,6 @@
         "venue": "A",
         "score": "107-103",
         "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Atlanta Hawks",
-        "venue": "H",
-        "score": "104-108",
-        "result": "L"
       }
     ],
     "h2h": {
@@ -10782,6 +14705,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Indiana Pacers",
+        "venue": "A",
+        "score": "104-106",
+        "result": "L"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Cleveland Cavaliers",
         "venue": "H",
@@ -10807,13 +14737,6 @@
         "opponent": "Chicago Bulls",
         "venue": "H",
         "score": "135-105",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Brooklyn Nets",
-        "venue": "H",
-        "score": "103-90",
         "result": "W"
       }
     ],
@@ -10899,6 +14822,13 @@
   "bb-21718116": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Orlando Magic",
+        "venue": "A",
+        "score": "99-107",
+        "result": "L"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Los Angeles Lakers",
         "venue": "H",
@@ -10925,16 +14855,16 @@
         "venue": "H",
         "score": "107-121",
         "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Boston Celtics",
-        "venue": "A",
-        "score": "102-109",
-        "result": "L"
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "Chicago Bulls",
+        "venue": "A",
+        "score": "117-125",
+        "result": "L"
+      },
       {
         "date": "2026-11-09",
         "opponent": "Los Angeles Lakers",
@@ -10961,13 +14891,6 @@
         "opponent": "Washington Wizards",
         "venue": "A",
         "score": "120-105",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Indiana Pacers",
-        "venue": "A",
-        "score": "108-104",
         "result": "W"
       }
     ],
@@ -11090,6 +15013,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Milwaukee Bucks",
+        "venue": "H",
+        "score": "107-99",
+        "result": "W"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Utah Jazz",
         "venue": "A",
@@ -11116,13 +15046,6 @@
         "venue": "A",
         "score": "104-117",
         "result": "L"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Washington Wizards",
-        "venue": "H",
-        "score": "94-103",
-        "result": "L"
       }
     ],
     "h2h": {
@@ -11140,6 +15063,13 @@
   },
   "bb-21718119": {
     "home_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "Miami Heat",
+        "venue": "A",
+        "score": "121-133",
+        "result": "L"
+      },
       {
         "date": "2026-11-11",
         "opponent": "New York Knicks",
@@ -11167,16 +15097,16 @@
         "venue": "H",
         "score": "119-95",
         "result": "W"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Oklahoma City Thunder",
-        "venue": "A",
-        "score": "116-124",
-        "result": "L"
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "Atlanta Hawks",
+        "venue": "H",
+        "score": "125-117",
+        "result": "W"
+      },
       {
         "date": "2026-11-11",
         "opponent": "San Antonio Spurs",
@@ -11203,13 +15133,6 @@
         "opponent": "Philadelphia 76ers",
         "venue": "A",
         "score": "107-126",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-30",
-        "opponent": "Boston Celtics",
-        "venue": "A",
-        "score": "111-125",
         "result": "L"
       }
     ],
@@ -11255,6 +15178,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "New Orleans Pelicans",
+        "venue": "A",
+        "score": "142-111",
+        "result": "W"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Denver Nuggets",
         "venue": "H",
@@ -11280,13 +15210,6 @@
         "opponent": "Indiana Pacers",
         "venue": "H",
         "score": "103-107",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "New Orleans Pelicans",
-        "venue": "H",
-        "score": "134-135",
         "result": "L"
       }
     ],
@@ -11372,6 +15295,13 @@
   "bb-21718122": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Cleveland Cavaliers",
+        "venue": "H",
+        "score": "133-121",
+        "result": "W"
+      },
+      {
         "date": "2026-11-10",
         "opponent": "Utah Jazz",
         "venue": "A",
@@ -11398,13 +15328,6 @@
         "venue": "A",
         "score": "117-116",
         "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Los Angeles Lakers",
-        "venue": "A",
-        "score": "117-138",
-        "result": "L"
       }
     ],
     "away_recent": [
@@ -11526,6 +15449,13 @@
   "bb-21718124": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Memphis Grizzlies",
+        "venue": "H",
+        "score": "111-142",
+        "result": "L"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Brooklyn Nets",
         "venue": "H",
@@ -11552,13 +15482,6 @@
         "venue": "H",
         "score": "109-115",
         "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Utah Jazz",
-        "venue": "H",
-        "score": "120-113",
-        "result": "W"
       }
     ],
     "away_recent": [
@@ -11739,6 +15662,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Indiana Pacers",
+        "venue": "A",
+        "score": "104-106",
+        "result": "L"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Cleveland Cavaliers",
         "venue": "H",
@@ -11764,13 +15694,6 @@
         "opponent": "Chicago Bulls",
         "venue": "H",
         "score": "135-105",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Brooklyn Nets",
-        "venue": "H",
-        "score": "103-90",
         "result": "W"
       }
     ],
@@ -12087,6 +16010,13 @@
   "bb-21718131": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Miami Heat",
+        "venue": "A",
+        "score": "121-133",
+        "result": "L"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "New York Knicks",
         "venue": "A",
@@ -12113,16 +16043,16 @@
         "venue": "H",
         "score": "119-95",
         "result": "W"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Oklahoma City Thunder",
-        "venue": "A",
-        "score": "116-124",
-        "result": "L"
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "New Orleans Pelicans",
+        "venue": "A",
+        "score": "142-111",
+        "result": "W"
+      },
       {
         "date": "2026-11-11",
         "opponent": "Denver Nuggets",
@@ -12150,19 +16080,19 @@
         "venue": "H",
         "score": "103-107",
         "result": "L"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "New Orleans Pelicans",
-        "venue": "H",
-        "score": "134-135",
-        "result": "L"
       }
     ],
     "h2h": null
   },
   "bb-21718132": {
     "home_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "New York Knicks",
+        "venue": "H",
+        "score": "106-104",
+        "result": "W"
+      },
       {
         "date": "2026-11-11",
         "opponent": "Washington Wizards",
@@ -12190,13 +16120,6 @@
         "venue": "A",
         "score": "107-103",
         "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Atlanta Hawks",
-        "venue": "H",
-        "score": "104-108",
-        "result": "L"
       }
     ],
     "away_recent": [
@@ -12241,6 +16164,13 @@
   "bb-21718133": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Cleveland Cavaliers",
+        "venue": "H",
+        "score": "133-121",
+        "result": "W"
+      },
+      {
         "date": "2026-11-10",
         "opponent": "Utah Jazz",
         "venue": "A",
@@ -12267,16 +16197,16 @@
         "venue": "A",
         "score": "117-116",
         "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Los Angeles Lakers",
-        "venue": "A",
-        "score": "117-138",
-        "result": "L"
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "Orlando Magic",
+        "venue": "A",
+        "score": "99-107",
+        "result": "L"
+      },
       {
         "date": "2026-11-11",
         "opponent": "Los Angeles Lakers",
@@ -12304,19 +16234,19 @@
         "venue": "H",
         "score": "107-121",
         "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Boston Celtics",
-        "venue": "A",
-        "score": "102-109",
-        "result": "L"
       }
     ],
     "h2h": null
   },
   "bb-21718134": {
     "home_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "Milwaukee Bucks",
+        "venue": "H",
+        "score": "107-99",
+        "result": "W"
+      },
       {
         "date": "2026-11-11",
         "opponent": "Utah Jazz",
@@ -12343,13 +16273,6 @@
         "opponent": "Phoenix Suns",
         "venue": "A",
         "score": "104-117",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Washington Wizards",
-        "venue": "H",
-        "score": "94-103",
         "result": "L"
       }
     ],
@@ -12432,6 +16355,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Atlanta Hawks",
+        "venue": "H",
+        "score": "125-117",
+        "result": "W"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "San Antonio Spurs",
         "venue": "H",
@@ -12457,13 +16387,6 @@
         "opponent": "Philadelphia 76ers",
         "venue": "A",
         "score": "107-126",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-30",
-        "opponent": "Boston Celtics",
-        "venue": "A",
-        "score": "111-125",
         "result": "L"
       }
     ],
@@ -12560,6 +16483,13 @@
   "bb-21718137": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Memphis Grizzlies",
+        "venue": "H",
+        "score": "111-142",
+        "result": "L"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Brooklyn Nets",
         "venue": "H",
@@ -12586,13 +16516,6 @@
         "venue": "H",
         "score": "109-115",
         "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Utah Jazz",
-        "venue": "H",
-        "score": "120-113",
-        "result": "W"
       }
     ],
     "away_recent": [
@@ -12674,6 +16597,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Chicago Bulls",
+        "venue": "A",
+        "score": "117-125",
+        "result": "L"
+      },
+      {
         "date": "2026-11-09",
         "opponent": "Los Angeles Lakers",
         "venue": "H",
@@ -12699,13 +16629,6 @@
         "opponent": "Washington Wizards",
         "venue": "A",
         "score": "120-105",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Indiana Pacers",
-        "venue": "A",
-        "score": "108-104",
         "result": "W"
       }
     ],
@@ -13033,6 +16956,13 @@
   "bb-21718143": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "New Orleans Pelicans",
+        "venue": "A",
+        "score": "142-111",
+        "result": "W"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Denver Nuggets",
         "venue": "H",
@@ -13058,13 +16988,6 @@
         "opponent": "Indiana Pacers",
         "venue": "H",
         "score": "103-107",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "New Orleans Pelicans",
-        "venue": "H",
-        "score": "134-135",
         "result": "L"
       }
     ],
@@ -13121,6 +17044,13 @@
   "bb-21718144": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Orlando Magic",
+        "venue": "A",
+        "score": "99-107",
+        "result": "L"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Los Angeles Lakers",
         "venue": "H",
@@ -13146,13 +17076,6 @@
         "opponent": "Toronto Raptors",
         "venue": "H",
         "score": "107-121",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Boston Celtics",
-        "venue": "A",
-        "score": "102-109",
         "result": "L"
       }
     ],
@@ -13235,6 +17158,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Indiana Pacers",
+        "venue": "A",
+        "score": "104-106",
+        "result": "L"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Cleveland Cavaliers",
         "venue": "H",
@@ -13260,13 +17190,6 @@
         "opponent": "Chicago Bulls",
         "venue": "H",
         "score": "135-105",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Brooklyn Nets",
-        "venue": "H",
-        "score": "103-90",
         "result": "W"
       }
     ],
@@ -13352,6 +17275,13 @@
   "bb-21718147": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Chicago Bulls",
+        "venue": "A",
+        "score": "117-125",
+        "result": "L"
+      },
+      {
         "date": "2026-11-09",
         "opponent": "Los Angeles Lakers",
         "venue": "H",
@@ -13377,13 +17307,6 @@
         "opponent": "Washington Wizards",
         "venue": "A",
         "score": "120-105",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Indiana Pacers",
-        "venue": "A",
-        "score": "108-104",
         "result": "W"
       }
     ],
@@ -13477,6 +17400,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Milwaukee Bucks",
+        "venue": "H",
+        "score": "107-99",
+        "result": "W"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Utah Jazz",
         "venue": "A",
@@ -13503,19 +17433,19 @@
         "venue": "A",
         "score": "104-117",
         "result": "L"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Washington Wizards",
-        "venue": "H",
-        "score": "94-103",
-        "result": "L"
       }
     ],
     "h2h": null
   },
   "bb-21718149": {
     "home_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "Miami Heat",
+        "venue": "A",
+        "score": "121-133",
+        "result": "L"
+      },
       {
         "date": "2026-11-11",
         "opponent": "New York Knicks",
@@ -13543,16 +17473,16 @@
         "venue": "H",
         "score": "119-95",
         "result": "W"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Oklahoma City Thunder",
-        "venue": "A",
-        "score": "116-124",
-        "result": "L"
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "New York Knicks",
+        "venue": "H",
+        "score": "106-104",
+        "result": "W"
+      },
       {
         "date": "2026-11-11",
         "opponent": "Washington Wizards",
@@ -13580,13 +17510,6 @@
         "venue": "A",
         "score": "107-103",
         "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Atlanta Hawks",
-        "venue": "H",
-        "score": "104-108",
-        "result": "L"
       }
     ],
     "h2h": null
@@ -13671,6 +17594,13 @@
   "bb-21718151": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Atlanta Hawks",
+        "venue": "H",
+        "score": "125-117",
+        "result": "W"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "San Antonio Spurs",
         "venue": "H",
@@ -13696,13 +17626,6 @@
         "opponent": "Philadelphia 76ers",
         "venue": "A",
         "score": "107-126",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-30",
-        "opponent": "Boston Celtics",
-        "venue": "A",
-        "score": "111-125",
         "result": "L"
       }
     ],
@@ -13796,6 +17719,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Memphis Grizzlies",
+        "venue": "H",
+        "score": "111-142",
+        "result": "L"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Brooklyn Nets",
         "venue": "H",
@@ -13822,13 +17752,6 @@
         "venue": "H",
         "score": "109-115",
         "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Utah Jazz",
-        "venue": "H",
-        "score": "120-113",
-        "result": "W"
       }
     ],
     "h2h": null
@@ -14126,6 +18049,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Orlando Magic",
+        "venue": "A",
+        "score": "99-107",
+        "result": "L"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Los Angeles Lakers",
         "venue": "H",
@@ -14152,13 +18082,6 @@
         "venue": "H",
         "score": "107-121",
         "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Boston Celtics",
-        "venue": "A",
-        "score": "102-109",
-        "result": "L"
       }
     ],
     "h2h": {
@@ -14176,6 +18099,13 @@
   },
   "bb-21718157": {
     "home_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "Indiana Pacers",
+        "venue": "A",
+        "score": "104-106",
+        "result": "L"
+      },
       {
         "date": "2026-11-11",
         "opponent": "Cleveland Cavaliers",
@@ -14202,13 +18132,6 @@
         "opponent": "Chicago Bulls",
         "venue": "H",
         "score": "135-105",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Brooklyn Nets",
-        "venue": "H",
-        "score": "103-90",
         "result": "W"
       }
     ],
@@ -14368,6 +18291,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "New Orleans Pelicans",
+        "venue": "A",
+        "score": "142-111",
+        "result": "W"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Denver Nuggets",
         "venue": "H",
@@ -14393,13 +18323,6 @@
         "opponent": "Indiana Pacers",
         "venue": "H",
         "score": "103-107",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "New Orleans Pelicans",
-        "venue": "H",
-        "score": "134-135",
         "result": "L"
       }
     ],
@@ -14445,6 +18368,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Memphis Grizzlies",
+        "venue": "H",
+        "score": "111-142",
+        "result": "L"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Brooklyn Nets",
         "venue": "H",
@@ -14471,13 +18401,6 @@
         "venue": "H",
         "score": "109-115",
         "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Utah Jazz",
-        "venue": "H",
-        "score": "120-113",
-        "result": "W"
       }
     ],
     "h2h": null
@@ -14562,6 +18485,13 @@
   "bb-21718162": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Chicago Bulls",
+        "venue": "A",
+        "score": "117-125",
+        "result": "L"
+      },
+      {
         "date": "2026-11-09",
         "opponent": "Los Angeles Lakers",
         "venue": "H",
@@ -14587,13 +18517,6 @@
         "opponent": "Washington Wizards",
         "venue": "A",
         "score": "120-105",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Indiana Pacers",
-        "venue": "A",
-        "score": "108-104",
         "result": "W"
       }
     ],
@@ -14639,6 +18562,13 @@
   "bb-21718163": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Cleveland Cavaliers",
+        "venue": "H",
+        "score": "133-121",
+        "result": "W"
+      },
+      {
         "date": "2026-11-10",
         "opponent": "Utah Jazz",
         "venue": "A",
@@ -14665,13 +18595,6 @@
         "venue": "A",
         "score": "117-116",
         "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Los Angeles Lakers",
-        "venue": "A",
-        "score": "117-138",
-        "result": "L"
       }
     ],
     "away_recent": [
@@ -14753,6 +18676,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Milwaukee Bucks",
+        "venue": "H",
+        "score": "107-99",
+        "result": "W"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Utah Jazz",
         "venue": "A",
@@ -14779,13 +18709,6 @@
         "venue": "A",
         "score": "104-117",
         "result": "L"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Washington Wizards",
-        "venue": "H",
-        "score": "94-103",
-        "result": "L"
       }
     ],
     "h2h": {
@@ -14803,6 +18726,13 @@
   },
   "bb-21718166": {
     "home_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "Atlanta Hawks",
+        "venue": "H",
+        "score": "125-117",
+        "result": "W"
+      },
       {
         "date": "2026-11-11",
         "opponent": "San Antonio Spurs",
@@ -14829,13 +18759,6 @@
         "opponent": "Philadelphia 76ers",
         "venue": "A",
         "score": "107-126",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-30",
-        "opponent": "Boston Celtics",
-        "venue": "A",
-        "score": "111-125",
         "result": "L"
       }
     ],
@@ -14969,6 +18892,13 @@
   "bb-21718169": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Indiana Pacers",
+        "venue": "A",
+        "score": "104-106",
+        "result": "L"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Cleveland Cavaliers",
         "venue": "H",
@@ -14995,16 +18925,16 @@
         "venue": "H",
         "score": "135-105",
         "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Brooklyn Nets",
-        "venue": "H",
-        "score": "103-90",
-        "result": "W"
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "New York Knicks",
+        "venue": "H",
+        "score": "106-104",
+        "result": "W"
+      },
       {
         "date": "2026-11-11",
         "opponent": "Washington Wizards",
@@ -15032,16 +18962,20 @@
         "venue": "A",
         "score": "107-103",
         "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Atlanta Hawks",
-        "venue": "H",
-        "score": "104-108",
-        "result": "L"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 1,
+      "matches": [
+        {
+          "date": "2026-11-13",
+          "home": "Indiana Pacers",
+          "away": "New York Knicks",
+          "score": "106-104",
+          "competition": "NBA"
+        }
+      ]
+    }
   },
   "bb-21718170": {
     "home_recent": [
@@ -15160,6 +19094,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "New Orleans Pelicans",
+        "venue": "A",
+        "score": "142-111",
+        "result": "W"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Denver Nuggets",
         "venue": "H",
@@ -15185,13 +19126,6 @@
         "opponent": "Indiana Pacers",
         "venue": "H",
         "score": "103-107",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "New Orleans Pelicans",
-        "venue": "H",
-        "score": "134-135",
         "result": "L"
       }
     ],
@@ -15277,6 +19211,13 @@
   "bb-21718173": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "New York Knicks",
+        "venue": "H",
+        "score": "106-104",
+        "result": "W"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Washington Wizards",
         "venue": "H",
@@ -15303,13 +19244,6 @@
         "venue": "A",
         "score": "107-103",
         "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Atlanta Hawks",
-        "venue": "H",
-        "score": "104-108",
-        "result": "L"
       }
     ],
     "away_recent": [
@@ -15391,6 +19325,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Orlando Magic",
+        "venue": "A",
+        "score": "99-107",
+        "result": "L"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Los Angeles Lakers",
         "venue": "H",
@@ -15416,13 +19357,6 @@
         "opponent": "Toronto Raptors",
         "venue": "H",
         "score": "107-121",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Boston Celtics",
-        "venue": "A",
-        "score": "102-109",
         "result": "L"
       }
     ],
@@ -15519,6 +19453,13 @@
   "bb-21718176": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Atlanta Hawks",
+        "venue": "H",
+        "score": "125-117",
+        "result": "W"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "San Antonio Spurs",
         "venue": "H",
@@ -15545,16 +19486,16 @@
         "venue": "A",
         "score": "107-126",
         "result": "L"
-      },
-      {
-        "date": "2026-10-30",
-        "opponent": "Boston Celtics",
-        "venue": "A",
-        "score": "111-125",
-        "result": "L"
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "Miami Heat",
+        "venue": "A",
+        "score": "121-133",
+        "result": "L"
+      },
       {
         "date": "2026-11-11",
         "opponent": "New York Knicks",
@@ -15582,19 +19523,19 @@
         "venue": "H",
         "score": "119-95",
         "result": "W"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Oklahoma City Thunder",
-        "venue": "A",
-        "score": "116-124",
-        "result": "L"
       }
     ],
     "h2h": null
   },
   "bb-21718177": {
     "home_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "Memphis Grizzlies",
+        "venue": "H",
+        "score": "111-142",
+        "result": "L"
+      },
       {
         "date": "2026-11-11",
         "opponent": "Brooklyn Nets",
@@ -15622,13 +19563,6 @@
         "venue": "H",
         "score": "109-115",
         "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Utah Jazz",
-        "venue": "H",
-        "score": "120-113",
-        "result": "W"
       }
     ],
     "away_recent": [
@@ -15933,6 +19867,13 @@
   "bb-21718181": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Milwaukee Bucks",
+        "venue": "H",
+        "score": "107-99",
+        "result": "W"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Utah Jazz",
         "venue": "A",
@@ -15958,13 +19899,6 @@
         "opponent": "Phoenix Suns",
         "venue": "A",
         "score": "104-117",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Washington Wizards",
-        "venue": "H",
-        "score": "94-103",
         "result": "L"
       }
     ],
@@ -16201,6 +20135,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Cleveland Cavaliers",
+        "venue": "H",
+        "score": "133-121",
+        "result": "W"
+      },
+      {
         "date": "2026-11-10",
         "opponent": "Utah Jazz",
         "venue": "A",
@@ -16227,13 +20168,6 @@
         "venue": "A",
         "score": "117-116",
         "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Los Angeles Lakers",
-        "venue": "A",
-        "score": "117-138",
-        "result": "L"
       }
     ],
     "h2h": null
@@ -16278,6 +20212,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Atlanta Hawks",
+        "venue": "H",
+        "score": "125-117",
+        "result": "W"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "San Antonio Spurs",
         "venue": "H",
@@ -16304,19 +20245,19 @@
         "venue": "A",
         "score": "107-126",
         "result": "L"
-      },
-      {
-        "date": "2026-10-30",
-        "opponent": "Boston Celtics",
-        "venue": "A",
-        "score": "111-125",
-        "result": "L"
       }
     ],
     "h2h": null
   },
   "bb-21718186": {
     "home_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "Indiana Pacers",
+        "venue": "A",
+        "score": "104-106",
+        "result": "L"
+      },
       {
         "date": "2026-11-11",
         "opponent": "Cleveland Cavaliers",
@@ -16344,16 +20285,16 @@
         "venue": "H",
         "score": "135-105",
         "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Brooklyn Nets",
-        "venue": "H",
-        "score": "103-90",
-        "result": "W"
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "Miami Heat",
+        "venue": "A",
+        "score": "121-133",
+        "result": "L"
+      },
       {
         "date": "2026-11-11",
         "opponent": "New York Knicks",
@@ -16381,13 +20322,6 @@
         "venue": "H",
         "score": "119-95",
         "result": "W"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Oklahoma City Thunder",
-        "venue": "A",
-        "score": "116-124",
-        "result": "L"
       }
     ],
     "h2h": {
@@ -16490,6 +20424,13 @@
   "bb-21718188": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "New Orleans Pelicans",
+        "venue": "A",
+        "score": "142-111",
+        "result": "W"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Denver Nuggets",
         "venue": "H",
@@ -16515,13 +20456,6 @@
         "opponent": "Indiana Pacers",
         "venue": "H",
         "score": "103-107",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "New Orleans Pelicans",
-        "venue": "H",
-        "score": "134-135",
         "result": "L"
       }
     ],
@@ -16567,6 +20501,13 @@
   "bb-21718189": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Orlando Magic",
+        "venue": "A",
+        "score": "99-107",
+        "result": "L"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Los Angeles Lakers",
         "venue": "H",
@@ -16592,13 +20533,6 @@
         "opponent": "Toronto Raptors",
         "venue": "H",
         "score": "107-121",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Boston Celtics",
-        "venue": "A",
-        "score": "102-109",
         "result": "L"
       }
     ],
@@ -16897,6 +20831,13 @@
   "bb-21718193": {
     "home_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Indiana Pacers",
+        "venue": "A",
+        "score": "104-106",
+        "result": "L"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Cleveland Cavaliers",
         "venue": "H",
@@ -16923,16 +20864,16 @@
         "venue": "H",
         "score": "135-105",
         "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Brooklyn Nets",
-        "venue": "H",
-        "score": "103-90",
-        "result": "W"
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "Cleveland Cavaliers",
+        "venue": "H",
+        "score": "133-121",
+        "result": "W"
+      },
       {
         "date": "2026-11-10",
         "opponent": "Utah Jazz",
@@ -16960,13 +20901,6 @@
         "venue": "A",
         "score": "117-116",
         "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Los Angeles Lakers",
-        "venue": "A",
-        "score": "117-138",
-        "result": "L"
       }
     ],
     "h2h": null
@@ -17011,6 +20945,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Orlando Magic",
+        "venue": "A",
+        "score": "99-107",
+        "result": "L"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Los Angeles Lakers",
         "venue": "H",
@@ -17037,19 +20978,19 @@
         "venue": "H",
         "score": "107-121",
         "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Boston Celtics",
-        "venue": "A",
-        "score": "102-109",
-        "result": "L"
       }
     ],
     "h2h": null
   },
   "bb-21718195": {
     "home_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "New York Knicks",
+        "venue": "H",
+        "score": "106-104",
+        "result": "W"
+      },
       {
         "date": "2026-11-11",
         "opponent": "Washington Wizards",
@@ -17077,13 +21018,6 @@
         "venue": "A",
         "score": "107-103",
         "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Atlanta Hawks",
-        "venue": "H",
-        "score": "104-108",
-        "result": "L"
       }
     ],
     "away_recent": [
@@ -17253,6 +21187,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Chicago Bulls",
+        "venue": "A",
+        "score": "117-125",
+        "result": "L"
+      },
+      {
         "date": "2026-11-09",
         "opponent": "Los Angeles Lakers",
         "venue": "H",
@@ -17278,13 +21219,6 @@
         "opponent": "Washington Wizards",
         "venue": "A",
         "score": "120-105",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "Indiana Pacers",
-        "venue": "A",
-        "score": "108-104",
         "result": "W"
       }
     ],
@@ -17330,6 +21264,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "New Orleans Pelicans",
+        "venue": "A",
+        "score": "142-111",
+        "result": "W"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Denver Nuggets",
         "venue": "H",
@@ -17355,13 +21296,6 @@
         "opponent": "Indiana Pacers",
         "venue": "H",
         "score": "103-107",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-02",
-        "opponent": "New Orleans Pelicans",
-        "venue": "H",
-        "score": "134-135",
         "result": "L"
       }
     ],
@@ -17638,6 +21572,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-13",
+        "opponent": "Memphis Grizzlies",
+        "venue": "H",
+        "score": "111-142",
+        "result": "L"
+      },
+      {
         "date": "2026-11-11",
         "opponent": "Brooklyn Nets",
         "venue": "H",
@@ -17664,13 +21605,6 @@
         "venue": "H",
         "score": "109-115",
         "result": "L"
-      },
-      {
-        "date": "2026-11-04",
-        "opponent": "Utah Jazz",
-        "venue": "H",
-        "score": "120-113",
-        "result": "W"
       }
     ],
     "h2h": {
@@ -17758,6 +21692,420 @@
         "opponent": "Phoenix Suns",
         "venue": "H",
         "score": "116-113",
+        "result": "W"
+      }
+    ],
+    "h2h": null
+  },
+  "bb-21718204": {
+    "home_recent": [
+      {
+        "date": "2026-11-12",
+        "opponent": "Detroit Pistons",
+        "venue": "H",
+        "score": "140-144",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-11",
+        "opponent": "Indiana Pacers",
+        "venue": "A",
+        "score": "101-114",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-09",
+        "opponent": "Detroit Pistons",
+        "venue": "A",
+        "score": "111-122",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-07",
+        "opponent": "Oklahoma City Thunder",
+        "venue": "A",
+        "score": "75-114",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-06",
+        "opponent": "Atlanta Hawks",
+        "venue": "A",
+        "score": "132-139",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "Milwaukee Bucks",
+        "venue": "H",
+        "score": "107-99",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-11",
+        "opponent": "Utah Jazz",
+        "venue": "A",
+        "score": "123-108",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-10",
+        "opponent": "Sacramento Kings",
+        "venue": "A",
+        "score": "107-100",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-07",
+        "opponent": "Golden State Warriors",
+        "venue": "A",
+        "score": "119-126",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-05",
+        "opponent": "Phoenix Suns",
+        "venue": "A",
+        "score": "104-117",
+        "result": "L"
+      }
+    ],
+    "h2h": {
+      "number_of_matches": 1,
+      "matches": [
+        {
+          "date": "2026-11-02",
+          "home": "Orlando Magic",
+          "away": "Washington Wizards",
+          "score": "94-103",
+          "competition": "NBA"
+        }
+      ]
+    }
+  },
+  "bb-21718205": {
+    "home_recent": [
+      {
+        "date": "2026-11-12",
+        "opponent": "Phoenix Suns",
+        "venue": "A",
+        "score": "96-101",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-09",
+        "opponent": "Cleveland Cavaliers",
+        "venue": "H",
+        "score": "124-112",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-06",
+        "opponent": "Boston Celtics",
+        "venue": "H",
+        "score": "80-119",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Brooklyn Nets",
+        "venue": "A",
+        "score": "104-114",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-02",
+        "opponent": "Detroit Pistons",
+        "venue": "H",
+        "score": "91-124",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-11",
+        "opponent": "New Orleans Pelicans",
+        "venue": "A",
+        "score": "145-111",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-08",
+        "opponent": "Dallas Mavericks",
+        "venue": "A",
+        "score": "93-130",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-07",
+        "opponent": "Atlanta Hawks",
+        "venue": "A",
+        "score": "121-124",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Charlotte Hornets",
+        "venue": "H",
+        "score": "114-104",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-02",
+        "opponent": "New York Knicks",
+        "venue": "A",
+        "score": "90-103",
+        "result": "L"
+      }
+    ],
+    "h2h": {
+      "number_of_matches": 2,
+      "matches": [
+        {
+          "date": "2026-10-21",
+          "home": "Brooklyn Nets",
+          "away": "Charlotte Hornets",
+          "score": "103-110",
+          "competition": "NBA"
+        },
+        {
+          "date": "2026-11-04",
+          "home": "Brooklyn Nets",
+          "away": "Charlotte Hornets",
+          "score": "114-104",
+          "competition": "NBA"
+        }
+      ]
+    }
+  },
+  "bb-21718206": {
+    "home_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "Atlanta Hawks",
+        "venue": "H",
+        "score": "125-117",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-11",
+        "opponent": "San Antonio Spurs",
+        "venue": "H",
+        "score": "119-124",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-08",
+        "opponent": "Philadelphia 76ers",
+        "venue": "H",
+        "score": "121-127",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "New York Knicks",
+        "venue": "A",
+        "score": "105-135",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-02",
+        "opponent": "Philadelphia 76ers",
+        "venue": "A",
+        "score": "107-126",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "New York Knicks",
+        "venue": "H",
+        "score": "106-104",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-11",
+        "opponent": "Washington Wizards",
+        "venue": "H",
+        "score": "114-101",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-09",
+        "opponent": "Dallas Mavericks",
+        "venue": "A",
+        "score": "122-125",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-07",
+        "opponent": "Denver Nuggets",
+        "venue": "H",
+        "score": "102-114",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Memphis Grizzlies",
+        "venue": "A",
+        "score": "107-103",
+        "result": "W"
+      }
+    ],
+    "h2h": null
+  },
+  "bb-21718207": {
+    "home_recent": [
+      {
+        "date": "2026-11-13",
+        "opponent": "Orlando Magic",
+        "venue": "A",
+        "score": "99-107",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-11",
+        "opponent": "Los Angeles Lakers",
+        "venue": "H",
+        "score": "112-123",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-10",
+        "opponent": "New York Knicks",
+        "venue": "A",
+        "score": "85-117",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-08",
+        "opponent": "Boston Celtics",
+        "venue": "H",
+        "score": "97-117",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-06",
+        "opponent": "Toronto Raptors",
+        "venue": "H",
+        "score": "107-121",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-11",
+        "opponent": "Portland Trail Blazers",
+        "venue": "A",
+        "score": "108-118",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-10",
+        "opponent": "Portland Trail Blazers",
+        "venue": "A",
+        "score": "103-123",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-07",
+        "opponent": "Washington Wizards",
+        "venue": "H",
+        "score": "114-75",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-06",
+        "opponent": "Memphis Grizzlies",
+        "venue": "A",
+        "score": "128-97",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Cleveland Cavaliers",
+        "venue": "H",
+        "score": "124-116",
+        "result": "W"
+      }
+    ],
+    "h2h": null
+  },
+  "bb-21718208": {
+    "home_recent": [
+      {
+        "date": "2026-11-11",
+        "opponent": "Golden State Warriors",
+        "venue": "H",
+        "score": "115-108",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-09",
+        "opponent": "Denver Nuggets",
+        "venue": "H",
+        "score": "110-100",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-07",
+        "opponent": "Phoenix Suns",
+        "venue": "A",
+        "score": "99-102",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Minnesota Timberwolves",
+        "venue": "H",
+        "score": "107-117",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-02",
+        "opponent": "Boston Celtics",
+        "venue": "H",
+        "score": "109-93",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-12",
+        "opponent": "Toronto Raptors",
+        "venue": "H",
+        "score": "123-112",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-10",
+        "opponent": "Boston Celtics",
+        "venue": "H",
+        "score": "101-123",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-08",
+        "opponent": "Chicago Bulls",
+        "venue": "A",
+        "score": "127-121",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-06",
+        "opponent": "Cleveland Cavaliers",
+        "venue": "A",
+        "score": "95-119",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Detroit Pistons",
+        "venue": "A",
+        "score": "112-106",
         "result": "W"
       }
     ],

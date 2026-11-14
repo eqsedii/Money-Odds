@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T21:20:21.392803Z",
+  "generated_at": "2026-11-14T04:15:21.012016Z",
   "predictions": [
     {
       "id": 575403,
@@ -47,20 +47,6 @@
       "locked": true
     },
     {
-      "id": "bb-21718108",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Minnesota Timberwolves vs Chicago Bulls",
-      "home_team": "Minnesota Timberwolves",
-      "away_team": "Chicago Bulls",
-      "home_team_id": 18,
-      "away_team_id": 5,
-      "league": "NBA",
-      "kickoff": "2026-11-14",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 575408,
       "sport": "Football",
       "icon": "\u26bd",
@@ -87,6 +73,35 @@
       "league": "Eredivisie",
       "comp_code": "DED",
       "kickoff": "2026-11-27T19:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718108",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Minnesota Timberwolves vs Chicago Bulls",
+      "home_team": "Minnesota Timberwolves",
+      "away_team": "Chicago Bulls",
+      "home_team_id": 18,
+      "away_team_id": 5,
+      "league": "NBA",
+      "kickoff": "2026-11-14",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 559614,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Paris Saint-Germain FC vs FC Lorient",
+      "home_team": "Paris Saint-Germain FC",
+      "away_team": "FC Lorient",
+      "home_team_id": 524,
+      "away_team_id": 525,
+      "league": "Ligue 1",
+      "comp_code": "FL1",
+      "kickoff": "2026-11-28T19:45:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -136,6 +151,36 @@
       "locked": true
     },
     {
+      "id": 558826,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "PSV vs Go Ahead Eagles",
+      "home_team": "PSV",
+      "away_team": "Go Ahead Eagles",
+      "home_team_id": 674,
+      "away_team_id": 718,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-11-28T17:45:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 558819,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "SC Cambuur-Leeuwarden vs Sparta Rotterdam",
+      "home_team": "SC Cambuur-Leeuwarden",
+      "away_team": "Sparta Rotterdam",
+      "home_team_id": 1909,
+      "away_team_id": 6806,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-11-28T20:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 558828,
       "sport": "Football",
       "icon": "\u26bd",
@@ -180,16 +225,17 @@
       "locked": true
     },
     {
-      "id": "bb-21718100",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Houston Rockets vs Utah Jazz",
-      "home_team": "Houston Rockets",
-      "away_team": "Utah Jazz",
-      "home_team_id": 11,
-      "away_team_id": 29,
-      "league": "NBA",
-      "kickoff": "2026-11-13",
+      "id": 564762,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Real Madrid CF vs Deportivo Alav\u00e9s",
+      "home_team": "Real Madrid CF",
+      "away_team": "Deportivo Alav\u00e9s",
+      "home_team_id": 86,
+      "away_team_id": 263,
+      "league": "Primera Division",
+      "comp_code": "PD",
+      "kickoff": "2026-11-28T20:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -204,6 +250,20 @@
       "away_team_id": 26,
       "league": "NBA",
       "kickoff": "2026-11-20",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718160",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "San Antonio Spurs vs New Orleans Pelicans",
+      "home_team": "San Antonio Spurs",
+      "away_team": "New Orleans Pelicans",
+      "home_team_id": 27,
+      "away_team_id": 19,
+      "league": "NBA",
+      "kickoff": "2026-11-21",
       "has_pick": true,
       "locked": true
     },
@@ -232,63 +292,6 @@
       "away_team_id": 4,
       "league": "NBA",
       "kickoff": "2026-11-17",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718141",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Los Angeles Lakers vs Utah Jazz",
-      "home_team": "Los Angeles Lakers",
-      "away_team": "Utah Jazz",
-      "home_team_id": 14,
-      "away_team_id": 29,
-      "league": "NBA",
-      "kickoff": "2026-11-18",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 565859,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Bayern M\u00fcnchen vs 1. FC K\u00f6ln",
-      "home_team": "FC Bayern M\u00fcnchen",
-      "away_team": "1. FC K\u00f6ln",
-      "home_team_id": 5,
-      "away_team_id": 1,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-11-20T19:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718160",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "San Antonio Spurs vs New Orleans Pelicans",
-      "home_team": "San Antonio Spurs",
-      "away_team": "New Orleans Pelicans",
-      "home_team_id": 27,
-      "away_team_id": 19,
-      "league": "NBA",
-      "kickoff": "2026-11-21",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718179",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Los Angeles Lakers vs Utah Jazz",
-      "home_team": "Los Angeles Lakers",
-      "away_team": "Utah Jazz",
-      "home_team_id": 14,
-      "away_team_id": 29,
-      "league": "NBA",
-      "kickoff": "2026-11-23",
       "has_pick": true,
       "locked": true
     }
@@ -323,16 +326,16 @@
           "meta": "UEFA Champions League"
         },
         {
-          "id": "bb-21718108",
-          "icon": "\ud83c\udfc0",
-          "match": "Minnesota Timberwolves vs Chicago Bulls",
-          "meta": "NBA"
-        },
-        {
           "id": 575408,
           "icon": "\u26bd",
           "match": "Paris Saint-Germain FC vs AS Roma",
           "meta": "UEFA Champions League"
+        },
+        {
+          "id": 558820,
+          "icon": "\u26bd",
+          "match": "FC Groningen vs Willem II Tilburg",
+          "meta": "Eredivisie"
         }
       ]
     }

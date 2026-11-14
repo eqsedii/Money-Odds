@@ -1,6 +1,66 @@
 {
-  "total_analyzed_since_start": 1084,
+  "total_analyzed_since_start": 1126,
   "history": [
+    {
+      "date": "2026-10-30",
+      "id": "bb-21718095",
+      "sport": "Basketball",
+      "match": "Indiana Pacers vs New York Knicks",
+      "league": "NBA",
+      "pick": "Indiana Pacers Win",
+      "result": "win",
+      "final_score": "106-104"
+    },
+    {
+      "date": "2026-10-30",
+      "id": "bb-21718096",
+      "sport": "Basketball",
+      "match": "Orlando Magic vs Milwaukee Bucks",
+      "league": "NBA",
+      "pick": "Over 233.4 Points",
+      "result": "loss",
+      "final_score": "107-99"
+    },
+    {
+      "date": "2026-10-30",
+      "id": "bb-21718097",
+      "sport": "Basketball",
+      "match": "Miami Heat vs Cleveland Cavaliers",
+      "league": "NBA",
+      "pick": "Cleveland Cavaliers Win",
+      "result": "loss",
+      "final_score": "133-121"
+    },
+    {
+      "date": "2026-10-30",
+      "id": "bb-21718098",
+      "sport": "Basketball",
+      "match": "Chicago Bulls vs Atlanta Hawks",
+      "league": "NBA",
+      "pick": "Atlanta Hawks Win",
+      "result": "loss",
+      "final_score": "125-117"
+    },
+    {
+      "date": "2026-10-30",
+      "id": "bb-21718099",
+      "sport": "Basketball",
+      "match": "New Orleans Pelicans vs Memphis Grizzlies",
+      "league": "NBA",
+      "pick": "Memphis Grizzlies Win",
+      "result": "win",
+      "final_score": "111-142"
+    },
+    {
+      "date": "2026-10-30",
+      "id": "bb-21718100",
+      "sport": "Basketball",
+      "match": "Houston Rockets vs Utah Jazz",
+      "league": "NBA",
+      "pick": "Houston Rockets Win",
+      "result": "win",
+      "final_score": "125-118"
+    },
     {
       "date": "2026-10-29",
       "id": "bb-21718091",
@@ -4940,66 +5000,6 @@
       "pick": "Under 2.5 Goals",
       "result": "loss",
       "final_score": "2-1"
-    },
-    {
-      "date": "2026-10-05",
-      "id": 561857,
-      "sport": "Football",
-      "match": "West Bromwich Albion FC vs Birmingham City FC",
-      "league": "Championship",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "0-1"
-    },
-    {
-      "date": "2026-10-05",
-      "id": 561860,
-      "sport": "Football",
-      "match": "Swansea City AFC vs Norwich City FC",
-      "league": "Championship",
-      "pick": "Swansea City AFC Win",
-      "result": "win",
-      "final_score": "2-1"
-    },
-    {
-      "date": "2026-10-05",
-      "id": 561863,
-      "sport": "Football",
-      "match": "Charlton Athletic FC vs Bristol City FC",
-      "league": "Championship",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "1-1"
-    },
-    {
-      "date": "2026-10-05",
-      "id": 558582,
-      "sport": "Football",
-      "match": "FC Internazionale Milano vs Parma Calcio 1913",
-      "league": "Serie A",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "3-0"
-    },
-    {
-      "date": "2026-10-05",
-      "id": 561859,
-      "sport": "Football",
-      "match": "Southampton FC vs Portsmouth FC",
-      "league": "Championship",
-      "pick": "Southampton FC Win",
-      "result": "win",
-      "final_score": "1-0"
-    },
-    {
-      "date": "2026-10-05",
-      "id": 561875,
-      "sport": "Football",
-      "match": "Birmingham City FC vs Preston North End FC",
-      "league": "Championship",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "4-0"
     }
   ]
 }
