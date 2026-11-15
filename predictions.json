@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T00:46:00.579798Z",
+  "generated_at": "2026-11-15T10:23:44.166071Z",
   "predictions": [
     {
       "id": 575403,
@@ -256,20 +256,6 @@
       "locked": true
     },
     {
-      "id": "bb-21718194",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Detroit Pistons vs Milwaukee Bucks",
-      "home_team": "Detroit Pistons",
-      "away_team": "Milwaukee Bucks",
-      "home_team_id": 9,
-      "away_team_id": 17,
-      "league": "NBA",
-      "kickoff": "2026-11-27",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 564762,
       "sport": "Football",
       "icon": "\u26bd",
@@ -296,6 +282,20 @@
       "league": "Premier League",
       "comp_code": "PL",
       "kickoff": "2026-11-29T14:05:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718155",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Los Angeles Lakers vs Sacramento Kings",
+      "home_team": "Los Angeles Lakers",
+      "away_team": "Sacramento Kings",
+      "home_team_id": 14,
+      "away_team_id": 26,
+      "league": "NBA",
+      "kickoff": "2026-11-20",
       "has_pick": true,
       "locked": true
     }

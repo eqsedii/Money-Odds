@@ -2,6 +2,76 @@
   "total_analyzed_since_start": 1171,
   "history": [
     {
+      "date": "2026-11-01",
+      "id": 554942,
+      "sport": "Football",
+      "match": "Chapecoense AF vs CR Vasco da Gama",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Over 2.5 Goals",
+      "result": "loss",
+      "final_score": "0-2"
+    },
+    {
+      "date": "2026-10-31",
+      "id": "bb-21718104",
+      "sport": "Basketball",
+      "match": "New Orleans Pelicans vs Denver Nuggets",
+      "league": "NBA",
+      "pick": "Over 236.4 Points",
+      "result": "loss",
+      "final_score": "108-116"
+    },
+    {
+      "date": "2026-10-31",
+      "id": "bb-21718105",
+      "sport": "Basketball",
+      "match": "Cleveland Cavaliers vs Dallas Mavericks",
+      "league": "NBA",
+      "pick": "Over 231.9 Points",
+      "result": "win",
+      "final_score": "127-117"
+    },
+    {
+      "date": "2026-10-31",
+      "id": "bb-21718106",
+      "sport": "Basketball",
+      "match": "Miami Heat vs Detroit Pistons",
+      "league": "NBA",
+      "pick": "Detroit Pistons Win",
+      "result": "loss",
+      "final_score": "137-117"
+    },
+    {
+      "date": "2026-10-31",
+      "id": "bb-21718107",
+      "sport": "Basketball",
+      "match": "Memphis Grizzlies vs Brooklyn Nets",
+      "league": "NBA",
+      "pick": "Memphis Grizzlies Win",
+      "result": "win",
+      "final_score": "129-110"
+    },
+    {
+      "date": "2026-10-31",
+      "id": "bb-21718108",
+      "sport": "Basketball",
+      "match": "Minnesota Timberwolves vs Chicago Bulls",
+      "league": "NBA",
+      "pick": "Minnesota Timberwolves Win",
+      "result": "loss",
+      "final_score": "106-117"
+    },
+    {
+      "date": "2026-10-31",
+      "id": 555085,
+      "sport": "Football",
+      "match": "Mirassol FC vs CA Mineiro",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "0-0"
+    },
+    {
       "date": "2026-10-30",
       "id": "bb-21718095",
       "sport": "Basketball",
@@ -4930,76 +5000,6 @@
       "pick": "AC Milan Win",
       "result": "win",
       "final_score": "3-2"
-    },
-    {
-      "date": "2026-10-07",
-      "id": 565820,
-      "sport": "Football",
-      "match": "Borussia Dortmund vs SV Werder Bremen",
-      "league": "Bundesliga",
-      "pick": "Borussia Dortmund Win",
-      "result": "loss",
-      "final_score": "2-2"
-    },
-    {
-      "date": "2026-10-07",
-      "id": 564700,
-      "sport": "Football",
-      "match": "FC Barcelona vs Getafe CF",
-      "league": "Primera Division",
-      "pick": "FC Barcelona Win",
-      "result": "win",
-      "final_score": "3-0"
-    },
-    {
-      "date": "2026-10-07",
-      "id": 558879,
-      "sport": "Football",
-      "match": "Feyenoord Rotterdam vs AZ",
-      "league": "Eredivisie",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "2-0"
-    },
-    {
-      "date": "2026-10-07",
-      "id": 564685,
-      "sport": "Football",
-      "match": "Levante UD vs Athletic Club",
-      "league": "Primera Division",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "3-1"
-    },
-    {
-      "date": "2026-10-06",
-      "id": 558881,
-      "sport": "Football",
-      "match": "PSV vs SC Heerenveen",
-      "league": "Eredivisie",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "2-0"
-    },
-    {
-      "date": "2026-10-06",
-      "id": 560600,
-      "sport": "Football",
-      "match": "Manchester United FC vs Tottenham Hotspur FC",
-      "league": "Premier League",
-      "pick": "BTTS - No",
-      "result": "loss",
-      "final_score": "1-1"
-    },
-    {
-      "date": "2026-10-06",
-      "id": 565815,
-      "sport": "Football",
-      "match": "RB Leipzig vs Eintracht Frankfurt",
-      "league": "Bundesliga",
-      "pick": "RB Leipzig Win",
-      "result": "win",
-      "final_score": "6-0"
     }
   ]
 }
