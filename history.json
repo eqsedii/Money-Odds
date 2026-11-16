@@ -52,6 +52,56 @@
       "final_score": "102-110"
     },
     {
+      "date": "2026-11-01",
+      "id": "bb-21718113",
+      "sport": "Basketball",
+      "match": "Boston Celtics vs Dallas Mavericks",
+      "league": "NBA",
+      "pick": "Boston Celtics Win",
+      "result": "win",
+      "final_score": "131-94"
+    },
+    {
+      "date": "2026-11-01",
+      "id": "bb-21718114",
+      "sport": "Basketball",
+      "match": "Toronto Raptors vs New York Knicks",
+      "league": "NBA",
+      "pick": "Toronto Raptors Win",
+      "result": "loss",
+      "final_score": "108-112"
+    },
+    {
+      "date": "2026-11-01",
+      "id": "bb-21718115",
+      "sport": "Basketball",
+      "match": "Washington Wizards vs Houston Rockets",
+      "league": "NBA",
+      "pick": "Houston Rockets Win",
+      "result": "win",
+      "final_score": "119-147"
+    },
+    {
+      "date": "2026-11-01",
+      "id": "bb-21718116",
+      "sport": "Basketball",
+      "match": "Milwaukee Bucks vs Atlanta Hawks",
+      "league": "NBA",
+      "pick": "Atlanta Hawks Win",
+      "result": "win",
+      "final_score": "106-113"
+    },
+    {
+      "date": "2026-11-01",
+      "id": "bb-21718117",
+      "sport": "Basketball",
+      "match": "Sacramento Kings vs Oklahoma City Thunder",
+      "league": "NBA",
+      "pick": "Oklahoma City Thunder Win",
+      "result": "win",
+      "final_score": "103-125"
+    },
+    {
       "date": "2026-10-31",
       "id": "bb-21718104",
       "sport": "Basketball",
@@ -4950,56 +5000,6 @@
       "pick": "BTTS - Yes",
       "result": "win",
       "final_score": "1-5"
-    },
-    {
-      "date": "2026-10-09",
-      "id": 555052,
-      "sport": "Football",
-      "match": "Cruzeiro EC vs Clube do Remo",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "Cruzeiro EC Win",
-      "result": "win",
-      "final_score": "1-0"
-    },
-    {
-      "date": "2026-10-08",
-      "id": 559669,
-      "sport": "Football",
-      "match": "Racing Club de Lens vs Olympique Lyonnais",
-      "league": "Ligue 1",
-      "pick": "BTTS - No",
-      "result": "loss",
-      "final_score": "2-1"
-    },
-    {
-      "date": "2026-10-08",
-      "id": 567323,
-      "sport": "Football",
-      "match": "CS Mar\u00edtimo vs FC Porto",
-      "league": "Primeira Liga",
-      "pick": "FC Porto Win",
-      "result": "win",
-      "final_score": "1-2"
-    },
-    {
-      "date": "2026-10-08",
-      "id": 555039,
-      "sport": "Football",
-      "match": "CR Vasco da Gama vs Clube do Remo",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "CR Vasco da Gama Win",
-      "result": "loss",
-      "final_score": "0-0"
-    },
-    {
-      "date": "2026-10-08",
-      "id": 564701,
-      "sport": "Football",
-      "match": "Real Betis Balompi\u00e9 vs CA Osasuna",
-      "league": "Primera Division",
-      "pick": "Real Betis Balompi\u00e9 Win",
-      "result": "win",
-      "final_score": "5-2"
     }
   ]
 }
