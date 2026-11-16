@@ -1,5 +1,5 @@
 {
-  "total_analyzed_since_start": 1171,
+  "total_analyzed_since_start": 1183,
   "history": [
     {
       "date": "2026-11-01",
@@ -10,6 +10,46 @@
       "pick": "Over 2.5 Goals",
       "result": "loss",
       "final_score": "0-2"
+    },
+    {
+      "date": "2026-11-01",
+      "id": "bb-21718109",
+      "sport": "Basketball",
+      "match": "Philadelphia 76ers vs Indiana Pacers",
+      "league": "NBA",
+      "pick": "Philadelphia 76ers Win",
+      "result": "win",
+      "final_score": "131-124"
+    },
+    {
+      "date": "2026-11-01",
+      "id": "bb-21718110",
+      "sport": "Basketball",
+      "match": "Phoenix Suns vs Los Angeles Lakers",
+      "league": "NBA",
+      "pick": "Los Angeles Lakers Win",
+      "result": "win",
+      "final_score": "123-131"
+    },
+    {
+      "date": "2026-11-01",
+      "id": "bb-21718111",
+      "sport": "Basketball",
+      "match": "LA Clippers vs Charlotte Hornets",
+      "league": "NBA",
+      "pick": "LA Clippers Win",
+      "result": "win",
+      "final_score": "113-105"
+    },
+    {
+      "date": "2026-11-01",
+      "id": "bb-21718112",
+      "sport": "Basketball",
+      "match": "Utah Jazz vs San Antonio Spurs",
+      "league": "NBA",
+      "pick": "San Antonio Spurs Win",
+      "result": "win",
+      "final_score": "102-110"
     },
     {
       "date": "2026-10-31",
@@ -4960,46 +5000,6 @@
       "pick": "Real Betis Balompi\u00e9 Win",
       "result": "win",
       "final_score": "5-2"
-    },
-    {
-      "date": "2026-10-08",
-      "id": 561884,
-      "sport": "Football",
-      "match": "Millwall FC vs Lincoln City FC",
-      "league": "Championship",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "2-2"
-    },
-    {
-      "date": "2026-10-08",
-      "id": 561887,
-      "sport": "Football",
-      "match": "Middlesbrough FC vs Cardiff City FC",
-      "league": "Championship",
-      "pick": "Middlesbrough FC Win",
-      "result": "loss",
-      "final_score": "2-2"
-    },
-    {
-      "date": "2026-10-08",
-      "id": 561889,
-      "sport": "Football",
-      "match": "Watford FC vs Charlton Athletic FC",
-      "league": "Championship",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "2-0"
-    },
-    {
-      "date": "2026-10-08",
-      "id": 558569,
-      "sport": "Football",
-      "match": "AC Milan vs Atalanta BC",
-      "league": "Serie A",
-      "pick": "AC Milan Win",
-      "result": "win",
-      "final_score": "3-2"
     }
   ]
 }

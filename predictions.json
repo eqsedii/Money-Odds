@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T18:26:23.280647Z",
+  "generated_at": "2026-11-16T00:47:30.253968Z",
   "predictions": [
     {
       "id": 575403,
@@ -167,20 +167,6 @@
       "locked": true
     },
     {
-      "id": "bb-21718160",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "San Antonio Spurs vs New Orleans Pelicans",
-      "home_team": "San Antonio Spurs",
-      "away_team": "New Orleans Pelicans",
-      "home_team_id": 27,
-      "away_team_id": 19,
-      "league": "NBA",
-      "kickoff": "2026-11-21",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 575410,
       "sport": "Football",
       "icon": "\u26bd",
@@ -222,6 +208,20 @@
       "league": "Eredivisie",
       "comp_code": "DED",
       "kickoff": "2026-11-28T20:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718160",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "San Antonio Spurs vs New Orleans Pelicans",
+      "home_team": "San Antonio Spurs",
+      "away_team": "New Orleans Pelicans",
+      "home_team_id": 27,
+      "away_team_id": 19,
+      "league": "NBA",
+      "kickoff": "2026-11-21",
       "has_pick": true,
       "locked": true
     },
