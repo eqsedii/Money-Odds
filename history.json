@@ -2,6 +2,56 @@
   "total_analyzed_since_start": 1211,
   "history": [
     {
+      "date": "2026-11-03",
+      "id": "bb-21718126",
+      "sport": "Basketball",
+      "match": "Toronto Raptors vs New York Knicks",
+      "league": "NBA",
+      "pick": "Toronto Raptors Win",
+      "result": "loss",
+      "final_score": "102-111"
+    },
+    {
+      "date": "2026-11-03",
+      "id": "bb-21718127",
+      "sport": "Basketball",
+      "match": "Minnesota Timberwolves vs Portland Trail Blazers",
+      "league": "NBA",
+      "pick": "Minnesota Timberwolves Win",
+      "result": "win",
+      "final_score": "106-105"
+    },
+    {
+      "date": "2026-11-03",
+      "id": "bb-21718128",
+      "sport": "Basketball",
+      "match": "San Antonio Spurs vs Detroit Pistons",
+      "league": "NBA",
+      "pick": "Over 220.2 Points",
+      "result": "loss",
+      "final_score": "93-105"
+    },
+    {
+      "date": "2026-11-03",
+      "id": "bb-21718129",
+      "sport": "Basketball",
+      "match": "Los Angeles Lakers vs Charlotte Hornets",
+      "league": "NBA",
+      "pick": "Los Angeles Lakers Win",
+      "result": "win",
+      "final_score": "118-114"
+    },
+    {
+      "date": "2026-11-03",
+      "id": "bb-21718130",
+      "sport": "Basketball",
+      "match": "LA Clippers vs Utah Jazz",
+      "league": "NBA",
+      "pick": "LA Clippers Win",
+      "result": "loss",
+      "final_score": "107-132"
+    },
+    {
       "date": "2026-11-02",
       "id": "bb-21718118",
       "sport": "Basketball",
@@ -4950,56 +5000,6 @@
       "pick": "BTTS - No",
       "result": "win",
       "final_score": "0-1"
-    },
-    {
-      "date": "2026-10-10",
-      "id": 559655,
-      "sport": "Football",
-      "match": "Toulouse FC vs ES Troyes AC",
-      "league": "Ligue 1",
-      "pick": "Toulouse FC Win",
-      "result": "loss",
-      "final_score": "0-0"
-    },
-    {
-      "date": "2026-10-10",
-      "id": 555050,
-      "sport": "Football",
-      "match": "Chapecoense AF vs Fluminense FC",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "Over 2.5 Goals",
-      "result": "win",
-      "final_score": "2-1"
-    },
-    {
-      "date": "2026-10-09",
-      "id": 555038,
-      "sport": "Football",
-      "match": "S\u00e3o Paulo FC vs EC Vit\u00f3ria",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "S\u00e3o Paulo FC Win",
-      "result": "win",
-      "final_score": "2-1"
-    },
-    {
-      "date": "2026-10-09",
-      "id": 564703,
-      "sport": "Football",
-      "match": "Elche CF vs RC Celta de Vigo",
-      "league": "Primera Division",
-      "pick": "BTTS - No",
-      "result": "win",
-      "final_score": "0-0"
-    },
-    {
-      "date": "2026-10-09",
-      "id": 560603,
-      "sport": "Football",
-      "match": "Everton FC vs Chelsea FC",
-      "league": "Premier League",
-      "pick": "Everton FC Win",
-      "result": "loss",
-      "final_score": "0-2"
     }
   ]
 }
