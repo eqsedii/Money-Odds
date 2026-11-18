@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T15:24:14.192770Z",
+  "generated_at": "2026-11-18T00:26:43.405706Z",
   "predictions": [
     {
       "id": 575403,
@@ -286,16 +286,16 @@
       "locked": true
     },
     {
-      "id": "bb-21718160",
+      "id": "bb-21718236",
       "sport": "Basketball",
       "icon": "\ud83c\udfc0",
-      "match": "San Antonio Spurs vs New Orleans Pelicans",
-      "home_team": "San Antonio Spurs",
-      "away_team": "New Orleans Pelicans",
-      "home_team_id": 27,
-      "away_team_id": 19,
+      "match": "Boston Celtics vs Charlotte Hornets",
+      "home_team": "Boston Celtics",
+      "away_team": "Charlotte Hornets",
+      "home_team_id": 2,
+      "away_team_id": 4,
       "league": "NBA",
-      "kickoff": "2026-11-21",
+      "kickoff": "2026-12-02",
       "has_pick": true,
       "locked": true
     }
