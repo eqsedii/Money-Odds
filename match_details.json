@@ -1,669 +1,4 @@
 {
-  "555081": {
-    "home_recent": [
-      {
-        "date": "2026-11-04",
-        "opponent": "SC Internacional",
-        "venue": "A",
-        "score": "0-1",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-31",
-        "opponent": "EC Vit\u00f3ria",
-        "venue": "H",
-        "score": "2-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-26",
-        "opponent": "Gr\u00eamio FBPA",
-        "venue": "H",
-        "score": "0-1",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-17",
-        "opponent": "CA Mineiro",
-        "venue": "A",
-        "score": "0-1",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-12",
-        "opponent": "Botafogo FR",
-        "venue": "H",
-        "score": "1-1",
-        "result": "D"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-11-02",
-        "opponent": "RB Bragantino",
-        "venue": "A",
-        "score": "1-2",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-28",
-        "opponent": "SE Palmeiras",
-        "venue": "H",
-        "score": "0-0",
-        "result": "D"
-      },
-      {
-        "date": "2026-10-25",
-        "opponent": "EC Bahia",
-        "venue": "H",
-        "score": "1-1",
-        "result": "D"
-      },
-      {
-        "date": "2026-10-18",
-        "opponent": "Fluminense FC",
-        "venue": "A",
-        "score": "2-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "CA Mineiro",
-        "venue": "A",
-        "score": "1-2",
-        "result": "L"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 5,
-      "home_wins": 0,
-      "draws": 1,
-      "away_wins": 0,
-      "matches": [
-        {
-          "date": "2026-05-17",
-          "home": "Santos FC",
-          "away": "Coritiba FBC",
-          "score": "0-3",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2023-10-27",
-          "home": "Santos FC",
-          "away": "Coritiba FBC",
-          "score": "2-1",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2023-06-10",
-          "home": "Coritiba FBC",
-          "away": "Santos FC",
-          "score": "0-0",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        }
-      ]
-    }
-  },
-  "555086": {
-    "home_recent": [
-      {
-        "date": "2026-11-05",
-        "opponent": "SE Palmeiras",
-        "venue": "A",
-        "score": "1-6",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-29",
-        "opponent": "Botafogo FR",
-        "venue": "H",
-        "score": "2-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-23",
-        "opponent": "Cruzeiro EC",
-        "venue": "A",
-        "score": "0-1",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-18",
-        "opponent": "RB Bragantino",
-        "venue": "H",
-        "score": "1-1",
-        "result": "D"
-      },
-      {
-        "date": "2026-10-10",
-        "opponent": "CR Vasco da Gama",
-        "venue": "A",
-        "score": "0-0",
-        "result": "D"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-11-14",
-        "opponent": "CR Vasco da Gama",
-        "venue": "H",
-        "score": "0-2",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-03",
-        "opponent": "Mirassol FC",
-        "venue": "H",
-        "score": "1-2",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-28",
-        "opponent": "RB Bragantino",
-        "venue": "A",
-        "score": "0-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-24",
-        "opponent": "Fluminense FC",
-        "venue": "H",
-        "score": "2-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-17",
-        "opponent": "Botafogo FR",
-        "venue": "A",
-        "score": "0-1",
-        "result": "L"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 3,
-      "home_wins": 0,
-      "draws": 2,
-      "away_wins": 0,
-      "matches": [
-        {
-          "date": "2026-05-17",
-          "home": "Chapecoense AF",
-          "away": "Clube do Remo",
-          "score": "2-3",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        }
-      ]
-    }
-  },
-  "555082": {
-    "home_recent": [
-      {
-        "date": "2026-11-06",
-        "opponent": "EC Bahia",
-        "venue": "H",
-        "score": "3-2",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-29",
-        "opponent": "CA Mineiro",
-        "venue": "A",
-        "score": "1-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-23",
-        "opponent": "Clube do Remo",
-        "venue": "H",
-        "score": "1-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-18",
-        "opponent": "Gr\u00eamio FBPA",
-        "venue": "A",
-        "score": "4-2",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-13",
-        "opponent": "RB Bragantino",
-        "venue": "A",
-        "score": "2-4",
-        "result": "L"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-11-05",
-        "opponent": "Clube do Remo",
-        "venue": "H",
-        "score": "6-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-28",
-        "opponent": "Santos FC",
-        "venue": "A",
-        "score": "0-0",
-        "result": "D"
-      },
-      {
-        "date": "2026-10-24",
-        "opponent": "RB Bragantino",
-        "venue": "H",
-        "score": "2-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-17",
-        "opponent": "CA Paranaense",
-        "venue": "A",
-        "score": "2-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "SC Corinthians Paulista",
-        "venue": "H",
-        "score": "4-1",
-        "result": "W"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 5,
-      "home_wins": 0,
-      "draws": 2,
-      "away_wins": 0,
-      "matches": [
-        {
-          "date": "2026-05-17",
-          "home": "SE Palmeiras",
-          "away": "Cruzeiro EC",
-          "score": "1-1",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2025-10-26",
-          "home": "SE Palmeiras",
-          "away": "Cruzeiro EC",
-          "score": "0-0",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2025-06-01",
-          "home": "Cruzeiro EC",
-          "away": "SE Palmeiras",
-          "score": "2-1",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2024-12-05",
-          "home": "Cruzeiro EC",
-          "away": "SE Palmeiras",
-          "score": "1-2",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2024-07-21",
-          "home": "SE Palmeiras",
-          "away": "Cruzeiro EC",
-          "score": "2-0",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        }
-      ]
-    }
-  },
-  "555083": {
-    "home_recent": [
-      {
-        "date": "2026-11-04",
-        "opponent": "Gr\u00eamio FBPA",
-        "venue": "H",
-        "score": "3-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-29",
-        "opponent": "CR Vasco da Gama",
-        "venue": "A",
-        "score": "4-1",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-26",
-        "opponent": "CA Mineiro",
-        "venue": "H",
-        "score": "3-2",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-18",
-        "opponent": "EC Bahia",
-        "venue": "A",
-        "score": "3-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "Fluminense FC",
-        "venue": "H",
-        "score": "1-0",
-        "result": "W"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-11-04",
-        "opponent": "CR Vasco da Gama",
-        "venue": "H",
-        "score": "1-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-30",
-        "opponent": "Gr\u00eamio FBPA",
-        "venue": "A",
-        "score": "0-2",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-24",
-        "opponent": "EC Vit\u00f3ria",
-        "venue": "A",
-        "score": "1-1",
-        "result": "D"
-      },
-      {
-        "date": "2026-10-17",
-        "opponent": "SE Palmeiras",
-        "venue": "H",
-        "score": "0-2",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-12",
-        "opponent": "Chapecoense AF",
-        "venue": "A",
-        "score": "4-1",
-        "result": "W"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 5,
-      "home_wins": 0,
-      "draws": 2,
-      "away_wins": 0,
-      "matches": [
-        {
-          "date": "2026-05-17",
-          "home": "CA Paranaense",
-          "away": "CR Flamengo",
-          "score": "1-1",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2024-09-29",
-          "home": "CR Flamengo",
-          "away": "CA Paranaense",
-          "score": "1-0",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2024-06-16",
-          "home": "CA Paranaense",
-          "away": "CR Flamengo",
-          "score": "1-1",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2023-09-14",
-          "home": "CR Flamengo",
-          "away": "CA Paranaense",
-          "score": "0-3",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        }
-      ]
-    }
-  },
-  "555080": {
-    "home_recent": [
-      {
-        "date": "2026-11-05",
-        "opponent": "S\u00e3o Paulo FC",
-        "venue": "A",
-        "score": "0-0",
-        "result": "D"
-      },
-      {
-        "date": "2026-10-30",
-        "opponent": "Mirassol FC",
-        "venue": "H",
-        "score": "2-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-24",
-        "opponent": "CR Vasco da Gama",
-        "venue": "A",
-        "score": "2-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-19",
-        "opponent": "EC Vit\u00f3ria",
-        "venue": "H",
-        "score": "1-1",
-        "result": "D"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "SE Palmeiras",
-        "venue": "A",
-        "score": "1-4",
-        "result": "L"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-11-05",
-        "opponent": "CA Mineiro",
-        "venue": "H",
-        "score": "1-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-29",
-        "opponent": "Clube do Remo",
-        "venue": "A",
-        "score": "1-2",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-24",
-        "opponent": "SC Internacional",
-        "venue": "A",
-        "score": "0-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-17",
-        "opponent": "Chapecoense AF",
-        "venue": "H",
-        "score": "1-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-12",
-        "opponent": "Coritiba FBC",
-        "venue": "A",
-        "score": "1-1",
-        "result": "D"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 5,
-      "home_wins": 0,
-      "draws": 2,
-      "away_wins": 0,
-      "matches": [
-        {
-          "date": "2026-05-17",
-          "home": "Botafogo FR",
-          "away": "SC Corinthians Paulista",
-          "score": "3-1",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2025-11-30",
-          "home": "SC Corinthians Paulista",
-          "away": "Botafogo FR",
-          "score": "2-2",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2025-07-26",
-          "home": "Botafogo FR",
-          "away": "SC Corinthians Paulista",
-          "score": "1-1",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2024-09-15",
-          "home": "Botafogo FR",
-          "away": "SC Corinthians Paulista",
-          "score": "2-1",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2024-06-02",
-          "home": "SC Corinthians Paulista",
-          "away": "Botafogo FR",
-          "score": "0-1",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        }
-      ]
-    }
-  },
-  "555084": {
-    "home_recent": [
-      {
-        "date": "2026-11-04",
-        "opponent": "CR Flamengo",
-        "venue": "A",
-        "score": "1-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-30",
-        "opponent": "CA Paranaense",
-        "venue": "H",
-        "score": "2-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-26",
-        "opponent": "Coritiba FBC",
-        "venue": "A",
-        "score": "1-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-18",
-        "opponent": "Cruzeiro EC",
-        "venue": "H",
-        "score": "2-4",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "SC Internacional",
-        "venue": "H",
-        "score": "1-1",
-        "result": "D"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-11-06",
-        "opponent": "Cruzeiro EC",
-        "venue": "A",
-        "score": "2-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-29",
-        "opponent": "S\u00e3o Paulo FC",
-        "venue": "H",
-        "score": "3-2",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-25",
-        "opponent": "Santos FC",
-        "venue": "A",
-        "score": "1-1",
-        "result": "D"
-      },
-      {
-        "date": "2026-10-18",
-        "opponent": "CR Flamengo",
-        "venue": "H",
-        "score": "0-3",
-        "result": "L"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "Mirassol FC",
-        "venue": "H",
-        "score": "1-0",
-        "result": "W"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 5,
-      "home_wins": 0,
-      "draws": 1,
-      "away_wins": 0,
-      "matches": [
-        {
-          "date": "2026-05-17",
-          "home": "EC Bahia",
-          "away": "Gr\u00eamio FBPA",
-          "score": "1-1",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2025-10-19",
-          "home": "EC Bahia",
-          "away": "Gr\u00eamio FBPA",
-          "score": "4-0",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2025-05-25",
-          "home": "Gr\u00eamio FBPA",
-          "away": "EC Bahia",
-          "score": "1-0",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2024-08-17",
-          "home": "Gr\u00eamio FBPA",
-          "away": "EC Bahia",
-          "score": "0-2",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        },
-        {
-          "date": "2024-04-28",
-          "home": "EC Bahia",
-          "away": "Gr\u00eamio FBPA",
-          "score": "1-0",
-          "competition": "Campeonato Brasileiro S\u00e9rie A"
-        }
-      ]
-    }
-  },
   "555088": {
     "home_recent": [
       {
@@ -4343,7 +3678,49 @@
         "result": "W"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 5,
+      "home_wins": 0,
+      "draws": 0,
+      "away_wins": 0,
+      "matches": [
+        {
+          "date": "2026-05-10",
+          "home": "Parma Calcio 1913",
+          "away": "AS Roma",
+          "score": "2-3",
+          "competition": "Serie A"
+        },
+        {
+          "date": "2025-10-29",
+          "home": "AS Roma",
+          "away": "Parma Calcio 1913",
+          "score": "2-1",
+          "competition": "Serie A"
+        },
+        {
+          "date": "2025-02-16",
+          "home": "Parma Calcio 1913",
+          "away": "AS Roma",
+          "score": "0-1",
+          "competition": "Serie A"
+        },
+        {
+          "date": "2024-12-22",
+          "home": "AS Roma",
+          "away": "Parma Calcio 1913",
+          "score": "5-0",
+          "competition": "Serie A"
+        },
+        {
+          "date": "2021-03-14",
+          "home": "Parma Calcio 1913",
+          "away": "AS Roma",
+          "score": "2-0",
+          "competition": "Serie A"
+        }
+      ]
+    }
   },
   "560651": {
     "home_recent": [
@@ -4420,7 +3797,35 @@
         "result": "W"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 5,
+      "home_wins": 0,
+      "draws": 0,
+      "away_wins": 0,
+      "matches": [
+        {
+          "date": "2026-04-25",
+          "home": "Arsenal FC",
+          "away": "Newcastle United FC",
+          "score": "1-0",
+          "competition": "Premier League"
+        },
+        {
+          "date": "2025-09-28",
+          "home": "Newcastle United FC",
+          "away": "Arsenal FC",
+          "score": "1-2",
+          "competition": "Premier League"
+        },
+        {
+          "date": "2025-05-18",
+          "home": "Arsenal FC",
+          "away": "Newcastle United FC",
+          "score": "1-0",
+          "competition": "Premier League"
+        }
+      ]
+    }
   },
   "564756": {
     "home_recent": [
@@ -4497,7 +3902,49 @@
         "result": "W"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 5,
+      "home_wins": 0,
+      "draws": 2,
+      "away_wins": 0,
+      "matches": [
+        {
+          "date": "2026-03-01",
+          "home": "Real Betis Balompi\u00e9",
+          "away": "Sevilla FC",
+          "score": "2-2",
+          "competition": "Primera Division"
+        },
+        {
+          "date": "2025-11-30",
+          "home": "Sevilla FC",
+          "away": "Real Betis Balompi\u00e9",
+          "score": "0-2",
+          "competition": "Primera Division"
+        },
+        {
+          "date": "2025-03-30",
+          "home": "Real Betis Balompi\u00e9",
+          "away": "Sevilla FC",
+          "score": "2-1",
+          "competition": "Primera Division"
+        },
+        {
+          "date": "2024-10-06",
+          "home": "Sevilla FC",
+          "away": "Real Betis Balompi\u00e9",
+          "score": "1-0",
+          "competition": "Primera Division"
+        },
+        {
+          "date": "2024-04-28",
+          "home": "Real Betis Balompi\u00e9",
+          "away": "Sevilla FC",
+          "score": "1-1",
+          "competition": "Primera Division"
+        }
+      ]
+    }
   },
   "565861": {
     "home_recent": [
@@ -4574,7 +4021,42 @@
         "result": "W"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 5,
+      "home_wins": 0,
+      "draws": 3,
+      "away_wins": 0,
+      "matches": [
+        {
+          "date": "2023-02-25",
+          "home": "FC Schalke 04",
+          "away": "VfB Stuttgart",
+          "score": "2-1",
+          "competition": "Bundesliga"
+        },
+        {
+          "date": "2022-09-03",
+          "home": "VfB Stuttgart",
+          "away": "FC Schalke 04",
+          "score": "1-1",
+          "competition": "Bundesliga"
+        },
+        {
+          "date": "2021-02-27",
+          "home": "VfB Stuttgart",
+          "away": "FC Schalke 04",
+          "score": "5-1",
+          "competition": "Bundesliga"
+        },
+        {
+          "date": "2020-10-30",
+          "home": "FC Schalke 04",
+          "away": "VfB Stuttgart",
+          "score": "1-1",
+          "competition": "Bundesliga"
+        }
+      ]
+    }
   },
   "558831": {
     "home_recent": [
@@ -4651,7 +4133,49 @@
         "result": "L"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 5,
+      "home_wins": 0,
+      "draws": 0,
+      "away_wins": 0,
+      "matches": [
+        {
+          "date": "2026-03-15",
+          "home": "Feyenoord Rotterdam",
+          "away": "SBV Excelsior",
+          "score": "2-1",
+          "competition": "Eredivisie"
+        },
+        {
+          "date": "2025-08-16",
+          "home": "SBV Excelsior",
+          "away": "Feyenoord Rotterdam",
+          "score": "1-2",
+          "competition": "Eredivisie"
+        },
+        {
+          "date": "2024-05-19",
+          "home": "Feyenoord Rotterdam",
+          "away": "SBV Excelsior",
+          "score": "4-0",
+          "competition": "Eredivisie"
+        },
+        {
+          "date": "2023-11-25",
+          "home": "SBV Excelsior",
+          "away": "Feyenoord Rotterdam",
+          "score": "2-4",
+          "competition": "Eredivisie"
+        },
+        {
+          "date": "2023-05-07",
+          "home": "SBV Excelsior",
+          "away": "Feyenoord Rotterdam",
+          "score": "0-2",
+          "competition": "Eredivisie"
+        }
+      ]
+    }
   },
   "558835": {
     "home_recent": [
@@ -4728,10 +4252,52 @@
         "result": "W"
       }
     ],
-    "h2h": null
+    "h2h": {
+      "number_of_matches": 5,
+      "home_wins": 0,
+      "draws": 1,
+      "away_wins": 0,
+      "matches": [
+        {
+          "date": "2023-05-06",
+          "home": "SC Cambuur-Leeuwarden",
+          "away": "FC Utrecht",
+          "score": "0-3",
+          "competition": "Eredivisie"
+        },
+        {
+          "date": "2022-08-13",
+          "home": "FC Utrecht",
+          "away": "SC Cambuur-Leeuwarden",
+          "score": "0-0",
+          "competition": "Eredivisie"
+        },
+        {
+          "date": "2022-02-05",
+          "home": "FC Utrecht",
+          "away": "SC Cambuur-Leeuwarden",
+          "score": "3-2",
+          "competition": "Eredivisie"
+        },
+        {
+          "date": "2021-11-21",
+          "home": "SC Cambuur-Leeuwarden",
+          "away": "FC Utrecht",
+          "score": "2-1",
+          "competition": "Eredivisie"
+        }
+      ]
+    }
   },
   "555098": {
     "home_recent": [
+      {
+        "date": "2026-11-18",
+        "opponent": "Cruzeiro EC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
       {
         "date": "2026-11-05",
         "opponent": "Clube do Remo",
@@ -4759,16 +4325,16 @@
         "venue": "A",
         "score": "2-0",
         "result": "W"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "SC Corinthians Paulista",
-        "venue": "H",
-        "score": "4-1",
-        "result": "W"
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-11-18",
+        "opponent": "CA Paranaense",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
       {
         "date": "2026-11-04",
         "opponent": "Gr\u00eamio FBPA",
@@ -4795,13 +4361,6 @@
         "opponent": "EC Bahia",
         "venue": "A",
         "score": "3-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "Fluminense FC",
-        "venue": "H",
-        "score": "1-0",
         "result": "W"
       }
     ],
@@ -5463,6 +5022,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-18",
+        "opponent": "Santos FC",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
         "date": "2026-11-04",
         "opponent": "SC Internacional",
         "venue": "A",
@@ -5489,19 +5055,19 @@
         "venue": "A",
         "score": "0-1",
         "result": "L"
-      },
-      {
-        "date": "2026-10-12",
-        "opponent": "Botafogo FR",
-        "venue": "H",
-        "score": "1-1",
-        "result": "D"
       }
     ],
     "h2h": null
   },
   "555095": {
     "home_recent": [
+      {
+        "date": "2026-11-18",
+        "opponent": "Clube do Remo",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
       {
         "date": "2026-11-14",
         "opponent": "CR Vasco da Gama",
@@ -5529,16 +5095,16 @@
         "venue": "H",
         "score": "2-1",
         "result": "W"
-      },
-      {
-        "date": "2026-10-17",
-        "opponent": "Botafogo FR",
-        "venue": "A",
-        "score": "0-1",
-        "result": "L"
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-11-18",
+        "opponent": "SE Palmeiras",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
       {
         "date": "2026-11-06",
         "opponent": "EC Bahia",
@@ -5566,13 +5132,6 @@
         "venue": "A",
         "score": "4-2",
         "result": "W"
-      },
-      {
-        "date": "2026-10-13",
-        "opponent": "RB Bragantino",
-        "venue": "A",
-        "score": "2-4",
-        "result": "L"
       }
     ],
     "h2h": null
@@ -6966,6 +6525,13 @@
   "555090": {
     "home_recent": [
       {
+        "date": "2026-11-18",
+        "opponent": "CR Flamengo",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
         "date": "2026-11-04",
         "opponent": "CR Vasco da Gama",
         "venue": "H",
@@ -6992,16 +6558,16 @@
         "venue": "H",
         "score": "0-2",
         "result": "L"
-      },
-      {
-        "date": "2026-10-12",
-        "opponent": "Chapecoense AF",
-        "venue": "A",
-        "score": "4-1",
-        "result": "W"
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-11-18",
+        "opponent": "Chapecoense AF",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
       {
         "date": "2026-11-05",
         "opponent": "SE Palmeiras",
@@ -7028,13 +6594,6 @@
         "opponent": "RB Bragantino",
         "venue": "H",
         "score": "1-1",
-        "result": "D"
-      },
-      {
-        "date": "2026-10-10",
-        "opponent": "CR Vasco da Gama",
-        "venue": "A",
-        "score": "0-0",
         "result": "D"
       }
     ],
@@ -7813,6 +7372,13 @@
   "555099": {
     "home_recent": [
       {
+        "date": "2026-11-18",
+        "opponent": "Coritiba FBC",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
         "date": "2026-11-02",
         "opponent": "RB Bragantino",
         "venue": "A",
@@ -7839,13 +7405,6 @@
         "venue": "A",
         "score": "2-1",
         "result": "W"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "CA Mineiro",
-        "venue": "A",
-        "score": "1-2",
-        "result": "L"
       }
     ],
     "away_recent": [
@@ -9073,6 +8632,13 @@
   "555102": {
     "home_recent": [
       {
+        "date": "2026-11-18",
+        "opponent": "Clube do Remo",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
         "date": "2026-11-14",
         "opponent": "CR Vasco da Gama",
         "venue": "H",
@@ -9099,16 +8665,16 @@
         "venue": "H",
         "score": "2-1",
         "result": "W"
-      },
-      {
-        "date": "2026-10-17",
-        "opponent": "Botafogo FR",
-        "venue": "A",
-        "score": "0-1",
-        "result": "L"
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-11-18",
+        "opponent": "Cruzeiro EC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
       {
         "date": "2026-11-05",
         "opponent": "Clube do Remo",
@@ -9135,13 +8701,6 @@
         "opponent": "CA Paranaense",
         "venue": "A",
         "score": "2-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "SC Corinthians Paulista",
-        "venue": "H",
-        "score": "4-1",
         "result": "W"
       }
     ],
@@ -10139,6 +9698,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-18",
+        "opponent": "Chapecoense AF",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
         "date": "2026-11-05",
         "opponent": "SE Palmeiras",
         "venue": "A",
@@ -10164,13 +9730,6 @@
         "opponent": "RB Bragantino",
         "venue": "H",
         "score": "1-1",
-        "result": "D"
-      },
-      {
-        "date": "2026-10-10",
-        "opponent": "CR Vasco da Gama",
-        "venue": "A",
-        "score": "0-0",
         "result": "D"
       }
     ],
@@ -10832,6 +10391,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-18",
+        "opponent": "SE Palmeiras",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
         "date": "2026-11-06",
         "opponent": "EC Bahia",
         "venue": "H",
@@ -10858,13 +10424,6 @@
         "venue": "A",
         "score": "4-2",
         "result": "W"
-      },
-      {
-        "date": "2026-10-13",
-        "opponent": "RB Bragantino",
-        "venue": "A",
-        "score": "2-4",
-        "result": "L"
       }
     ],
     "h2h": null
@@ -15646,6 +15205,13 @@
   "555104": {
     "home_recent": [
       {
+        "date": "2026-11-18",
+        "opponent": "Santos FC",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
         "date": "2026-11-04",
         "opponent": "SC Internacional",
         "venue": "A",
@@ -15672,16 +15238,16 @@
         "venue": "A",
         "score": "0-1",
         "result": "L"
-      },
-      {
-        "date": "2026-10-12",
-        "opponent": "Botafogo FR",
-        "venue": "H",
-        "score": "1-1",
-        "result": "D"
       }
     ],
     "away_recent": [
+      {
+        "date": "2026-11-18",
+        "opponent": "CA Paranaense",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W"
+      },
       {
         "date": "2026-11-04",
         "opponent": "Gr\u00eamio FBPA",
@@ -15708,13 +15274,6 @@
         "opponent": "EC Bahia",
         "venue": "A",
         "score": "3-0",
-        "result": "W"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "Fluminense FC",
-        "venue": "H",
-        "score": "1-0",
         "result": "W"
       }
     ],
@@ -15760,6 +15319,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-18",
+        "opponent": "Coritiba FBC",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
         "date": "2026-11-02",
         "opponent": "RB Bragantino",
         "venue": "A",
@@ -15786,13 +15352,6 @@
         "venue": "A",
         "score": "2-1",
         "result": "W"
-      },
-      {
-        "date": "2026-10-11",
-        "opponent": "CA Mineiro",
-        "venue": "A",
-        "score": "1-2",
-        "result": "L"
       }
     ],
     "h2h": null
@@ -16299,6 +15858,13 @@
     ],
     "away_recent": [
       {
+        "date": "2026-11-18",
+        "opponent": "CR Flamengo",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
         "date": "2026-11-04",
         "opponent": "CR Vasco da Gama",
         "venue": "H",
@@ -16325,13 +15891,6 @@
         "venue": "H",
         "score": "0-2",
         "result": "L"
-      },
-      {
-        "date": "2026-10-12",
-        "opponent": "Chapecoense AF",
-        "venue": "A",
-        "score": "4-1",
-        "result": "W"
       }
     ],
     "h2h": null
@@ -17645,947 +17204,848 @@
     ],
     "h2h": null
   },
-  "bb-21718131": {
+  "555110": {
     "home_recent": [
       {
-        "date": "2026-11-16",
-        "opponent": "Chicago Bulls",
-        "venue": "H",
-        "score": "126-115",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-14",
-        "opponent": "Dallas Mavericks",
-        "venue": "H",
-        "score": "127-117",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-13",
-        "opponent": "Miami Heat",
+        "date": "2026-11-18",
+        "opponent": "CR Flamengo",
         "venue": "A",
-        "score": "121-133",
+        "score": "1-2",
         "result": "L"
       },
       {
-        "date": "2026-11-11",
-        "opponent": "New York Knicks",
-        "venue": "A",
-        "score": "115-107",
-        "result": "W"
+        "date": "2026-11-04",
+        "opponent": "CR Vasco da Gama",
+        "venue": "H",
+        "score": "1-3",
+        "result": "L"
       },
       {
-        "date": "2026-11-09",
-        "opponent": "Charlotte Hornets",
+        "date": "2026-10-30",
+        "opponent": "Gr\u00eamio FBPA",
         "venue": "A",
-        "score": "112-124",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "EC Vit\u00f3ria",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "SE Palmeiras",
+        "venue": "H",
+        "score": "0-2",
         "result": "L"
       }
     ],
     "away_recent": [
       {
-        "date": "2026-11-16",
-        "opponent": "Washington Wizards",
-        "venue": "A",
-        "score": "136-120",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-14",
-        "opponent": "Brooklyn Nets",
+        "date": "2026-11-05",
+        "opponent": "SC Corinthians Paulista",
         "venue": "H",
-        "score": "129-110",
-        "result": "W"
+        "score": "0-0",
+        "result": "D"
       },
       {
-        "date": "2026-11-13",
-        "opponent": "New Orleans Pelicans",
+        "date": "2026-10-29",
+        "opponent": "EC Bahia",
         "venue": "A",
-        "score": "142-111",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-11",
-        "opponent": "Denver Nuggets",
-        "venue": "H",
-        "score": "118-123",
+        "score": "2-3",
         "result": "L"
       },
       {
-        "date": "2026-11-09",
-        "opponent": "Toronto Raptors",
+        "date": "2026-10-24",
+        "opponent": "Mirassol FC",
         "venue": "A",
-        "score": "118-102",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-18",
+        "opponent": "CR Vasco da Gama",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "EC Vit\u00f3ria",
+        "venue": "H",
+        "score": "2-1",
         "result": "W"
       }
     ],
     "h2h": null
   },
-  "bb-21718132": {
+  "555111": {
     "home_recent": [
       {
-        "date": "2026-11-15",
-        "opponent": "Philadelphia 76ers",
+        "date": "2026-11-06",
+        "opponent": "Cruzeiro EC",
         "venue": "A",
-        "score": "124-131",
+        "score": "2-3",
         "result": "L"
       },
       {
-        "date": "2026-11-13",
-        "opponent": "New York Knicks",
+        "date": "2026-10-29",
+        "opponent": "S\u00e3o Paulo FC",
         "venue": "H",
-        "score": "106-104",
+        "score": "3-2",
         "result": "W"
       },
       {
-        "date": "2026-11-11",
-        "opponent": "Washington Wizards",
-        "venue": "H",
-        "score": "114-101",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-09",
-        "opponent": "Dallas Mavericks",
+        "date": "2026-10-25",
+        "opponent": "Santos FC",
         "venue": "A",
-        "score": "122-125",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-18",
+        "opponent": "CR Flamengo",
+        "venue": "H",
+        "score": "0-3",
         "result": "L"
       },
       {
-        "date": "2026-11-07",
-        "opponent": "Denver Nuggets",
+        "date": "2026-10-11",
+        "opponent": "Mirassol FC",
         "venue": "H",
-        "score": "102-114",
-        "result": "L"
+        "score": "1-0",
+        "result": "W"
       }
     ],
     "away_recent": [
       {
-        "date": "2026-11-16",
-        "opponent": "Miami Heat",
+        "date": "2026-11-14",
+        "opponent": "Mirassol FC",
         "venue": "A",
-        "score": "110-128",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-11-05",
+        "opponent": "Botafogo FR",
+        "venue": "A",
+        "score": "0-1",
         "result": "L"
       },
       {
-        "date": "2026-11-15",
-        "opponent": "Washington Wizards",
+        "date": "2026-10-29",
+        "opponent": "Cruzeiro EC",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-26",
+        "opponent": "CR Flamengo",
         "venue": "A",
-        "score": "147-119",
-        "result": "W"
+        "score": "2-3",
+        "result": "L"
       },
       {
-        "date": "2026-11-13",
-        "opponent": "Utah Jazz",
+        "date": "2026-10-17",
+        "opponent": "Coritiba FBC",
         "venue": "H",
-        "score": "125-118",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-11",
-        "opponent": "Golden State Warriors",
-        "venue": "H",
-        "score": "115-108",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-09",
-        "opponent": "Denver Nuggets",
-        "venue": "H",
-        "score": "110-100",
+        "score": "1-0",
         "result": "W"
       }
     ],
     "h2h": null
   },
-  "bb-21718133": {
+  "555112": {
     "home_recent": [
       {
-        "date": "2026-11-16",
-        "opponent": "Houston Rockets",
+        "date": "2026-11-02",
+        "opponent": "Santos FC",
         "venue": "H",
-        "score": "128-110",
+        "score": "2-1",
         "result": "W"
       },
       {
-        "date": "2026-11-14",
-        "opponent": "Detroit Pistons",
+        "date": "2026-10-28",
+        "opponent": "Chapecoense AF",
         "venue": "H",
-        "score": "137-117",
+        "score": "3-0",
         "result": "W"
       },
       {
-        "date": "2026-11-13",
-        "opponent": "Cleveland Cavaliers",
-        "venue": "H",
-        "score": "133-121",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-10",
-        "opponent": "Utah Jazz",
+        "date": "2026-10-24",
+        "opponent": "SE Palmeiras",
         "venue": "A",
-        "score": "115-109",
-        "result": "W"
+        "score": "0-2",
+        "result": "L"
       },
       {
-        "date": "2026-11-08",
-        "opponent": "Sacramento Kings",
+        "date": "2026-10-18",
+        "opponent": "Clube do Remo",
         "venue": "A",
-        "score": "114-108",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-13",
+        "opponent": "Cruzeiro EC",
+        "venue": "H",
+        "score": "4-2",
         "result": "W"
       }
     ],
     "away_recent": [
       {
-        "date": "2026-11-15",
-        "opponent": "Atlanta Hawks",
-        "venue": "H",
-        "score": "106-113",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-13",
-        "opponent": "Orlando Magic",
+        "date": "2026-11-06",
+        "opponent": "EC Vit\u00f3ria",
         "venue": "A",
-        "score": "99-107",
-        "result": "L"
+        "score": "3-0",
+        "result": "W"
       },
       {
-        "date": "2026-11-11",
-        "opponent": "Los Angeles Lakers",
+        "date": "2026-10-28",
+        "opponent": "SC Internacional",
         "venue": "H",
-        "score": "112-123",
-        "result": "L"
+        "score": "2-1",
+        "result": "W"
       },
       {
-        "date": "2026-11-10",
-        "opponent": "New York Knicks",
+        "date": "2026-10-24",
+        "opponent": "Chapecoense AF",
         "venue": "A",
-        "score": "85-117",
+        "score": "1-2",
         "result": "L"
       },
       {
-        "date": "2026-11-08",
-        "opponent": "Boston Celtics",
+        "date": "2026-10-18",
+        "opponent": "Santos FC",
         "venue": "H",
-        "score": "97-117",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "CR Flamengo",
+        "venue": "A",
+        "score": "0-1",
         "result": "L"
       }
     ],
     "h2h": null
   },
-  "bb-21718134": {
+  "555113": {
     "home_recent": [
       {
-        "date": "2026-11-16",
-        "opponent": "Boston Celtics",
-        "venue": "A",
-        "score": "115-105",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-13",
-        "opponent": "Milwaukee Bucks",
+        "date": "2026-11-18",
+        "opponent": "SE Palmeiras",
         "venue": "H",
-        "score": "107-99",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-11",
-        "opponent": "Utah Jazz",
-        "venue": "A",
-        "score": "123-108",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-10",
-        "opponent": "Sacramento Kings",
-        "venue": "A",
-        "score": "107-100",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-07",
-        "opponent": "Golden State Warriors",
-        "venue": "A",
-        "score": "119-126",
-        "result": "L"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-11-16",
-        "opponent": "Brooklyn Nets",
-        "venue": "A",
-        "score": "135-123",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-15",
-        "opponent": "Indiana Pacers",
-        "venue": "H",
-        "score": "131-124",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-12",
-        "opponent": "Toronto Raptors",
-        "venue": "H",
-        "score": "123-112",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-10",
-        "opponent": "Boston Celtics",
-        "venue": "H",
-        "score": "101-123",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-08",
-        "opponent": "Chicago Bulls",
-        "venue": "A",
-        "score": "127-121",
-        "result": "W"
-      }
-    ],
-    "h2h": null
-  },
-  "bb-21718135": {
-    "home_recent": [
-      {
-        "date": "2026-11-16",
-        "opponent": "Philadelphia 76ers",
-        "venue": "H",
-        "score": "123-135",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-14",
-        "opponent": "Memphis Grizzlies",
-        "venue": "A",
-        "score": "110-129",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-11",
-        "opponent": "New Orleans Pelicans",
-        "venue": "A",
-        "score": "145-111",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-08",
-        "opponent": "Dallas Mavericks",
-        "venue": "A",
-        "score": "93-130",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-07",
-        "opponent": "Atlanta Hawks",
-        "venue": "A",
-        "score": "121-124",
-        "result": "L"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-11-16",
-        "opponent": "Cleveland Cavaliers",
-        "venue": "A",
-        "score": "115-126",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-14",
-        "opponent": "Minnesota Timberwolves",
-        "venue": "A",
-        "score": "117-106",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-13",
-        "opponent": "Atlanta Hawks",
-        "venue": "H",
-        "score": "125-117",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-11",
-        "opponent": "San Antonio Spurs",
-        "venue": "H",
-        "score": "119-124",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-08",
-        "opponent": "Philadelphia 76ers",
-        "venue": "H",
-        "score": "121-127",
-        "result": "L"
-      }
-    ],
-    "h2h": null
-  },
-  "bb-21718136": {
-    "home_recent": [
-      {
-        "date": "2026-11-17",
-        "opponent": "New York Knicks",
-        "venue": "H",
-        "score": "102-111",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-15",
-        "opponent": "New York Knicks",
-        "venue": "H",
-        "score": "108-112",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-12",
-        "opponent": "Philadelphia 76ers",
-        "venue": "A",
-        "score": "112-123",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-11",
-        "opponent": "Boston Celtics",
-        "venue": "H",
-        "score": "93-98",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-09",
-        "opponent": "Memphis Grizzlies",
-        "venue": "H",
-        "score": "102-118",
-        "result": "L"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-11-16",
-        "opponent": "Memphis Grizzlies",
-        "venue": "H",
-        "score": "120-136",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-15",
-        "opponent": "Houston Rockets",
-        "venue": "H",
-        "score": "119-147",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-12",
-        "opponent": "Detroit Pistons",
-        "venue": "H",
-        "score": "140-144",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-11",
-        "opponent": "Indiana Pacers",
-        "venue": "A",
-        "score": "101-114",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-09",
-        "opponent": "Detroit Pistons",
-        "venue": "A",
-        "score": "111-122",
-        "result": "L"
-      }
-    ],
-    "h2h": {
-      "number_of_matches": 1,
-      "matches": [
-        {
-          "date": "2026-10-23",
-          "home": "Washington Wizards",
-          "away": "Toronto Raptors",
-          "score": "102-112",
-          "competition": "NBA"
-        }
-      ]
-    }
-  },
-  "bb-21718137": {
-    "home_recent": [
-      {
-        "date": "2026-11-16",
-        "opponent": "Golden State Warriors",
-        "venue": "H",
-        "score": "115-94",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-14",
-        "opponent": "Denver Nuggets",
-        "venue": "H",
-        "score": "108-116",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-13",
-        "opponent": "Memphis Grizzlies",
-        "venue": "H",
-        "score": "111-142",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-11",
-        "opponent": "Brooklyn Nets",
-        "venue": "H",
-        "score": "111-145",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-09",
-        "opponent": "Golden State Warriors",
-        "venue": "A",
-        "score": "87-138",
-        "result": "L"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-11-17",
-        "opponent": "San Antonio Spurs",
-        "venue": "A",
-        "score": "105-93",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-14",
-        "opponent": "Miami Heat",
-        "venue": "A",
-        "score": "117-137",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-12",
-        "opponent": "Washington Wizards",
-        "venue": "A",
-        "score": "144-140",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-09",
-        "opponent": "Washington Wizards",
-        "venue": "H",
-        "score": "122-111",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-08",
-        "opponent": "Los Angeles Lakers",
-        "venue": "H",
-        "score": "116-121",
-        "result": "L"
-      }
-    ],
-    "h2h": null
-  },
-  "bb-21718138": {
-    "home_recent": [
-      {
-        "date": "2026-11-15",
-        "opponent": "Sacramento Kings",
-        "venue": "A",
-        "score": "125-103",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-13",
-        "opponent": "LA Clippers",
-        "venue": "A",
-        "score": "112-113",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-11",
-        "opponent": "Portland Trail Blazers",
-        "venue": "A",
-        "score": "108-118",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-10",
-        "opponent": "Portland Trail Blazers",
-        "venue": "A",
-        "score": "103-123",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-07",
-        "opponent": "Washington Wizards",
-        "venue": "H",
-        "score": "114-75",
-        "result": "W"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-11-15",
-        "opponent": "Milwaukee Bucks",
-        "venue": "A",
-        "score": "113-106",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-13",
-        "opponent": "Chicago Bulls",
-        "venue": "A",
-        "score": "117-125",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-09",
-        "opponent": "Los Angeles Lakers",
-        "venue": "H",
-        "score": "114-124",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-07",
-        "opponent": "Brooklyn Nets",
-        "venue": "H",
-        "score": "124-121",
+        "score": "2-1",
         "result": "W"
       },
       {
         "date": "2026-11-06",
-        "opponent": "Washington Wizards",
+        "opponent": "EC Bahia",
         "venue": "H",
-        "score": "139-132",
+        "score": "3-2",
         "result": "W"
+      },
+      {
+        "date": "2026-10-29",
+        "opponent": "CA Mineiro",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-23",
+        "opponent": "Clube do Remo",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-18",
+        "opponent": "Gr\u00eamio FBPA",
+        "venue": "A",
+        "score": "4-2",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-04",
+        "opponent": "Coritiba FBC",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-28",
+        "opponent": "Fluminense FC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Botafogo FR",
+        "venue": "H",
+        "score": "3-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-16",
+        "opponent": "Mirassol FC",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "Gr\u00eamio FBPA",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
       }
     ],
     "h2h": null
   },
-  "bb-21718139": {
+  "555114": {
     "home_recent": [
       {
-        "date": "2026-11-16",
-        "opponent": "Phoenix Suns",
+        "date": "2026-11-18",
+        "opponent": "CA Paranaense",
         "venue": "H",
-        "score": "105-117",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "Gr\u00eamio FBPA",
+        "venue": "H",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-29",
+        "opponent": "CR Vasco da Gama",
+        "venue": "A",
+        "score": "4-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-26",
+        "opponent": "CA Mineiro",
+        "venue": "H",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-18",
+        "opponent": "EC Bahia",
+        "venue": "A",
+        "score": "3-0",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-18",
+        "opponent": "Clube do Remo",
+        "venue": "A",
+        "score": "0-2",
         "result": "L"
       },
       {
         "date": "2026-11-14",
-        "opponent": "New Orleans Pelicans",
-        "venue": "A",
-        "score": "116-108",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-11",
-        "opponent": "Memphis Grizzlies",
-        "venue": "A",
-        "score": "123-118",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-09",
-        "opponent": "Houston Rockets",
-        "venue": "A",
-        "score": "100-110",
+        "opponent": "CR Vasco da Gama",
+        "venue": "H",
+        "score": "0-2",
         "result": "L"
       },
       {
-        "date": "2026-11-07",
-        "opponent": "Indiana Pacers",
-        "venue": "A",
-        "score": "114-102",
-        "result": "W"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-11-16",
-        "opponent": "Orlando Magic",
+        "date": "2026-11-03",
+        "opponent": "Mirassol FC",
         "venue": "H",
-        "score": "105-115",
+        "score": "1-2",
         "result": "L"
       },
       {
-        "date": "2026-11-15",
-        "opponent": "Dallas Mavericks",
+        "date": "2026-10-28",
+        "opponent": "RB Bragantino",
+        "venue": "A",
+        "score": "0-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Fluminense FC",
         "venue": "H",
-        "score": "131-94",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-11",
-        "opponent": "Toronto Raptors",
-        "venue": "A",
-        "score": "98-93",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-10",
-        "opponent": "Philadelphia 76ers",
-        "venue": "A",
-        "score": "123-101",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-08",
-        "opponent": "Milwaukee Bucks",
-        "venue": "A",
-        "score": "117-97",
+        "score": "2-1",
         "result": "W"
       }
     ],
     "h2h": null
   },
-  "bb-21718140": {
+  "555115": {
     "home_recent": [
       {
-        "date": "2026-11-15",
-        "opponent": "Boston Celtics",
+        "date": "2026-11-04",
+        "opponent": "CR Flamengo",
         "venue": "A",
-        "score": "94-131",
+        "score": "1-3",
         "result": "L"
       },
+      {
+        "date": "2026-10-30",
+        "opponent": "CA Paranaense",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-26",
+        "opponent": "Coritiba FBC",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-18",
+        "opponent": "Cruzeiro EC",
+        "venue": "H",
+        "score": "2-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "SC Internacional",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
       {
         "date": "2026-11-14",
-        "opponent": "Cleveland Cavaliers",
-        "venue": "A",
-        "score": "117-127",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-12",
-        "opponent": "Minnesota Timberwolves",
-        "venue": "A",
-        "score": "94-133",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-09",
-        "opponent": "Indiana Pacers",
+        "opponent": "CA Mineiro",
         "venue": "H",
-        "score": "125-122",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-11-03",
+        "opponent": "Chapecoense AF",
+        "venue": "A",
+        "score": "2-1",
         "result": "W"
       },
       {
-        "date": "2026-11-08",
-        "opponent": "Brooklyn Nets",
-        "venue": "H",
-        "score": "130-93",
-        "result": "W"
-      }
-    ],
-    "away_recent": [
-      {
-        "date": "2026-11-16",
-        "opponent": "New Orleans Pelicans",
+        "date": "2026-10-30",
+        "opponent": "SC Corinthians Paulista",
         "venue": "A",
-        "score": "94-115",
+        "score": "0-2",
         "result": "L"
       },
       {
-        "date": "2026-11-13",
-        "opponent": "San Antonio Spurs",
-        "venue": "A",
-        "score": "85-123",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-11",
-        "opponent": "Houston Rockets",
-        "venue": "A",
-        "score": "108-115",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-09",
-        "opponent": "New Orleans Pelicans",
+        "date": "2026-10-24",
+        "opponent": "S\u00e3o Paulo FC",
         "venue": "H",
-        "score": "138-87",
-        "result": "W"
+        "score": "1-1",
+        "result": "D"
       },
       {
-        "date": "2026-11-07",
-        "opponent": "Orlando Magic",
+        "date": "2026-10-16",
+        "opponent": "SC Internacional",
         "venue": "H",
-        "score": "126-119",
+        "score": "2-0",
         "result": "W"
       }
     ],
     "h2h": null
   },
-  "bb-21718141": {
+  "555116": {
     "home_recent": [
       {
-        "date": "2026-11-17",
-        "opponent": "Charlotte Hornets",
+        "date": "2026-11-18",
+        "opponent": "Cruzeiro EC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-05",
+        "opponent": "Clube do Remo",
         "venue": "H",
-        "score": "118-114",
+        "score": "6-1",
         "result": "W"
       },
       {
-        "date": "2026-11-15",
-        "opponent": "Phoenix Suns",
+        "date": "2026-10-28",
+        "opponent": "Santos FC",
         "venue": "A",
-        "score": "131-123",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "RB Bragantino",
+        "venue": "H",
+        "score": "2-0",
         "result": "W"
       },
       {
-        "date": "2026-11-11",
-        "opponent": "Milwaukee Bucks",
+        "date": "2026-10-17",
+        "opponent": "CA Paranaense",
         "venue": "A",
-        "score": "123-112",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-09",
-        "opponent": "Atlanta Hawks",
-        "venue": "A",
-        "score": "124-114",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-08",
-        "opponent": "Detroit Pistons",
-        "venue": "A",
-        "score": "121-116",
+        "score": "2-0",
         "result": "W"
       }
     ],
     "away_recent": [
       {
-        "date": "2026-11-17",
-        "opponent": "LA Clippers",
+        "date": "2026-11-18",
+        "opponent": "Santos FC",
+        "venue": "H",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "SC Internacional",
         "venue": "A",
-        "score": "132-107",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "EC Vit\u00f3ria",
+        "venue": "H",
+        "score": "2-0",
         "result": "W"
       },
       {
-        "date": "2026-11-15",
-        "opponent": "San Antonio Spurs",
+        "date": "2026-10-26",
+        "opponent": "Gr\u00eamio FBPA",
         "venue": "H",
-        "score": "102-110",
+        "score": "0-1",
         "result": "L"
       },
       {
-        "date": "2026-11-13",
-        "opponent": "Houston Rockets",
+        "date": "2026-10-17",
+        "opponent": "CA Mineiro",
         "venue": "A",
-        "score": "118-125",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-11",
-        "opponent": "Orlando Magic",
-        "venue": "H",
-        "score": "108-123",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-10",
-        "opponent": "Miami Heat",
-        "venue": "H",
-        "score": "109-115",
+        "score": "0-1",
         "result": "L"
       }
     ],
-    "h2h": {
-      "number_of_matches": 1,
-      "matches": [
-        {
-          "date": "2026-10-25",
-          "home": "Utah Jazz",
-          "away": "Los Angeles Lakers",
-          "score": "123-132",
-          "competition": "NBA"
-        }
-      ]
-    }
+    "h2h": null
   },
-  "bb-21718142": {
+  "555117": {
     "home_recent": [
       {
-        "date": "2026-11-15",
-        "opponent": "Oklahoma City Thunder",
+        "date": "2026-11-18",
+        "opponent": "Chapecoense AF",
         "venue": "H",
-        "score": "103-125",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-05",
+        "opponent": "SE Palmeiras",
+        "venue": "A",
+        "score": "1-6",
         "result": "L"
       },
       {
-        "date": "2026-11-13",
-        "opponent": "Portland Trail Blazers",
+        "date": "2026-10-29",
+        "opponent": "Botafogo FR",
         "venue": "H",
-        "score": "107-120",
+        "score": "2-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-23",
+        "opponent": "Cruzeiro EC",
+        "venue": "A",
+        "score": "0-1",
         "result": "L"
       },
       {
-        "date": "2026-11-10",
-        "opponent": "Orlando Magic",
+        "date": "2026-10-18",
+        "opponent": "RB Bragantino",
         "venue": "H",
-        "score": "100-107",
+        "score": "1-1",
+        "result": "D"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-05",
+        "opponent": "S\u00e3o Paulo FC",
+        "venue": "A",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-30",
+        "opponent": "Mirassol FC",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "CR Vasco da Gama",
+        "venue": "A",
+        "score": "2-3",
         "result": "L"
       },
       {
-        "date": "2026-11-08",
-        "opponent": "Miami Heat",
+        "date": "2026-10-19",
+        "opponent": "EC Vit\u00f3ria",
         "venue": "H",
-        "score": "108-114",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "SE Palmeiras",
+        "venue": "A",
+        "score": "1-4",
+        "result": "L"
+      }
+    ],
+    "h2h": null
+  },
+  "555118": {
+    "home_recent": [
+      {
+        "date": "2026-11-18",
+        "opponent": "Coritiba FBC",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-02",
+        "opponent": "RB Bragantino",
+        "venue": "A",
+        "score": "1-2",
         "result": "L"
       },
+      {
+        "date": "2026-10-28",
+        "opponent": "SE Palmeiras",
+        "venue": "H",
+        "score": "0-0",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-25",
+        "opponent": "EC Bahia",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-18",
+        "opponent": "Fluminense FC",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-05",
+        "opponent": "CA Mineiro",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-29",
+        "opponent": "Clube do Remo",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "SC Internacional",
+        "venue": "A",
+        "score": "0-3",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-17",
+        "opponent": "Chapecoense AF",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-12",
+        "opponent": "Coritiba FBC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      }
+    ],
+    "h2h": null
+  },
+  "555119": {
+    "home_recent": [
+      {
+        "date": "2026-11-14",
+        "opponent": "Chapecoense AF",
+        "venue": "A",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-04",
+        "opponent": "CA Paranaense",
+        "venue": "A",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-29",
+        "opponent": "CR Flamengo",
+        "venue": "H",
+        "score": "1-4",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "SC Corinthians Paulista",
+        "venue": "H",
+        "score": "3-2",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-18",
+        "opponent": "S\u00e3o Paulo FC",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
       {
         "date": "2026-11-06",
-        "opponent": "San Antonio Spurs",
+        "opponent": "Fluminense FC",
         "venue": "H",
-        "score": "109-124",
+        "score": "0-3",
         "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Coritiba FBC",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "CA Paranaense",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-19",
+        "opponent": "SC Corinthians Paulista",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-11",
+        "opponent": "S\u00e3o Paulo FC",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L"
+      }
+    ],
+    "h2h": null
+  },
+  "560662": {
+    "home_recent": [
+      {
+        "date": "2026-11-07",
+        "opponent": "Leeds United FC",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Crystal Palace FC",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Chelsea FC",
+        "venue": "A",
+        "score": "2-0",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-19",
+        "opponent": "Coventry City FC",
+        "venue": "H",
+        "score": "3-1",
+        "result": "W"
+      },
+      {
+        "date": "2026-10-10",
+        "opponent": "Manchester United FC",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D"
       }
     ],
     "away_recent": [
       {
-        "date": "2026-11-16",
-        "opponent": "Denver Nuggets",
+        "date": "2026-11-07",
+        "opponent": "Newcastle United FC",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-31",
+        "opponent": "Aston Villa FC",
         "venue": "A",
-        "score": "117-105",
+        "score": "1-1",
+        "result": "D"
+      },
+      {
+        "date": "2026-10-24",
+        "opponent": "Coventry City FC",
+        "venue": "A",
+        "score": "1-0",
         "result": "W"
       },
       {
-        "date": "2026-11-15",
-        "opponent": "Los Angeles Lakers",
+        "date": "2026-10-17",
+        "opponent": "Hull City AFC",
         "venue": "H",
-        "score": "123-131",
-        "result": "L"
-      },
-      {
-        "date": "2026-11-12",
-        "opponent": "Charlotte Hornets",
-        "venue": "H",
-        "score": "101-96",
+        "score": "1-0",
         "result": "W"
       },
       {
-        "date": "2026-11-10",
-        "opponent": "LA Clippers",
-        "venue": "H",
-        "score": "133-110",
-        "result": "W"
-      },
-      {
-        "date": "2026-11-09",
-        "opponent": "San Antonio Spurs",
-        "venue": "H",
-        "score": "96-122",
+        "date": "2026-10-10",
+        "opponent": "Ipswich Town FC",
+        "venue": "A",
+        "score": "1-2",
         "result": "L"
       }
     ],
@@ -26544,6 +26004,424 @@
           "home": "Minnesota Timberwolves",
           "away": "LA Clippers",
           "score": "127-101",
+          "competition": "NBA"
+        }
+      ]
+    }
+  },
+  "bb-21718244": {
+    "home_recent": [
+      {
+        "date": "2026-11-15",
+        "opponent": "Milwaukee Bucks",
+        "venue": "A",
+        "score": "113-106",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-13",
+        "opponent": "Chicago Bulls",
+        "venue": "A",
+        "score": "117-125",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-09",
+        "opponent": "Los Angeles Lakers",
+        "venue": "H",
+        "score": "114-124",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-07",
+        "opponent": "Brooklyn Nets",
+        "venue": "H",
+        "score": "124-121",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-06",
+        "opponent": "Washington Wizards",
+        "venue": "H",
+        "score": "139-132",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-15",
+        "opponent": "Philadelphia 76ers",
+        "venue": "A",
+        "score": "124-131",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-13",
+        "opponent": "New York Knicks",
+        "venue": "H",
+        "score": "106-104",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-11",
+        "opponent": "Washington Wizards",
+        "venue": "H",
+        "score": "114-101",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-09",
+        "opponent": "Dallas Mavericks",
+        "venue": "A",
+        "score": "122-125",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-07",
+        "opponent": "Denver Nuggets",
+        "venue": "H",
+        "score": "102-114",
+        "result": "L"
+      }
+    ],
+    "h2h": {
+      "number_of_matches": 1,
+      "matches": [
+        {
+          "date": "2026-11-02",
+          "home": "Indiana Pacers",
+          "away": "Atlanta Hawks",
+          "score": "104-108",
+          "competition": "NBA"
+        }
+      ]
+    }
+  },
+  "bb-21718245": {
+    "home_recent": [
+      {
+        "date": "2026-11-16",
+        "opponent": "Houston Rockets",
+        "venue": "H",
+        "score": "128-110",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-14",
+        "opponent": "Detroit Pistons",
+        "venue": "H",
+        "score": "137-117",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-13",
+        "opponent": "Cleveland Cavaliers",
+        "venue": "H",
+        "score": "133-121",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-10",
+        "opponent": "Utah Jazz",
+        "venue": "A",
+        "score": "115-109",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-08",
+        "opponent": "Sacramento Kings",
+        "venue": "A",
+        "score": "114-108",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-16",
+        "opponent": "Memphis Grizzlies",
+        "venue": "H",
+        "score": "120-136",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-15",
+        "opponent": "Houston Rockets",
+        "venue": "H",
+        "score": "119-147",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-12",
+        "opponent": "Detroit Pistons",
+        "venue": "H",
+        "score": "140-144",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-11",
+        "opponent": "Indiana Pacers",
+        "venue": "A",
+        "score": "101-114",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-09",
+        "opponent": "Detroit Pistons",
+        "venue": "A",
+        "score": "111-122",
+        "result": "L"
+      }
+    ],
+    "h2h": null
+  },
+  "bb-21718246": {
+    "home_recent": [
+      {
+        "date": "2026-11-16",
+        "opponent": "Cleveland Cavaliers",
+        "venue": "A",
+        "score": "115-126",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-14",
+        "opponent": "Minnesota Timberwolves",
+        "venue": "A",
+        "score": "117-106",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-13",
+        "opponent": "Atlanta Hawks",
+        "venue": "H",
+        "score": "125-117",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-11",
+        "opponent": "San Antonio Spurs",
+        "venue": "H",
+        "score": "119-124",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-08",
+        "opponent": "Philadelphia 76ers",
+        "venue": "H",
+        "score": "121-127",
+        "result": "L"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-16",
+        "opponent": "Chicago Bulls",
+        "venue": "H",
+        "score": "126-115",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-14",
+        "opponent": "Dallas Mavericks",
+        "venue": "H",
+        "score": "127-117",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-13",
+        "opponent": "Miami Heat",
+        "venue": "A",
+        "score": "121-133",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-11",
+        "opponent": "New York Knicks",
+        "venue": "A",
+        "score": "115-107",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-09",
+        "opponent": "Charlotte Hornets",
+        "venue": "A",
+        "score": "112-124",
+        "result": "L"
+      }
+    ],
+    "h2h": {
+      "number_of_matches": 1,
+      "matches": [
+        {
+          "date": "2026-11-16",
+          "home": "Cleveland Cavaliers",
+          "away": "Chicago Bulls",
+          "score": "126-115",
+          "competition": "NBA"
+        }
+      ]
+    }
+  },
+  "bb-21718247": {
+    "home_recent": [
+      {
+        "date": "2026-11-17",
+        "opponent": "Detroit Pistons",
+        "venue": "H",
+        "score": "93-105",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-15",
+        "opponent": "Utah Jazz",
+        "venue": "A",
+        "score": "110-102",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-13",
+        "opponent": "Golden State Warriors",
+        "venue": "H",
+        "score": "123-85",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-11",
+        "opponent": "Chicago Bulls",
+        "venue": "A",
+        "score": "124-119",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-09",
+        "opponent": "Phoenix Suns",
+        "venue": "A",
+        "score": "122-96",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-17",
+        "opponent": "New York Knicks",
+        "venue": "H",
+        "score": "102-111",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-15",
+        "opponent": "New York Knicks",
+        "venue": "H",
+        "score": "108-112",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-12",
+        "opponent": "Philadelphia 76ers",
+        "venue": "A",
+        "score": "112-123",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-11",
+        "opponent": "Boston Celtics",
+        "venue": "H",
+        "score": "93-98",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-09",
+        "opponent": "Memphis Grizzlies",
+        "venue": "H",
+        "score": "102-118",
+        "result": "L"
+      }
+    ],
+    "h2h": null
+  },
+  "bb-21718248": {
+    "home_recent": [
+      {
+        "date": "2026-11-17",
+        "opponent": "Minnesota Timberwolves",
+        "venue": "A",
+        "score": "105-106",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-16",
+        "opponent": "Minnesota Timberwolves",
+        "venue": "A",
+        "score": "98-106",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-13",
+        "opponent": "Sacramento Kings",
+        "venue": "A",
+        "score": "120-107",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-11",
+        "opponent": "Oklahoma City Thunder",
+        "venue": "H",
+        "score": "118-108",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-10",
+        "opponent": "Oklahoma City Thunder",
+        "venue": "H",
+        "score": "123-103",
+        "result": "W"
+      }
+    ],
+    "away_recent": [
+      {
+        "date": "2026-11-17",
+        "opponent": "LA Clippers",
+        "venue": "A",
+        "score": "132-107",
+        "result": "W"
+      },
+      {
+        "date": "2026-11-15",
+        "opponent": "San Antonio Spurs",
+        "venue": "H",
+        "score": "102-110",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-13",
+        "opponent": "Houston Rockets",
+        "venue": "A",
+        "score": "118-125",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-11",
+        "opponent": "Orlando Magic",
+        "venue": "H",
+        "score": "108-123",
+        "result": "L"
+      },
+      {
+        "date": "2026-11-10",
+        "opponent": "Miami Heat",
+        "venue": "H",
+        "score": "109-115",
+        "result": "L"
+      }
+    ],
+    "h2h": {
+      "number_of_matches": 1,
+      "matches": [
+        {
+          "date": "2026-10-31",
+          "home": "Utah Jazz",
+          "away": "Portland Trail Blazers",
+          "score": "90-112",
           "competition": "NBA"
         }
       ]

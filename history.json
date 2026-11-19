@@ -1,6 +1,46 @@
 {
-  "total_analyzed_since_start": 1211,
+  "total_analyzed_since_start": 1227,
   "history": [
+    {
+      "date": "2026-11-04",
+      "id": 555081,
+      "sport": "Football",
+      "match": "Coritiba FBC vs Santos FC",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "0-1"
+    },
+    {
+      "date": "2026-11-04",
+      "id": 555086,
+      "sport": "Football",
+      "match": "Clube do Remo vs Chapecoense AF",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "BTTS - No",
+      "result": "win",
+      "final_score": "2-0"
+    },
+    {
+      "date": "2026-11-04",
+      "id": 555082,
+      "sport": "Football",
+      "match": "Cruzeiro EC vs SE Palmeiras",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Under 2.5 Goals",
+      "result": "loss",
+      "final_score": "2-1"
+    },
+    {
+      "date": "2026-11-04",
+      "id": 555083,
+      "sport": "Football",
+      "match": "CR Flamengo vs CA Paranaense",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "CR Flamengo Win",
+      "result": "win",
+      "final_score": "2-1"
+    },
     {
       "date": "2026-11-03",
       "id": "bb-21718126",
@@ -4960,46 +5000,6 @@
       "pick": "BTTS - No",
       "result": "loss",
       "final_score": "3-3"
-    },
-    {
-      "date": "2026-10-10",
-      "id": 560617,
-      "sport": "Football",
-      "match": "Chelsea FC vs Tottenham Hotspur FC",
-      "league": "Premier League",
-      "pick": "Chelsea FC Win",
-      "result": "loss",
-      "final_score": "0-2"
-    },
-    {
-      "date": "2026-10-10",
-      "id": 567333,
-      "sport": "Football",
-      "match": "FC Alverca vs FC Arouca",
-      "league": "Primeira Liga",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "0-1"
-    },
-    {
-      "date": "2026-10-10",
-      "id": 558565,
-      "sport": "Football",
-      "match": "SS Lazio vs Parma Calcio 1913",
-      "league": "Serie A",
-      "pick": "SS Lazio Win",
-      "result": "win",
-      "final_score": "2-1"
-    },
-    {
-      "date": "2026-10-10",
-      "id": 567335,
-      "sport": "Football",
-      "match": "Gil Vicente FC vs FC Porto",
-      "league": "Primeira Liga",
-      "pick": "BTTS - No",
-      "result": "win",
-      "final_score": "0-1"
     }
   ]
 }
