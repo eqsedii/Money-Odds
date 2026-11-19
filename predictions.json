@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T02:23:21.489796Z",
+  "generated_at": "2026-11-19T11:09:40.488355Z",
   "predictions": [
     {
       "id": 575403,
@@ -212,20 +212,6 @@
       "locked": true
     },
     {
-      "id": "bb-21718155",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Los Angeles Lakers vs Sacramento Kings",
-      "home_team": "Los Angeles Lakers",
-      "away_team": "Sacramento Kings",
-      "home_team_id": 14,
-      "away_team_id": 26,
-      "league": "NBA",
-      "kickoff": "2026-11-20",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 558828,
       "sport": "Football",
       "icon": "\u26bd",
@@ -282,6 +268,20 @@
       "league": "Premier League",
       "comp_code": "PL",
       "kickoff": "2026-11-29T14:05:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718155",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Los Angeles Lakers vs Sacramento Kings",
+      "home_team": "Los Angeles Lakers",
+      "away_team": "Sacramento Kings",
+      "home_team_id": 14,
+      "away_team_id": 26,
+      "league": "NBA",
+      "kickoff": "2026-11-20",
       "has_pick": true,
       "locked": true
     },
