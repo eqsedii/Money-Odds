@@ -1,5 +1,5 @@
 {
-  "total_analyzed_since_start": 1227,
+  "total_analyzed_since_start": 1234,
   "history": [
     {
       "date": "2026-11-05",
@@ -20,6 +20,26 @@
       "pick": "BTTS - Yes",
       "result": "loss",
       "final_score": "0-0"
+    },
+    {
+      "date": "2026-11-05",
+      "id": 555088,
+      "sport": "Football",
+      "match": "CR Vasco da Gama vs SC Internacional",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Under 2.5 Goals",
+      "result": "loss",
+      "final_score": "2-1"
+    },
+    {
+      "date": "2026-11-05",
+      "id": 555089,
+      "sport": "Football",
+      "match": "EC Vit\u00f3ria vs RB Bragantino",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Under 2.5 Goals",
+      "result": "loss",
+      "final_score": "2-1"
     },
     {
       "date": "2026-11-04",
@@ -4980,26 +5000,6 @@
       "pick": "Over 2.5 Goals",
       "result": "loss",
       "final_score": "1-1"
-    },
-    {
-      "date": "2026-10-10",
-      "id": 555056,
-      "sport": "Football",
-      "match": "SE Palmeiras vs RB Bragantino",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "BTTS - No",
-      "result": "win",
-      "final_score": "2-0"
-    },
-    {
-      "date": "2026-10-10",
-      "id": 555058,
-      "sport": "Football",
-      "match": "CR Vasco da Gama vs SC Corinthians Paulista",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "CR Vasco da Gama Win",
-      "result": "win",
-      "final_score": "3-2"
     }
   ]
 }
