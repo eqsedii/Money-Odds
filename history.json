@@ -2,6 +2,16 @@
   "total_analyzed_since_start": 1234,
   "history": [
     {
+      "date": "2026-11-06",
+      "id": 555087,
+      "sport": "Football",
+      "match": "S\u00e3o Paulo FC vs Fluminense FC",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "0-1"
+    },
+    {
       "date": "2026-11-05",
       "id": 555080,
       "sport": "Football",
@@ -40,6 +50,46 @@
       "pick": "Under 2.5 Goals",
       "result": "loss",
       "final_score": "2-1"
+    },
+    {
+      "date": "2026-11-05",
+      "id": "bb-21718143",
+      "sport": "Basketball",
+      "match": "Memphis Grizzlies vs Golden State Warriors",
+      "league": "NBA",
+      "pick": "Memphis Grizzlies Win",
+      "result": "win",
+      "final_score": "126-98"
+    },
+    {
+      "date": "2026-11-05",
+      "id": "bb-21718144",
+      "sport": "Basketball",
+      "match": "Milwaukee Bucks vs Portland Trail Blazers",
+      "league": "NBA",
+      "pick": "Portland Trail Blazers Win",
+      "result": "win",
+      "final_score": "114-124"
+    },
+    {
+      "date": "2026-11-05",
+      "id": "bb-21718145",
+      "sport": "Basketball",
+      "match": "Minnesota Timberwolves vs New York Knicks",
+      "league": "NBA",
+      "pick": "Minnesota Timberwolves Win",
+      "result": "loss",
+      "final_score": "99-102"
+    },
+    {
+      "date": "2026-11-05",
+      "id": "bb-21718146",
+      "sport": "Basketball",
+      "match": "San Antonio Spurs vs LA Clippers",
+      "league": "NBA",
+      "pick": "San Antonio Spurs Win",
+      "result": "win",
+      "final_score": "124-112"
     },
     {
       "date": "2026-11-04",
@@ -4950,56 +5000,6 @@
       "pick": "SC Cambuur-Leeuwarden Win",
       "result": "win",
       "final_score": "1-6"
-    },
-    {
-      "date": "2026-10-10",
-      "id": 564724,
-      "sport": "Football",
-      "match": "Club Atl\u00e9tico de Madrid vs RC Deportivo La Coru\u00f1a",
-      "league": "Primera Division",
-      "pick": "Club Atl\u00e9tico de Madrid Win",
-      "result": "win",
-      "final_score": "1-0"
-    },
-    {
-      "date": "2026-10-10",
-      "id": 558860,
-      "sport": "Football",
-      "match": "ADO Den Haag vs SC Heerenveen",
-      "league": "Eredivisie",
-      "pick": "SC Heerenveen Win",
-      "result": "win",
-      "final_score": "2-3"
-    },
-    {
-      "date": "2026-10-10",
-      "id": 555054,
-      "sport": "Football",
-      "match": "SC Internacional vs Botafogo FR",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "BTTS - Yes",
-      "result": "loss",
-      "final_score": "3-0"
-    },
-    {
-      "date": "2026-10-10",
-      "id": 555055,
-      "sport": "Football",
-      "match": "Mirassol FC vs S\u00e3o Paulo FC",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "1-1"
-    },
-    {
-      "date": "2026-10-10",
-      "id": 555059,
-      "sport": "Football",
-      "match": "EC Vit\u00f3ria vs CA Paranaense",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "1-1"
     }
   ]
 }
