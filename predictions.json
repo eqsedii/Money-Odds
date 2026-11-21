@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T19:40:15.813439Z",
+  "generated_at": "2026-11-21T02:08:16.521431Z",
   "predictions": [
     {
       "id": 575403,
@@ -92,6 +92,21 @@
       "locked": true
     },
     {
+      "id": 565879,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "RB Leipzig vs 1. FSV Mainz 05",
+      "home_team": "RB Leipzig",
+      "away_team": "1. FSV Mainz 05",
+      "home_team_id": 721,
+      "away_team_id": 15,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-12-05T14:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 559614,
       "sport": "Football",
       "icon": "\u26bd",
@@ -137,17 +152,17 @@
       "locked": true
     },
     {
-      "id": 565861,
+      "id": 558816,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "FC Schalke 04 vs VfB Stuttgart",
-      "home_team": "FC Schalke 04",
-      "away_team": "VfB Stuttgart",
-      "home_team_id": 6,
-      "away_team_id": 10,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-11-21T17:30:00Z",
+      "match": "Willem II Tilburg vs Feyenoord Rotterdam",
+      "home_team": "Willem II Tilburg",
+      "away_team": "Feyenoord Rotterdam",
+      "home_team_id": 672,
+      "away_team_id": 675,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-12-05T15:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -178,6 +193,21 @@
       "league": "Serie A",
       "comp_code": "SA",
       "kickoff": "2026-11-29T17:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 565861,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "FC Schalke 04 vs VfB Stuttgart",
+      "home_team": "FC Schalke 04",
+      "away_team": "VfB Stuttgart",
+      "home_team_id": 6,
+      "away_team_id": 10,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-11-21T17:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -268,35 +298,6 @@
       "league": "Primera Division",
       "comp_code": "PD",
       "kickoff": "2026-11-28T20:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 560659,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Brighton & Hove Albion FC vs Newcastle United FC",
-      "home_team": "Brighton & Hove Albion FC",
-      "away_team": "Newcastle United FC",
-      "home_team_id": 397,
-      "away_team_id": 67,
-      "league": "Premier League",
-      "comp_code": "PL",
-      "kickoff": "2026-11-29T14:05:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": "bb-21718155",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Los Angeles Lakers vs Sacramento Kings",
-      "home_team": "Los Angeles Lakers",
-      "away_team": "Sacramento Kings",
-      "home_team_id": 14,
-      "away_team_id": 26,
-      "league": "NBA",
-      "kickoff": "2026-11-20",
       "has_pick": true,
       "locked": true
     }

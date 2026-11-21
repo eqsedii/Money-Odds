@@ -1,5 +1,5 @@
 {
-  "total_analyzed_since_start": 1234,
+  "total_analyzed_since_start": 1276,
   "history": [
     {
       "date": "2026-11-06",
@@ -7,6 +7,36 @@
       "sport": "Football",
       "match": "S\u00e3o Paulo FC vs Fluminense FC",
       "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "0-1"
+    },
+    {
+      "date": "2026-11-06",
+      "id": 565859,
+      "sport": "Football",
+      "match": "FC Bayern M\u00fcnchen vs 1. FC K\u00f6ln",
+      "league": "Bundesliga",
+      "pick": "FC Bayern M\u00fcnchen Win",
+      "result": "loss",
+      "final_score": "1-1"
+    },
+    {
+      "date": "2026-11-06",
+      "id": 559622,
+      "sport": "Football",
+      "match": "ES Troyes AC vs Le Havre AC",
+      "league": "Ligue 1",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "3-1"
+    },
+    {
+      "date": "2026-11-06",
+      "id": 564748,
+      "sport": "Football",
+      "match": "Athletic Club vs RCD Espanyol de Barcelona",
+      "league": "Primera Division",
       "pick": "Under 2.5 Goals",
       "result": "win",
       "final_score": "0-1"
@@ -4970,36 +5000,6 @@
       "pick": "Over 2.5 Goals",
       "result": "win",
       "final_score": "0-3"
-    },
-    {
-      "date": "2026-10-10",
-      "id": 558862,
-      "sport": "Football",
-      "match": "FC Utrecht vs PEC Zwolle",
-      "league": "Eredivisie",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "1-1"
-    },
-    {
-      "date": "2026-10-10",
-      "id": 564722,
-      "sport": "Football",
-      "match": "Valencia CF vs Villarreal CF",
-      "league": "Primera Division",
-      "pick": "Villarreal CF Win",
-      "result": "win",
-      "final_score": "1-2"
-    },
-    {
-      "date": "2026-10-10",
-      "id": 558861,
-      "sport": "Football",
-      "match": "Willem II Tilburg vs SC Cambuur-Leeuwarden",
-      "league": "Eredivisie",
-      "pick": "SC Cambuur-Leeuwarden Win",
-      "result": "win",
-      "final_score": "1-6"
     }
   ]
 }
