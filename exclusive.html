@@ -141,7 +141,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <div class="wrap">
 <div class="hero-badge">⭐ VIP GOLDEN SLIP</div>
 <h1>Hand-picked by our specialist</h1>
-<p>Not the model — a person. One curated multi-bet slip at a time, sold per slip for Ksh 99.</p>
+<p>One curated slip at a time. Ksh 99 per slip.</p>
 </div>
 </section>
 
@@ -151,8 +151,10 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 
 <div class="slip-card" id="bookmakerCard" style="display:none;"></div>
 
+<div class="slip-card" id="specialLinksCard" style="display:none;"></div>
+
 <div class="restore-block">
-<p>Already paid for this slip? Enter the phone number you paid with — no code needed.</p>
+<p>Already paid? Enter your M-Pesa number.</p>
 <div class="restore-row">
 <input type="tel" id="restorePhone" placeholder="Your M-Pesa phone number">
 <button onclick="restoreByPhone()">Restore</button>
@@ -161,7 +163,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 </div>
 
 <div class="restore-block">
-<p>Have an unlock code instead (from your admin)? Paste it here.</p>
+<p>Have an unlock code? Paste it here.</p>
 <div class="restore-row">
 <input type="text" id="restoreToken" placeholder="Unlock code">
 <button onclick="restoreWithToken()">Unlock</button>
@@ -170,14 +172,14 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 </div>
 
 <div class="restore-block">
-<p style="margin-bottom:0;">Still stuck? Email <a href="mailto:support@moneyoddspredictions.co.ke" style="color:var(--cyan);font-weight:600;">support@moneyoddspredictions.co.ke</a> and we'll sort it out.</p>
+<p style="margin-bottom:0;">Need help? Email <a href="mailto:support@moneyoddspredictions.co.ke" style="color:var(--cyan);font-weight:600;">support@moneyoddspredictions.co.ke</a> </p>
 </div>
 
-<div class="disclaimer">VIP Golden Slip picks are the specialist's own selections, made independently of the statistical model used elsewhere on this site. Bookmaker booking codes can expire or their odds can shift before kickoff — treat a code as a starting point, not a locked-in guarantee of that exact stake or odds. No outcome is guaranteed. Bet responsibly and only with money you can afford to lose.</div>
+<div class="disclaimer">VIP Golden Slip picks are the specialist\'s own selections. Booking codes can expire and odds can shift before kickoff. No outcome is guaranteed. Bet responsibly.</div>
 
 <div class="section">
 <h2>Past results</h2>
-<p class="sub">Every VIP Golden Slip we've sold, graded honestly — wins and losses both.</p>
+<p class="sub">Every slip, wins and losses.</p>
 <div id="historyList">Loading…</div>
 </div>
 
@@ -188,7 +190,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <div class="modal-box">
 <button class="modal-close" onclick="closePayModal()">×</button>
 <div class="modal-title">Unlock this VIP Golden Slip</div>
-<div class="modal-sub">Ksh 99 — one-time, this slip only. You'll get an M-Pesa PIN prompt.</div>
+<div class="modal-sub">Ksh 99 · this slip only</div>
 <div class="field-group">
 <label for="modalName">Full name</label>
 <input type="text" id="modalName" placeholder="Jane Wanjiru">
@@ -315,7 +317,24 @@ function renderLockedBookmakers(list){
     <div class="bm-row-locked" style="border-top:none;padding-top:0;margin:0;">
       ${list.map(b => `<span class="bm-badge" style="background:${b.color}22;color:${b.color};">${b.name}</span>`).join('')}
     </div>
-    <div class="note" style="margin-top:10px;">Unlock the slip above to get the ready-made booking link for each.</div>
+    <div class="note" style="margin-top:10px;">Unlock to get the booking links.</div>
+  `;
+}
+
+function esc(t){ return String(t == null ? '' : t).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+function renderSpecialLinks(list){
+  const el = document.getElementById('specialLinksCard');
+  if(!list || !list.length){ el.innerHTML = ''; el.style.display = 'none'; return; }
+  el.style.display = 'block';
+  el.innerHTML = `
+    <div class="slip-label" style="margin-bottom:10px;">⭐ SPECIAL LINKS</div>
+    ${list.map(l => `
+      <div style="padding:12px 0;border-top:1px solid var(--line);">
+        <div style="font-weight:700;margin-bottom:4px;">${esc(l.title)}</div>
+        ${l.description ? `<div class="note" style="margin-bottom:10px;">${esc(l.description)}</div>` : ''}
+        <a class="bm-btn" href="${esc(l.url)}" target="_blank" rel="noopener noreferrer" style="background:var(--gold,#F5B93A);color:#1b1300;"><span>Open link</span><span class="bm-arrow">→</span></a>
+      </div>`).join('')}
   `;
 }
 
@@ -364,6 +383,7 @@ async function loadSlip(){
       if(unlockData.ok){
         renderUnlockedSlip(unlockData.slip);
         renderUnlockedBookmakers(unlockData.bookmakers || []);
+        renderSpecialLinks(unlockData.special_links || []);
         return;
       }
     }
@@ -407,7 +427,7 @@ async function submitPayment(){
     if(!data.ok || !data.externalReference){
       btn.disabled = false;
       btn.textContent = 'Pay Ksh 99';
-      setStatus('modalStatus', 'error', 'DEBUG: ' + JSON.stringify(data));
+      setStatus('modalStatus', 'error', 'Payment is temporarily unavailable. Please try again.');
       return;
     }
     pollExclusivePayment(data.externalReference, btn);
@@ -461,10 +481,11 @@ async function restoreByPhone(){
       setStatus('restorePhoneStatus', 'success', '✓ Unlocked!');
       renderUnlockedSlip(data.slip);
       renderUnlockedBookmakers(data.bookmakers || []);
+      renderSpecialLinks(data.special_links || []);
     } else if(data.status === 'expired'){
       setStatus('restorePhoneStatus', 'error', data.note || 'Your last purchase was for an earlier slip — it doesn\'t cover the one currently live.');
     } else {
-      setStatus('restorePhoneStatus', 'error', 'No purchase found for that number. Double-check it, or use an unlock code below if you have one.');
+      setStatus('restorePhoneStatus', 'error', 'No payment found for that number. Check it and try again.');
     }
   } catch(e){
     setStatus('restorePhoneStatus', 'error', 'Something went wrong — please try again.');
@@ -482,6 +503,7 @@ async function restoreWithToken(){
       setStatus('restoreStatus', 'success', '✓ Unlocked!');
       renderUnlockedSlip(data.slip);
       renderUnlockedBookmakers(data.bookmakers || []);
+      renderSpecialLinks(data.special_links || []);
     } else {
       setStatus('restoreStatus', 'error', data.note || 'That code didn\'t work — it may be for an older slip, or mistyped.');
     }

@@ -113,7 +113,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <div class="wrap">
 <div class="hero">
 <h1>One price. Every prediction. 7 days.</h1>
-<p>Unlock every pick, every sport, every match — site-wide — for a full week. No per-match fees.</p>
+<p>All picks unlocked for 7 days.</p>
 </div>
 
 <div class="plan-grid">
@@ -122,7 +122,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <div class="plan-badge">M-PESA</div>
 <div class="plan-label">Kenya</div>
 <div class="plan-price">Ksh 59 <span>/ 7 days</span></div>
-<div class="plan-desc"><b>One payment unlocks ALL matches for 7 days — not a single fixture.</b> Pay directly from your M-Pesa — you'll get a prompt on your phone to enter your PIN.</div>
+<div class="plan-desc"><b>One payment unlocks ALL matches for 7 days — not a single fixture.</b> Pay with M-Pesa.</div>
 <ul class="plan-features">
 <li>Every prediction, every sport, for 7 days</li>
 <li>Full market breakdown per match</li>
@@ -145,13 +145,13 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <li>Multi-bet accumulators unlocked</li>
 </ul>
 <button class="pay-btn" id="cardBtn" disabled onclick="startCardPayment()">Card payment — coming soon</button>
-<div class="note warn">We're finishing verification of international card support with our payment provider. Check back shortly, or use M-Pesa if you're in Kenya.</div>
+<div class="note warn">Card payments coming soon. Use M-Pesa.</div>
 <div class="status-box" id="cardStatus"></div>
 </div>
 </div>
 
 <div class="restore-block">
-<p>Already paid recently? Restore your access without paying again.</p>
+<p>Already paid? Enter your M-Pesa number.</p>
 <div class="restore-row">
 <input type="tel" id="restorePhone" placeholder="Your M-Pesa phone number">
 <button onclick="restoreAccess()">Restore</button>
@@ -159,7 +159,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <div class="status-box" id="restoreStatus"></div>
 </div>
 
-<div class="disclaimer">Money Odds provides statistical analysis derived from real fixture and results data. No outcome is guaranteed. Bet responsibly and only with money you can afford to lose.</div>
+<div class="disclaimer">No outcome is guaranteed. Bet responsibly.</div>
 </div>
 
 <!-- M-PESA CHECKOUT MODAL -->
@@ -167,7 +167,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <div class="modal-box">
 <button class="modal-close" onclick="closeMpesaModal()" aria-label="Close">×</button>
 <div class="modal-title">Pay with M-Pesa</div>
-<div class="modal-sub">Ksh 59 unlocks ALL matches for 7 days (not just one fixture). You'll get a prompt on your phone to enter your M-Pesa PIN.</div>
+<div class="modal-sub">Ksh 59 · all matches · 7 days</div>
 <div class="field-group">
 <label for="modalName">Full name</label>
 <input type="text" id="modalName" placeholder="Jane Wanjiru" autocomplete="name">
@@ -198,8 +198,8 @@ document.getElementById('navToggle').addEventListener('click', function(){
   document.getElementById('navLinks').classList.toggle('open');
 });
 
-function saveAccessToken(token, expiry){
-  localStorage.setItem('moneyOddsAccess', JSON.stringify({ token, expiry }));
+function saveAccessToken(token, expiry, phone){
+  localStorage.setItem('moneyOddsAccess', JSON.stringify({ token, expiry, phone: phone || null }));
 }
 
 function setStatus(elId, type, message){
@@ -252,7 +252,7 @@ setStatus(
 );
       return;
     }
-    pollPayheroCompletion(data.externalReference, 'modalStatus', () => {
+    pollPayheroCompletion(data.externalReference, 'modalStatus', phone, () => {
       submitBtn.textContent = 'Unlocked ✓';
       if(window.Celebrate) Celebrate.show({ emoji:'🎉', title:'Payment successful!', sub:'Welcome to Money Odds — all picks are unlocked for 7 days.', button:'See my picks' });
       setTimeout(() => { window.location.href = '/predictions'; }, 4200);
@@ -265,7 +265,7 @@ setStatus(
   });
 }
 
-async function pollPayheroCompletion(externalReference, statusElId, onSuccess){
+async function pollPayheroCompletion(externalReference, statusElId, phone, onSuccess){
   const maxAttempts = 40; // ~2 minutes at 3s intervals
   let attempts = 0;
 
@@ -276,7 +276,7 @@ async function pollPayheroCompletion(externalReference, statusElId, onSuccess){
       const data = await res.json();
 
       if(data.status === 'complete'){
-        saveAccessToken(data.token, data.expiry);
+        saveAccessToken(data.token, data.expiry, phone);
         setStatus(statusElId, 'success', '✓ Payment confirmed! Your picks are unlocked for 7 days.');
         onSuccess();
         return;
@@ -290,7 +290,7 @@ async function pollPayheroCompletion(externalReference, statusElId, onSuccess){
     } catch(e){ /* keep polling */ }
 
     if(attempts >= maxAttempts){
-      setStatus(statusElId, 'error', 'Still waiting on confirmation. If you entered your PIN, this can take a minute — try refreshing shortly, or use "Restore" with your phone number below.');
+      setStatus(statusElId, 'error', 'Still waiting. If you paid, enter your number under "Already paid" below.');
       return;
     }
     setTimeout(poll, 3000);
@@ -312,13 +312,13 @@ async function restoreAccess(){
     const res = await fetch(`${WORKER_BASE}/restore?phone=${encodeURIComponent(phoneInput)}`);
     const data = await res.json();
     if(data.status === 'active'){
-      saveAccessToken(data.token, data.expiry);
-      setStatus('restoreStatus', 'success', '✓ Access restored! Redirecting…');
+      saveAccessToken(data.token, data.expiry, phoneInput);
+      setStatus('restoreStatus', 'success', '✓ Unlocked! Redirecting…');
       setTimeout(() => { window.location.href = '/predictions'; }, 1200);
     } else if(data.status === 'expired'){
-      setStatus('restoreStatus', 'error', 'Your last subscription has expired — please pay again above.');
+      setStatus('restoreStatus', 'error', 'Your subscription has expired. Please pay again.');
     } else {
-      setStatus('restoreStatus', 'error', 'No active subscription found for that number.');
+      setStatus('restoreStatus', 'error', 'No payment found for that number.');
     }
   } catch(e){
     setStatus('restoreStatus', 'error', 'Something went wrong — please try again.');

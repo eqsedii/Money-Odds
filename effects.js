@@ -191,3 +191,49 @@
     }).catch(function(){});
   };
 })();
+
+/* ---- Promo ad popup: managed from the admin panel. Shows once per browser
+   session, after a short delay, then closes itself. ---- */
+(function(){
+  if (/^\/(admin|agents)(\.html)?\/?$/.test(location.pathname)) return;
+  try { if (sessionStorage.getItem('moAdSeen')) return; } catch(e){}
+  var API = 'https://money-odds-api.arphaxad98.workers.dev';
+  fetch(API + '/ads-current').then(function(r){ return r.json(); }).then(function(d){
+    var ad = d && d.ad;
+    if (!ad || !ad.image) return;
+    setTimeout(function(){
+      try { if (sessionStorage.getItem('moAdSeen')) return; sessionStorage.setItem('moAdSeen', '1'); } catch(e){}
+      var o = document.createElement('div');
+      o.style.cssText = 'position:fixed;inset:0;z-index:100000;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(5,8,12,.78);backdrop-filter:blur(3px);';
+      var box = document.createElement('div');
+      box.style.cssText = 'position:relative;max-width:380px;width:100%;max-height:92vh;overflow:auto;background:#121821;border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:12px;text-align:center;';
+      var img = document.createElement('img');
+      img.src = ad.image; img.alt = 'Ad';
+      img.style.cssText = 'display:block;width:100%;border-radius:10px;';
+      box.appendChild(img);
+      if (ad.caption) {
+        var c = document.createElement('div');
+        c.textContent = ad.caption;
+        c.style.cssText = 'color:#fff;font-weight:700;font-size:15px;line-height:1.4;margin:12px 4px 4px;';
+        box.appendChild(c);
+      }
+      if (ad.link) {
+        var a = document.createElement('a');
+        a.href = ad.link; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = 'Open';
+        a.style.cssText = 'display:inline-block;margin:10px 0 2px;padding:10px 26px;border-radius:999px;background:#2DE1E8;color:#03181a;font-weight:700;text-decoration:none;';
+        box.appendChild(a);
+      }
+      var x = document.createElement('button');
+      x.textContent = '×'; x.setAttribute('aria-label', 'Close');
+      x.style.cssText = 'position:absolute;top:6px;right:8px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(0,0,0,.6);color:#fff;font-size:20px;line-height:1;cursor:pointer;';
+      box.appendChild(x);
+      o.appendChild(box);
+      var closed = false;
+      function close(){ if (closed) return; closed = true; o.remove(); }
+      x.onclick = close;
+      o.addEventListener('click', function(e){ if (e.target === o) close(); });
+      document.body.appendChild(o);
+      setTimeout(close, (ad.duration || 10) * 1000);
+    }, (ad.show_after || 5) * 1000);
+  }).catch(function(){});
+})();

@@ -179,7 +179,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 <div class="wrap">
 <div class="eyebrow" id="pageEyebrow">UPCOMING FIXTURES</div>
 <h1>Predictions & analysis</h1>
-<p>Search any team we cover, or browse every upcoming fixture across football and basketball. Tap any match for the full breakdown — form, head-to-head, and every market we modeled.</p>
+<p>Search a team or browse upcoming fixtures. Tap a match for details.</p>
 </div>
 </section>
 
@@ -467,23 +467,40 @@ function formatUpdated(iso){
 
 const WORKER_BASE = "https://money-odds-api.arphaxad98.workers.dev";
 
-function getAccess(){
-  try {
-    const raw = localStorage.getItem('moneyOddsAccess');
-    if(!raw) return null;
-    const { token, expiry } = JSON.parse(raw);
-    if(!token || Date.now() > expiry) return null;
-    return token;
-  } catch(e){ return null; }
+function getAccessRecord(){
+  try { return JSON.parse(localStorage.getItem('moneyOddsAccess') || 'null'); } catch(e){ return null; }
 }
 
-async function loadUnlockedPicks(token){
-  try {
-    const res = await fetch(`${WORKER_BASE}/unlocked-picks?token=${encodeURIComponent(token)}`);
-    if(!res.ok) return null;
-    const data = await res.json();
-    return data.ok ? data.privateData : null;
-  } catch(e){ return null; }
+function getAccess(){
+  const rec = getAccessRecord();
+  if(!rec) return null;
+  if(rec.token && rec.expiry && Date.now() > rec.expiry && !rec.phone) return null;
+  return rec.token || rec.phone || null;
+}
+
+// Loads the paid picks. Tries the saved token first, then the saved phone
+// number (so a missing/stale token never leaves a paid customer locked out).
+async function loadUnlockedPicks(){
+  const rec = getAccessRecord();
+  if(!rec) return null;
+  const tries = [];
+  if(rec.token) tries.push(`token=${encodeURIComponent(rec.token)}`);
+  if(rec.phone) tries.push(`phone=${encodeURIComponent(rec.phone)}`);
+  for(let attempt = 0; attempt < 2; attempt++){
+    for(const q of tries){
+      try {
+        const res = await fetch(`${WORKER_BASE}/unlocked-picks?${q}`);
+        const data = await res.json().catch(() => null);
+        if(res.ok && data && data.ok){
+          if(data.token && data.token !== rec.token){
+            localStorage.setItem('moneyOddsAccess', JSON.stringify({ ...rec, token: data.token, expiry: data.expiry }));
+          }
+          return data.privateData;
+        }
+      } catch(e){ /* try next */ }
+    }
+  }
+  return null;
 }
 
 function mergePicks(fixtureList, unlockedData){
@@ -513,7 +530,7 @@ async function loadFixtures(){
     const token = getAccess();
     let unlockedData = null;
     if(token){
-      unlockedData = await loadUnlockedPicks(token);
+      unlockedData = await loadUnlockedPicks();
     }
     predictions = mergePicks(filtered, unlockedData).filter(p => p.pick !== undefined || p.has_pick);
 
@@ -535,7 +552,7 @@ async function loadFixtures(){
     buildDateChips();
     render('all');
     statusEl.className = 'data-status';
-    const unlockNote = token ? (unlockedData ? ' · unlocked' : ' · subscription expired or invalid') : '';
+    const unlockNote = token ? (unlockedData ? ' · unlocked' : ' · could not load your picks, refresh to retry') : '';
     statusEl.innerHTML = `<span class="dot"></span> Live data · updated ${formatUpdated(data.generated_at)} · ${predictions.length} fixtures${liveCount ? ` · ${liveCount} live now` : ''}${stale ? ` · ${stale} finished, hidden` : ''}${unlockNote}`;
     hideLoader();
   } catch(err){

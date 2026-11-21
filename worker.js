@@ -55,7 +55,10 @@ function json(data, status = 200) {
 
 function normalizePhone(phone) {
   let p = (phone || "").replace(/[^0-9]/g, "");
-  if (p.startsWith("0")) p = "254" + p.slice(1);
+  if (p.startsWith("2540")) p = "254" + p.slice(4);
+  else if (p.startsWith("254")) { /* already international */ }
+  else if (p.startsWith("0")) p = "254" + p.slice(1);
+  else if (p.length === 9) p = "254" + p;
   return p;
 }
 
@@ -86,28 +89,77 @@ async function githubFetch(env, path) {
 
 // ------------------------------------------------------------- main access
 
+// Looks up a live subscription by phone. Falls back to asking PayHero about
+// any recent payment from that number, so a missed webhook never strands a
+// customer who already paid.
+async function findSubscriptionByPhone(env, phone) {
+  const raw = await env.UNLOCKS.get(`phone:${phone}`);
+  if (raw) {
+    const data = JSON.parse(raw);
+    if (data.expiry > Date.now()) return { status: "active", data };
+    return { status: "expired" };
+  }
+  const refId = await env.UNLOCKS.get(`pending-phone:sub:${phone}`);
+  if (refId) {
+    const resolved = await resolvePendingByRef(env, refId);
+    if (resolved && resolved.status === "complete" && resolved.kind === "subscription") {
+      const again = await env.UNLOCKS.get(`phone:${phone}`);
+      if (again) return { status: "active", data: JSON.parse(again) };
+    }
+  }
+  return { status: "not_found" };
+}
+
 async function handleRestore(request, env) {
   const { searchParams } = new URL(request.url);
   const phone = normalizePhone(searchParams.get("phone"));
   if (!phone) return json({ error: "missing_phone" }, 400);
-  const raw = await env.UNLOCKS.get(`phone:${phone}`);
-  if (!raw) return json({ status: "not_found" });
-  const data = JSON.parse(raw);
-  if (data.expiry < Date.now()) return json({ status: "expired" });
-  return json({ status: "active", token: data.token, expiry: data.expiry });
+  const found = await findSubscriptionByPhone(env, phone);
+  if (found.status === "active") return json({ status: "active", token: found.data.token, expiry: found.data.expiry });
+  return json({ status: found.status });
+}
+
+const PICKS_CACHE_KEY = "private-picks-cache";
+
+// Reads the private picks from GitHub; if GitHub is slow or errors, serves the
+// last good copy so paying customers are never locked out by an outage.
+async function loadPrivatePicks(env) {
+  let lastErr = null;
+  for (let i = 0; i < 2; i++) {
+    try {
+      const data = await githubFetch(env, "private_picks.json");
+      if (data && data.picks) {
+        try { await env.UNLOCKS.put(PICKS_CACHE_KEY, JSON.stringify(data), { expirationTtl: 3 * 86400 }); } catch (e) { /* cache only */ }
+        return data;
+      }
+      lastErr = new Error("private_picks.json has no picks");
+    } catch (e) { lastErr = e; }
+  }
+  const cached = await env.UNLOCKS.get(PICKS_CACHE_KEY);
+  if (cached) return JSON.parse(cached);
+  throw lastErr || new Error("no_picks");
 }
 
 async function handleUnlockedPicks(request, env) {
   const { searchParams } = new URL(request.url);
-  const token = searchParams.get("token");
-  if (!token) return json({ error: "missing_token" }, 400);
-  const raw = await env.UNLOCKS.get(`token:${token}`);
-  if (!raw) return json({ error: "invalid_or_expired" }, 403);
-  const data = JSON.parse(raw);
+  let token = searchParams.get("token");
+  const phone = normalizePhone(searchParams.get("phone") || "");
+  let data = null;
+
+  if (token) {
+    const raw = await env.UNLOCKS.get(`token:${token}`);
+    if (raw) data = JSON.parse(raw);
+  }
+  if (!data && phone) {
+    const found = await findSubscriptionByPhone(env, phone);
+    if (found.status === "active") data = found.data;
+  }
+  if (!token && !phone) return json({ error: "missing_token" }, 400);
+  if (!data) return json({ error: "invalid_or_expired" }, 403);
   if (data.expiry < Date.now()) return json({ error: "expired" }, 403);
   try {
-    const privateData = await githubFetch(env, "private_picks.json");
-    return json({ ok: true, expiry: data.expiry, privateData });
+    const privateData = await loadPrivatePicks(env);
+    return json({ ok: true, expiry: data.expiry, token: data.token, privateData });
   } catch (e) {
     return json({ error: "could_not_load_pick_data", detail: String(e) }, 502);
   }
@@ -153,6 +205,210 @@ async function archiveCurrentSlip(env) {
   return current;
 }
 
+
+// ------------------------------------------------- scheduled slips (EAT)
+// KV "exclusive:scheduled" — queue of slips waiting to go live, each with a
+// for_date (tomorrow / day after, East Africa Time). The next one goes live
+// automatically once the live slip's matches have finished.
+const MATCH_DURATION_MS = 150 * 60 * 1000;
+
+function eatDate(offsetDays = 0) {
+  return new Date(Date.now() + 3 * 3600000 + offsetDays * 86400000).toISOString().slice(0, 10);
+}
+
+async function getScheduled(env) {
+  const raw = await env.UNLOCKS.get("exclusive:scheduled");
+  const list = raw ? JSON.parse(raw) : [];
+  return list.sort((a, b) => String(a.for_date).localeCompare(String(b.for_date)));
+}
+
+async function saveScheduled(env, list) {
+  await env.UNLOCKS.put("exclusive:scheduled", JSON.stringify(list));
+}
+
+function isSlipComplete(slip) {
+  const times = (slip.legs || []).map((l) => new Date(l.kickoff || "").getTime()).filter((t) => !isNaN(t));
+  if (times.length) return Math.max(...times) + MATCH_DURATION_MS < Date.now();
+  return Date.now() - new Date(slip.created_at).getTime() > 30 * 3600000;
+}
+
+function buildSlip(body) {
+  return {
+    slip_id: `excl_${Date.now()}`,
+    created_at: new Date().toISOString(),
+    combined_odds: Number(body.combined_odds) || null,
+    price: EXCLUSIVE_PRICE,
+    legs: body.legs.map((l) => ({
+      match: l.match,
+      league: l.league || "",
+      kickoff: l.kickoff || null,
+      pick: l.pick,
+      odds: l.odds != null && l.odds !== "" ? Number(l.odds) : null,
+    })),
+  };
+}
+
+async function publishSlipNow(env, slip) {
+  await archiveCurrentSlip(env);
+  await env.UNLOCKS.put("exclusive:current", JSON.stringify({ ...slip, created_at: new Date().toISOString() }));
+}
+
+async function maybePublishScheduled(env) {
+  try {
+    const list = await getScheduled(env);
+    if (!list.length) return false;
+    const next = list[0];
+    const current = await getCurrentSlip(env);
+    if (current ? !isSlipComplete(current) : next.for_date > eatDate(0)) return false;
+    const fresh = await getScheduled(env); // re-read: another request may have just published it
+    if (!fresh.length || fresh[0].slip_id !== next.slip_id) return false;
+    await saveScheduled(env, fresh.slice(1));
+    const { for_date, ...slip } = next;
+    await publishSlipNow(env, slip);
+    return true;
+  } catch (e) { console.log("scheduled publish error", String(e)); return false; }
+}
+
+async function handleAdminScheduledList(request, env) {
+  if (!isAdmin(request, env)) return json({ error: "unauthorized" }, 401);
+  return json({ ok: true, scheduled: await getScheduled(env), tomorrow: eatDate(1), day_after: eatDate(2) });
+}
+
+async function handleAdminScheduledDelete(request, env) {
+  if (!isAdmin(request, env)) return json({ error: "unauthorized" }, 401);
+  const body = await request.json().catch(() => ({}));
+  const list = await getScheduled(env);
+  await saveScheduled(env, list.filter((x) => x.slip_id !== body.slip_id));
+  return json({ ok: true });
+}
+
+async function handleAdminScheduledPublishNow(request, env) {
+  if (!isAdmin(request, env)) return json({ error: "unauthorized" }, 401);
+  const body = await request.json().catch(() => ({}));
+  const list = await getScheduled(env);
+  const item = list.find((x) => x.slip_id === body.slip_id);
+  if (!item) return json({ error: "not_found" }, 404);
+  await saveScheduled(env, list.filter((x) => x.slip_id !== body.slip_id));
+  const { for_date, ...slip } = item;
+  await publishSlipNow(env, slip);
+  return json({ ok: true });
+}
+
+// ------------------------------------------------------ special links
+async function getSpecialLinks(env) {
+  const raw = await env.UNLOCKS.get("special-links");
+  return raw ? JSON.parse(raw) : [];
+}
+
+async function handleAdminSpecialLinks(request, env) {
+  if (!isAdmin(request, env)) return json({ error: "unauthorized" }, 401);
+  return json({ ok: true, links: await getSpecialLinks(env) });
+}
+
+async function handleAdminSpecialLinkAdd(request, env) {
+  if (!isAdmin(request, env)) return json({ error: "unauthorized" }, 401);
+  const body = await request.json().catch(() => ({}));
+  const url = (body.url || "").trim();
+  if (!/^https?:\/\//i.test(url)) return json({ error: "invalid_url", note: "Link must start with http:// or https://" }, 400);
+  const list = await getSpecialLinks(env);
+  list.push({
+    id: randomId(6),
+    url,
+    title: (body.title || "").trim().slice(0, 80) || "Special link",
+    description: (body.description || "").trim().slice(0, 300),
+    added_at: Date.now(),
+  });
+  await env.UNLOCKS.put("special-links", JSON.stringify(list));
+  return json({ ok: true });
+}
+
+async function handleAdminSpecialLinkRemove(request, env) {
+  if (!isAdmin(request, env)) return json({ error: "unauthorized" }, 401);
+  const body = await request.json().catch(() => ({}));
+  const list = (await getSpecialLinks(env)).filter((x) => x.id !== body.id);
+  await env.UNLOCKS.put("special-links", JSON.stringify(list));
+  return json({ ok: true });
+}
+
+// ------------------------------------------------------------------ ads
+// KV "ads" — [{ id, image (data URL), caption, link, show_after, duration,
+// active, added_at }]. The site shows the newest active ad once per session.
+async function getAds(env) {
+  const raw = await env.UNLOCKS.get("ads");
+  return raw ? JSON.parse(raw) : [];
+}
+
+async function handleAdsCurrent(env) {
+  const ad = (await getAds(env)).filter((a) => a.active).sort((a, b) => b.added_at - a.added_at)[0];
+  return json({ ok: true, ad: ad || null });
+}
+
+async function handleAdminAdsList(request, env) {
+  if (!isAdmin(request, env)) return json({ error: "unauthorized" }, 401);
+  return json({ ok: true, ads: await getAds(env) });
+}
+
+async function handleAdminAdsAdd(request, env) {
+  if (!isAdmin(request, env)) return json({ error: "unauthorized" }, 401);
+  const body = await request.json().catch(() => ({}));
+  const image = body.image || "";
+  if (!/^data:image\/(jpeg|png|webp);base64,/.test(image)) return json({ error: "invalid_image" }, 400);
+  if (image.length > 900000) return json({ error: "image_too_large" }, 400);
+  const link = (body.link || "").trim();
+  if (link && !/^https?:\/\//i.test(link)) return json({ error: "invalid_link" }, 400);
+  const ads = await getAds(env);
+  ads.unshift({
+    id: randomId(6),
+    image,
+    caption: (body.caption || "").trim().slice(0, 200),
+    link: link || null,
+    show_after: Math.min(Math.max(parseInt(body.show_after, 10) || 5, 1), 120),
+    duration: Math.min(Math.max(parseInt(body.duration, 10) || 10, 3), 120),
+    active: true,
+    added_at: Date.now(),
+  });
+  await env.UNLOCKS.put("ads", JSON.stringify(ads.slice(0, 10)));
+  return json({ ok: true });
+}
+
+async function handleAdminAdsUpdate(request, env) {
+  if (!isAdmin(request, env)) return json({ error: "unauthorized" }, 401);
+  const body = await request.json().catch(() => ({}));
+  let ads = await getAds(env);
+  if (body.remove) ads = ads.filter((a) => a.id !== body.id);
+  else ads = ads.map((a) => (a.id === body.id ? { ...a, active: !!body.active } : a));
+  await env.UNLOCKS.put("ads", JSON.stringify(ads));
+  return json({ ok: true });
+}
+
+async function handleAdminExclusiveHistoryEdit(request, env) {
+  if (!isAdmin(request, env)) return json({ error: "unauthorized" }, 401);
+  const body = await request.json().catch(() => null);
+  if (!body || !body.slip_id || !Array.isArray(body.legs)) return json({ error: "invalid_body" }, 400);
+  const history = await getExclusiveHistory(env);
+  const idx = history.findIndex((x) => x.slip_id === body.slip_id);
+  if (idx === -1) return json({ error: "slip_not_found_in_history" }, 404);
+  const ok = (v) => (v === "win" || v === "loss" ? v : null);
+  const legs = body.legs.filter((l) => l.match && l.pick).map((l) => ({
+    match: String(l.match).trim(),
+    league: l.league || "",
+    kickoff: l.kickoff || null,
+    pick: String(l.pick).trim(),
+    odds: l.odds != null && l.odds !== "" ? Number(l.odds) : null,
+    result: ok(l.result),
+  }));
+  if (!legs.length) return json({ error: "no_legs" }, 400);
+  history[idx] = {
+    ...history[idx],
+    legs,
+    combined_odds: body.combined_odds != null && body.combined_odds !== "" ? Number(body.combined_odds) : history[idx].combined_odds,
+    overall_result: ok(body.overall_result),
+    graded_at: new Date().toISOString(),
+  };
+  await saveExclusiveHistory(env, history);
+  return json({ ok: true });
+}
+
 function publicSlipTeaser(slip) {
   if (!slip) return null;
   return {
@@ -166,6 +422,7 @@ function publicSlipTeaser(slip) {
 }
 
 async function handleExclusiveCurrent(request, env) {
+  await maybePublishScheduled(env);
   const slip = await getCurrentSlip(env);
   return json({ ok: true, slip: publicSlipTeaser(slip) });
 }
@@ -261,6 +518,7 @@ async function handleExclusiveUnlocked(request, env) {
   const { searchParams } = new URL(request.url);
   const token = searchParams.get("token");
   if (!token) return json({ error: "missing_token" }, 400);
+  await maybePublishScheduled(env);
 
   const raw = await env.UNLOCKS.get(`exclusive-token:${token}`);
   if (!raw) return json({ error: "invalid_token" }, 403);
@@ -271,24 +529,34 @@ async function handleExclusiveUnlocked(request, env) {
     return json({ ok: false, expired: true, note: "This slip has been replaced by a newer one — that purchase covered only its own slip." });
   }
   const bookmakers = await getBookmakers(env);
-  return json({ ok: true, slip, bookmakers });
+  const special_links = await getSpecialLinks(env);
+  return json({ ok: true, slip, bookmakers, special_links });
 }
 
 async function handleExclusiveRestore(request, env) {
   const { searchParams } = new URL(request.url);
   const phone = normalizePhone(searchParams.get("phone"));
   if (!phone) return json({ error: "missing_phone" }, 400);
+  await maybePublishScheduled(env);
 
-  const raw = await env.UNLOCKS.get(`exclusive-phone:${phone}`);
+  let raw = await env.UNLOCKS.get(`exclusive-phone:${phone}`);
+  if (!raw) {
+    const refId = await env.UNLOCKS.get(`pending-phone:exc:${phone}`);
+    if (refId) {
+      await resolvePendingByRef(env, refId);
+      raw = await env.UNLOCKS.get(`exclusive-phone:${phone}`);
+    }
+  }
   if (!raw) return json({ status: "not_found" });
   const data = JSON.parse(raw);
 
   const slip = await getCurrentSlip(env);
   if (!slip || slip.slip_id !== data.slip_id) {
-    return json({ status: "expired", note: "That purchase was for an earlier slip — it doesn't cover the one currently live." });
+    return json({ status: "expired", note: "That payment was for an earlier slip." });
   }
   const bookmakers = await getBookmakers(env);
-  return json({ ok: true, token: data.token, slip, bookmakers });
+  const special_links = await getSpecialLinks(env);
+  return json({ ok: true, token: data.token, slip, bookmakers, special_links });
 }
 
 // ---------------------------------------------------------------- admin
@@ -365,27 +633,17 @@ async function handleAdminExclusiveSlip(request, env) {
     if (!l.match || !l.pick) return json({ error: "each_leg_needs_match_and_pick" }, 400);
   }
 
-  // The outgoing slip (if any) is preserved into history before being
-  // overwritten, so nothing published is ever silently lost — you grade it
-  // whenever the matches actually finish, independent of when you publish
-  // the next one.
-  await archiveCurrentSlip(env);
+  const slip = buildSlip({ ...body, legs });
 
-  const slip = {
-    slip_id: `excl_${Date.now()}`,
-    created_at: new Date().toISOString(),
-    combined_odds: Number(body.combined_odds) || null,
-    price: EXCLUSIVE_PRICE,
-    legs: legs.map((l) => ({
-      match: l.match,
-      league: l.league || "",
-      kickoff: l.kickoff || null,
-      pick: l.pick,
-      odds: l.odds != null ? Number(l.odds) : null,
-    })),
-  };
+  if (body.schedule === "tomorrow" || body.schedule === "day_after") {
+    const forDate = eatDate(body.schedule === "tomorrow" ? 1 : 2);
+    const list = (await getScheduled(env)).filter((x) => x.for_date !== forDate);
+    list.push({ ...slip, for_date: forDate });
+    await saveScheduled(env, list);
+    return json({ ok: true, scheduled: true, for_date: forDate, slip_id: slip.slip_id });
+  }
 
-  await env.UNLOCKS.put("exclusive:current", JSON.stringify(slip));
+  await publishSlipNow(env, slip);
   return json({ ok: true, slip_id: slip.slip_id });
 }
 
@@ -587,8 +845,11 @@ async function finalizeSubscriptionUnlock(env, pending, { phone, transactionCode
     source: source || "payhero",
     transactionCode: transactionCode || null,
   });
-  await env.UNLOCKS.put(`phone:${finalPhone}`, record, { expirationTtl: SUBSCRIPTION_DAYS * 86400 + 3600 });
-  await env.UNLOCKS.put(`token:${token}`, record, { expirationTtl: SUBSCRIPTION_DAYS * 86400 + 3600 });
+  const ttl = SUBSCRIPTION_DAYS * 86400 + 3600;
+  await env.UNLOCKS.put(`token:${token}`, record, { expirationTtl: ttl });
+  for (const ph of new Set([finalPhone, pending.phone].filter(Boolean))) {
+    await env.UNLOCKS.put(`phone:${ph}`, record, { expirationTtl: ttl });
+  }
   await recordRecentUnlock(env, pending.name, "subscription");
   return { token, expiry };
 }
@@ -600,7 +861,6 @@ async function creditAgentCommission(env, code, customerPhone, { key, transactio
   const agentRaw = await env.UNLOCKS.get(`agent:${code}`);
   if (!agentRaw) return { credited: false, reason: "unknown_agent" };
   const agent = JSON.parse(agentRaw);
-  if (normalizePhone(agent.phone) === normalizePhone(customerPhone)) return { credited: false, reason: "self_referral" };
 
   const dedupe = key ? `agent-credit:${key}` : null;
   if (dedupe && (await env.UNLOCKS.get(dedupe))) return { credited: false, reason: "already_credited" };
@@ -629,7 +889,9 @@ async function finalizeExclusiveUnlock(env, pending, { phone, transactionCode, s
     transactionCode: transactionCode || null,
   });
   await env.UNLOCKS.put(`exclusive-token:${token}`, record, { expirationTtl: 30 * 86400 });
-  if (finalPhone) await env.UNLOCKS.put(`exclusive-phone:${finalPhone}`, record, { expirationTtl: 30 * 86400 });
+  for (const ph of new Set([finalPhone, pending.phone].filter(Boolean))) {
+    await env.UNLOCKS.put(`exclusive-phone:${ph}`, record, { expirationTtl: 30 * 86400 });
+  }
   await recordRecentUnlock(env, pending.name, "exclusive");
 
   // M.O.A.P agent commission — credited here (not in the webhook) so it
@@ -679,6 +941,7 @@ async function handlePayheroInitiate(request, env) {
     return json({ error: "server_misconfigured", detail: "PAYHERO_WEBHOOK_SECRET not set" }, 500);
   }
 
+  if (kind === "exclusive") await maybePublishScheduled(env);
   let amount = KES_PRICE;
   let slipId = null;
   let desc = "MoneyOdds 7-day access";
@@ -718,8 +981,9 @@ async function handlePayheroInitiate(request, env) {
   await env.UNLOCKS.put(
     `payhero-pending:${externalRef}`,
     JSON.stringify({ status: "pending", phone, name, kind, slip_id: slipId, amount, ref, externalRef }),
-    { expirationTtl: 3600 }
+    { expirationTtl: 86400 }
   );
+  await env.UNLOCKS.put(`pending-phone:${kind === "exclusive" ? "exc" : "sub"}:${phone}`, externalRef, { expirationTtl: 86400 });
 
   return json({ ok: true, externalReference: externalRef });
 }
@@ -770,34 +1034,26 @@ async function handlePayheroWebhook(request, env) {
 
   if (pending.kind === "exclusive") {
     const { token } = await finalizeExclusiveUnlock(env, pending, { phone, transactionCode: r.MpesaReceiptNumber, source: "payhero-webhook" });
-    await env.UNLOCKS.put(`payhero-pending:${externalRef}`, JSON.stringify({ status: "complete", token, kind: "exclusive", slip_id: pending.slip_id }), { expirationTtl: 600 });
+    await env.UNLOCKS.put(`payhero-pending:${externalRef}`, JSON.stringify({ status: "complete", token, kind: "exclusive", slip_id: pending.slip_id }), { expirationTtl: 86400 });
     return json({ ok: true, unlocked: true, kind: "exclusive" });
   }
 
   const { token, expiry } = await finalizeSubscriptionUnlock(env, pending, { phone, transactionCode: r.MpesaReceiptNumber, source: "payhero-webhook" });
-  await env.UNLOCKS.put(`payhero-pending:${externalRef}`, JSON.stringify({ status: "complete", token, expiry, kind: "subscription" }), { expirationTtl: 600 });
+  await env.UNLOCKS.put(`payhero-pending:${externalRef}`, JSON.stringify({ status: "complete", token, expiry, kind: "subscription" }), { expirationTtl: 86400 });
 
   return json({ ok: true, unlocked: true, kind: "subscription" });
 }
 
-async function handlePayheroCheck(request, env) {
-  const { searchParams } = new URL(request.url);
-  const ref = searchParams.get("ref");
-  if (!ref) return json({ error: "missing_ref" }, 400);
-
+// Resolves one pending payment: returns it as-is if already settled,
+// otherwise asks PayHero directly and finalizes on SUCCESS.
+async function resolvePendingByRef(env, ref) {
   const raw = await env.UNLOCKS.get(`payhero-pending:${ref}`);
-  if (!raw) return json({ status: "pending" });
+  if (!raw) return null;
   const pending = JSON.parse(raw);
+  if (pending.status === "complete" || pending.status === "failed") return pending;
 
-  // Webhook (or an earlier poll) already resolved this one — nothing more to do.
-  if (pending.status === "complete" || pending.status === "failed") {
-    return json(pending);
-  }
-
-  // Still pending — ask PayHero directly instead of only waiting on their
-  // webhook, so a missed/misconfigured callback doesn't strand the customer.
   const statusResp = await checkPayheroTransactionStatus(env, ref).catch(() => null);
-  if (!statusResp) return json(pending); // couldn't reach PayHero right now — keep polling
+  if (!statusResp) return pending;
 
   if (statusResp.status === "SUCCESS") {
     let updated;
@@ -808,18 +1064,23 @@ async function handlePayheroCheck(request, env) {
       const { token, expiry } = await finalizeSubscriptionUnlock(env, pending, { source: "payhero-poll" });
       updated = { status: "complete", token, expiry, kind: "subscription" };
     }
-    await env.UNLOCKS.put(`payhero-pending:${ref}`, JSON.stringify(updated), { expirationTtl: 600 });
-    return json(updated);
+    await env.UNLOCKS.put(`payhero-pending:${ref}`, JSON.stringify(updated), { expirationTtl: 86400 });
+    return updated;
   }
-
   if (statusResp.status === "FAILED") {
     const updated = { ...pending, status: "failed" };
     await env.UNLOCKS.put(`payhero-pending:${ref}`, JSON.stringify(updated), { expirationTtl: 600 });
-    return json(updated);
+    return updated;
   }
+  return pending;
+}
 
-  // QUEUED — PayHero hasn't resolved it yet either; keep polling.
-  return json(pending);
+async function handlePayheroCheck(request, env) {
+  const { searchParams } = new URL(request.url);
+  const ref = searchParams.get("ref");
+  if (!ref) return json({ error: "missing_ref" }, 400);
+  const result = await resolvePendingByRef(env, ref);
+  return json(result || { status: "pending" });
 }
 
 
@@ -928,11 +1189,16 @@ async function handleAgentApply(request, env) {
     }
   }
 
+  // Auto-approve: the agent gets a code straight away, no manual verification.
   const applicationId = randomId(12);
-  const record = { applicationId, status: "pending", name, phone, whatsapp, county: town, createdAt: Date.now() };
+  const code = await generateUniqueAgentCode(env);
+  const record = { applicationId, status: "approved", code, name, phone, whatsapp, county: town, createdAt: Date.now(), approvedAt: Date.now() };
   await env.UNLOCKS.put(`agent-app:${applicationId}`, JSON.stringify(record));
   await env.UNLOCKS.put(dupKey, applicationId);
-  return json({ ok: true, applicationId });
+  await env.UNLOCKS.put(`agent:${code}`, JSON.stringify({
+    code, applicationId, name, phone, status: "active", balance: 0, createdAt: Date.now(),
+  }));
+  return json({ ok: true, applicationId, status: "approved", code, link: agentLink(code) });
 }
 
 async function handleAgentStatus(request, env) {
@@ -972,6 +1238,48 @@ async function handleAgentSetPassword(request, env) {
 
   await setAgentPassword(agent, password);
   await env.UNLOCKS.put(`agent:${code}`, JSON.stringify(agent));
+  return json({ ok: true });
+}
+
+// Forgot password: the agent asks for a reset (code + phone must match), the
+// admin sees the request and issues a one-time reset code, the agent then
+// chooses a new password with it.
+async function handleAgentForgot(request, env) {
+  const body = await request.json().catch(() => ({}));
+  const code = (body.code || "").trim().toUpperCase();
+  const phone = normalizePhone(body.phone || "");
+  if (!code || !phone) return json({ error: "invalid_input" }, 400);
+  const raw = await env.UNLOCKS.get(`agent:${code}`);
+  if (!raw || normalizePhone(JSON.parse(raw).phone) !== phone) return json({ error: "details_do_not_match" }, 403);
+  await env.UNLOCKS.put(`agent-reset-request:${code}`, JSON.stringify({ at: Date.now() }), { expirationTtl: 14 * 86400 });
+  return json({ ok: true });
+}
+
+async function handleAdminAgentResetPassword(request, env) {
+  if (!isAdmin(request, env)) return json({ error: "unauthorized" }, 401);
+  const body = await request.json().catch(() => ({}));
+  const code = (body.code || "").trim().toUpperCase();
+  if (!code || !(await env.UNLOCKS.get(`agent:${code}`))) return json({ error: "not_found" }, 404);
+  const resetCode = String(100000 + (crypto.getRandomValues(new Uint32Array(1))[0] % 900000));
+  await env.UNLOCKS.put(`agent-reset:${code}`, JSON.stringify({ resetCode, at: Date.now() }), { expirationTtl: 2 * 86400 });
+  await env.UNLOCKS.delete(`agent-reset-request:${code}`);
+  return json({ ok: true, code, resetCode });
+}
+
+async function handleAgentResetPassword(request, env) {
+  const body = await request.json().catch(() => ({}));
+  const code = (body.code || "").trim().toUpperCase();
+  const resetCode = String(body.reset_code || "").trim();
+  const password = body.password || "";
+  if (!code || !resetCode || password.length < 6) return json({ error: "invalid_input" }, 400);
+  const rec = await env.UNLOCKS.get(`agent-reset:${code}`);
+  if (!rec || JSON.parse(rec).resetCode !== resetCode) return json({ error: "invalid_reset_code" }, 403);
+  const raw = await env.UNLOCKS.get(`agent:${code}`);
+  if (!raw) return json({ error: "not_found" }, 404);
+  const agent = JSON.parse(raw);
+  await setAgentPassword(agent, password);
+  await env.UNLOCKS.put(`agent:${code}`, JSON.stringify(agent));
+  await env.UNLOCKS.delete(`agent-reset:${code}`);
   return json({ ok: true });
 }
 
@@ -1113,6 +1421,7 @@ async function handleAdminAgentList(request, env) {
     for (const a of out) {
       if (await expireIfInactive(env, a)) continue;
       a.daysLeft = await agentDaysLeft(env, a);
+      a.resetRequested = !!(await env.UNLOCKS.get(`agent-reset-request:${a.code}`));
       delete a.passwordHash; delete a.passwordSalt;
       live.push(a);
     }
@@ -1332,6 +1641,20 @@ export default {
     }
     const url = new URL(request.url);
     try {
+      if (url.pathname === "/ads-current") return await handleAdsCurrent(env);
+      if (url.pathname === "/agent-forgot" && request.method === "POST") return await handleAgentForgot(request, env);
+      if (url.pathname === "/agent-reset-password" && request.method === "POST") return await handleAgentResetPassword(request, env);
+      if (url.pathname === "/admin/agent-reset-password" && request.method === "POST") return await handleAdminAgentResetPassword(request, env);
+      if (url.pathname === "/admin/exclusive-scheduled") return await handleAdminScheduledList(request, env);
+      if (url.pathname === "/admin/exclusive-scheduled-delete" && request.method === "POST") return await handleAdminScheduledDelete(request, env);
+      if (url.pathname === "/admin/exclusive-scheduled-publish" && request.method === "POST") return await handleAdminScheduledPublishNow(request, env);
+      if (url.pathname === "/admin/exclusive-history-edit" && request.method === "POST") return await handleAdminExclusiveHistoryEdit(request, env);
+      if (url.pathname === "/admin/special-links") return await handleAdminSpecialLinks(request, env);
+      if (url.pathname === "/admin/special-links-add" && request.method === "POST") return await handleAdminSpecialLinkAdd(request, env);
+      if (url.pathname === "/admin/special-links-remove" && request.method === "POST") return await handleAdminSpecialLinkRemove(request, env);
+      if (url.pathname === "/admin/ads-list") return await handleAdminAdsList(request, env);
+      if (url.pathname === "/admin/ads-add" && request.method === "POST") return await handleAdminAdsAdd(request, env);
+      if (url.pathname === "/admin/ads-update" && request.method === "POST") return await handleAdminAdsUpdate(request, env);
       if (url.pathname === "/payhero-initiate" && request.method === "POST") return await handlePayheroInitiate(request, env);
       if (url.pathname === "/payhero-webhook" && request.method === "POST") return await handlePayheroWebhook(request, env);
       if (url.pathname === "/payhero-check") return await handlePayheroCheck(request, env);
@@ -1383,6 +1706,7 @@ export default {
 
   // Daily cron (see wrangler.toml): enforce the 21-day agent inactivity rule.
   async scheduled(event, env, ctx) {
-    ctx.waitUntil(expireInactiveAgents(env));
+    if (event.cron === "0 1 * * *") ctx.waitUntil(expireInactiveAgents(env));
+    ctx.waitUntil(maybePublishScheduled(env));
   },
 };

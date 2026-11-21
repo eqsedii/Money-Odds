@@ -135,6 +135,9 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
 .badge.earned{border-color:rgba(245,166,35,.5);color:var(--gold);background:rgba(245,166,35,.08);}
 .badge.earned .b-ico{filter:none;opacity:1;animation:badgePop .6s cubic-bezier(.2,1.5,.4,1) both;}
 @keyframes badgePop{from{transform:scale(0) rotate(-25deg)}to{transform:none}}
+.pw-wrap{position:relative;}
+.pw-wrap input{padding-right:64px;}
+.pw-toggle{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--gold);font-size:12.5px;font-weight:700;cursor:pointer;padding:6px 8px;}
 </style>
 </head>
 <body>
@@ -170,14 +173,14 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
   <div id="tabs" class="tab-row">
     <button class="tab-btn active" id="tabApplyBtn" onclick="switchTab('apply')">Apply</button>
     <button class="tab-btn" id="tabLoginBtn" onclick="switchTab('login')">Agent login</button>
-    <button class="tab-btn" id="tabFindBtn" onclick="switchTab('find')">Approved? Set password</button>
+    <button class="tab-btn" id="tabFindBtn" onclick="switchTab('find')">Set password</button>
   </div>
 
   <!-- STEP: APPLICATION FORM -->
   <div class="step active" id="stepApply">
     <div class="card">
       <h2>Apply to become an agent</h2>
-      <div class="sub">Fill in your details below. Once we approve you, come back to this page to set your password and get your agent link.</div>
+      <div class="sub">Register to get your agent code and link instantly.</div>
 
       <label for="fName">Agent name</label>
       <input id="fName" type="text" autocomplete="name">
@@ -192,7 +195,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
       <input id="fTown" type="text">
 
       <div class="terms-box">
-        You'll be a non-exclusive, independent referral agent — not an employee. You earn Ksh 40 for every genuine Ksh 99 VIP Golden Slip payment made through your code or link. Self-referral or faking a referral forfeits your balance and ends your agent status.
+        You'll be a non-exclusive, independent referral agent — not an employee. You earn Ksh 40 for every genuine Ksh 99 VIP Golden Slip payment made through your code or link. Faking a referral forfeits your balance and ends your agent status.
         <div class="read-terms-link" onclick="openTerms()">Read the full Terms &amp; Conditions →</div>
       </div>
       <div class="agree-row">
@@ -209,7 +212,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
   <div class="step" id="stepLogin">
     <div class="card">
       <h2>Agent login</h2>
-      <div class="sub">Already approved? Sign in with your agent code and password.</div>
+      <div class="sub">Sign in with your agent code and password.</div>
 
       <label for="lCode">Agent code</label>
       <input id="lCode" type="text" style="text-transform:uppercase;" placeholder="e.g. 482913MK">
@@ -218,6 +221,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
       <input id="lPassword" type="password">
 
       <button class="btn" onclick="submitLogin()">Log in</button>
+      <div style="text-align:center;margin-top:14px;"><a href="#" onclick="openForgot();return false;" style="color:var(--gold);font-size:13.5px;font-weight:600;">Forgot password?</a></div>
       <div class="status-msg" id="loginStatus"></div>
     </div>
   </div>
@@ -225,12 +229,37 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
   <!-- STEP: FIND APPROVAL BY PHONE (any device) -->
   <div class="step" id="stepFind">
     <div class="card">
-      <h2>Approved? Set your password</h2>
-      <div class="sub">Enter the phone number you applied with. If you've been approved you can set your password right here, on any device.</div>
+      <h2>Set your password</h2>
+      <div class="sub">Enter the phone number you registered with.</div>
       <label for="findPhone">Phone number (M-Pesa registered)</label>
       <input id="findPhone" type="tel" inputmode="tel" placeholder="07XXXXXXXX">
       <button class="btn" onclick="findByPhone()">Continue</button>
       <div class="status-msg" id="findStatus"></div>
+    </div>
+  </div>
+
+  <!-- STEP: FORGOT PASSWORD -->
+  <div class="step" id="stepForgot">
+    <div class="card">
+      <h2>Forgot password</h2>
+      <div class="sub">1. Request a reset. We'll send you a reset code.</div>
+      <label for="fgCode">Agent code</label>
+      <input id="fgCode" type="text" style="text-transform:uppercase;">
+      <label for="fgPhone">Phone number</label>
+      <input id="fgPhone" type="tel" inputmode="tel" placeholder="07XXXXXXXX">
+      <button class="btn" onclick="requestReset()">Request reset</button>
+      <div class="status-msg" id="fgStatus"></div>
+
+      <div class="sub" style="margin-top:22px;border-top:1px solid var(--line);padding-top:16px;">2. Got a reset code? Set a new password.</div>
+      <label for="rsCode">Agent code</label>
+      <input id="rsCode" type="text" style="text-transform:uppercase;">
+      <label for="rsReset">Reset code</label>
+      <input id="rsReset" type="text" inputmode="numeric">
+      <label for="rsPw">New password</label>
+      <input id="rsPw" type="password">
+      <button class="btn" onclick="submitReset()">Save new password</button>
+      <div class="status-msg" id="rsStatus"></div>
+      <div style="text-align:center;margin-top:14px;"><a href="#" onclick="switchTab('login');return false;" style="color:var(--gold);font-size:13.5px;">Back to login</a></div>
     </div>
   </div>
 
@@ -249,8 +278,8 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
   <!-- STEP: SET PASSWORD (first time only, right after approval) -->
   <div class="step" id="stepSetPassword">
     <div class="card">
-      <h2>🎉 You're approved — set your password</h2>
-      <div class="sub">Your agent code is <b id="setPwCode" style="color:var(--gold);"></b>. Choose a password — you'll use your code and this password to log in from now on, on any device.</div>
+      <h2>🎉 You're in — set your password</h2>
+      <div class="sub">Your agent code is <b id="setPwCode" style="color:var(--gold);"></b>. Use your code and this password to log in on any device.</div>
 
       <label for="pwNew">New password</label>
       <input id="pwNew" type="password">
@@ -329,13 +358,13 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
     </div>
     <div class="terms-modal-body">
       <b>1. Appointment</b>Mode Techs Kenya ("the Company"), trading as Money Odds, appoints the Agent as a non-exclusive, independent referral agent. This does not create an employment, partnership, or agency-in-law relationship. The Agent is responsible for their own tax obligations on commissions earned.
-      <b>2. Referral Code</b>On approval, the Agent is issued one unique referral code, personal to them and non-transferable, and sets a password known only to them. The Company may reissue or deactivate a code at its discretion, including on suspected misuse.
+      <b>2. Referral Code</b>On registration, the Agent is issued one unique referral code, personal to them and non-transferable, and sets a password known only to them. The Company may reissue or deactivate a code at its discretion, including on suspected misuse.
       <b>3. Commission</b>The Agent earns Ksh 40 for every VIP Golden Slip purchase of Ksh 99 completed by a client using the Agent's code or link, subject to Clause 4.
       <b>4. Qualifying Referrals</b>A referral qualifies only where the payment is a genuine Ksh 99 transaction confirmed successful, and the paying phone number is not the Agent's own registered number. The Company's transaction records are final in determining whether a referral qualifies.
       <b>5. Payment of Commission</b>Commission accrues to the Agent's balance. Once the balance reaches the minimum payout threshold shown in the dashboard, the Agent may request a withdrawal; the Company pays it out via M-Pesa to the Agent's registered number, manually confirmed by the Company.
-      <b>6. Fraud and Misuse</b>Self-referral, use of multiple SIM cards or proxies, or any attempt to fake a referral forfeits the Agent's balance and is grounds for immediate termination.
+      <b>6. Fraud and Misuse</b>Use of multiple SIM cards or proxies, or any attempt to fake a referral forfeits the Agent's balance and is grounds for immediate termination.
       <b>7. Marketing Conduct</b>The Agent may promote Money Odds through personal networks and social media, but may not make false or exaggerated claims about outcomes or guaranteed winnings, or use paid advertising bearing the Company's name without written consent.
-      <b>8. Term and Termination</b>Either party may terminate with written notice (including WhatsApp or email). The Company may terminate immediately for breach of Clauses 4, 6, or 7. The Company may also close any Agent account that records no qualifying referral within 21 days of approval. Commission already earned on qualifying referrals remains payable.
+      <b>8. Term and Termination</b>Either party may terminate with written notice (including WhatsApp or email). The Company may terminate immediately for breach of Clauses 4, 6, or 7. The Company may also close any Agent account that records no qualifying referral within 21 days of registration. Commission already earned on qualifying referrals remains payable.
       <b>9. No Guarantee of Earnings</b>The Company makes no guarantee as to referral volume or income. Participation is voluntary and at the Agent's own initiative and expense.
       <b>10. Confidentiality</b>The Agent shall keep confidential any non-public information about the Company's systems, pricing, or internal processes, including their own login credentials.
       <b>11. Governing Law</b>This Agreement is governed by the laws of the Republic of Kenya.
@@ -372,7 +401,7 @@ function setStatus(id, ok, msg){
 function showStep(name){
   document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
   document.getElementById(name).classList.add('active');
-  document.getElementById('tabs').style.display = (name === 'stepApply' || name === 'stepLogin' || name === 'stepFind') ? 'flex' : 'none';
+  document.getElementById('tabs').style.display = (name === 'stepApply' || name === 'stepLogin' || name === 'stepFind' || name === 'stepForgot') ? 'flex' : 'none';
 }
 
 function switchTab(which){
@@ -422,7 +451,7 @@ async function submitApplication(){
     const data = await res.json();
     if(!data.ok){
       setStatus('applyStatus', false, data.error === 'duplicate_application'
-        ? 'An application from this phone number already exists. If you were approved, use the "Approved? Set password" tab.'
+        ? 'This phone number is already registered. Use the Set password or Agent login tab.'
         : 'Something went wrong — please try again.');
       btn.disabled = false;
       btn.textContent = 'Submit application';
@@ -430,8 +459,9 @@ async function submitApplication(){
     }
     localStorage.setItem(APP_KEY, JSON.stringify({ applicationId: data.applicationId, phone: payload.phone }));
     try { localStorage.removeItem(DRAFT_KEY); } catch(e){}
-    showStep('stepPending');
-    if(window.Celebrate) Celebrate.show({ emoji:'🎊', title:'Application received!', sub:'Thanks ' + payload.name.split(' ')[0] + ' — we will review it shortly. Come back and tap “Approved? Set password” once approved.', button:'Got it' });
+    document.getElementById('setPwCode').textContent = data.code;
+    showStep('stepSetPassword');
+    if(window.Celebrate) Celebrate.show({ emoji:'🎊', title:'Welcome, ' + payload.name.split(' ')[0] + '!', sub:'Your agent code is ' + data.code + '. Set your password to continue.', button:'Continue' });
   } catch(e){
     setStatus('applyStatus', false, 'Request failed: ' + e.message);
     btn.disabled = false;
@@ -531,6 +561,57 @@ async function submitSetPassword(){
     setStatus('setPwStatus', false, 'Request failed: ' + e.message);
   }
 }
+
+// ------------------------------------------------------ FORGOT PASSWORD
+function openForgot(){
+  document.getElementById('tabs').style.display = 'flex';
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  showStep('stepForgot');
+  document.getElementById('fgCode').value = document.getElementById('lCode').value;
+  document.getElementById('rsCode').value = document.getElementById('lCode').value;
+}
+
+async function requestReset(){
+  const code = document.getElementById('fgCode').value.trim().toUpperCase();
+  const phone = normalizePhoneDisplay(document.getElementById('fgPhone').value);
+  if(!code || !phone){ setStatus('fgStatus', false, 'Enter your agent code and phone number.'); return; }
+  try {
+    const res = await fetch(`${WORKER_BASE}/agent-forgot`, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ code, phone }) });
+    const data = await res.json();
+    setStatus('fgStatus', !!data.ok, data.ok ? 'Request sent. You will receive a reset code shortly.' : 'Code and phone number do not match.');
+  } catch(e){ setStatus('fgStatus', false, 'Request failed: ' + e.message); }
+}
+
+async function submitReset(){
+  const code = document.getElementById('rsCode').value.trim().toUpperCase();
+  const reset_code = document.getElementById('rsReset').value.trim();
+  const password = document.getElementById('rsPw').value;
+  if(!code || !reset_code || password.length < 6){ setStatus('rsStatus', false, 'Fill every field. Password needs 6+ characters.'); return; }
+  try {
+    const res = await fetch(`${WORKER_BASE}/agent-reset-password`, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ code, reset_code, password }) });
+    const data = await res.json();
+    if(!data.ok){ setStatus('rsStatus', false, 'Invalid or expired reset code.'); return; }
+    await loginWithCredentials(code, password, 'rsStatus');
+  } catch(e){ setStatus('rsStatus', false, 'Request failed: ' + e.message); }
+}
+
+// ------------------------------------------------------- SHOW PASSWORD
+document.querySelectorAll('input[type="password"]').forEach(inp => {
+  const wrap = document.createElement('div');
+  wrap.className = 'pw-wrap';
+  inp.parentNode.insertBefore(wrap, inp);
+  wrap.appendChild(inp);
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'pw-toggle';
+  btn.textContent = 'Show';
+  btn.addEventListener('click', () => {
+    const show = inp.type === 'password';
+    inp.type = show ? 'text' : 'password';
+    btn.textContent = show ? 'Hide' : 'Show';
+  });
+  wrap.appendChild(btn);
+});
 
 // ---------------------------------------------------------------- LOGIN
 async function submitLogin(){

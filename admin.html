@@ -75,33 +75,39 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 
 <header>
 <h1>Money Odds — Admin</h1>
-<p>Exclusive slip management. This page must stay behind Cloudflare Access — never share this link.</p>
+<p>Keep this page private.</p>
 </header>
 
 <div class="card">
-<h2>1. Publish a new Exclusive slip <span>Publishing archives whatever slip is currently live into history first — nothing is lost.</span></h2>
+<h2>Publish slip</h2>
 <div class="status-msg" id="editingNote" style="background:var(--gold-soft);color:var(--gold);"></div>
 <div style="border:1px dashed var(--gold);border-radius:10px;padding:14px;margin-bottom:16px;">
 <label style="color:var(--gold);font-weight:600;">⚡ Auto-fill from screenshots</label>
 <input type="text" id="shotHint" placeholder="Pick wanted (optional) e.g. 1, X, 2, 1X, Over 2.5 — blank = betslip selection / favourite">
 <input type="file" id="shotFiles" accept="image/*" multiple style="display:none" onchange="autoFill(this.files)">
 <div class="btn-row"><button class="btn btn-cyan" onclick="document.getElementById('shotFiles').click()">Upload screenshots</button></div>
-<div class="note">Select several at once, or paste (Ctrl+V). A betslip screenshot fills every match in one go.</div>
+
 <div class="status-msg" id="shotStatus"></div>
 </div>
 <div id="legsContainer"></div>
 <button class="btn btn-outline" onclick="addLegRow()">+ Add match</button>
-<label style="margin-top:16px;">Combined odds (shown to everyone, even before payment)</label>
+<label style="margin-top:16px;">Combined odds</label>
 <input type="number" step="0.01" id="combinedOdds" placeholder="e.g. 24.50">
 
+<label style="margin-top:16px;">When</label>
+<select id="publishWhen">
+<option value="now">Publish now</option>
+<option value="tomorrow">Schedule for tomorrow</option>
+<option value="day_after">Schedule for the day after tomorrow</option>
+</select>
 <div class="btn-row" style="margin-top:16px;">
-<button class="btn btn-gold" onclick="publishSlip()">Publish slip</button>
+<button class="btn btn-gold" onclick="publishSlip()">Save slip</button>
 </div>
 <div class="status-msg" id="publishStatus"></div>
 </div>
 
 <div class="card">
-<h2>2. Bookmaker links <span>Independent of the matches above — add or remove anytime. The same Ksh 99 payment unlocks both.</span></h2>
+<h2>Bookmaker links</h2>
 <div class="bm-row">
 <input type="url" id="newBookmakerUrl" placeholder="https://odibets.com/share/XXXXX">
 <input type="text" id="newBookmakerName" class="bm-name" placeholder="Auto">
@@ -112,7 +118,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 </div>
 
 <div class="card">
-<h2>3. Current live slip</h2>
+<h2>Current live slip</h2>
 <div id="currentSlipPreview">Loading…</div>
 <div class="btn-row" id="archiveRow">
 <button class="btn btn-outline" onclick="loadCurrentSlip()">Refresh</button>
@@ -128,27 +134,60 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 </div>
 
 <div class="card">
-<h2>4. Grade a past slip <span>Pick one from history, mark each leg, save.</span></h2>
+<h2>Edit &amp; grade past slips</h2>
 <div id="historyList">Loading…</div>
 <div id="gradeForm" style="display:none;margin-top:14px;">
 <div id="gradeLegsContainer"></div>
+<label>Combined odds</label>
+<input type="number" step="0.01" id="gradeCombined">
+<button class="btn btn-outline" onclick="addGradeLeg()" style="margin-bottom:12px;">+ Add match</button>
 <label>Overall result</label>
 <select id="overallResult">
 <option value="win">Win</option>
 <option value="loss">Loss</option>
 </select>
 <div class="btn-row">
-<button class="btn btn-cyan" onclick="saveGrade()">Save result</button>
+<button class="btn btn-cyan" onclick="saveGrade()">Save changes</button>
 </div>
 <div class="status-msg" id="gradeStatus"></div>
 </div>
 </div>
 
 <div class="card">
-<h2>5. Manual unlock from a pasted M-Pesa message <span>Use this if PayHero is down. Amount in the message decides which product unlocks — Ksh 59 = main subscription, Ksh 99 = current VIP Golden Slip (matches + bookmaker links, both).</span></h2>
-<label>Agent code (optional — only for a VIP Golden Slip bought through an agent's link, so they get their commission)</label>
+<h2>Scheduled slips</h2>
+<div id="scheduledList" class="note">Loading…</div>
+<div class="status-msg" id="scheduledStatus"></div>
+</div>
+
+<div class="card">
+<h2>Special links</h2>
+<input type="text" id="slTitle" placeholder="Title">
+<input type="url" id="slUrl" placeholder="https://...">
+<textarea id="slDesc" placeholder="What is this link for?"></textarea>
+<div class="btn-row"><button class="btn btn-gold" onclick="addSpecialLink()">Add link</button></div>
+<div class="status-msg" id="slStatus"></div>
+<div id="slList" style="margin-top:14px;" class="note">Loading…</div>
+</div>
+
+<div class="card">
+<h2>Popup ads</h2>
+<input type="file" id="adFile" accept="image/*">
+<input type="text" id="adCaption" placeholder="Caption">
+<input type="url" id="adLink" placeholder="Link (optional)">
+<div class="grid2">
+<div><label>Show after (seconds)</label><input type="number" id="adDelay" value="5" min="1"></div>
+<div><label>Stay for (seconds)</label><input type="number" id="adDuration" value="10" min="3"></div>
+</div>
+<div class="btn-row"><button class="btn btn-gold" onclick="addAd()">Publish ad</button></div>
+<div class="status-msg" id="adStatus"></div>
+<div id="adList" style="margin-top:14px;" class="note">Loading…</div>
+</div>
+
+<div class="card">
+<h2>Manual unlock</h2>
+<label>Agent code (optional, VIP slips only)</label>
 <input type="text" id="smsAgent" placeholder="e.g. MODE001" style="text-transform:uppercase;">
-<label>Customer's phone number (required for both products now — lets them self-restore without a code)</label>
+<label>Customer's phone number</label>
 <input type="tel" id="smsPhone" placeholder="0712345678">
 <label>Paste the full M-Pesa confirmation text</label>
 <textarea id="smsText" placeholder="UIH7L6RH5L Confirmed. KSH59.00 sent to..."></textarea>
@@ -159,12 +198,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 </div>
 
 <div class="card">
-<h2>6. Visitor stats</h2>
-<p class="note">Not built here — check Cloudflare dashboard → your Pages project → Analytics tab (Web Analytics). It's already tracking total and daily visits with zero code needed.</p>
-</div>
-
-<div class="card">
-<h2>7. Agent sign-up link <span>One link for everyone. Share it with anyone you want as an agent — you approve them in section 8. Agents with no referral within 21 days of approval are closed automatically.</span></h2>
+<h2>Agent sign-up link</h2>
 <div class="bm-row">
 <input type="text" id="agentSignupLink" readonly value="https://moneyoddspredictions.co.ke/agents">
 <button class="btn btn-gold" style="width:auto;white-space:nowrap;" onclick="copyAgentLink()">Copy</button>
@@ -173,16 +207,10 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 </div>
 
 <div class="card">
-<h2>8. Agent applications <span>New Money Odds Agent Portal (M.O.A.P) sign-ups. Approve to generate a code and shareable link.</span></h2>
-<div id="agentPendingList" class="note">Loading…</div>
-<div class="status-msg" id="agentApproveStatus"></div>
-</div>
-
-<div class="card">
-<h2>9. Active agents <span>Codes issued so far, with running commission balance (Ksh 40 per qualifying Ksh 99 payment).</span></h2>
+<h2>Agents</h2>
 <div id="agentActiveList" class="note">Loading…</div>
 <div style="margin-top:18px;border-top:1px solid var(--line);padding-top:14px;">
-<label>Credit a missed referral (adds Ksh 40 to an agent)</label>
+<label>Credit a missed referral (Ksh 40)</label>
 <div class="grid2">
 <div><input id="creditCode" type="text" placeholder="Agent code e.g. MODE001" style="text-transform:uppercase;"></div>
 <div><input id="creditPhone" type="tel" placeholder="Customer phone"></div>
@@ -193,7 +221,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 </div>
 
 <div class="card">
-<h2>10. Withdrawal requests <span>An agent hit the minimum threshold and requested payout. Send the amount to the phone number shown, then mark it paid.</span></h2>
+<h2>Withdrawal requests</h2>
 <div id="withdrawalList" class="note">Loading…</div>
 <div class="status-msg" id="withdrawalStatus"></div>
 </div>
@@ -202,7 +230,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 
 <script>
 // ---- CONFIGURE THESE TWO BEFORE USE ----
-const WORKER_BASE = "https://moneyoddspredictions.co.ke";
+const WORKER_BASE = "https://money-odds-api.arphaxad98.workers.dev";
 const PUBLIC_BASE = "https://money-odds-api.arphaxad98.workers.dev";
 const ADMIN_KEY = "kJvETRuAxnd1qpXtfbmCsGhw74NPFIc0OM5WQjglSUDr863LiKo9BVea2HkStF8bobVPGJ9vIRJXUjO35hH1C7mOws5O3d3q82Vvdnh0QUO2NP2tvwt2XjJJqvGIvfdNvHNcrh58KOmkCPhj340dQ4vV32Shtl22E2FCuRxWOa4oQArnFsguiPd8upk0DUShveLIIa8GTfpCEPA9LkAbOwtSsW4RtN9aohbG83rND5pB7F0gAaWlh7UWwhObPm0m";
 // -----------------------------------------
@@ -502,11 +530,12 @@ async function publishSlip(){
     const res = await fetch(`${WORKER_BASE}/admin/exclusive-slip`, {
       method: "POST",
       headers: adminHeaders(),
-      body: JSON.stringify({ legs, combined_odds }),
+      body: JSON.stringify({ legs, combined_odds, schedule: document.getElementById("publishWhen").value }),
     });
     const data = await res.json();
     if(data.ok){
-      setStatus("publishStatus", true, `✓ Published slip ${data.slip_id}. Old slip (if any) archived to history.`);
+      setStatus("publishStatus", true, data.scheduled ? `✓ Scheduled for ${data.for_date}. It goes live automatically after the current slip finishes.` : "✓ Published.");
+      loadScheduled();
       clearDraft();
       document.getElementById("legsContainer").innerHTML = "";
       addLegRow();
@@ -674,67 +703,74 @@ function selectHistorySlip(i){
   document.getElementById("gradeForm").style.display = "block";
 }
 
+function esc(t){ return String(t == null ? "" : t).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;"); }
+
 function renderGradeLegs(){
   const container = document.getElementById("gradeLegsContainer");
+  document.getElementById("gradeCombined").value = selectedHistorySlip.combined_odds ?? "";
   if(!selectedHistorySlip.legs.length){
-    container.innerHTML = `<div class="note">No matches left on this slip.</div>`;
+    container.innerHTML = `<div class="note">No matches. Add one.</div>`;
     return;
   }
   container.innerHTML = selectedHistorySlip.legs.map((l, li) => `
-    <div class="leg-grade-row">
-      <span>${l.match} — <b>${l.pick}</b></span>
-      <div style="display:flex;align-items:center;gap:8px;">
-        <select id="gradeLeg-${li}">
-          <option value="">—</option>
-          <option value="win" ${l.result === "win" ? "selected" : ""}>Win</option>
-          <option value="loss" ${l.result === "loss" ? "selected" : ""}>Loss</option>
-        </select>
-        <button class="remove-leg" style="position:static;" onclick="removeLegFromSlip('${l.match.replace(/'/g,"\\'")}')">Remove</button>
+    <div class="leg-row">
+      <button class="remove-leg" onclick="removeGradeLeg(${li})">Remove</button>
+      <label>Match</label>
+      <input type="text" id="gMatch-${li}" value="${esc(l.match)}">
+      <div class="grid2">
+        <div><label>Selection</label><input type="text" id="gPick-${li}" value="${esc(l.pick)}"></div>
+        <div><label>Odds</label><input type="number" step="0.01" id="gOdds-${li}" value="${l.odds ?? ""}"></div>
       </div>
+      <label>Result</label>
+      <select id="gradeLeg-${li}">
+        <option value="">—</option>
+        <option value="win" ${l.result === "win" ? "selected" : ""}>Win</option>
+        <option value="loss" ${l.result === "loss" ? "selected" : ""}>Loss</option>
+      </select>
     </div>
   `).join("");
 }
 
-async function removeLegFromSlip(match){
+function syncGradeLegs(){
+  selectedHistorySlip.legs = selectedHistorySlip.legs.map((l, li) => ({
+    ...l,
+    match: document.getElementById(`gMatch-${li}`).value.trim(),
+    pick: document.getElementById(`gPick-${li}`).value.trim(),
+    odds: document.getElementById(`gOdds-${li}`).value,
+    result: document.getElementById(`gradeLeg-${li}`).value || null,
+  }));
+}
+
+function addGradeLeg(){
   if(!selectedHistorySlip) return;
-  try {
-    const res = await fetch(`${WORKER_BASE}/admin/exclusive-history-remove-leg`, {
-      method: "POST",
-      headers: adminHeaders(),
-      body: JSON.stringify({ slip_id: selectedHistorySlip.slip_id, match }),
-    });
-    const data = await res.json();
-    if(data.ok){
-      selectedHistorySlip.legs = selectedHistorySlip.legs.filter(l => l.match !== match);
-      renderGradeLegs();
-      setStatus("gradeStatus", true, `✓ Removed. ${data.remaining_legs} match(es) left on this slip.`);
-      loadHistory();
-    } else {
-      setStatus("gradeStatus", false, "Error: " + JSON.stringify(data));
-    }
-  } catch(e){
-    setStatus("gradeStatus", false, "Request failed: " + e.message);
-  }
+  syncGradeLegs();
+  selectedHistorySlip.legs.push({ match: "", league: "", kickoff: null, pick: "", odds: null, result: null });
+  renderGradeLegs();
+}
+
+function removeGradeLeg(i){
+  syncGradeLegs();
+  selectedHistorySlip.legs.splice(i, 1);
+  renderGradeLegs();
 }
 
 async function saveGrade(){
   if(!selectedHistorySlip) return;
-  const legs = selectedHistorySlip.legs.map((l, li) => ({
-    match: l.match,
-    result: document.getElementById(`gradeLeg-${li}`).value || null,
-  }));
+  syncGradeLegs();
+  const legs = selectedHistorySlip.legs;
   const overall_result = document.getElementById("overallResult").value;
+  const combined_odds = document.getElementById("gradeCombined").value;
 
   try {
-    const res = await fetch(`${WORKER_BASE}/admin/exclusive-grade`, {
+    const res = await fetch(`${WORKER_BASE}/admin/exclusive-history-edit`, {
       method: "POST",
       headers: adminHeaders(),
-      body: JSON.stringify({ slip_id: selectedHistorySlip.slip_id, legs, overall_result }),
+      body: JSON.stringify({ slip_id: selectedHistorySlip.slip_id, legs, overall_result, combined_odds }),
     });
     const data = await res.json();
     if(data.ok){
       setStatus("gradeStatus", true, "✓ Saved.");
-      if(overall_result === "win" && window.Celebrate) Celebrate.show({ emoji: "🏆", title: "Winner!", sub: "Slip graded as a win — nice one.", button: "Yes!", duration: 3200 });
+      if(overall_result === "win" && window.Celebrate) Celebrate.show({ emoji: "🏆", title: "Winner!", sub: "Slip graded as a win.", button: "Yes!", duration: 3200 });
       loadHistory();
     } else {
       setStatus("gradeStatus", false, "Error: " + JSON.stringify(data));
@@ -818,8 +854,7 @@ async function approveAgent(applicationId){
     const data = await res.json();
     if(data.ok){
       setStatus("agentApproveStatus", true, `✓ Approved — code ${data.code}. Tell the agent to open the sign-up link, tap “Approved? Set password” and enter their phone number. Their sharing link: ${data.link}`);
-      loadAgentPending();
-      loadAgentActive();
+            loadAgentActive();
     } else {
       setStatus("agentApproveStatus", false, "Error: " + JSON.stringify(data));
     }
@@ -858,9 +893,10 @@ async function loadAgentActive(){
     if(!list.length){ el.innerHTML = `<div class="note">No approved agents yet.</div>`; return; }
     el.innerHTML = list.map(a => `
       <div class="leg-grade-row">
-        <span><b>${a.code}</b> &nbsp;${a.name} · ${a.phone}${a.passwordSet === false ? '' : ''}<br><span class="note">${a.daysLeft == null ? 'Active ✓' : a.daysLeft + ' day(s) left to get a referral'}</span></span>
+        <span><b>${a.code}</b> &nbsp;${a.name} · ${a.phone}${a.passwordSet === false ? '' : ''}<br><span class="note">${a.resetRequested ? '<b style="color:var(--gold);">Password reset requested</b> · ' : ''}${a.daysLeft == null ? 'Active ✓' : a.daysLeft + ' day(s) left to get a referral'}</span></span>
         <span style="display:flex;align-items:center;gap:10px;">
           <span style="color:var(--gold);font-weight:700;">Ksh ${a.balance || 0}</span>
+          <button class="btn btn-cyan" style="width:auto;margin-top:0;padding:4px 10px;font-size:12px;" onclick="resetAgentPassword('${a.code}')">Reset password</button>
           <button class="btn btn-danger" style="width:auto;margin-top:0;padding:4px 10px;font-size:12px;" onclick="terminateAgent('${a.code}', ${a.balance || 0})">Terminate</button>
         </span>
       </div>
@@ -952,12 +988,144 @@ async function markWithdrawalPaid(withdrawalId){
   }
 }
 
+async function resetAgentPassword(code){
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/agent-reset-password`, { method: "POST", headers: adminHeaders(), body: JSON.stringify({ code }) });
+    const data = await res.json();
+    if(data.ok){
+      setStatus("creditStatus", true, `Reset code for ${code}: ${data.resetCode} (valid 48 hours). Send it to the agent, who enters it under Forgot password.`);
+      loadAgentActive();
+    } else setStatus("creditStatus", false, "Error: " + JSON.stringify(data));
+  } catch(e){ setStatus("creditStatus", false, "Request failed: " + e.message); }
+}
+
+async function loadScheduled(){
+  const el = document.getElementById("scheduledList");
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/exclusive-scheduled`, { headers: adminHeaders() });
+    const data = await res.json();
+    const list = data.scheduled || [];
+    if(!list.length){ el.innerHTML = "Nothing scheduled."; return; }
+    el.innerHTML = list.map(x => `
+      <div class="leg-row">
+        <b>${x.for_date}</b> · ${x.legs.length} matches · odds ${x.combined_odds ?? "—"}
+        <div class="note" style="margin-top:6px;">${x.legs.map(l => esc(l.match) + " — " + esc(l.pick)).join("<br>")}</div>
+        <div class="btn-row">
+          <button class="btn btn-gold" onclick="publishScheduledNow('${x.slip_id}')">Publish now</button>
+          <button class="btn btn-danger" onclick="deleteScheduled('${x.slip_id}')">Delete</button>
+        </div>
+      </div>`).join("");
+  } catch(e){ el.innerHTML = "Failed to load: " + e.message; }
+}
+
+async function deleteScheduled(id){
+  await fetch(`${WORKER_BASE}/admin/exclusive-scheduled-delete`, { method: "POST", headers: adminHeaders(), body: JSON.stringify({ slip_id: id }) });
+  loadScheduled();
+}
+
+async function publishScheduledNow(id){
+  const res = await fetch(`${WORKER_BASE}/admin/exclusive-scheduled-publish`, { method: "POST", headers: adminHeaders(), body: JSON.stringify({ slip_id: id }) });
+  const data = await res.json();
+  setStatus("scheduledStatus", !!data.ok, data.ok ? "✓ Published." : "Error: " + JSON.stringify(data));
+  loadScheduled(); loadCurrentSlip(); loadHistory();
+}
+
+async function loadSpecialLinks(){
+  const el = document.getElementById("slList");
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/special-links`, { headers: adminHeaders() });
+    const data = await res.json();
+    const list = data.links || [];
+    el.innerHTML = list.length ? list.map(l => `
+      <div class="leg-grade-row"><span><b>${esc(l.title)}</b><br><span class="note">${esc(l.description)}<br>${esc(l.url)}</span></span>
+      <button class="btn btn-danger" style="width:auto;margin-top:0;padding:4px 10px;font-size:12px;" onclick="removeSpecialLink('${l.id}')">Remove</button></div>`).join("") : "No links yet.";
+  } catch(e){ el.innerHTML = "Failed to load: " + e.message; }
+}
+
+async function addSpecialLink(){
+  const body = { title: document.getElementById("slTitle").value, url: document.getElementById("slUrl").value, description: document.getElementById("slDesc").value };
+  const res = await fetch(`${WORKER_BASE}/admin/special-links-add`, { method: "POST", headers: adminHeaders(), body: JSON.stringify(body) });
+  const data = await res.json();
+  if(data.ok){
+    setStatus("slStatus", true, "✓ Added.");
+    ["slTitle","slUrl","slDesc"].forEach(i => document.getElementById(i).value = "");
+    loadSpecialLinks();
+  } else setStatus("slStatus", false, data.note || "Error: " + JSON.stringify(data));
+}
+
+async function removeSpecialLink(id){
+  await fetch(`${WORKER_BASE}/admin/special-links-remove`, { method: "POST", headers: adminHeaders(), body: JSON.stringify({ id }) });
+  loadSpecialLinks();
+}
+
+function fileToAdImage(file){
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      const max = 900, scale = Math.min(1, max / Math.max(img.width, img.height));
+      const c = document.createElement("canvas");
+      c.width = Math.round(img.width * scale); c.height = Math.round(img.height * scale);
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+      let q = 0.82, out = c.toDataURL("image/jpeg", q);
+      while(out.length > 800000 && q > 0.4){ q -= 0.1; out = c.toDataURL("image/jpeg", q); }
+      URL.revokeObjectURL(url);
+      resolve(out);
+    };
+    img.onerror = () => reject(new Error("Could not read image"));
+    img.src = url;
+  });
+}
+
+async function loadAds(){
+  const el = document.getElementById("adList");
+  try {
+    const res = await fetch(`${WORKER_BASE}/admin/ads-list`, { headers: adminHeaders() });
+    const data = await res.json();
+    const list = data.ads || [];
+    el.innerHTML = list.length ? list.map(a => `
+      <div class="leg-grade-row"><span style="display:flex;gap:10px;align-items:center;"><img src="${a.image}" style="width:46px;height:46px;object-fit:cover;border-radius:8px;"><span>${esc(a.caption) || "(no caption)"}<br><span class="note">${a.active ? "Live" : "Paused"} · ${a.show_after}s delay · ${a.duration}s</span></span></span>
+      <span style="display:flex;gap:6px;">
+        <button class="btn btn-cyan" style="width:auto;margin-top:0;padding:4px 10px;font-size:12px;" onclick="toggleAd('${a.id}', ${!a.active})">${a.active ? "Pause" : "Resume"}</button>
+        <button class="btn btn-danger" style="width:auto;margin-top:0;padding:4px 10px;font-size:12px;" onclick="removeAd('${a.id}')">Delete</button>
+      </span></div>`).join("") : "No ads yet.";
+  } catch(e){ el.innerHTML = "Failed to load: " + e.message; }
+}
+
+async function addAd(){
+  const file = document.getElementById("adFile").files[0];
+  if(!file){ setStatus("adStatus", false, "Choose a flyer image."); return; }
+  try {
+    const image = await fileToAdImage(file);
+    const body = { image, caption: document.getElementById("adCaption").value, link: document.getElementById("adLink").value, show_after: document.getElementById("adDelay").value, duration: document.getElementById("adDuration").value };
+    const res = await fetch(`${WORKER_BASE}/admin/ads-add`, { method: "POST", headers: adminHeaders(), body: JSON.stringify(body) });
+    const data = await res.json();
+    if(data.ok){
+      setStatus("adStatus", true, "✓ Ad is live. Visitors see it once per session.");
+      document.getElementById("adFile").value = ""; document.getElementById("adCaption").value = ""; document.getElementById("adLink").value = "";
+      loadAds();
+    } else setStatus("adStatus", false, "Error: " + JSON.stringify(data));
+  } catch(e){ setStatus("adStatus", false, e.message); }
+}
+
+async function toggleAd(id, active){
+  await fetch(`${WORKER_BASE}/admin/ads-update`, { method: "POST", headers: adminHeaders(), body: JSON.stringify({ id, active }) });
+  loadAds();
+}
+
+async function removeAd(id){
+  await fetch(`${WORKER_BASE}/admin/ads-update`, { method: "POST", headers: adminHeaders(), body: JSON.stringify({ id, remove: true }) });
+  loadAds();
+}
+
 loadCurrentSlip();
 loadHistory();
 loadBookmakerList();
-loadAgentPending();
 loadAgentActive();
 loadWithdrawals();
+loadScheduled();
+loadSpecialLinks();
+loadAds();
 </script>
 
 <script src="/effects.js" defer></script>

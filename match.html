@@ -277,23 +277,40 @@ function render(fixture, details){
 
 const WORKER_BASE = "https://money-odds-api.arphaxad98.workers.dev";
 
-function getAccess(){
-  try {
-    const raw = localStorage.getItem('moneyOddsAccess');
-    if(!raw) return null;
-    const { token, expiry } = JSON.parse(raw);
-    if(!token || Date.now() > expiry) return null;
-    return token;
-  } catch(e){ return null; }
+function getAccessRecord(){
+  try { return JSON.parse(localStorage.getItem('moneyOddsAccess') || 'null'); } catch(e){ return null; }
 }
 
-async function loadUnlockedPicks(token){
-  try {
-    const res = await fetch(`${WORKER_BASE}/unlocked-picks?token=${encodeURIComponent(token)}`);
-    if(!res.ok) return null;
-    const data = await res.json();
-    return data.ok ? data.privateData : null;
-  } catch(e){ return null; }
+function getAccess(){
+  const rec = getAccessRecord();
+  if(!rec) return null;
+  if(rec.token && rec.expiry && Date.now() > rec.expiry && !rec.phone) return null;
+  return rec.token || rec.phone || null;
+}
+
+// Loads the paid picks. Tries the saved token first, then the saved phone
+// number (so a missing/stale token never leaves a paid customer locked out).
+async function loadUnlockedPicks(){
+  const rec = getAccessRecord();
+  if(!rec) return null;
+  const tries = [];
+  if(rec.token) tries.push(`token=${encodeURIComponent(rec.token)}`);
+  if(rec.phone) tries.push(`phone=${encodeURIComponent(rec.phone)}`);
+  for(let attempt = 0; attempt < 2; attempt++){
+    for(const q of tries){
+      try {
+        const res = await fetch(`${WORKER_BASE}/unlocked-picks?${q}`);
+        const data = await res.json().catch(() => null);
+        if(res.ok && data && data.ok){
+          if(data.token && data.token !== rec.token){
+            localStorage.setItem('moneyOddsAccess', JSON.stringify({ ...rec, token: data.token, expiry: data.expiry }));
+          }
+          return data.privateData;
+        }
+      } catch(e){ /* try next */ }
+    }
+  }
+  return null;
 }
 
 if(!matchId){
@@ -318,7 +335,7 @@ if(!matchId){
 
       const token = getAccess();
       if(token){
-        const unlockedData = await loadUnlockedPicks(token);
+        const unlockedData = await loadUnlockedPicks();
         const unlockedPick = unlockedData && unlockedData.picks ? unlockedData.picks[String(fixture.id)] : null;
         if(unlockedPick){
           fixture = { ...fixture, ...unlockedPick };
