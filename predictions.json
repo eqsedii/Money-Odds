@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T18:42:17.464050Z",
+  "generated_at": "2026-11-22T01:02:35.430222Z",
   "predictions": [
     {
       "id": 575403,
@@ -32,6 +32,21 @@
       "locked": true
     },
     {
+      "id": 575398,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Manchester City FC vs SSC Napoli",
+      "home_team": "Manchester City FC",
+      "away_team": "SSC Napoli",
+      "home_team_id": 65,
+      "away_team_id": 113,
+      "league": "UEFA Champions League",
+      "comp_code": "CL",
+      "kickoff": "2026-11-24T20:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 558812,
       "sport": "Football",
       "icon": "\u26bd",
@@ -47,17 +62,17 @@
       "locked": true
     },
     {
-      "id": 575398,
+      "id": 565876,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "Manchester City FC vs SSC Napoli",
-      "home_team": "Manchester City FC",
-      "away_team": "SSC Napoli",
-      "home_team_id": 65,
-      "away_team_id": 113,
-      "league": "UEFA Champions League",
-      "comp_code": "CL",
-      "kickoff": "2026-11-24T20:00:00Z",
+      "match": "FC Schalke 04 vs Borussia Dortmund",
+      "home_team": "FC Schalke 04",
+      "away_team": "Borussia Dortmund",
+      "home_team_id": 6,
+      "away_team_id": 4,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-12-06T14:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -77,21 +92,6 @@
       "locked": true
     },
     {
-      "id": 558820,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Groningen vs Willem II Tilburg",
-      "home_team": "FC Groningen",
-      "away_team": "Willem II Tilburg",
-      "home_team_id": 677,
-      "away_team_id": 672,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-11-27T19:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 560660,
       "sport": "Football",
       "icon": "\u26bd",
@@ -103,6 +103,21 @@
       "league": "Premier League",
       "comp_code": "PL",
       "kickoff": "2026-11-29T14:05:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 558512,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "AS Roma vs AC Monza",
+      "home_team": "AS Roma",
+      "away_team": "AC Monza",
+      "home_team_id": 100,
+      "away_team_id": 5911,
+      "league": "Serie A",
+      "comp_code": "SA",
+      "kickoff": "2026-11-29T17:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -122,6 +137,36 @@
       "locked": true
     },
     {
+      "id": 558819,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "SC Cambuur-Leeuwarden vs Sparta Rotterdam",
+      "home_team": "SC Cambuur-Leeuwarden",
+      "away_team": "Sparta Rotterdam",
+      "home_team_id": 1909,
+      "away_team_id": 6806,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-11-28T20:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 565871,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "TSG 1899 Hoffenheim vs FC Augsburg",
+      "home_team": "TSG 1899 Hoffenheim",
+      "away_team": "FC Augsburg",
+      "home_team_id": 2,
+      "away_team_id": 16,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-11-29T16:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 558816,
       "sport": "Football",
       "icon": "\u26bd",
@@ -133,21 +178,6 @@
       "league": "Eredivisie",
       "comp_code": "DED",
       "kickoff": "2026-12-05T15:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 564754,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Real Madrid CF vs RC Celta de Vigo",
-      "home_team": "Real Madrid CF",
-      "away_team": "RC Celta de Vigo",
-      "home_team_id": 86,
-      "away_team_id": 558,
-      "league": "Primera Division",
-      "comp_code": "PD",
-      "kickoff": "2026-11-21T20:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -182,21 +212,6 @@
       "locked": true
     },
     {
-      "id": 558512,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "AS Roma vs AC Monza",
-      "home_team": "AS Roma",
-      "away_team": "AC Monza",
-      "home_team_id": 100,
-      "away_team_id": 5911,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-11-29T17:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 575410,
       "sport": "Football",
       "icon": "\u26bd",
@@ -212,32 +227,17 @@
       "locked": true
     },
     {
-      "id": 558819,
+      "id": 558820,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "SC Cambuur-Leeuwarden vs Sparta Rotterdam",
-      "home_team": "SC Cambuur-Leeuwarden",
-      "away_team": "Sparta Rotterdam",
-      "home_team_id": 1909,
-      "away_team_id": 6806,
+      "match": "FC Groningen vs Willem II Tilburg",
+      "home_team": "FC Groningen",
+      "away_team": "Willem II Tilburg",
+      "home_team_id": 677,
+      "away_team_id": 672,
       "league": "Eredivisie",
       "comp_code": "DED",
-      "kickoff": "2026-11-28T20:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 565871,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "TSG 1899 Hoffenheim vs FC Augsburg",
-      "home_team": "TSG 1899 Hoffenheim",
-      "away_team": "FC Augsburg",
-      "home_team_id": 2,
-      "away_team_id": 16,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-11-29T16:30:00Z",
+      "kickoff": "2026-11-27T19:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -287,17 +287,17 @@
       "locked": true
     },
     {
-      "id": 560659,
+      "id": 564765,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "Brighton & Hove Albion FC vs Newcastle United FC",
-      "home_team": "Brighton & Hove Albion FC",
-      "away_team": "Newcastle United FC",
-      "home_team_id": 397,
-      "away_team_id": 67,
-      "league": "Premier League",
-      "comp_code": "PL",
-      "kickoff": "2026-11-29T14:05:00Z",
+      "match": "Levante UD vs Real Racing Club de Santander",
+      "home_team": "Levante UD",
+      "away_team": "Real Racing Club de Santander",
+      "home_team_id": 88,
+      "away_team_id": 5335,
+      "league": "Primera Division",
+      "comp_code": "PD",
+      "kickoff": "2026-11-27T20:00:00Z",
       "has_pick": true,
       "locked": true
     }
@@ -326,22 +326,22 @@
       "locked": true,
       "legs": [
         {
-          "id": 558812,
-          "icon": "\u26bd",
-          "match": "Telstar 1963 vs FC Groningen",
-          "meta": "Eredivisie"
-        },
-        {
           "id": 575398,
           "icon": "\u26bd",
           "match": "Manchester City FC vs SSC Napoli",
           "meta": "UEFA Champions League"
         },
         {
-          "id": 575408,
+          "id": 558812,
           "icon": "\u26bd",
-          "match": "Paris Saint-Germain FC vs AS Roma",
-          "meta": "UEFA Champions League"
+          "match": "Telstar 1963 vs FC Groningen",
+          "meta": "Eredivisie"
+        },
+        {
+          "id": 565876,
+          "icon": "\u26bd",
+          "match": "FC Schalke 04 vs Borussia Dortmund",
+          "meta": "Bundesliga"
         }
       ]
     }
