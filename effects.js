@@ -222,28 +222,69 @@
     '@media (prefers-reduced-motion:reduce){.moad,.moad::before,.moad-media::after,.moad-go{animation:none!important}.moad{opacity:1;transform:translate(-50%,0)}}';
   document.head.appendChild(css);
 
-  // Gentle two-note chime made with the Web Audio API (no audio file needed).
-  var ctx = null;
-  function chime(){
+  // Sound effects made with the Web Audio API (no audio files needed):
+  // a pop when the ad appears, a soft melody while it is live, a whoosh on exit.
+  var ctx = null, loopTimer = null;
+  function ac(){ try { ctx = ctx || new (window.AudioContext || window.webkitAudioContext)(); } catch(e){} return ctx; }
+  function running(){ return !!ac() && ctx.state === 'running'; }
+  function tone(freq, delay, dur, gain, type, freqEnd){
+    var t = ctx.currentTime + delay, o = ctx.createOscillator(), g = ctx.createGain();
+    o.type = type || 'sine'; o.frequency.setValueAtTime(freq, t);
+    if (freqEnd) o.frequency.exponentialRampToValueAtTime(freqEnd, t + dur * 0.8);
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(gain, t + 0.015);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g); g.connect(ctx.destination);
+    o.start(t); o.stop(t + dur + 0.05);
+  }
+  function popSound(){
+    tone(620, 0, 0.16, 0.55, 'sine', 140);
+    tone(1400, 0, 0.06, 0.3, 'triangle', 700);
+    tone(1318.5, 0.10, 0.5, 0.22, 'sine');
+    tone(1760, 0.18, 0.6, 0.18, 'sine');
+  }
+  function loopStart(){
+    var notes = [523.25, 659.25, 783.99, 659.25], i = 0;
+    function step(){
+      if (!running()) return;
+      tone(notes[i % 4], 0, 0.95, 0.13, 'sine');
+      tone(notes[i % 4] / 2, 0, 0.95, 0.07, 'triangle');
+      i++;
+    }
+    loopStop(); step(); loopTimer = setInterval(step, 1100);
+  }
+  function loopStop(){ if (loopTimer) { clearInterval(loopTimer); loopTimer = null; } }
+  function exitSound(){
     try {
-      ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
-      if (ctx.state !== 'running') return false;
-      [[659.25, 0], [987.77, 0.14]].forEach(function(n){
-        var o = ctx.createOscillator(), g = ctx.createGain(), t = ctx.currentTime + n[1];
-        o.type = 'sine'; o.frequency.value = n[0];
-        g.gain.setValueAtTime(0.0001, t);
-        g.gain.exponentialRampToValueAtTime(0.06, t + 0.03);
-        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.9);
-        o.connect(g); g.connect(ctx.destination);
-        o.start(t); o.stop(t + 0.95);
-      });
-      return true;
-    } catch(e){ return false; }
+      var len = Math.floor(ctx.sampleRate * 0.35), buf = ctx.createBuffer(1, len, ctx.sampleRate), d = buf.getChannelData(0);
+      for (var i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / len);
+      var src = ctx.createBufferSource(), f = ctx.createBiquadFilter(), g = ctx.createGain(), t = ctx.currentTime;
+      src.buffer = buf; f.type = 'bandpass'; f.Q.value = 1.2;
+      f.frequency.setValueAtTime(2200, t); f.frequency.exponentialRampToValueAtTime(300, t + 0.35);
+      g.gain.setValueAtTime(0.22, t); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.35);
+      src.connect(f); f.connect(g); g.connect(ctx.destination); src.start(t);
+    } catch(e){}
+    tone(987.77, 0, 0.4, 0.24, 'sine');
+    tone(659.25, 0.12, 0.5, 0.24, 'sine');
+    tone(440, 0.24, 0.7, 0.2, 'sine');
   }
 
   fetch(API + '/ads-current').then(function(r){ return r.json(); }).then(function(d){
     var ad = d && d.ad;
     if (!ad || (!ad.image && !ad.video_url)) return;
+    // Phones only allow sound after a tap, so prepare audio on the visitor's
+    // first touch anywhere on the page. The ad chime then plays when it shows.
+    if (ad.sound !== false) {
+      var evs = ['pointerdown', 'touchstart', 'click', 'keydown'];
+      var unlock = function(){
+        try {
+          ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+          var done = function(){ if (ctx.state === 'running') evs.forEach(function(e){ window.removeEventListener(e, unlock, true); }); };
+          if (ctx.state !== 'running') { var p = ctx.resume(); if (p && p.then) p.then(done); } else done();
+        } catch(e){}
+      };
+      evs.forEach(function(e){ window.addEventListener(e, unlock, true); });
+    }
     setTimeout(function(){
       try { if (sessionStorage.getItem('moAdSeen')) return; sessionStorage.setItem('moAdSeen', '1'); } catch(e){}
       var secs = ad.duration || 10;
@@ -265,13 +306,23 @@
       var x = document.createElement('button'); x.className = 'moad-x'; x.textContent = '×'; x.setAttribute('aria-label', 'Close');
       media.appendChild(x);
 
-      var muted = false;
+      var muted = false, started = false, closed = false;
+      var hint = null;
+      function startSound(){
+        if (started || closed || muted || !running()) return false;
+        started = true;
+        popSound();
+        if (!vid) loopStart();
+        if (hint) { hint.remove(); hint = null; }
+        return true;
+      }
       if (ad.sound !== false) {
         var sb = document.createElement('button'); sb.className = 'moad-snd'; sb.textContent = '🔔'; sb.setAttribute('aria-label', 'Sound');
         sb.onclick = function(){
           muted = !muted; sb.textContent = muted ? '🔕' : '🔔';
           if (vid) vid.muted = muted;
-          if (!muted) { try { ctx = ctx || new (window.AudioContext || window.webkitAudioContext)(); ctx.resume && ctx.resume(); } catch(e){} }
+          if (muted) { loopStop(); return; }
+          var c = ac(); if (c && c.resume) c.resume().then(function(){ if (!started) startSound(); else if (!vid) loopStart(); });
         };
         media.appendChild(sb);
       }
@@ -284,32 +335,40 @@
       inner.appendChild(bar);
       o.appendChild(inner);
 
-      var closed = false;
+      var tapEvs = ['pointerdown', 'touchstart', 'click'];
+      function offTap(){ tapEvs.forEach(function(e){ window.removeEventListener(e, onFirstTap, true); }); }
       function close(){
         if (closed) return; closed = true;
+        loopStop(); offTap();
         o.classList.add('out'); setTimeout(function(){ o.remove(); }, 380);
-        window.removeEventListener('pointerdown', onFirstTap, true);
+        if (ad.sound !== false && !muted) {
+          var c = ac();
+          if (c) { if (c.state === 'running') exitSound(); else if (c.resume) c.resume().then(function(){ if (c.state === 'running') exitSound(); }).catch(function(){}); }
+        }
       }
       x.onclick = close;
 
-      // Sound: browsers only allow audio after a tap, so play the chime now if
-      // allowed, otherwise on the visitor's first tap while the ad is open.
+      // Browsers only allow sound after a tap: if the page hasn't been touched
+      // yet, the sound starts on the visitor's first tap while the ad is open.
       function onFirstTap(e){
-        window.removeEventListener('pointerdown', onFirstTap, true);
         if (e && e.target && e.target.closest && e.target.closest('.moad-snd,.moad-x')) return;
+        offTap();
         if (vid && !muted) { vid.muted = false; vid.play && vid.play().catch(function(){}); }
-        try { ctx = ctx || new (window.AudioContext || window.webkitAudioContext)(); ctx.resume && ctx.resume().then(function(){ if (!closed) chime(); }); } catch(e){}
+        var c = ac(); if (c && c.resume) c.resume().then(function(){ startSound(); }).catch(function(){});
       }
       document.body.appendChild(o);
       if (ad.sound !== false) {
-        var played = chime();
-        if (vid) {
-          // Try with sound first; browsers that refuse get a silent start, and
-          // sound begins on the visitor's first tap (they can mute with 🔔).
-          var p = vid.play();
-          if (p && p.catch) p.catch(function(){ vid.muted = true; vid.play().catch(function(){}); window.addEventListener('pointerdown', onFirstTap, true); });
+        if (!startSound()) {
+          hint = document.createElement('div');
+          hint.textContent = '🔔 Tap anywhere for sound';
+          hint.style.cssText = 'text-align:center;color:#8fa3b8;font:600 11px system-ui,sans-serif;padding:0 8px 8px;';
+          inner.insertBefore(hint, bar);
+          tapEvs.forEach(function(e){ window.addEventListener(e, onFirstTap, true); });
         }
-        if (!played && !vid) window.addEventListener('pointerdown', onFirstTap, true);
+        if (vid) {
+          var p = vid.play();
+          if (p && p.catch) p.catch(function(){ vid.muted = true; vid.play().catch(function(){}); });
+        }
       }
       setTimeout(close, secs * 1000);
     }, (ad.show_after || 5) * 1000);
