@@ -2,6 +2,16 @@
   "total_analyzed_since_start": 1301,
   "history": [
     {
+      "date": "2026-11-08",
+      "id": 555095,
+      "sport": "Football",
+      "match": "Chapecoense AF vs Cruzeiro EC",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "1-2"
+    },
+    {
       "date": "2026-11-07",
       "id": 561944,
       "sport": "Football",
@@ -420,6 +430,76 @@
       "pick": "Under 2.5 Goals",
       "result": "win",
       "final_score": "0-1"
+    },
+    {
+      "date": "2026-11-07",
+      "id": "bb-21718157",
+      "sport": "Basketball",
+      "match": "New York Knicks vs Portland Trail Blazers",
+      "league": "NBA",
+      "pick": "Over 225.7 Points",
+      "result": "loss",
+      "final_score": "97-96"
+    },
+    {
+      "date": "2026-11-07",
+      "id": "bb-21718158",
+      "sport": "Basketball",
+      "match": "Dallas Mavericks vs LA Clippers",
+      "league": "NBA",
+      "pick": "Dallas Mavericks Win",
+      "result": "win",
+      "final_score": "110-100"
+    },
+    {
+      "date": "2026-11-07",
+      "id": "bb-21718159",
+      "sport": "Basketball",
+      "match": "Minnesota Timberwolves vs Memphis Grizzlies",
+      "league": "NBA",
+      "pick": "Minnesota Timberwolves Win",
+      "result": "win",
+      "final_score": "104-95"
+    },
+    {
+      "date": "2026-11-07",
+      "id": "bb-21718160",
+      "sport": "Basketball",
+      "match": "San Antonio Spurs vs New Orleans Pelicans",
+      "league": "NBA",
+      "pick": "San Antonio Spurs Win",
+      "result": "win",
+      "final_score": "114-91"
+    },
+    {
+      "date": "2026-11-07",
+      "id": "bb-21718161",
+      "sport": "Basketball",
+      "match": "Sacramento Kings vs Boston Celtics",
+      "league": "NBA",
+      "pick": "Boston Celtics Win",
+      "result": "loss",
+      "final_score": "97-96"
+    },
+    {
+      "date": "2026-11-07",
+      "id": 558526,
+      "sport": "Football",
+      "match": "Parma Calcio 1913 vs AS Roma",
+      "league": "Serie A",
+      "pick": "AS Roma Win",
+      "result": "win",
+      "final_score": "1-5"
+    },
+    {
+      "date": "2026-11-07",
+      "id": 558527,
+      "sport": "Football",
+      "match": "SSC Napoli vs Torino FC",
+      "league": "Serie A",
+      "pick": "BTTS - Yes",
+      "result": "loss",
+      "final_score": "1-0"
     },
     {
       "date": "2026-11-06",
@@ -4920,86 +5000,6 @@
       "pick": "Over 2.5 Goals",
       "result": "loss",
       "final_score": "1-0"
-    },
-    {
-      "date": "2026-10-12",
-      "id": 564714,
-      "sport": "Football",
-      "match": "M\u00e1laga CF vs Real Sociedad de F\u00fatbol",
-      "league": "Primera Division",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "2-5"
-    },
-    {
-      "date": "2026-10-12",
-      "id": 567331,
-      "sport": "Football",
-      "match": "CD Santa Clara vs Sport Lisboa e Benfica",
-      "league": "Primeira Liga",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "1-2"
-    },
-    {
-      "date": "2026-10-12",
-      "id": 564721,
-      "sport": "Football",
-      "match": "Sevilla FC vs CA Osasuna",
-      "league": "Primera Division",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "2-0"
-    },
-    {
-      "date": "2026-10-12",
-      "id": 555051,
-      "sport": "Football",
-      "match": "Coritiba FBC vs Gr\u00eamio FBPA",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "0-1"
-    },
-    {
-      "date": "2026-10-12",
-      "id": 555053,
-      "sport": "Football",
-      "match": "CR Flamengo vs CA Mineiro",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "3-2"
-    },
-    {
-      "date": "2026-10-11",
-      "id": 561877,
-      "sport": "Football",
-      "match": "Portsmouth FC vs Sheffield United FC",
-      "league": "Championship",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "3-2"
-    },
-    {
-      "date": "2026-10-11",
-      "id": 561879,
-      "sport": "Football",
-      "match": "Norwich City FC vs Southampton FC",
-      "league": "Championship",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "0-1"
-    },
-    {
-      "date": "2026-10-11",
-      "id": 558872,
-      "sport": "Football",
-      "match": "SC Heerenveen vs SBV Excelsior",
-      "league": "Eredivisie",
-      "pick": "SBV Excelsior Win",
-      "result": "loss",
-      "final_score": "4-0"
     }
   ]
 }

@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-11-22T01:02:35.430222Z",
+  "generated_at": "2026-11-22T10:44:54.527633Z",
   "predictions": [
+    {
+      "id": 565876,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "FC Schalke 04 vs Borussia Dortmund",
+      "home_team": "FC Schalke 04",
+      "away_team": "Borussia Dortmund",
+      "home_team_id": 6,
+      "away_team_id": 4,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-12-06T14:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
     {
       "id": 575403,
       "sport": "Football",
@@ -58,21 +73,6 @@
       "league": "Eredivisie",
       "comp_code": "DED",
       "kickoff": "2026-12-04T19:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 565876,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Schalke 04 vs Borussia Dortmund",
-      "home_team": "FC Schalke 04",
-      "away_team": "Borussia Dortmund",
-      "home_team_id": 6,
-      "away_team_id": 4,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-12-06T14:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -152,21 +152,6 @@
       "locked": true
     },
     {
-      "id": 565871,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "TSG 1899 Hoffenheim vs FC Augsburg",
-      "home_team": "TSG 1899 Hoffenheim",
-      "away_team": "FC Augsburg",
-      "home_team_id": 2,
-      "away_team_id": 16,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-11-29T16:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 558816,
       "sport": "Football",
       "icon": "\u26bd",
@@ -242,6 +227,21 @@
       "locked": true
     },
     {
+      "id": 565871,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "TSG 1899 Hoffenheim vs FC Augsburg",
+      "home_team": "TSG 1899 Hoffenheim",
+      "away_team": "FC Augsburg",
+      "home_team_id": 2,
+      "away_team_id": 16,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-11-29T16:30:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 558828,
       "sport": "Football",
       "icon": "\u26bd",
@@ -287,17 +287,17 @@
       "locked": true
     },
     {
-      "id": 564765,
+      "id": 565882,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "Levante UD vs Real Racing Club de Santander",
-      "home_team": "Levante UD",
-      "away_team": "Real Racing Club de Santander",
-      "home_team_id": 88,
-      "away_team_id": 5335,
-      "league": "Primera Division",
-      "comp_code": "PD",
-      "kickoff": "2026-11-27T20:00:00Z",
+      "match": "FC Bayern M\u00fcnchen vs SC Paderborn 07",
+      "home_team": "FC Bayern M\u00fcnchen",
+      "away_team": "SC Paderborn 07",
+      "home_team_id": 5,
+      "away_team_id": 29,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-12-04T19:30:00Z",
       "has_pick": true,
       "locked": true
     }
@@ -308,15 +308,15 @@
       "locked": true,
       "legs": [
         {
+          "id": 565876,
+          "icon": "\u26bd",
+          "match": "FC Schalke 04 vs Borussia Dortmund",
+          "meta": "Bundesliga"
+        },
+        {
           "id": 575403,
           "icon": "\u26bd",
           "match": "Como 1907 vs PAE AEK",
-          "meta": "UEFA Champions League"
-        },
-        {
-          "id": 575409,
-          "icon": "\u26bd",
-          "match": "Club Brugge KV vs Liverpool FC",
           "meta": "UEFA Champions League"
         }
       ]
@@ -325,6 +325,12 @@
       "title": "3-Leg Accumulator",
       "locked": true,
       "legs": [
+        {
+          "id": 575409,
+          "icon": "\u26bd",
+          "match": "Club Brugge KV vs Liverpool FC",
+          "meta": "UEFA Champions League"
+        },
         {
           "id": 575398,
           "icon": "\u26bd",
@@ -336,12 +342,6 @@
           "icon": "\u26bd",
           "match": "Telstar 1963 vs FC Groningen",
           "meta": "Eredivisie"
-        },
-        {
-          "id": 565876,
-          "icon": "\u26bd",
-          "match": "FC Schalke 04 vs Borussia Dortmund",
-          "meta": "Bundesliga"
         }
       ]
     }
