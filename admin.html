@@ -137,6 +137,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 <h2>Edit &amp; grade past slips</h2>
 <div id="historyList">Loading…</div>
 <div id="gradeForm" style="display:none;margin-top:14px;">
+<button class="btn btn-outline" onclick="closeGradeForm()" style="margin-bottom:12px;">▲ Close editor</button>
 <div id="gradeLegsContainer"></div>
 <label>Combined odds</label>
 <input type="number" step="0.01" id="gradeCombined">
@@ -148,6 +149,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 </select>
 <div class="btn-row">
 <button class="btn btn-cyan" onclick="saveGrade()">Save changes</button>
+<button class="btn btn-outline" onclick="closeGradeForm()">▲ Close</button>
 </div>
 <div class="status-msg" id="gradeStatus"></div>
 </div>
@@ -695,7 +697,16 @@ async function deleteHistorySlip(slipId){
   }
 }
 
+function closeGradeForm(){
+  selectedHistorySlip = null;
+  document.getElementById("gradeForm").style.display = "none";
+  document.querySelectorAll(".hist-item").forEach(el => el.classList.remove("selected"));
+  document.getElementById("gradeStatus").textContent = "";
+  document.getElementById("historyList").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 function selectHistorySlip(i){
+  if(selectedHistorySlip && selectedHistorySlip.slip_id === historyCache[i].slip_id){ closeGradeForm(); return; }
   selectedHistorySlip = historyCache[i];
   document.querySelectorAll(".hist-item").forEach((el, idx) => el.classList.toggle("selected", idx === i));
   renderGradeLegs();
