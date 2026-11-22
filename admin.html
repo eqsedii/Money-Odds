@@ -904,6 +904,32 @@ async function rejectAgent(applicationId){
   }
 }
 
+function waWelcomeLink(a, number){
+  const first = String(a.name || "").trim().split(/\s+/)[0] || "there";
+  const text =
+`Hi ${first}, welcome to the Money Odds Agents program! 🎉
+
+Your agent code is *${a.code}*.
+
+*How to start*
+1. Go to moneyoddspredictions.co.ke/agents and log in with your code and password.
+2. Copy your personal link from your dashboard and share it on WhatsApp, Facebook, Telegram and anywhere your friends and followers are.
+
+*How you earn*
+💰 Ksh 40 for every Ksh 99 VIP Golden Slip bought through your link or code. Your own purchases count too.
+💰 When your balance reaches the minimum payout shown in your dashboard, request a withdrawal and we send it to your M-Pesa.
+
+*Good to know*
+⏳ Get your first referral within 21 days to keep your agent account active.
+🔑 Forgot your password? Tap "Forgot password?" on the login page and we'll send you a reset code.
+✅ Please share honestly. No false claims or guaranteed wins.
+
+Need help? Just message me here. Let's get you your first referral! 🚀
+
+– Money Odds Predictions`;
+  return `https://wa.me/${waDigits(number)}?text=${encodeURIComponent(text)}`;
+}
+
 function waDigits(n){
   let d = String(n || "").replace(/[^0-9]/g, "");
   if(d.startsWith("0")) d = "254" + d.slice(1);
@@ -922,7 +948,7 @@ async function loadAgentActive(){
     el.innerHTML = list.map(a => `
       <div class="leg-grade-row">
         <span><b>${esc(a.code)}</b> &nbsp;${esc(a.name)}<br>
-          <span class="note">📞 ${esc(a.phone)} · 💬 ${a.whatsapp ? `<a href="https://wa.me/${waDigits(a.whatsapp)}" target="_blank" rel="noopener" style="color:var(--cyan);">${esc(a.whatsapp)}</a>` : "not provided"}<br>📍 ${esc(a.county) || "—"} · Registered ${(a.registeredAt || a.createdAt) ? new Date(a.registeredAt || a.createdAt).toLocaleDateString() : "—"}</span><br><span class="note">${a.resetRequested ? '<b style="color:var(--gold);">Password reset requested</b> · ' : ''}${a.daysLeft == null ? 'Active ✓' : a.daysLeft + ' day(s) left to get a referral'}</span></span>
+          <span class="note">📞 ${esc(a.phone)} · 💬 ${a.whatsapp ? `<a href="${waWelcomeLink(a, a.whatsapp)}" target="_blank" rel="noopener" style="color:var(--cyan);">${esc(a.whatsapp)}</a>` : `not provided · <a href="${waWelcomeLink(a, a.phone)}" target="_blank" rel="noopener" style="color:var(--cyan);">message phone</a>`}<br>📍 ${esc(a.county) || "—"} · Registered ${(a.registeredAt || a.createdAt) ? new Date(a.registeredAt || a.createdAt).toLocaleDateString() : "—"}</span><br><span class="note">${a.resetRequested ? '<b style="color:var(--gold);">Password reset requested</b> · ' : ''}${a.daysLeft == null ? 'Active ✓' : a.daysLeft + ' day(s) left to get a referral'}</span></span>
         <span style="display:flex;align-items:center;gap:10px;">
           <span style="color:var(--gold);font-weight:700;">Ksh ${a.balance || 0}</span>
           <button class="btn btn-cyan" style="width:auto;margin-top:0;padding:4px 10px;font-size:12px;" onclick="resetAgentPassword('${a.code}')">Reset password</button>
