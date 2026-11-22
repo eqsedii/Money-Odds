@@ -234,7 +234,13 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);}
 // ---- CONFIGURE THESE TWO BEFORE USE ----
 const WORKER_BASE = "https://money-odds-api.arphaxad98.workers.dev";
 const PUBLIC_BASE = "https://money-odds-api.arphaxad98.workers.dev";
-const ADMIN_KEY = "kJvETRuAxnd1qpXtfbmCsGhw74NPFIc0OM5WQjglSUDr863LiKo9BVea2HkStF8bobVPGJ9vIRJXUjO35hH1C7mOws5O3d3q82Vvdnh0QUO2NP2tvwt2XjJJqvGIvfdNvHNcrh58KOmkCPhj340dQ4vV32Shtl22E2FCuRxWOa4oQArnFsguiPd8upk0DUShveLIIa8GTfpCEPA9LkAbOwtSsW4RtN9aohbG83rND5pB7F0gAaWlh7UWwhObPm0m";
+// The admin key is never stored in this file. It is asked for once and kept
+// only in this browser (clear it with: localStorage.removeItem("moAdminKey")).
+let ADMIN_KEY = localStorage.getItem("moAdminKey") || "";
+if(!ADMIN_KEY){
+  ADMIN_KEY = (prompt("Enter admin key") || "").trim();
+  if(ADMIN_KEY) localStorage.setItem("moAdminKey", ADMIN_KEY);
+}
 // -----------------------------------------
 
 // mirrors worker.js's KNOWN_BOOKMAKERS, for an instant client-side preview badge
