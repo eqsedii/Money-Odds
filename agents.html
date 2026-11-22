@@ -195,7 +195,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
       <input id="fTown" type="text">
 
       <div class="terms-box">
-        You'll be a non-exclusive, independent referral agent — not an employee. You earn Ksh 40 for every genuine Ksh 99 VIP Golden Slip payment made through your code or link. Faking a referral forfeits your balance and ends your agent status.
+        You'll be a non-exclusive, independent referral agent, not an employee. You earn Ksh 40 for every genuine Ksh 99 VIP Golden Slip payment made through your code or link, including your own purchases. Faking a referral forfeits your balance and ends your agent status.
         <div class="read-terms-link" onclick="openTerms()">Read the full Terms &amp; Conditions →</div>
       </div>
       <div class="agree-row">
@@ -358,16 +358,18 @@ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--text-dim);fon
     </div>
     <div class="terms-modal-body">
       <b>1. Appointment</b>Mode Techs Kenya ("the Company"), trading as Money Odds, appoints the Agent as a non-exclusive, independent referral agent. This does not create an employment, partnership, or agency-in-law relationship. The Agent is responsible for their own tax obligations on commissions earned.
-      <b>2. Referral Code</b>On registration, the Agent is issued one unique referral code, personal to them and non-transferable, and sets a password known only to them. The Company may reissue or deactivate a code at its discretion, including on suspected misuse.
+      <b>2. Referral Code</b>On registration, the Agent is issued one unique referral code, personal to them and non-transferable, immediately and automatically, with no manual approval step, and sets a password known only to them. The Company may reissue or deactivate a code at its discretion, including on suspected misuse.
       <b>3. Commission</b>The Agent earns Ksh 40 for every VIP Golden Slip purchase of Ksh 99 completed by a client using the Agent's code or link, subject to Clause 4.
-      <b>4. Qualifying Referrals</b>A referral qualifies only where the payment is a genuine Ksh 99 transaction confirmed successful, and the paying phone number is not the Agent's own registered number. The Company's transaction records are final in determining whether a referral qualifies.
+      <b>4. Qualifying Referrals</b>A referral qualifies only where the payment is a genuine Ksh 99 transaction confirmed successful. A payment made by the Agent, including with the Agent's own registered phone number, qualifies in the same way as any other. The Company's transaction records are final in determining whether a referral qualifies.
       <b>5. Payment of Commission</b>Commission accrues to the Agent's balance. Once the balance reaches the minimum payout threshold shown in the dashboard, the Agent may request a withdrawal; the Company pays it out via M-Pesa to the Agent's registered number, manually confirmed by the Company.
-      <b>6. Fraud and Misuse</b>Use of multiple SIM cards or proxies, or any attempt to fake a referral forfeits the Agent's balance and is grounds for immediate termination.
+      <b>6. Fraud and Misuse</b>Any attempt to fake a referral, including payments that are reversed, refunded, disputed or not genuinely completed, and any abuse of the platform or its payment systems, forfeits the Agent's balance and is grounds for immediate termination.
       <b>7. Marketing Conduct</b>The Agent may promote Money Odds through personal networks and social media, but may not make false or exaggerated claims about outcomes or guaranteed winnings, or use paid advertising bearing the Company's name without written consent.
       <b>8. Term and Termination</b>Either party may terminate with written notice (including WhatsApp or email). The Company may terminate immediately for breach of Clauses 4, 6, or 7. The Company may also close any Agent account that records no qualifying referral within 21 days of registration. Commission already earned on qualifying referrals remains payable.
       <b>9. No Guarantee of Earnings</b>The Company makes no guarantee as to referral volume or income. Participation is voluntary and at the Agent's own initiative and expense.
-      <b>10. Confidentiality</b>The Agent shall keep confidential any non-public information about the Company's systems, pricing, or internal processes, including their own login credentials.
-      <b>11. Governing Law</b>This Agreement is governed by the laws of the Republic of Kenya.
+      <b>10. Account Security and Password Reset</b>The Agent is responsible for keeping their code and password private and for all activity under their account. A forgotten password is reset through the "Forgot password?" option on the login page: the Agent submits their code and registered phone number, and the Company issues a one-time reset code valid for 48 hours, which the Agent uses to set a new password. The Company may verify the Agent's identity before issuing a reset code and is not liable for loss caused by the Agent sharing their credentials.
+      <b>11. Confidentiality</b>The Agent shall keep confidential any non-public information about the Company's systems, pricing, or internal processes, including their own login credentials.
+      <b>12. Changes to These Terms</b>The Company may update these Terms from time to time. The updated Terms apply once published on this page, and continued use of the Agent account means the Agent accepts them.
+      <b>13. Governing Law</b>This Agreement is governed by the laws of the Republic of Kenya.
     </div>
     <div class="terms-modal-foot">
       <button class="btn" style="margin-top:0;" onclick="closeTerms()">Close</button>
@@ -795,6 +797,6 @@ if("serviceWorker" in navigator){
   window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js"));
 }
 </script>
-<script src="/effects.js?v=4" defer></script>
+<script src="/effects.js?v=5" defer></script>
 </body>
 </html>

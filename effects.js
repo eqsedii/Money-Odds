@@ -253,8 +253,8 @@
       var vid = null;
       if (ad.video_url) {
         vid = document.createElement('video');
-        vid.src = ad.video_url; vid.muted = true; vid.autoplay = true; vid.loop = true; vid.playsInline = true;
-        vid.setAttribute('playsinline', ''); vid.setAttribute('muted', '');
+        vid.src = ad.video_url; vid.muted = ad.sound === false; vid.autoplay = true; vid.loop = true; vid.playsInline = true;
+        vid.setAttribute('playsinline', '');
         if (ad.image) vid.poster = ad.image;
         media.appendChild(vid);
       } else {
@@ -265,9 +265,9 @@
       var x = document.createElement('button'); x.className = 'moad-x'; x.textContent = '×'; x.setAttribute('aria-label', 'Close');
       media.appendChild(x);
 
-      var muted = true;
+      var muted = false;
       if (ad.sound !== false) {
-        var sb = document.createElement('button'); sb.className = 'moad-snd'; sb.textContent = '🔕'; sb.setAttribute('aria-label', 'Sound');
+        var sb = document.createElement('button'); sb.className = 'moad-snd'; sb.textContent = '🔔'; sb.setAttribute('aria-label', 'Sound');
         sb.onclick = function(){
           muted = !muted; sb.textContent = muted ? '🔕' : '🔔';
           if (vid) vid.muted = muted;
@@ -294,13 +294,22 @@
 
       // Sound: browsers only allow audio after a tap, so play the chime now if
       // allowed, otherwise on the visitor's first tap while the ad is open.
-      function onFirstTap(){
+      function onFirstTap(e){
         window.removeEventListener('pointerdown', onFirstTap, true);
+        if (e && e.target && e.target.closest && e.target.closest('.moad-snd,.moad-x')) return;
+        if (vid && !muted) { vid.muted = false; vid.play && vid.play().catch(function(){}); }
         try { ctx = ctx || new (window.AudioContext || window.webkitAudioContext)(); ctx.resume && ctx.resume().then(function(){ if (!closed) chime(); }); } catch(e){}
       }
       document.body.appendChild(o);
       if (ad.sound !== false) {
-        if (!chime()) window.addEventListener('pointerdown', onFirstTap, true);
+        var played = chime();
+        if (vid) {
+          // Try with sound first; browsers that refuse get a silent start, and
+          // sound begins on the visitor's first tap (they can mute with 🔔).
+          var p = vid.play();
+          if (p && p.catch) p.catch(function(){ vid.muted = true; vid.play().catch(function(){}); window.addEventListener('pointerdown', onFirstTap, true); });
+        }
+        if (!played && !vid) window.addEventListener('pointerdown', onFirstTap, true);
       }
       setTimeout(close, secs * 1000);
     }, (ad.show_after || 5) * 1000);
