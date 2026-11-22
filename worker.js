@@ -338,9 +338,32 @@ async function getAds(env) {
   return raw ? JSON.parse(raw) : [];
 }
 
-async function handleAdsCurrent(env) {
+async function handleAdsCurrent(request, env) {
   const ad = (await getAds(env)).filter((a) => a.active).sort((a, b) => b.added_at - a.added_at)[0];
-  return json({ ok: true, ad: ad || null });
+  if (!ad) return json({ ok: true, ad: null });
+  const out = { ...ad };
+  if (ad.has_video) out.video_url = `${new URL(request.url).origin}/ad-media?id=${ad.id}`;
+  return json({ ok: true, ad: out });
+}
+
+// Serves an uploaded ad video. Supports Range requests (needed by iPhone/Safari).
+async function handleAdMedia(request, env) {
+  const id = new URL(request.url).searchParams.get("id") || "";
+  if (!/^[A-Za-z0-9]{4,20}$/.test(id)) return new Response("not found", { status: 404, headers: corsHeaders() });
+  const { value, metadata } = await env.UNLOCKS.getWithMetadata(`ad-media:${id}`, "arrayBuffer");
+  if (!value) return new Response("not found", { status: 404, headers: corsHeaders() });
+  const type = (metadata && metadata.type) || "video/mp4";
+  const total = value.byteLength;
+  const base = { ...corsHeaders(), "Content-Type": type, "Accept-Ranges": "bytes", "Cache-Control": "public, max-age=3600" };
+  const range = request.headers.get("Range");
+  const m = range && /^bytes=(\d*)-(\d*)$/.exec(range);
+  if (m) {
+    let start = m[1] === "" ? Math.max(total - parseInt(m[2], 10), 0) : parseInt(m[1], 10);
+    let end = m[1] !== "" && m[2] !== "" ? Math.min(parseInt(m[2], 10), total - 1) : total - 1;
+    if (start > end || start >= total) return new Response(null, { status: 416, headers: { ...base, "Content-Range": `bytes */${total}` } });
+    return new Response(value.slice(start, end + 1), { status: 206, headers: { ...base, "Content-Range": `bytes ${start}-${end}/${total}`, "Content-Length": String(end - start + 1) } });
+  }
+  return new Response(value, { status: 200, headers: { ...base, "Content-Length": String(total) } });
 }
 
 async function handleAdminAdsList(request, env) {
@@ -352,22 +375,40 @@ async function handleAdminAdsAdd(request, env) {
   if (!isAdmin(request, env)) return json({ error: "unauthorized" }, 401);
   const body = await request.json().catch(() => ({}));
   const image = body.image || "";
-  if (!/^data:image\/(jpeg|png|webp);base64,/.test(image)) return json({ error: "invalid_image" }, 400);
-  if (image.length > 900000) return json({ error: "image_too_large" }, 400);
+  const video = body.video || "";
+  const hasImage = /^data:image\/(jpeg|png|webp);base64,/.test(image);
+  const vm = /^data:(video\/(?:mp4|webm|quicktime));base64,/.exec(video);
+  if (!hasImage && !vm) return json({ error: "invalid_media", note: "Add a flyer image or a video." }, 400);
+  if (hasImage && image.length > 900000) return json({ error: "image_too_large" }, 400);
   const link = (body.link || "").trim();
   if (link && !/^https?:\/\//i.test(link)) return json({ error: "invalid_link" }, 400);
+
+  const id = randomId(6);
+  if (vm) {
+    const b64 = video.slice(video.indexOf(",") + 1);
+    const bin = atob(b64);
+    if (bin.length > 9 * 1024 * 1024) return json({ error: "video_too_large", note: "Keep the video under 9 MB (about 15 seconds)." }, 400);
+    const bytes = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    await env.UNLOCKS.put(`ad-media:${id}`, bytes.buffer, { metadata: { type: vm[1] } });
+  }
+
   const ads = await getAds(env);
   ads.unshift({
-    id: randomId(6),
-    image,
+    id,
+    image: hasImage ? image : "",
+    has_video: !!vm,
     caption: (body.caption || "").trim().slice(0, 200),
     link: link || null,
     show_after: Math.min(Math.max(parseInt(body.show_after, 10) || 5, 1), 120),
     duration: Math.min(Math.max(parseInt(body.duration, 10) || 10, 3), 120),
+    sound: body.sound !== false,
     active: true,
     added_at: Date.now(),
   });
-  await env.UNLOCKS.put("ads", JSON.stringify(ads.slice(0, 10)));
+  const kept = ads.slice(0, 10);
+  for (const dropped of ads.slice(10)) if (dropped.has_video) await env.UNLOCKS.delete(`ad-media:${dropped.id}`);
+  await env.UNLOCKS.put("ads", JSON.stringify(kept));
   return json({ ok: true });
 }
 
@@ -375,7 +416,11 @@ async function handleAdminAdsUpdate(request, env) {
   if (!isAdmin(request, env)) return json({ error: "unauthorized" }, 401);
   const body = await request.json().catch(() => ({}));
   let ads = await getAds(env);
-  if (body.remove) ads = ads.filter((a) => a.id !== body.id);
+  if (body.remove) {
+    const gone = ads.find((a) => a.id === body.id);
+    if (gone && gone.has_video) await env.UNLOCKS.delete(`ad-media:${gone.id}`);
+    ads = ads.filter((a) => a.id !== body.id);
+  }
   else ads = ads.map((a) => (a.id === body.id ? { ...a, active: !!body.active } : a));
   await env.UNLOCKS.put("ads", JSON.stringify(ads));
   return json({ ok: true });
@@ -1196,7 +1241,7 @@ async function handleAgentApply(request, env) {
   await env.UNLOCKS.put(`agent-app:${applicationId}`, JSON.stringify(record));
   await env.UNLOCKS.put(dupKey, applicationId);
   await env.UNLOCKS.put(`agent:${code}`, JSON.stringify({
-    code, applicationId, name, phone, status: "active", balance: 0, createdAt: Date.now(),
+    code, applicationId, name, phone, whatsapp, county: town, status: "active", balance: 0, createdAt: Date.now(),
   }));
   return json({ ok: true, applicationId, status: "approved", code, link: agentLink(code) });
 }
@@ -1422,6 +1467,10 @@ async function handleAdminAgentList(request, env) {
       if (await expireIfInactive(env, a)) continue;
       a.daysLeft = await agentDaysLeft(env, a);
       a.resetRequested = !!(await env.UNLOCKS.get(`agent-reset-request:${a.code}`));
+      if (a.applicationId && (a.whatsapp === undefined || a.county === undefined)) {
+        const appRaw = await env.UNLOCKS.get(`agent-app:${a.applicationId}`);
+        if (appRaw) { const app = JSON.parse(appRaw); a.whatsapp = a.whatsapp ?? app.whatsapp ?? ""; a.county = a.county ?? app.county ?? ""; a.registeredAt = a.registeredAt || app.createdAt; }
+      }
       delete a.passwordHash; delete a.passwordSalt;
       live.push(a);
     }
@@ -1641,7 +1690,8 @@ export default {
     }
     const url = new URL(request.url);
     try {
-      if (url.pathname === "/ads-current") return await handleAdsCurrent(env);
+      if (url.pathname === "/ads-current") return await handleAdsCurrent(request, env);
+      if (url.pathname === "/ad-media") return await handleAdMedia(request, env);
       if (url.pathname === "/agent-forgot" && request.method === "POST") return await handleAgentForgot(request, env);
       if (url.pathname === "/agent-reset-password" && request.method === "POST") return await handleAgentResetPassword(request, env);
       if (url.pathname === "/admin/agent-reset-password" && request.method === "POST") return await handleAdminAgentResetPassword(request, env);

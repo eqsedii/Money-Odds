@@ -192,48 +192,117 @@
   };
 })();
 
-/* ---- Promo ad popup: managed from the admin panel. Shows once per browser
-   session, after a short delay, then closes itself. ---- */
+/* ---- Promo ad: small, non-blocking card managed from the admin panel.
+   Shows once per browser session, after a short delay, then closes itself. ---- */
 (function(){
   if (/^\/(admin|agents)(\.html)?\/?$/.test(location.pathname)) return;
   try { if (sessionStorage.getItem('moAdSeen')) return; } catch(e){}
   var API = 'https://money-odds-api.arphaxad98.workers.dev';
+
+  var css = document.createElement('style');
+  css.textContent =
+    '@keyframes moAdIn{0%{opacity:0;transform:translate(-50%,40px) scale(.92)}60%{opacity:1;transform:translate(-50%,-4px) scale(1.01)}100%{opacity:1;transform:translate(-50%,0) scale(1)}}' +
+    '@keyframes moAdOut{to{opacity:0;transform:translate(-50%,30px) scale(.95)}}' +
+    '@keyframes moAdSpin{to{transform:rotate(360deg)}}' +
+    '@keyframes moAdShine{0%{transform:translateX(-120%) skewX(-18deg)}60%,100%{transform:translateX(220%) skewX(-18deg)}}' +
+    '@keyframes moAdBar{from{transform:scaleX(1)}to{transform:scaleX(0)}}' +
+    '@keyframes moAdPulse{0%,100%{box-shadow:0 0 0 0 rgba(45,225,232,.45)}50%{box-shadow:0 0 0 8px rgba(45,225,232,0)}}' +
+    '.moad{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:100000;width:min(280px,86vw);border-radius:16px;padding:2px;overflow:hidden;animation:moAdIn .55s cubic-bezier(.2,.9,.3,1.2) both;box-shadow:0 14px 40px rgba(0,0,0,.55),0 0 24px rgba(45,225,232,.18);}' +
+    '.moad.out{animation:moAdOut .35s ease-in both}' +
+    '.moad::before{content:"";position:absolute;left:-50%;top:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,#2DE1E8,#7C5CFF,#F5B93A,#2DE1E8);animation:moAdSpin 4s linear infinite;}' +
+    '.moad-in{position:relative;background:#101722;border-radius:14px;overflow:hidden;}' +
+    '.moad-media{position:relative;overflow:hidden;line-height:0;}' +
+    '.moad-media img,.moad-media video{display:block;width:100%;max-height:34vh;object-fit:cover;}' +
+    '.moad-media::after{content:"";position:absolute;top:0;left:0;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);animation:moAdShine 3.2s ease-in-out .6s infinite;pointer-events:none;}' +
+    '.moad-cap{color:#fff;font:700 13.5px/1.35 system-ui,sans-serif;padding:9px 12px 4px;text-align:center;}' +
+    '.moad-go{display:block;margin:6px 12px 10px;padding:8px 0;border-radius:999px;background:#2DE1E8;color:#03181a;font:700 13px system-ui,sans-serif;text-align:center;text-decoration:none;animation:moAdPulse 2s ease-in-out infinite;}' +
+    '.moad-bar{height:3px;background:linear-gradient(90deg,#2DE1E8,#7C5CFF);transform-origin:left;animation:moAdBar linear forwards;}' +
+    '.moad-x,.moad-snd{position:absolute;top:6px;width:26px;height:26px;border-radius:50%;border:none;background:rgba(0,0,0,.55);color:#fff;font-size:15px;line-height:26px;padding:0;cursor:pointer;z-index:3;}' +
+    '.moad-x{right:6px;font-size:18px}.moad-snd{left:6px}' +
+    '@media (prefers-reduced-motion:reduce){.moad,.moad::before,.moad-media::after,.moad-go{animation:none!important}.moad{opacity:1;transform:translate(-50%,0)}}';
+  document.head.appendChild(css);
+
+  // Gentle two-note chime made with the Web Audio API (no audio file needed).
+  var ctx = null;
+  function chime(){
+    try {
+      ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+      if (ctx.state !== 'running') return false;
+      [[659.25, 0], [987.77, 0.14]].forEach(function(n){
+        var o = ctx.createOscillator(), g = ctx.createGain(), t = ctx.currentTime + n[1];
+        o.type = 'sine'; o.frequency.value = n[0];
+        g.gain.setValueAtTime(0.0001, t);
+        g.gain.exponentialRampToValueAtTime(0.06, t + 0.03);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.9);
+        o.connect(g); g.connect(ctx.destination);
+        o.start(t); o.stop(t + 0.95);
+      });
+      return true;
+    } catch(e){ return false; }
+  }
+
   fetch(API + '/ads-current').then(function(r){ return r.json(); }).then(function(d){
     var ad = d && d.ad;
-    if (!ad || !ad.image) return;
+    if (!ad || (!ad.image && !ad.video_url)) return;
     setTimeout(function(){
       try { if (sessionStorage.getItem('moAdSeen')) return; sessionStorage.setItem('moAdSeen', '1'); } catch(e){}
-      var o = document.createElement('div');
-      o.style.cssText = 'position:fixed;inset:0;z-index:100000;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(5,8,12,.78);backdrop-filter:blur(3px);';
-      var box = document.createElement('div');
-      box.style.cssText = 'position:relative;max-width:380px;width:100%;max-height:92vh;overflow:auto;background:#121821;border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:12px;text-align:center;';
-      var img = document.createElement('img');
-      img.src = ad.image; img.alt = 'Ad';
-      img.style.cssText = 'display:block;width:100%;border-radius:10px;';
-      box.appendChild(img);
-      if (ad.caption) {
-        var c = document.createElement('div');
-        c.textContent = ad.caption;
-        c.style.cssText = 'color:#fff;font-weight:700;font-size:15px;line-height:1.4;margin:12px 4px 4px;';
-        box.appendChild(c);
+      var secs = ad.duration || 10;
+      var o = document.createElement('div'); o.className = 'moad';
+      var inner = document.createElement('div'); inner.className = 'moad-in';
+      var media = document.createElement('div'); media.className = 'moad-media';
+      var vid = null;
+      if (ad.video_url) {
+        vid = document.createElement('video');
+        vid.src = ad.video_url; vid.muted = true; vid.autoplay = true; vid.loop = true; vid.playsInline = true;
+        vid.setAttribute('playsinline', ''); vid.setAttribute('muted', '');
+        if (ad.image) vid.poster = ad.image;
+        media.appendChild(vid);
+      } else {
+        var img = document.createElement('img'); img.src = ad.image; img.alt = 'Ad'; media.appendChild(img);
       }
+      inner.appendChild(media);
+
+      var x = document.createElement('button'); x.className = 'moad-x'; x.textContent = '×'; x.setAttribute('aria-label', 'Close');
+      media.appendChild(x);
+
+      var muted = true;
+      if (ad.sound !== false) {
+        var sb = document.createElement('button'); sb.className = 'moad-snd'; sb.textContent = '🔕'; sb.setAttribute('aria-label', 'Sound');
+        sb.onclick = function(){
+          muted = !muted; sb.textContent = muted ? '🔕' : '🔔';
+          if (vid) vid.muted = muted;
+          if (!muted) { try { ctx = ctx || new (window.AudioContext || window.webkitAudioContext)(); ctx.resume && ctx.resume(); } catch(e){} }
+        };
+        media.appendChild(sb);
+      }
+      if (ad.caption) { var c = document.createElement('div'); c.className = 'moad-cap'; c.textContent = ad.caption; inner.appendChild(c); }
       if (ad.link) {
-        var a = document.createElement('a');
-        a.href = ad.link; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = 'Open';
-        a.style.cssText = 'display:inline-block;margin:10px 0 2px;padding:10px 26px;border-radius:999px;background:#2DE1E8;color:#03181a;font-weight:700;text-decoration:none;';
-        box.appendChild(a);
+        var a = document.createElement('a'); a.className = 'moad-go'; a.href = ad.link; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = 'Open';
+        inner.appendChild(a);
       }
-      var x = document.createElement('button');
-      x.textContent = '×'; x.setAttribute('aria-label', 'Close');
-      x.style.cssText = 'position:absolute;top:6px;right:8px;width:30px;height:30px;border-radius:50%;border:none;background:rgba(0,0,0,.6);color:#fff;font-size:20px;line-height:1;cursor:pointer;';
-      box.appendChild(x);
-      o.appendChild(box);
+      var bar = document.createElement('div'); bar.className = 'moad-bar'; bar.style.animationDuration = secs + 's';
+      inner.appendChild(bar);
+      o.appendChild(inner);
+
       var closed = false;
-      function close(){ if (closed) return; closed = true; o.remove(); }
+      function close(){
+        if (closed) return; closed = true;
+        o.classList.add('out'); setTimeout(function(){ o.remove(); }, 380);
+        window.removeEventListener('pointerdown', onFirstTap, true);
+      }
       x.onclick = close;
-      o.addEventListener('click', function(e){ if (e.target === o) close(); });
+
+      // Sound: browsers only allow audio after a tap, so play the chime now if
+      // allowed, otherwise on the visitor's first tap while the ad is open.
+      function onFirstTap(){
+        window.removeEventListener('pointerdown', onFirstTap, true);
+        try { ctx = ctx || new (window.AudioContext || window.webkitAudioContext)(); ctx.resume && ctx.resume().then(function(){ if (!closed) chime(); }); } catch(e){}
+      }
       document.body.appendChild(o);
-      setTimeout(close, (ad.duration || 10) * 1000);
+      if (ad.sound !== false) {
+        if (!chime()) window.addEventListener('pointerdown', onFirstTap, true);
+      }
+      setTimeout(close, secs * 1000);
     }, (ad.show_after || 5) * 1000);
   }).catch(function(){});
 })();
