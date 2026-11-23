@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T19:04:54.206358Z",
+  "generated_at": "2026-11-23T01:29:56.717936Z",
   "predictions": [
     {
       "id": 565876,
@@ -107,21 +107,6 @@
       "locked": true
     },
     {
-      "id": 558512,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "AS Roma vs AC Monza",
-      "home_team": "AS Roma",
-      "away_team": "AC Monza",
-      "home_team_id": 100,
-      "away_team_id": 5911,
-      "league": "Serie A",
-      "comp_code": "SA",
-      "kickoff": "2026-11-29T17:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 565879,
       "sport": "Football",
       "icon": "\u26bd",
@@ -148,6 +133,21 @@
       "league": "Eredivisie",
       "comp_code": "DED",
       "kickoff": "2026-11-28T20:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 558512,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "AS Roma vs AC Monza",
+      "home_team": "AS Roma",
+      "away_team": "AC Monza",
+      "home_team_id": 100,
+      "away_team_id": 5911,
+      "league": "Serie A",
+      "comp_code": "SA",
+      "kickoff": "2026-11-29T17:00:00Z",
       "has_pick": true,
       "locked": true
     },

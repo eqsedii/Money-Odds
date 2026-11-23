@@ -1,5 +1,5 @@
 {
-  "total_analyzed_since_start": 1301,
+  "total_analyzed_since_start": 1305,
   "history": [
     {
       "date": "2026-11-08",
@@ -180,6 +180,96 @@
       "pick": "Over 2.5 Goals",
       "result": "win",
       "final_score": "5-1"
+    },
+    {
+      "date": "2026-11-08",
+      "id": "bb-21718162",
+      "sport": "Basketball",
+      "match": "Atlanta Hawks vs Detroit Pistons",
+      "league": "NBA",
+      "pick": "Over 224.7 Points",
+      "result": "loss",
+      "final_score": "107-97"
+    },
+    {
+      "date": "2026-11-08",
+      "id": "bb-21718163",
+      "sport": "Basketball",
+      "match": "Miami Heat vs Oklahoma City Thunder",
+      "league": "NBA",
+      "pick": "Oklahoma City Thunder Win",
+      "result": "loss",
+      "final_score": "123-113"
+    },
+    {
+      "date": "2026-11-08",
+      "id": 564752,
+      "sport": "Football",
+      "match": "CA Osasuna vs M\u00e1laga CF",
+      "league": "Primera Division",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "1-0"
+    },
+    {
+      "date": "2026-11-08",
+      "id": 555090,
+      "sport": "Football",
+      "match": "CA Paranaense vs Clube do Remo",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "CA Paranaense Win",
+      "result": "win",
+      "final_score": "4-2"
+    },
+    {
+      "date": "2026-11-08",
+      "id": 558520,
+      "sport": "Football",
+      "match": "Atalanta BC vs FC Internazionale Milano",
+      "league": "Serie A",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "4-4"
+    },
+    {
+      "date": "2026-11-08",
+      "id": 559629,
+      "sport": "Football",
+      "match": "Olympique de Marseille vs Le Mans FC",
+      "league": "Ligue 1",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "2-3"
+    },
+    {
+      "date": "2026-11-08",
+      "id": 564753,
+      "sport": "Football",
+      "match": "Getafe CF vs Club Atl\u00e9tico de Madrid",
+      "league": "Primera Division",
+      "pick": "Under 2.5 Goals",
+      "result": "loss",
+      "final_score": "0-3"
+    },
+    {
+      "date": "2026-11-08",
+      "id": 555096,
+      "sport": "Football",
+      "match": "Fluminense FC vs Mirassol FC",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "1-0"
+    },
+    {
+      "date": "2026-11-08",
+      "id": 555094,
+      "sport": "Football",
+      "match": "RB Bragantino vs CR Vasco da Gama",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "RB Bragantino Win",
+      "result": "win",
+      "final_score": "1-0"
     },
     {
       "date": "2026-11-07",
@@ -670,6 +760,16 @@
       "pick": "BTTS - Yes",
       "result": "loss",
       "final_score": "1-0"
+    },
+    {
+      "date": "2026-11-07",
+      "id": 561949,
+      "sport": "Football",
+      "match": "Lincoln City FC vs Wrexham AFC",
+      "league": "Championship",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "0-1"
     },
     {
       "date": "2026-11-06",
@@ -4900,106 +5000,6 @@
       "pick": "Frosinone Calcio Win",
       "result": "win",
       "final_score": "5-1"
-    },
-    {
-      "date": "2026-10-15",
-      "id": 558551,
-      "sport": "Football",
-      "match": "ACF Fiorentina vs Atalanta BC",
-      "league": "Serie A",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "2-2"
-    },
-    {
-      "date": "2026-10-15",
-      "id": 555060,
-      "sport": "Football",
-      "match": "CA Mineiro vs Cruzeiro EC",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "0-1"
-    },
-    {
-      "date": "2026-10-15",
-      "id": 555069,
-      "sport": "Football",
-      "match": "CR Vasco da Gama vs CR Flamengo",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "1-4"
-    },
-    {
-      "date": "2026-10-15",
-      "id": 555064,
-      "sport": "Football",
-      "match": "Coritiba FBC vs EC Vit\u00f3ria",
-      "league": "Campeonato Brasileiro S\u00e9rie A",
-      "pick": "BTTS - Yes",
-      "result": "loss",
-      "final_score": "2-0"
-    },
-    {
-      "date": "2026-10-14",
-      "id": 564716,
-      "sport": "Football",
-      "match": "RC Deportivo La Coru\u00f1a vs Levante UD",
-      "league": "Primera Division",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "1-1"
-    },
-    {
-      "date": "2026-10-14",
-      "id": 561883,
-      "sport": "Football",
-      "match": "Burnley FC vs Wolverhampton Wanderers FC",
-      "league": "Championship",
-      "pick": "BTTS - Yes",
-      "result": "win",
-      "final_score": "1-2"
-    },
-    {
-      "date": "2026-10-14",
-      "id": 558575,
-      "sport": "Football",
-      "match": "Venezia FC vs SSC Napoli",
-      "league": "Serie A",
-      "pick": "SSC Napoli Win",
-      "result": "loss",
-      "final_score": "1-0"
-    },
-    {
-      "date": "2026-10-14",
-      "id": 558549,
-      "sport": "Football",
-      "match": "AC Milan vs Bologna FC 1909",
-      "league": "Serie A",
-      "pick": "BTTS - No",
-      "result": "loss",
-      "final_score": "2-4"
-    },
-    {
-      "date": "2026-10-14",
-      "id": 558550,
-      "sport": "Football",
-      "match": "Venezia FC vs FC Internazionale Milano",
-      "league": "Serie A",
-      "pick": "FC Internazionale Milano Win",
-      "result": "win",
-      "final_score": "0-2"
-    },
-    {
-      "date": "2026-10-14",
-      "id": 558553,
-      "sport": "Football",
-      "match": "Parma Calcio 1913 vs Udinese Calcio",
-      "league": "Serie A",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "0-0"
     }
   ]
 }
