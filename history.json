@@ -2,6 +2,36 @@
   "total_analyzed_since_start": 1305,
   "history": [
     {
+      "date": "2026-11-09",
+      "id": 558519,
+      "sport": "Football",
+      "match": "AC Monza vs ACF Fiorentina",
+      "league": "Serie A",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "3-0"
+    },
+    {
+      "date": "2026-11-09",
+      "id": 560649,
+      "sport": "Football",
+      "match": "Brentford FC vs Everton FC",
+      "league": "Premier League",
+      "pick": "Under 2.5 Goals",
+      "result": "loss",
+      "final_score": "4-0"
+    },
+    {
+      "date": "2026-11-09",
+      "id": 564757,
+      "sport": "Football",
+      "match": "Levante UD vs Elche CF",
+      "league": "Primera Division",
+      "pick": "Over 2.5 Goals",
+      "result": "loss",
+      "final_score": "1-1"
+    },
+    {
       "date": "2026-11-08",
       "id": 555095,
       "sport": "Football",
@@ -4970,36 +5000,6 @@
       "pick": "Borussia Dortmund Win",
       "result": "loss",
       "final_score": "0-0"
-    },
-    {
-      "date": "2026-10-15",
-      "id": 565822,
-      "sport": "Football",
-      "match": "Hamburger SV vs VfB Stuttgart",
-      "league": "Bundesliga",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "1-0"
-    },
-    {
-      "date": "2026-10-15",
-      "id": 565823,
-      "sport": "Football",
-      "match": "SV Werder Bremen vs SC Paderborn 07",
-      "league": "Bundesliga",
-      "pick": "BTTS - No",
-      "result": "loss",
-      "final_score": "2-2"
-    },
-    {
-      "date": "2026-10-15",
-      "id": 565829,
-      "sport": "Football",
-      "match": "FC Schalke 04 vs 1. FSV Mainz 05",
-      "league": "Bundesliga",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "0-1"
     }
   ]
 }
