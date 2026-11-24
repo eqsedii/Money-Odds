@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T07:48:42.681720Z",
+  "generated_at": "2026-11-24T20:03:29.502191Z",
   "fixtures": [
     {
       "id": "bb-21718181",
@@ -40,36 +40,6 @@
       "away_team_id": 7,
       "league": "NBA",
       "kickoff": "2026-11-24",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 575395,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Galatasaray SK vs Aston Villa FC",
-      "home_team": "Galatasaray SK",
-      "away_team": "Aston Villa FC",
-      "home_team_id": 610,
-      "away_team_id": 58,
-      "league": "UEFA Champions League",
-      "comp_code": "CL",
-      "kickoff": "2026-11-24T17:45:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 575396,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FK Bod\u00f8/Glimt vs LASK Linz",
-      "home_team": "FK Bod\u00f8/Glimt",
-      "away_team": "LASK Linz",
-      "home_team_id": 5721,
-      "away_team_id": 2016,
-      "league": "UEFA Champions League",
-      "comp_code": "CL",
-      "kickoff": "2026-11-24T17:45:00Z",
       "has_pick": true,
       "locked": true
     },

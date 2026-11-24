@@ -1,21 +1,6 @@
 {
-  "generated_at": "2026-11-24T07:48:42.705389Z",
+  "generated_at": "2026-11-24T20:03:29.523192Z",
   "predictions": [
-    {
-      "id": 565876,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "FC Schalke 04 vs Borussia Dortmund",
-      "home_team": "FC Schalke 04",
-      "away_team": "Borussia Dortmund",
-      "home_team_id": 6,
-      "away_team_id": 4,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-12-06T14:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
     {
       "id": 575403,
       "sport": "Football",
@@ -28,6 +13,21 @@
       "league": "UEFA Champions League",
       "comp_code": "CL",
       "kickoff": "2026-11-24T20:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 565876,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "FC Schalke 04 vs Borussia Dortmund",
+      "home_team": "FC Schalke 04",
+      "away_team": "Borussia Dortmund",
+      "home_team_id": 6,
+      "away_team_id": 4,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-12-06T14:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -62,21 +62,6 @@
       "locked": true
     },
     {
-      "id": 558812,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Telstar 1963 vs FC Groningen",
-      "home_team": "Telstar 1963",
-      "away_team": "FC Groningen",
-      "home_team_id": 1912,
-      "away_team_id": 677,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-12-04T19:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 575408,
       "sport": "Football",
       "icon": "\u26bd",
@@ -88,6 +73,21 @@
       "league": "UEFA Champions League",
       "comp_code": "CL",
       "kickoff": "2026-11-25T20:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 558812,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Telstar 1963 vs FC Groningen",
+      "home_team": "Telstar 1963",
+      "away_team": "FC Groningen",
+      "home_team_id": 1912,
+      "away_team_id": 677,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-12-04T19:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -152,21 +152,6 @@
       "locked": true
     },
     {
-      "id": 558816,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Willem II Tilburg vs Feyenoord Rotterdam",
-      "home_team": "Willem II Tilburg",
-      "away_team": "Feyenoord Rotterdam",
-      "home_team_id": 672,
-      "away_team_id": 675,
-      "league": "Eredivisie",
-      "comp_code": "DED",
-      "kickoff": "2026-12-05T15:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
       "id": 575420,
       "sport": "Football",
       "icon": "\u26bd",
@@ -197,17 +182,17 @@
       "locked": true
     },
     {
-      "id": 565871,
+      "id": 558816,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "TSG 1899 Hoffenheim vs FC Augsburg",
-      "home_team": "TSG 1899 Hoffenheim",
-      "away_team": "FC Augsburg",
-      "home_team_id": 2,
-      "away_team_id": 16,
-      "league": "Bundesliga",
-      "comp_code": "BL1",
-      "kickoff": "2026-11-29T16:30:00Z",
+      "match": "Willem II Tilburg vs Feyenoord Rotterdam",
+      "home_team": "Willem II Tilburg",
+      "away_team": "Feyenoord Rotterdam",
+      "home_team_id": 672,
+      "away_team_id": 675,
+      "league": "Eredivisie",
+      "comp_code": "DED",
+      "kickoff": "2026-12-05T15:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -223,6 +208,21 @@
       "league": "UEFA Champions League",
       "comp_code": "CL",
       "kickoff": "2026-11-25T17:45:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 565871,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "TSG 1899 Hoffenheim vs FC Augsburg",
+      "home_team": "TSG 1899 Hoffenheim",
+      "away_team": "FC Augsburg",
+      "home_team_id": 2,
+      "away_team_id": 16,
+      "league": "Bundesliga",
+      "comp_code": "BL1",
+      "kickoff": "2026-11-29T16:30:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -308,16 +308,16 @@
       "locked": true,
       "legs": [
         {
-          "id": 565876,
-          "icon": "\u26bd",
-          "match": "FC Schalke 04 vs Borussia Dortmund",
-          "meta": "Bundesliga"
-        },
-        {
           "id": 575403,
           "icon": "\u26bd",
           "match": "Como 1907 vs PAE AEK",
           "meta": "UEFA Champions League"
+        },
+        {
+          "id": 565876,
+          "icon": "\u26bd",
+          "match": "FC Schalke 04 vs Borussia Dortmund",
+          "meta": "Bundesliga"
         }
       ]
     },
@@ -338,10 +338,10 @@
           "meta": "UEFA Champions League"
         },
         {
-          "id": 558812,
+          "id": 575408,
           "icon": "\u26bd",
-          "match": "Telstar 1963 vs FC Groningen",
-          "meta": "Eredivisie"
+          "match": "Paris Saint-Germain FC vs AS Roma",
+          "meta": "UEFA Champions League"
         }
       ]
     }
