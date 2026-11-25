@@ -182,6 +182,16 @@
       "final_score": "3-0"
     },
     {
+      "date": "2026-11-10",
+      "id": "bb-21718183",
+      "sport": "Basketball",
+      "match": "Denver Nuggets vs Dallas Mavericks",
+      "league": "NBA",
+      "pick": "Over 227.0 Points",
+      "result": "loss",
+      "final_score": "101-120"
+    },
+    {
       "date": "2026-11-09",
       "id": 558519,
       "sport": "Football",
@@ -4990,16 +5000,6 @@
       "pick": "Le Mans FC Win",
       "result": "loss",
       "final_score": "2-0"
-    },
-    {
-      "date": "2026-10-17",
-      "id": 560628,
-      "sport": "Football",
-      "match": "Aston Villa FC vs Fulham FC",
-      "league": "Premier League",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "1-1"
     }
   ]
 }
