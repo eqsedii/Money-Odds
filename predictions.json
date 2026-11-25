@@ -1,21 +1,6 @@
 {
-  "generated_at": "2026-11-24T20:03:29.523192Z",
+  "generated_at": "2026-11-25T04:08:10.235049Z",
   "predictions": [
-    {
-      "id": 575403,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Como 1907 vs PAE AEK",
-      "home_team": "Como 1907",
-      "away_team": "PAE AEK",
-      "home_team_id": 7397,
-      "away_team_id": 1899,
-      "league": "UEFA Champions League",
-      "comp_code": "CL",
-      "kickoff": "2026-11-24T20:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
     {
       "id": 565876,
       "sport": "Football",
@@ -32,6 +17,21 @@
       "locked": true
     },
     {
+      "id": 575423,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "\u0160K Slovan Bratislava vs FK Shakhtar Donetsk",
+      "home_team": "\u0160K Slovan Bratislava",
+      "away_team": "FK Shakhtar Donetsk",
+      "home_team_id": 7509,
+      "away_team_id": 1887,
+      "league": "UEFA Champions League",
+      "comp_code": "CL",
+      "kickoff": "2026-12-09T17:45:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 575409,
       "sport": "Football",
       "icon": "\u26bd",
@@ -43,21 +43,6 @@
       "league": "UEFA Champions League",
       "comp_code": "CL",
       "kickoff": "2026-11-25T20:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 575398,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Manchester City FC vs SSC Napoli",
-      "home_team": "Manchester City FC",
-      "away_team": "SSC Napoli",
-      "home_team_id": 65,
-      "away_team_id": 113,
-      "league": "UEFA Champions League",
-      "comp_code": "CL",
-      "kickoff": "2026-11-24T20:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -122,6 +107,21 @@
       "locked": true
     },
     {
+      "id": 575410,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Lille OSC vs FC Bayern M\u00fcnchen",
+      "home_team": "Lille OSC",
+      "away_team": "FC Bayern M\u00fcnchen",
+      "home_team_id": 521,
+      "away_team_id": 5,
+      "league": "UEFA Champions League",
+      "comp_code": "CL",
+      "kickoff": "2026-11-25T20:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 558819,
       "sport": "Football",
       "icon": "\u26bd",
@@ -167,17 +167,17 @@
       "locked": true
     },
     {
-      "id": 575410,
+      "id": 575405,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "Lille OSC vs FC Bayern M\u00fcnchen",
-      "home_team": "Lille OSC",
-      "away_team": "FC Bayern M\u00fcnchen",
-      "home_team_id": 521,
-      "away_team_id": 5,
+      "match": "SK Slavia Praha vs Villarreal CF",
+      "home_team": "SK Slavia Praha",
+      "away_team": "Villarreal CF",
+      "home_team_id": 930,
+      "away_team_id": 94,
       "league": "UEFA Champions League",
       "comp_code": "CL",
-      "kickoff": "2026-11-25T20:00:00Z",
+      "kickoff": "2026-11-25T17:45:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -193,21 +193,6 @@
       "league": "Eredivisie",
       "comp_code": "DED",
       "kickoff": "2026-12-05T15:30:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 575405,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "SK Slavia Praha vs Villarreal CF",
-      "home_team": "SK Slavia Praha",
-      "away_team": "Villarreal CF",
-      "home_team_id": 930,
-      "away_team_id": 94,
-      "league": "UEFA Champions League",
-      "comp_code": "CL",
-      "kickoff": "2026-11-25T17:45:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -287,6 +272,21 @@
       "locked": true
     },
     {
+      "id": 575418,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "SSC Napoli vs Club Brugge KV",
+      "home_team": "SSC Napoli",
+      "away_team": "Club Brugge KV",
+      "home_team_id": 113,
+      "away_team_id": 851,
+      "league": "UEFA Champions League",
+      "comp_code": "CL",
+      "kickoff": "2026-12-08T20:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
       "id": 558820,
       "sport": "Football",
       "icon": "\u26bd",
@@ -308,16 +308,16 @@
       "locked": true,
       "legs": [
         {
-          "id": 575403,
-          "icon": "\u26bd",
-          "match": "Como 1907 vs PAE AEK",
-          "meta": "UEFA Champions League"
-        },
-        {
           "id": 565876,
           "icon": "\u26bd",
           "match": "FC Schalke 04 vs Borussia Dortmund",
           "meta": "Bundesliga"
+        },
+        {
+          "id": 575423,
+          "icon": "\u26bd",
+          "match": "\u0160K Slovan Bratislava vs FK Shakhtar Donetsk",
+          "meta": "UEFA Champions League"
         }
       ]
     },
@@ -332,16 +332,16 @@
           "meta": "UEFA Champions League"
         },
         {
-          "id": 575398,
-          "icon": "\u26bd",
-          "match": "Manchester City FC vs SSC Napoli",
-          "meta": "UEFA Champions League"
-        },
-        {
           "id": 575408,
           "icon": "\u26bd",
           "match": "Paris Saint-Germain FC vs AS Roma",
           "meta": "UEFA Champions League"
+        },
+        {
+          "id": 558812,
+          "icon": "\u26bd",
+          "match": "Telstar 1963 vs FC Groningen",
+          "meta": "Eredivisie"
         }
       ]
     }
