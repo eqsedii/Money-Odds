@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T16:41:33.542429Z",
+  "generated_at": "2026-11-26T01:34:09.285089Z",
   "predictions": [
     {
       "id": 565876,
@@ -28,36 +28,6 @@
       "league": "UEFA Champions League",
       "comp_code": "CL",
       "kickoff": "2026-12-09T17:45:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 575409,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Club Brugge KV vs Liverpool FC",
-      "home_team": "Club Brugge KV",
-      "away_team": "Liverpool FC",
-      "home_team_id": 851,
-      "away_team_id": 64,
-      "league": "UEFA Champions League",
-      "comp_code": "CL",
-      "kickoff": "2026-11-25T20:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 575408,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Paris Saint-Germain FC vs AS Roma",
-      "home_team": "Paris Saint-Germain FC",
-      "away_team": "AS Roma",
-      "home_team_id": 524,
-      "away_team_id": 100,
-      "league": "UEFA Champions League",
-      "comp_code": "CL",
-      "kickoff": "2026-11-25T20:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -107,17 +77,17 @@
       "locked": true
     },
     {
-      "id": 575410,
+      "id": 575420,
       "sport": "Football",
       "icon": "\u26bd",
-      "match": "Lille OSC vs FC Bayern M\u00fcnchen",
-      "home_team": "Lille OSC",
-      "away_team": "FC Bayern M\u00fcnchen",
-      "home_team_id": 521,
-      "away_team_id": 5,
+      "match": "Manchester United FC vs RB Leipzig",
+      "home_team": "Manchester United FC",
+      "away_team": "RB Leipzig",
+      "home_team_id": 66,
+      "away_team_id": 721,
       "league": "UEFA Champions League",
       "comp_code": "CL",
-      "kickoff": "2026-11-25T20:00:00Z",
+      "kickoff": "2026-12-08T20:00:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -148,36 +118,6 @@
       "league": "Serie A",
       "comp_code": "SA",
       "kickoff": "2026-11-29T17:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 575420,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "Manchester United FC vs RB Leipzig",
-      "home_team": "Manchester United FC",
-      "away_team": "RB Leipzig",
-      "home_team_id": 66,
-      "away_team_id": 721,
-      "league": "UEFA Champions League",
-      "comp_code": "CL",
-      "kickoff": "2026-12-08T20:00:00Z",
-      "has_pick": true,
-      "locked": true
-    },
-    {
-      "id": 575405,
-      "sport": "Football",
-      "icon": "\u26bd",
-      "match": "SK Slavia Praha vs Villarreal CF",
-      "home_team": "SK Slavia Praha",
-      "away_team": "Villarreal CF",
-      "home_team_id": 930,
-      "away_team_id": 94,
-      "league": "UEFA Champions League",
-      "comp_code": "CL",
-      "kickoff": "2026-11-25T17:45:00Z",
       "has_pick": true,
       "locked": true
     },
@@ -300,6 +240,65 @@
       "kickoff": "2026-11-27T19:00:00Z",
       "has_pick": true,
       "locked": true
+    },
+    {
+      "id": 575317,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "LASK Linz vs Fenerbah\u00e7e SK",
+      "home_team": "LASK Linz",
+      "away_team": "Fenerbah\u00e7e SK",
+      "home_team_id": 2016,
+      "away_team_id": 613,
+      "league": "UEFA Champions League",
+      "comp_code": "CL",
+      "kickoff": "2026-12-09T20:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 564763,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "RCD Espanyol de Barcelona vs Getafe CF",
+      "home_team": "RCD Espanyol de Barcelona",
+      "away_team": "Getafe CF",
+      "home_team_id": 80,
+      "away_team_id": 82,
+      "league": "Primera Division",
+      "comp_code": "PD",
+      "kickoff": "2026-11-30T20:00:00Z",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": "bb-21718236",
+      "sport": "Basketball",
+      "icon": "\ud83c\udfc0",
+      "match": "Boston Celtics vs Charlotte Hornets",
+      "home_team": "Boston Celtics",
+      "away_team": "Charlotte Hornets",
+      "home_team_id": 2,
+      "away_team_id": 4,
+      "league": "NBA",
+      "kickoff": "2026-12-02",
+      "has_pick": true,
+      "locked": true
+    },
+    {
+      "id": 561996,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Birmingham City FC vs Watford FC",
+      "home_team": "Birmingham City FC",
+      "away_team": "Watford FC",
+      "home_team_id": 332,
+      "away_team_id": 346,
+      "league": "Championship",
+      "comp_code": "ELC",
+      "kickoff": "2026-12-08T20:00:00Z",
+      "has_pick": true,
+      "locked": true
     }
   ],
   "multi_bets": [
@@ -326,22 +325,22 @@
       "locked": true,
       "legs": [
         {
-          "id": 575409,
-          "icon": "\u26bd",
-          "match": "Club Brugge KV vs Liverpool FC",
-          "meta": "UEFA Champions League"
-        },
-        {
-          "id": 575408,
-          "icon": "\u26bd",
-          "match": "Paris Saint-Germain FC vs AS Roma",
-          "meta": "UEFA Champions League"
-        },
-        {
           "id": 558812,
           "icon": "\u26bd",
           "match": "Telstar 1963 vs FC Groningen",
           "meta": "Eredivisie"
+        },
+        {
+          "id": 560660,
+          "icon": "\u26bd",
+          "match": "Sunderland AFC vs Tottenham Hotspur FC",
+          "meta": "Premier League"
+        },
+        {
+          "id": 565879,
+          "icon": "\u26bd",
+          "match": "RB Leipzig vs 1. FSV Mainz 05",
+          "meta": "Bundesliga"
         }
       ]
     }
