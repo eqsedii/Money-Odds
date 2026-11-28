@@ -1,5 +1,5 @@
 {
-  "total_analyzed_since_start": 1386,
+  "total_analyzed_since_start": 1412,
   "history": [
     {
       "date": "2026-11-14",
@@ -80,6 +80,126 @@
       "pick": "Over 2.5 Goals",
       "result": "loss",
       "final_score": "0-1"
+    },
+    {
+      "date": "2026-11-13",
+      "id": "bb-21718193",
+      "sport": "Basketball",
+      "match": "New York Knicks vs Miami Heat",
+      "league": "NBA",
+      "pick": "New York Knicks Win",
+      "result": "loss",
+      "final_score": "105-108"
+    },
+    {
+      "date": "2026-11-13",
+      "id": "bb-21718194",
+      "sport": "Basketball",
+      "match": "Detroit Pistons vs Milwaukee Bucks",
+      "league": "NBA",
+      "pick": "Detroit Pistons Win",
+      "result": "win",
+      "final_score": "113-98"
+    },
+    {
+      "date": "2026-11-13",
+      "id": "bb-21718195",
+      "sport": "Basketball",
+      "match": "Indiana Pacers vs Philadelphia 76ers",
+      "league": "NBA",
+      "pick": "Over 224.3 Points",
+      "result": "loss",
+      "final_score": "87-111"
+    },
+    {
+      "date": "2026-11-13",
+      "id": "bb-21718196",
+      "sport": "Basketball",
+      "match": "Toronto Raptors vs Brooklyn Nets",
+      "league": "NBA",
+      "pick": "Toronto Raptors Win",
+      "result": "win",
+      "final_score": "124-100"
+    },
+    {
+      "date": "2026-11-13",
+      "id": "bb-21718197",
+      "sport": "Basketball",
+      "match": "Boston Celtics vs Atlanta Hawks",
+      "league": "NBA",
+      "pick": "Boston Celtics Win",
+      "result": "loss",
+      "final_score": "86-87"
+    },
+    {
+      "date": "2026-11-13",
+      "id": "bb-21718198",
+      "sport": "Basketball",
+      "match": "Minnesota Timberwolves vs Memphis Grizzlies",
+      "league": "NBA",
+      "pick": "Minnesota Timberwolves Win",
+      "result": "loss",
+      "final_score": "109-114"
+    },
+    {
+      "date": "2026-11-13",
+      "id": "bb-21718199",
+      "sport": "Basketball",
+      "match": "Phoenix Suns vs Dallas Mavericks",
+      "league": "NBA",
+      "pick": "Over 227.8 Points",
+      "result": "loss",
+      "final_score": "109-113"
+    },
+    {
+      "date": "2026-11-13",
+      "id": "bb-21718200",
+      "sport": "Basketball",
+      "match": "San Antonio Spurs vs Los Angeles Lakers",
+      "league": "NBA",
+      "pick": "San Antonio Spurs Win",
+      "result": "win",
+      "final_score": "99-96"
+    },
+    {
+      "date": "2026-11-13",
+      "id": "bb-21718201",
+      "sport": "Basketball",
+      "match": "Utah Jazz vs Denver Nuggets",
+      "league": "NBA",
+      "pick": "Denver Nuggets Win",
+      "result": "win",
+      "final_score": "107-120"
+    },
+    {
+      "date": "2026-11-13",
+      "id": "bb-21718202",
+      "sport": "Basketball",
+      "match": "LA Clippers vs New Orleans Pelicans",
+      "league": "NBA",
+      "pick": "LA Clippers Win",
+      "result": "loss",
+      "final_score": "104-105"
+    },
+    {
+      "date": "2026-11-13",
+      "id": "bb-21718203",
+      "sport": "Basketball",
+      "match": "Portland Trail Blazers vs Golden State Warriors",
+      "league": "NBA",
+      "pick": "Portland Trail Blazers Win",
+      "result": "win",
+      "final_score": "116-94"
+    },
+    {
+      "date": "2026-11-13",
+      "id": 564765,
+      "sport": "Football",
+      "match": "Levante UD vs Real Racing Club de Santander",
+      "league": "Primera Division",
+      "pick": "Over 2.5 Goals",
+      "result": "win",
+      "final_score": "1-3"
     },
     {
       "date": "2026-11-12",
@@ -4880,126 +5000,6 @@
       "pick": "Under 2.5 Goals",
       "result": "loss",
       "final_score": "3-1"
-    },
-    {
-      "date": "2026-10-18",
-      "id": 558547,
-      "sport": "Football",
-      "match": "Juventus FC vs SSC Napoli",
-      "league": "Serie A",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "2-0"
-    },
-    {
-      "date": "2026-10-18",
-      "id": 559645,
-      "sport": "Football",
-      "match": "Olympique de Marseille vs Toulouse FC",
-      "league": "Ligue 1",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "2-0"
-    },
-    {
-      "date": "2026-10-18",
-      "id": 564729,
-      "sport": "Football",
-      "match": "Athletic Club vs Real Sociedad de F\u00fatbol",
-      "league": "Primera Division",
-      "pick": "Athletic Club Win",
-      "result": "win",
-      "final_score": "2-1"
-    },
-    {
-      "date": "2026-10-18",
-      "id": 567340,
-      "sport": "Football",
-      "match": "CS Mar\u00edtimo vs CD Santa Clara",
-      "league": "Primeira Liga",
-      "pick": "BTTS - No",
-      "result": "win",
-      "final_score": "0-2"
-    },
-    {
-      "date": "2026-10-18",
-      "id": 567345,
-      "sport": "Football",
-      "match": "Acad\u00e9mico de Viseu FC vs Rio Ave FC",
-      "league": "Primeira Liga",
-      "pick": "Acad\u00e9mico de Viseu FC Win",
-      "result": "win",
-      "final_score": "2-1"
-    },
-    {
-      "date": "2026-10-18",
-      "id": 567339,
-      "sport": "Football",
-      "match": "Sporting Clube de Braga vs FC Famalic\u00e3o",
-      "league": "Primeira Liga",
-      "pick": "Under 2.5 Goals",
-      "result": "loss",
-      "final_score": "3-0"
-    },
-    {
-      "date": "2026-10-17",
-      "id": 558577,
-      "sport": "Football",
-      "match": "ACF Fiorentina vs Como 1907",
-      "league": "Serie A",
-      "pick": "Como 1907 Win",
-      "result": "win",
-      "final_score": "1-3"
-    },
-    {
-      "date": "2026-10-17",
-      "id": 559646,
-      "sport": "Football",
-      "match": "OGC Nice vs Stade Rennais FC 1901",
-      "league": "Ligue 1",
-      "pick": "OGC Nice Win",
-      "result": "win",
-      "final_score": "5-2"
-    },
-    {
-      "date": "2026-10-17",
-      "id": 560626,
-      "sport": "Football",
-      "match": "Chelsea FC vs Manchester United FC",
-      "league": "Premier League",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "2-0"
-    },
-    {
-      "date": "2026-10-17",
-      "id": 561908,
-      "sport": "Football",
-      "match": "Stoke City FC vs Preston North End FC",
-      "league": "Championship",
-      "pick": "Stoke City FC Win",
-      "result": "win",
-      "final_score": "2-0"
-    },
-    {
-      "date": "2026-10-17",
-      "id": 561910,
-      "sport": "Football",
-      "match": "Norwich City FC vs Watford FC",
-      "league": "Championship",
-      "pick": "Norwich City FC Win",
-      "result": "win",
-      "final_score": "3-2"
-    },
-    {
-      "date": "2026-10-17",
-      "id": 561915,
-      "sport": "Football",
-      "match": "Lincoln City FC vs Birmingham City FC",
-      "league": "Championship",
-      "pick": "BTTS - No",
-      "result": "loss",
-      "final_score": "1-3"
     }
   ]
 }

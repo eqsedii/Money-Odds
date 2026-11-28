@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T01:05:28.283192Z",
+  "generated_at": "2026-11-28T11:21:13.313738Z",
   "predictions": [
     {
       "id": 565876,
@@ -286,16 +286,17 @@
       "locked": true
     },
     {
-      "id": "bb-21718236",
-      "sport": "Basketball",
-      "icon": "\ud83c\udfc0",
-      "match": "Boston Celtics vs Charlotte Hornets",
-      "home_team": "Boston Celtics",
-      "away_team": "Charlotte Hornets",
-      "home_team_id": 2,
-      "away_team_id": 4,
-      "league": "NBA",
-      "kickoff": "2026-12-02",
+      "id": 561996,
+      "sport": "Football",
+      "icon": "\u26bd",
+      "match": "Birmingham City FC vs Watford FC",
+      "home_team": "Birmingham City FC",
+      "away_team": "Watford FC",
+      "home_team_id": 332,
+      "away_team_id": 346,
+      "league": "Championship",
+      "comp_code": "ELC",
+      "kickoff": "2026-12-08T20:00:00Z",
       "has_pick": true,
       "locked": true
     }
