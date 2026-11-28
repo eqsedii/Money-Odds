@@ -1,6 +1,86 @@
 {
-  "total_analyzed_since_start": 1341,
+  "total_analyzed_since_start": 1386,
   "history": [
+    {
+      "date": "2026-11-14",
+      "id": 561968,
+      "sport": "Football",
+      "match": "Southampton FC vs Middlesbrough FC",
+      "league": "Championship",
+      "pick": "Southampton FC Win",
+      "result": "win",
+      "final_score": "2-0"
+    },
+    {
+      "date": "2026-11-13",
+      "id": 558820,
+      "sport": "Football",
+      "match": "FC Groningen vs Willem II Tilburg",
+      "league": "Eredivisie",
+      "pick": "Over 2.5 Goals",
+      "result": "loss",
+      "final_score": "1-1"
+    },
+    {
+      "date": "2026-11-13",
+      "id": 565869,
+      "sport": "Football",
+      "match": "SV Werder Bremen vs Borussia M\u00f6nchengladbach",
+      "league": "Bundesliga",
+      "pick": "SV Werder Bremen Win",
+      "result": "loss",
+      "final_score": "3-3"
+    },
+    {
+      "date": "2026-11-13",
+      "id": 558515,
+      "sport": "Football",
+      "match": "Venezia FC vs Bologna FC 1909",
+      "league": "Serie A",
+      "pick": "Bologna FC 1909 Win",
+      "result": "loss",
+      "final_score": "0-0"
+    },
+    {
+      "date": "2026-11-13",
+      "id": 559616,
+      "sport": "Football",
+      "match": "Stade Brestois 29 vs Paris FC",
+      "league": "Ligue 1",
+      "pick": "Under 2.5 Goals",
+      "result": "win",
+      "final_score": "1-0"
+    },
+    {
+      "date": "2026-11-13",
+      "id": 560658,
+      "sport": "Football",
+      "match": "Nottingham Forest FC vs Chelsea FC",
+      "league": "Premier League",
+      "pick": "Under 2.5 Goals",
+      "result": "loss",
+      "final_score": "3-2"
+    },
+    {
+      "date": "2026-11-13",
+      "id": 567361,
+      "sport": "Football",
+      "match": "CS Mar\u00edtimo vs CD Nacional",
+      "league": "Primeira Liga",
+      "pick": "Under 2.5 Goals",
+      "result": "loss",
+      "final_score": "1-2"
+    },
+    {
+      "date": "2026-11-13",
+      "id": 555105,
+      "sport": "Football",
+      "match": "Fluminense FC vs Cruzeiro EC",
+      "league": "Campeonato Brasileiro S\u00e9rie A",
+      "pick": "Over 2.5 Goals",
+      "result": "loss",
+      "final_score": "0-1"
+    },
     {
       "date": "2026-11-12",
       "id": 555108,
@@ -4920,86 +5000,6 @@
       "pick": "BTTS - No",
       "result": "loss",
       "final_score": "1-3"
-    },
-    {
-      "date": "2026-10-17",
-      "id": 564730,
-      "sport": "Football",
-      "match": "Levante UD vs Club Atl\u00e9tico de Madrid",
-      "league": "Primera Division",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "0-2"
-    },
-    {
-      "date": "2026-10-17",
-      "id": 558539,
-      "sport": "Football",
-      "match": "Bologna FC 1909 vs AC Monza",
-      "league": "Serie A",
-      "pick": "BTTS - Yes",
-      "result": "win",
-      "final_score": "2-1"
-    },
-    {
-      "date": "2026-10-17",
-      "id": 565839,
-      "sport": "Football",
-      "match": "Borussia M\u00f6nchengladbach vs SC Paderborn 07",
-      "league": "Bundesliga",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "0-0"
-    },
-    {
-      "date": "2026-10-17",
-      "id": 565840,
-      "sport": "Football",
-      "match": "FC Schalke 04 vs RB Leipzig",
-      "league": "Bundesliga",
-      "pick": "Under 2.5 Goals",
-      "result": "win",
-      "final_score": "0-2"
-    },
-    {
-      "date": "2026-10-17",
-      "id": 565842,
-      "sport": "Football",
-      "match": "FC Augsburg vs SC Freiburg",
-      "league": "Bundesliga",
-      "pick": "BTTS - Yes",
-      "result": "win",
-      "final_score": "1-2"
-    },
-    {
-      "date": "2026-10-17",
-      "id": 565843,
-      "sport": "Football",
-      "match": "SV Werder Bremen vs TSG 1899 Hoffenheim",
-      "league": "Bundesliga",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "2-0"
-    },
-    {
-      "date": "2026-10-17",
-      "id": 565847,
-      "sport": "Football",
-      "match": "Bayer 04 Leverkusen vs VfB Stuttgart",
-      "league": "Bundesliga",
-      "pick": "Bayer 04 Leverkusen Win",
-      "result": "loss",
-      "final_score": "2-4"
-    },
-    {
-      "date": "2026-10-17",
-      "id": 560623,
-      "sport": "Football",
-      "match": "Manchester City FC vs Brighton & Hove Albion FC",
-      "league": "Premier League",
-      "pick": "Over 2.5 Goals",
-      "result": "loss",
-      "final_score": "0-1"
     }
   ]
 }
